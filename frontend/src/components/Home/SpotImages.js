@@ -22,8 +22,8 @@ const SpotImages = ({ Images, spot }) => {
             {spot.spotImages.map((image, index) => (
                 <div key={index}>
                     {index === current && (
-                        <div className="relative group">
-                            <HeartIcon className=" absolute w-6 ml-[80%] mt-[5%]  cursor-pointer select-none" />
+                        <div className="relative group ">
+                            <HeartIcon className=" absolute opacity-70 w-6 ml-[87%] mt-[4%]  cursor-pointer select-none" />
                             <ChevronRightIcon
                                 className="absolute rounded-full bg-gray-200 mt-[30%] ml-[85%] invisible group-hover:visible border-r-gray-700 text-gray-800 w-8 cursor-pointer select-none"
                                 onClick={nextImage}
@@ -36,7 +36,7 @@ const SpotImages = ({ Images, spot }) => {
 
                             <a href={image.url} target="_blank" className="">
                                 <img
-                                    className="rounded-lg object-cover "
+                                    className="block rounded-lg h-auto  w-auto"
                                     key={image.id}
                                     src={image.url}
                                     alt="image"

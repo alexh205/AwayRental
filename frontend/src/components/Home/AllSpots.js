@@ -17,7 +17,8 @@ function AllSpots() {
     if (spotsList) spots = Object.values(spotsList);
 
     return (
-        <div className="mt-3 grid grid-cols-1 xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-2">
+        // Todo implement custom screen size control
+        <div className="mt-3 grid 3xl:grid-cols-6 2xl:grid-cols-5  xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-x-5 gap-y-3">
             {spots &&
                 spots.map((spot) => (
                     <div key={spot.id} className="w-[100%]">
@@ -25,19 +26,19 @@ function AllSpots() {
                             <SpotImages Images={spot.spotImages} spot={spot} />
                         )}
                         <div className="flex justify-between px-1">
-                            <div className="font-semibold text-lg">
+                            <div className="font-medium text-base">
                                 {spot.city}, {spot.state}
                             </div>
-                            <div className="flex pl-2">
-                                <StarIcon className="flex h-5 w-4 " />
+                            <div className="flex pl-2 ">
+                                <StarIcon className="flex h-5 w-4" />
                                 {spot.avgRating}
                             </div>
                         </div>
-                        <div className="flex justify-end">
-                            <div className="font-semibold text-base">
+                        <div className="flex justify-start">
+                            <div className="font-medium text-md ml-1">
                                 ${spot.price}
-                            </div>{" "}
-                            <p className="font-light ml-1 mb-2">night</p>
+                            </div>
+                            <p className="font-light ml-1 mb-2 text-md">night</p>
                         </div>
                     </div>
                 ))}
