@@ -50,7 +50,7 @@ module.exports = {
                 {
                     imageableId: 3,
                     imageableType: "Spot",
-                    url: "https://a0.muscache.com/im/pictures/9b6849e6-019b-46a5-a7d5-98736dcdeed2.jpg?im_w=1200",
+                    url: "https://a0.muscache.com/im/pictures/2c38742c-071b-4926-81d6-f4578c70bdf1.jpg?im_w=1440",
                     userId: 3,
                     preview: false,
                 },

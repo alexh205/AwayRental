@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             visibility: ["group-hover"],
         },
+        
     },
     plugins: [],
 };

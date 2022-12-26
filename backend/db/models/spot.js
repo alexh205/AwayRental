@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
             lat: { type: DataTypes.FLOAT },
             lng: { type: DataTypes.FLOAT },
             name: { type: DataTypes.STRING },
-            description: { type: DataTypes.STRING },
+            amenities: { type: DataTypes.STRING },
             price: {
                 type: DataTypes.INTEGER,
                 validate: {

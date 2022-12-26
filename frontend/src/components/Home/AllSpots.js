@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as spotActions from "../../store/spots";
-import { StarIcon } from "@heroicons/react/solid";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
-import SpotImages from "./SpotImages";
+import SpotsDetail from "./SpotsDetail";
 
 function AllSpots() {
     const dispatch = useDispatch();
@@ -17,29 +15,18 @@ function AllSpots() {
     if (spotsList) spots = Object.values(spotsList);
 
     return (
-        // Todo implement custom screen size control
-        <div className="mt-3 grid 3xl:grid-cols-6 2xl:grid-cols-5  xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-x-5 gap-y-3">
+        <div className="mt-3 grid" style={{
+                "grid-auto-columns": "minmax(22rem, auto)",
+                "grid-template-columns":
+                    "repeat(auto-fill, minmax(22rem, 1fr))",
+                "grid-column-gap": "2.8rem",
+                "grid-row-gap": "2rem",}}>
             {spots &&
                 spots.map((spot) => (
-                    <div key={spot.id} className="w-[100%]">
+                    <div key={spot.id} className="w-[40-vh]">
                         {spot.spotImages && (
-                            <SpotImages Images={spot.spotImages} spot={spot} />
+                            <SpotsDetail Images={spot.spotImages} spot={spot} />
                         )}
-                        <div className="flex justify-between px-1">
-                            <div className="font-medium text-base">
-                                {spot.city}, {spot.state}
-                            </div>
-                            <div className="flex pl-2 ">
-                                <StarIcon className="flex h-5 w-4" />
-                                {spot.avgRating}
-                            </div>
-                        </div>
-                        <div className="flex justify-start">
-                            <div className="font-medium text-md ml-1">
-                                ${spot.price}
-                            </div>
-                            <p className="font-light ml-1 mb-2 text-md">night</p>
-                        </div>
                     </div>
                 ))}
         </div>

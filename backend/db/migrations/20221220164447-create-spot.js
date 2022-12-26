@@ -49,7 +49,7 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull: false,
             },
-            description: {
+            amenities: {
                 type: Sequelize.STRING,
             },
             price: {
