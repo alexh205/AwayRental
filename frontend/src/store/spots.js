@@ -16,21 +16,21 @@ const getSpots = (data) => {
 const getSpotId = (data) => {
     return {
         type: GETBYID,
-        spots: data,
+        spot: data,
     };
 };
 
 const addSpot = (data) => {
     return {
         type: ADD,
-        spots: data,
+        spot: data,
     };
 };
 
 const editSpot = (data) => {
     return {
         type: EDIT,
-        spots: data,
+        spot: data,
     };
 };
 
@@ -44,7 +44,7 @@ const userSpots = (userData) => {
 const deleteSpot = (data) => {
     return {
         type: DELETE,
-        spots: data,
+        spot: data,
     };
 };
 
@@ -124,19 +124,19 @@ const spotsReducer = (state = initialState, action) => {
             return newState;
         case GETBYID:
             newState = { ...state };
-            newState[action.spots.id] = action.spots;
+            newState[action.spot.id] = action.spot;
             return newState;
         case ADD:
-            newState = { ...state, [action.spots.id]: action.spots };
+            newState = { ...state, [action.spot.id]: action.spot };
             return newState;
         case USERSPOTS:
             newState = { ...action.spots };
             return newState;
         case EDIT:
-            newState = { ...state, [action.spots.id]: action.spots };
+            newState = { ...state, [action.spot.id]: action.spot };
             return newState;
         case DELETE:
-            delete newState[action.spots.id];
+            delete newState[action.spot.id];
             return newState;
         default:
             return state;

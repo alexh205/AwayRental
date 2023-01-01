@@ -11,6 +11,9 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { useHistory } from "react-router-dom";
 
+// TODO implement DemoUser
+// import DemoUser from "./Profile/DemoUser";
+
 const Header = () => {
     const [searchInput, setSearchInput] = useState("");
     const [startDate, setStartDate] = useState(new Date());
@@ -45,21 +48,22 @@ const Header = () => {
     };
 
     return (
-        <header className="sticky top-0 z-50 p-5 grid grid-cols-3 bg-white shadow-md md:px-10">
+        <header className="sticky top-0 z-50 p-6 grid grid-cols-3 bg-white shadow-md lg:px-20 md:px-12">
             {/* Left Header */}
-            <div
-                onClick={() => history.push("/")}
-                className="relative flex items-center h-10 cursor-pointer pl-4 pt-3"
-            >
-                <img
-                    src="https://cdn2.hubspot.net/hubfs/325665/Images/airbnb-logo.png"
-                    alt="airbnb_logo"
-                    style={{
-                        objectPosition: "left",
-                        objectFit: "contain",
-                        maxHeight: "500%",
-                    }}
-                ></img>
+            <div className="relative flex items-center ">
+                <a className="relative flex items-center h-12 pt-3 pl-14 cursor-pointer">
+                    <img
+                        src="https://cdn2.hubspot.net/hubfs/325665/Images/airbnb-logo.png"
+                        alt="airbnb_logo"
+                        onClick={() => history.push("/")}
+                        style={{
+                            objectPosition: "left",
+                            objectFit: "contain",
+                            minHeight: "200%",
+                            maxHeight: "300%",
+                        }}
+                    ></img>
+                </a>
             </div>
             {/* middle Header */}
             <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm text-sm text-gray-600 placeholder-gray-400">
@@ -73,7 +77,7 @@ const Header = () => {
                 <SearchIcon className="h-8 hidden md:inline-flex md:mx-2  bg-rose-600 text-white rounded-full cursor-pointer p-2" />
             </div>
             {/* Right Header */}
-            <div className="flex space-x-4 items-center justify-end">
+            <div className="flex space-x-4 items-center justify-end pr-12">
                 <p className="hidden md:inline cursor-pointer">
                     Airbnb your home
                 </p>

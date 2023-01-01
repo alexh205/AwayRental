@@ -1,36 +1,101 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as spotActions from "../../store/spots";
-import SpotsDetail from "./SpotsDetail";
+import React, { useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
+import { HeartIcon } from "@heroicons/react/solid";
+import { StarIcon } from "@heroicons/react/solid";
 
-function AllSpots() {
-    const dispatch = useDispatch();
+const AllSpots = ({ Images, spot }) => {
+    const [current, setCurrent] = useState(0);
+    const length = Images.length;
 
-    useEffect(() => {
-        dispatch(spotActions.getAllSpots());
-    }, [dispatch]);
+    const nextImage = () => {
+        setCurrent(current === length - 1 ? 0 : current + 1);
+    };
+    const prevImage = () => {
+        setCurrent(current === 0 ? length - 1 : current - 1);
+    };
 
-    let spots;
-    const spotsList = useSelector((state) => state.spots);
-    if (spotsList) spots = Object.values(spotsList);
+    if (!Array.isArray(Images) || Images.length <= 0) {
+        return null;
+    }
 
     return (
-        <div className="mt-3 grid" style={{
-                "grid-auto-columns": "minmax(22rem, auto)",
-                "grid-template-columns":
-                    "repeat(auto-fill, minmax(22rem, 1fr))",
-                "grid-column-gap": "2.8rem",
-                "grid-row-gap": "2rem",}}>
-            {spots &&
-                spots.map((spot) => (
-                    <div key={spot.id} className="w-[40-vh]">
-                        {spot.spotImages && (
-                            <SpotsDetail Images={spot.spotImages} spot={spot} />
-                        )}
-                    </div>
-                ))}
-        </div>
+        <section className="flex justify-center items-center m-0 p-0 b-0">
+            {spot.spotImages.map((image, index) => (
+                <div key={index}>
+                    {index === current && (
+                        <div className="relative group ">
+                            {/* Heart Wishlist component */}
+                            <HeartIcon
+                                className="opacity-70 w-6 cursor-pointer select-none"
+                                style={{
+                                    position: "absolute",
+                                    top: "1vh",
+                                    left: "27vh",
+                                }}
+                            />
+
+                            {/* carousel right arrow component */}
+                            <ChevronRightIcon
+                                className=" rounded-full bg-gray-200 invisible group-hover:visible border-r-gray-700 text-gray-800 w-8 cursor-pointer select-none"
+                                style={{
+                                    position: "absolute",
+                                    top: "12vh",
+                                    left: "25.9vh",
+                                }}
+                                onClick={nextImage}
+                            />
+                            {/* carousel left arrow component */}
+                            <ChevronLeftIcon
+                                className="rounded-full bg-gray-200 invisible group-hover:visible text-gray-800 w-8 cursor-pointer select-none"
+                                style={{
+                                    position: "absolute",
+                                    top: "12vh",
+                                    left: "1.5vh",
+                                }}
+                                onClick={prevImage}
+                            />
+
+                            {/* image component */}
+                            <a href={`/spots/${spot.id}`} target="_blank">
+                                <img
+                                    className=" rounded-xl "
+                                    key={image.id}
+                                    src={image.url}
+                                    alt="image"
+                                    style={{
+                                        minHeight: "24vh",
+                                        maxHeight: "24vh",
+                                        minWidth: "30vh",
+                                        maxWidth: "30vh",
+                                        boxShadow:
+                                            "rgb(65 65 65) 0px 1px 10px -5px",
+                                    }}
+                                ></img>
+                            </a>
+                            {/* city & state components */}
+                            <div className="flex justify-between">
+                                <div className="font-medium text-base ">
+                                    {spot.city}, {spot.state}
+                                </div>
+                                {/* Rating component */}
+                                <div className="flex">
+                                    <StarIcon className="flex h-5 w-4" />
+                                    {spot.avgRating}
+                                </div>
+                            </div>
+                            {/* Price component */}
+                            <div className="flex justify-start">
+                                <div className="font-medium text-md">
+                                    ${spot.price}
+                                </div>
+                                <p className="font-light ml-1 text-md">night</p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            ))}
+        </section>
     );
-}
+};
 
 export default AllSpots;

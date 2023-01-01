@@ -1,11 +1,17 @@
 import React from "react";
-import AllSpots from "./AllSpots";
+import SpotsHolder from "./SpotsHolder";
+import Header from "../Header_footer/Header";
+import Footer from "../Header_footer/Footer";
 
 function Home() {
     return (
-        <div className="pl-14 pr-14">
-            <AllSpots />
-        </div>
+        <>
+            <Header />
+            <div className="pl-14 pr-14">
+                <SpotsHolder />
+            </div>
+            <Footer />
+        </>
     );
 }
 
