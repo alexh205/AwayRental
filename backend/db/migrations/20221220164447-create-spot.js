@@ -52,6 +52,18 @@ module.exports = {
             amenities: {
                 type: Sequelize.STRING,
             },
+            bedroom: {
+                type: Sequelize.INTEGER,
+            },
+            bed: {
+                type: Sequelize.INTEGER,
+            },
+            bath: {
+                type: Sequelize.INTEGER,
+            },
+            guests: {
+                type: Sequelize.INTEGER,
+            },
             price: {
                 type: Sequelize.INTEGER,
             },

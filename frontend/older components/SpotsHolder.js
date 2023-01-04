@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import * as spotActions from "../../store/spots";
+import * as spotActions from "../src/store/spots";
 import AllSpots from "./AllSpots";
 
 function SpotsHolder() {
@@ -11,22 +11,21 @@ function SpotsHolder() {
     }, [dispatch]);
 
     let spots;
-    const spotsList = useSelector((state) => state.spots);
+    const spotsList = useSelector(state => state.spots);
     if (spotsList) spots = Object.values(spotsList);
 
     return (
         <div
-            className="mt-3 grid"
+            className="my-4 grid"
             style={{
-                gridAutoColumns: "minmax(22rem, auto)",
-                gridTemplateColumns: "repeat(auto-fill, minmax(22rem, 1fr))",
-                gridColumnGap: "2.8rem",
+                gridAutoColumns: "minmax(19rem, auto)",
+                gridTemplateColumns: "repeat(auto-fill, minmax(19rem, 2fr))",
+                gridColumnGap: "1.5rem",
                 gridRowGap: "2rem",
-            }}
-        >
+            }}>
             {spots &&
-                spots.map((spot) => (
-                    <div key={spot.id} className="w-[40-vh]">
+                spots.map(spot => (
+                    <div key={spot.id}>
                         {spot.spotImages && (
                             <AllSpots Images={spot.spotImages} spot={spot} />
                         )}

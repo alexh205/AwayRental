@@ -53,6 +53,12 @@ module.exports = {
                     review: "I am not sure about this place!",
                     stars: 2,
                 },
+                {
+                    userId: 2,
+                    spotId: 6,
+                    review: "I will stay here again!",
+                    stars: 1,
+                },
             ],
             {}
         );

@@ -109,7 +109,7 @@ router.get("/", filterQueryValidator, async (req, res) => {
             attributes: ["id", "url", "preview"],
         });
 
-        imagesCurrSpot.forEach((image) => {
+        imagesCurrSpot.forEach(image => {
             image = image.toJSON();
             imagesList.push(image);
         });
@@ -126,7 +126,7 @@ router.get("/", filterQueryValidator, async (req, res) => {
         const numReviews = starRating.length;
         let ratingTotal = 0;
 
-        starRating.forEach((review) => {
+        starRating.forEach(review => {
             if (review.stars) ratingTotal += review.stars;
         });
 
@@ -183,7 +183,7 @@ router.get("/current", restoreUser, requireAuth, async (req, res) => {
             attributes: ["id", "url", "preview"],
         });
 
-        imagesCurrSpot.forEach((image) => {
+        imagesCurrSpot.forEach(image => {
             image = image.toJSON();
             imagesList.push(image);
         });
@@ -198,7 +198,7 @@ router.get("/current", restoreUser, requireAuth, async (req, res) => {
             attributes: ["id", "userId", "review", "stars"],
         });
 
-        reviewsCurrSpot.forEach((review) => {
+        reviewsCurrSpot.forEach(review => {
             review = review.toJSON();
             reviewsList.push(review);
         });
@@ -215,7 +215,7 @@ router.get("/current", restoreUser, requireAuth, async (req, res) => {
         const numReviews = starRating.length;
         let ratingTotal = 0;
 
-        starRating.forEach((review) => {
+        starRating.forEach(review => {
             if (review.stars) ratingTotal += review.stars;
         });
 
@@ -245,7 +245,11 @@ router.post("/", requireAuth, validateSpot, async (req, res) => {
         lat,
         lng,
         name,
-        description,
+        amenities,
+        bedroom,
+        bed,
+        bath,
+        guests,
         price,
         previewImg,
     } = req.body;
@@ -261,7 +265,11 @@ router.post("/", requireAuth, validateSpot, async (req, res) => {
         lat: lat,
         lng: lng,
         name: name,
-        description: description,
+        amenities: amenities,
+        bedroom: bedroom,
+        bed: bed,
+        bath: bath,
+        guests: guests,
         price: price,
         previewImg: previewImg,
     });
@@ -297,7 +305,7 @@ router.get("/:spotId", spotIdValidation, async (req, res) => {
         attributes: ["id", "url", "preview"],
     });
 
-    imagesCurrSpot.forEach((image) => {
+    imagesCurrSpot.forEach(image => {
         image = image.toJSON();
         imagesList.push(image);
     });
@@ -312,7 +320,7 @@ router.get("/:spotId", spotIdValidation, async (req, res) => {
         attributes: ["id", "userId", "review", "stars"],
     });
 
-    reviewsCurrSpot.forEach((review) => {
+    reviewsCurrSpot.forEach(review => {
         review = review.toJSON();
         reviewsList.push(review);
     });
@@ -329,7 +337,7 @@ router.get("/:spotId", spotIdValidation, async (req, res) => {
     const numReviews = currentReview.length;
     let ratingTotal = 0;
 
-    currentReview.forEach((review) => {
+    currentReview.forEach(review => {
         if (review.stars) ratingTotal += review.stars;
     });
 
@@ -367,7 +375,11 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
         lat,
         lng,
         name,
-        description,
+        amenities,
+        bedroom,
+        bed,
+        bath,
+        guests,
         price,
         previewImg,
     } = req.body;
@@ -394,7 +406,7 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
         attributes: ["id", "url", "preview"],
     });
 
-    imagesCurrSpot.forEach((image) => {
+    imagesCurrSpot.forEach(image => {
         image = image.toJSON();
         reviewsList.push(image);
     });
@@ -417,7 +429,11 @@ router.put("/:spotId", requireAuth, validateSpot, async (req, res) => {
         lat: lat,
         lng: lng,
         name: name,
-        description: description,
+        amenities: amenities,
+        bedroom: bedroom,
+        bed: bed,
+        bath: bath,
+        guests: guests,
         price: price,
         previewImg: previewImg,
     });

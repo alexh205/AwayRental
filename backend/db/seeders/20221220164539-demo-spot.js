@@ -18,6 +18,10 @@ module.exports = {
                     name: "House #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 1,
+                    bed: 1,
+                    bath: 1,
+                    guests: 2,
                     price: 89,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/2e316727-50e2-45ac-9538-37fb7192fb1e.jpg?im_w=1200",
@@ -35,6 +39,10 @@ module.exports = {
                     name: "Lakefront #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 193,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-45096338/original/e1fe0e91-6b67-44b3-91e7-4f83a7fdeef6.jpeg?im_w=1200",
@@ -52,6 +60,10 @@ module.exports = {
                     name: "Treehouse #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 69,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/9b6849e6-019b-46a5-a7d5-98736dcdeed2.jpg?im_w=1200",
@@ -69,6 +81,10 @@ module.exports = {
                     name: "Apartment #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 403,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/miso/Hosting-54005986/original/c16c3d5f-f1ce-45a2-81ac-fd9fe66ac540.jpeg?im_w=1200",
@@ -86,6 +102,10 @@ module.exports = {
                     name: "Cabin #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 80,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-43801849/original/e5db54e1-e740-408b-ba5f-749bfe7e833c.jpeg?im_w=1200",
@@ -103,6 +123,10 @@ module.exports = {
                     name: "House #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 480,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/1ab29317-e49b-494f-b25c-d8883e98795a.jpg?im_w=1200",
@@ -120,6 +144,10 @@ module.exports = {
                     name: "Water Home #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 361,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/prohost-api/Hosting-42623668/original/2c0066b8-2c2c-4d03-b457-aa92f349a3a4.jpeg?im_w=1200",
@@ -137,6 +165,10 @@ module.exports = {
                     name: "Life in a the wild",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 129,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/6fe5bcac-ac22-4b19-ad3b-1d88b6d570e6.jpg?im_w=1200",
@@ -154,6 +186,10 @@ module.exports = {
                     name: "Winter Wonderland",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 336,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/9b6546f7-ad6e-4b71-b55d-fa63f80f83e9.jpg?im_w=960",
@@ -171,6 +207,10 @@ module.exports = {
                     name: "Paradise Home",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 1500,
                     previewImg:
                         "https://a0.muscache.com/im/pictures/b4abea63-fde9-4e65-b46a-337e594f4c37.jpg?im_w=960",
@@ -188,8 +228,13 @@ module.exports = {
                     name: "House #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 71,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -204,8 +249,13 @@ module.exports = {
                     name: "Cottage #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 365,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -220,8 +270,13 @@ module.exports = {
                     name: "Lakefront #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 483,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -236,8 +291,13 @@ module.exports = {
                     name: "House #6",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 408,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -252,8 +312,13 @@ module.exports = {
                     name: "Island #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 289,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -268,8 +333,13 @@ module.exports = {
                     name: "Apartment #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 478,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -284,8 +354,13 @@ module.exports = {
                     name: "Apartment #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 211,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -300,8 +375,13 @@ module.exports = {
                     name: "Lakefront #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 247,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -316,8 +396,13 @@ module.exports = {
                     name: "Lakefront #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 481,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -332,8 +417,13 @@ module.exports = {
                     name: "Apartment #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 250,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -348,8 +438,13 @@ module.exports = {
                     name: "Cottage #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 79,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -364,8 +459,13 @@ module.exports = {
                     name: "Camper #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 278,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -380,8 +480,13 @@ module.exports = {
                     name: "Cottage #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 368,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -396,8 +501,13 @@ module.exports = {
                     name: "Apartment #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 340,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -412,8 +522,13 @@ module.exports = {
                     name: "Tiny House #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 147,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -428,8 +543,13 @@ module.exports = {
                     name: "Cabin #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 368,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -444,8 +564,13 @@ module.exports = {
                     name: "Cabin #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 325,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -460,8 +585,13 @@ module.exports = {
                     name: "Apartment #6",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 165,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -476,8 +606,13 @@ module.exports = {
                     name: "Apartment #7",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 115,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -492,8 +627,13 @@ module.exports = {
                     name: "Lakefront #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 503,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -508,8 +648,13 @@ module.exports = {
                     name: "Cottage #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 490,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -524,8 +669,13 @@ module.exports = {
                     name: "Cottage #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 432,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -540,8 +690,13 @@ module.exports = {
                     name: "Lakefront #6",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 495,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -556,8 +711,13 @@ module.exports = {
                     name: "Farm #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 288,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -572,8 +732,13 @@ module.exports = {
                     name: "Apartment #8",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 406,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -588,8 +753,13 @@ module.exports = {
                     name: "Tiny House #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 448,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -604,8 +774,13 @@ module.exports = {
                     name: "House #7",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 358,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -620,8 +795,13 @@ module.exports = {
                     name: "Tiny House #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 341,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -636,8 +816,13 @@ module.exports = {
                     name: "House #8",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 173,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -652,8 +837,13 @@ module.exports = {
                     name: "Cabin #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 139,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -668,8 +858,13 @@ module.exports = {
                     name: "Cottage #6",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 102,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -684,8 +879,13 @@ module.exports = {
                     name: "Tiny House #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 447,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -700,8 +900,13 @@ module.exports = {
                     name: "House #9",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 298,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -716,8 +921,13 @@ module.exports = {
                     name: "Tiny House #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 80,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -732,8 +942,13 @@ module.exports = {
                     name: "Farm #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 99,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -748,8 +963,13 @@ module.exports = {
                     name: "House #10",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 354,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -764,8 +984,13 @@ module.exports = {
                     name: "Cottage #7",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 231,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -780,8 +1005,13 @@ module.exports = {
                     name: "Tiny House #6",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 145,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -796,8 +1026,13 @@ module.exports = {
                     name: "Apartment #9",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 458,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -809,11 +1044,16 @@ module.exports = {
                     petFriendly: true,
                     lat: 43.0354,
                     lng: -76.1282,
-                    name: "Image",
+                    name: "Room with a view",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 274,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -828,8 +1068,13 @@ module.exports = {
                     name: "Tiny House #7",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 228,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -844,8 +1089,13 @@ module.exports = {
                     name: "Cottage #8",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 340,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -860,8 +1110,13 @@ module.exports = {
                     name: "Apartment #10",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 98,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -876,8 +1131,13 @@ module.exports = {
                     name: "Bed & breakfast #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 192,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -892,8 +1152,13 @@ module.exports = {
                     name: "Cabin #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 394,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -908,8 +1173,13 @@ module.exports = {
                     name: "Island #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 110,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -924,8 +1194,13 @@ module.exports = {
                     name: "Apartment #11",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 498,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -940,8 +1215,13 @@ module.exports = {
                     name: "Cabin #6",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 75,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -956,8 +1236,13 @@ module.exports = {
                     name: "Island #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 276,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -972,8 +1257,13 @@ module.exports = {
                     name: "House #11",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 232,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -988,8 +1278,13 @@ module.exports = {
                     name: "Lakefront #7",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 218,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1004,8 +1299,13 @@ module.exports = {
                     name: "House #12",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 508,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -1020,8 +1320,13 @@ module.exports = {
                     name: "Lakefront #8",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 119,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -1036,8 +1341,13 @@ module.exports = {
                     name: "Apartment #12",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 83,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -1052,8 +1362,13 @@ module.exports = {
                     name: "Bed & breakfast #2",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 64,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1068,8 +1383,13 @@ module.exports = {
                     name: "House #13",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 379,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -1084,8 +1404,13 @@ module.exports = {
                     name: "Cottage #9",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 290,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -1100,8 +1425,13 @@ module.exports = {
                     name: "Cottage #10",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 493,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -1113,11 +1443,16 @@ module.exports = {
                     petFriendly: false,
                     lat: 40.4598,
                     lng: -79.8224,
-                    name: "Image",
+                    name: "Room with a nice view",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 366,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -1132,8 +1467,13 @@ module.exports = {
                     name: "Bed & breakfast #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 304,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -1148,8 +1488,13 @@ module.exports = {
                     name: "Apartment #13",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 98,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -1164,8 +1509,13 @@ module.exports = {
                     name: "Cabin #7",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 171,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -1180,8 +1530,13 @@ module.exports = {
                     name: "Camper #3",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 506,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -1196,8 +1551,13 @@ module.exports = {
                     name: "Cabin #8",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 178,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -1212,8 +1572,13 @@ module.exports = {
                     name: "Bed & breakfast #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 243,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -1228,8 +1593,13 @@ module.exports = {
                     name: "Apartment #14",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 138,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1244,8 +1614,13 @@ module.exports = {
                     name: "Lakefront #9",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 198,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -1260,8 +1635,13 @@ module.exports = {
                     name: "Lakefront #10",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 479,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -1276,8 +1656,13 @@ module.exports = {
                     name: "Cottage #11",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 376,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -1292,8 +1677,13 @@ module.exports = {
                     name: "Island #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 476,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1308,8 +1698,13 @@ module.exports = {
                     name: "Farm #4",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 253,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -1324,8 +1719,13 @@ module.exports = {
                     name: "Apartment #15",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 248,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -1340,8 +1740,13 @@ module.exports = {
                     name: "Apartment #16",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 336,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -1356,8 +1761,13 @@ module.exports = {
                     name: "House #14",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 237,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1372,8 +1782,13 @@ module.exports = {
                     name: "Lakefront #11",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 195,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -1388,8 +1803,13 @@ module.exports = {
                     name: "Island #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 415,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -1404,8 +1824,13 @@ module.exports = {
                     name: "Apartment #17",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 465,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1420,8 +1845,13 @@ module.exports = {
                     name: "Bed & breakfast #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 495,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -1436,8 +1866,13 @@ module.exports = {
                     name: "Apartment #18",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 466,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -1452,8 +1887,13 @@ module.exports = {
                     name: "Apartment #19",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 456,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 1,
@@ -1468,8 +1908,13 @@ module.exports = {
                     name: "Lakefront #12",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 480,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -1484,8 +1929,13 @@ module.exports = {
                     name: "Cabin #9",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 250,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 3,
@@ -1500,8 +1950,13 @@ module.exports = {
                     name: "Apartment #20",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 334,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1516,8 +1971,13 @@ module.exports = {
                     name: "Apartment #21",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 476,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -1532,8 +1992,13 @@ module.exports = {
                     name: "Camper #1",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 162,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1548,8 +2013,13 @@ module.exports = {
                     name: "House #15",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 317,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 2,
@@ -1564,8 +2034,13 @@ module.exports = {
                     name: "Apartment #22",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 502,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 6,
@@ -1580,8 +2055,13 @@ module.exports = {
                     name: "Farm #5",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 241,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 4,
@@ -1596,8 +2076,13 @@ module.exports = {
                     name: "House #16",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 335,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
                 {
                     ownerId: 5,
@@ -1612,8 +2097,13 @@ module.exports = {
                     name: "Farm #6",
                     amenities:
                         "kitchen, Air conditioning, Heater, Wifi, Refrigerator, Microwave, stove, Dishes and silverware, Bed, Hair dryer, Hot water, TV, Washer, Shampoo, Towels, Coffee maker, Smoke alarm",
+                    bedroom: 4,
+                    bed: 2,
+                    bath: 2,
+                    guests: 5,
                     price: 385,
-                    previewImg: "Image",
+                    previewImg:
+                        "https://clipart.info/images/ccovers/1495751365House-PNG-Clip-Art.png",
                 },
             ],
             {}

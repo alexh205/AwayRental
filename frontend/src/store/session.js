@@ -57,7 +57,7 @@ export const login = (user) => async (dispatch) => {
       password,
     }),
   });
-  
+
   if (response.ok) {
     let data = await response.json();
 

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const DemoUser = () => {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
     if (sessionUser) return <Redirect to="/" />;
 
     const user = {

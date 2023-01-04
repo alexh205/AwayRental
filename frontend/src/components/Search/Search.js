@@ -14,9 +14,7 @@ const Search = () => {
         <div>
             <main className="flex">
                 <section className="flex-grow pt-14 px-6">
-                    <p>
-                        {/* 300+ Stays - {range} - for {guestsNum} Guests */}
-                    </p>
+                    <p>{/* 300+ Stays - {range} - for {guestsNum} Guests */}</p>
                     <h1 className="text-3xl font-semibold mt-2 mb-6">
                         {/* Stays in {address} */}
                     </h1>
