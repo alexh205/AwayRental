@@ -1,7 +1,7 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import Home from "./components/Home/Home";
-import SpotDetail from "./components/SpotDetail";
+import RentalDetail from "./components/RentalDetail";
 
 function App() {
     return (
@@ -10,7 +10,7 @@ function App() {
             <main>
                 <Switch>
                     <Route exact path="/" component={Home} />
-                    <Route path="/spots/:spotId" component={SpotDetail} />
+                    <Route path="/spots/:spotId" component={RentalDetail} />
                 </Switch>
             </main>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Rentals from "../../Rentals";
+import Rentals from "../Rentals";
 import Header from "../Header_footer/Header";
 import Footer from "../Header_footer/Footer";
 import Filters from "../Search/Filters";
@@ -9,9 +9,7 @@ function Home() {
         <>
             <Header />
             <Filters />
-
             <Rentals />
-
             <Footer />
         </>
     );

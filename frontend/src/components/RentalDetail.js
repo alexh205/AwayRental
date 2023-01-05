@@ -12,7 +12,7 @@ import { Heart } from "@styled-icons/bootstrap/Heart";
 import { DotSingle } from "@styled-icons/entypo/DotSingle";
 import { Medal } from "@styled-icons/entypo/Medal";
 
-const SpotDetail = () => {
+const RentalDetail = () => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
 
@@ -32,11 +32,11 @@ const SpotDetail = () => {
     return (
         <>
             <Header />
-            <div className="pt-4  flex justify-center">
+            <div className="flex justify-center">
                 {/* Name and spot heading section */}
                 {spot && (
                     <div>
-                        <div className="px-[80px] pb-[25px]">
+                        <div className="mx-[44px] pb-[25px]">
                             <div className="text-[32px] font-medium pb-[5px]">
                                 {spot.name}
                             </div>
@@ -98,7 +98,7 @@ const SpotDetail = () => {
                         </div>
                         {/* image grouping */}
                         {spot.spotImages && spot.spotImages.length > 3 ? (
-                            <div className="flex px-[80px]">
+                            <div className="flex mx-[44px]">
                                 <div
                                     className="flex"
                                     style={{
@@ -161,7 +161,7 @@ const SpotDetail = () => {
                         ) : (
                             spot.spotImages &&
                             spot.spotImages.length === 1 && (
-                                <div className="flex px-[80px] justify-center">
+                                <div className="flex mx-[44px] justify-center">
                                     <div
                                         className="flex"
                                         style={{
@@ -175,7 +175,7 @@ const SpotDetail = () => {
                                 </div>
                             )
                         )}
-                        <div className="px-[80px] pt-[30px] flex">
+                        <div className="mx-[44px] pt-[30px] flex">
                             <div className="flex flex-col pr-[120px]">
                                 {/* left side information section */}
                                 <div className="flex justify-between">
@@ -347,4 +347,4 @@ const SpotDetail = () => {
     );
 };
 
-export default SpotDetail;
+export default RentalDetail;

@@ -44,7 +44,7 @@ const Header = () => {
     };
 
     return (
-        <div className="border-b sticky top-0 z-50 bg-white/[95%] px-[36px] ">
+        <div className="border-b sticky top-0 z-50 bg-white/[95%] ">
             <div className="flex justify-between items-center sm:mx-7 md:mx-11 lg:mx-13 ">
                 {/* Left */}
                 <div className="flex h-20">
@@ -78,14 +78,14 @@ const Header = () => {
                 </div>
                 {/* Right */}
                 <div className="flex items-center font-semibold text-gray-600">
-                    <p className="text-[12px] cursor-pointer">
+                    <p className="text-[14px] cursor-pointer">
                         Host Your Property
                     </p>
-                    <div className="flex items-center mx-4 gap-1">
+                    <div className="flex items-center mx-3 gap-1">
                         <GlobeAltIcon className="h-5" />
                     </div>
 
-                    <div className="flex items-center border px-3 py-2 rounded-full gap-2 bg-[#ff5a60] text-white font-bold shadow-lg shadow-gray-300 hover:bg-[#f9787c] duration-100 ease-out cursor-pointer">
+                    <div className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-[#ff5a60] text-white font-bold shadow-lg shadow-gray-300 hover:bg-[#f9787c] duration-100 ease-out cursor-pointer">
                         {/* <p className="text-[14px]">Sign in</p> */}
                         <MenuIcon className="h-5"/>
                         <GrUserManager className="text-[20px]" />

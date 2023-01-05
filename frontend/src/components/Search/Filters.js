@@ -26,8 +26,8 @@ const Filters = () => {
         { title: "Room", icon: <MdOutlineBedroomParent /> },
     ];
     return (
-        <div className="sm:mx-6 md:mx-10 lg:mx-12 px-[20px]">
-            <div className="flex justify-center mt-6 mb-8">
+        <div className="sm:mx-6 md:mx-10 lg:mx-10">
+            <div className="flex justify-center my-5 overflow-hidden">
                 {options.map(obj => (
                     <Filter title={obj.title} icon={obj.icon} className=" "/>
                 ))}
