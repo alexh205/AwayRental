@@ -1,19 +1,8 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as spotActions from "../store/spots";
+import React from "react";
+
 import Rental from "./Rental";
 
-const Rentals = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(spotActions.getAllSpots());
-    }, [dispatch]);
-
-    let spots;
-    const spotsList = useSelector(state => state.spots);
-    if (spotsList) spots = Object.values(spotsList);
-
+const Rentals = ({ spots }) => {
     return (
         <div className="py-3 sm:py-5 mx-[40px]">
             <div

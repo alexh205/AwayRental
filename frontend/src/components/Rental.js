@@ -23,7 +23,7 @@ const Rental = ({ spot }) => {
                     <p className="max-w-[27rem] font-medium text-[17px]">
                         {spot.city}{", "} {spot.state}
                     </p>
-                    <p className="max-w-[17rem]  text-[16px] -mt-1 text-gray-500">
+                    <p className="max-w-[17rem] text-[16px] -mt-1 text-gray-500">
                         Jan 28 - Aug 9
                     </p>{" "}
                     <div className="flex">
