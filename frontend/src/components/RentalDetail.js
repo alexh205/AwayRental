@@ -107,7 +107,7 @@ const RentalDetail = () => {
                                         }}>
                                         <img
                                             src={spot.spotImages[0].url}
-                                            alt="image"
+                                            alt="spot"
                                             className="pr-[8px] rounded-tl-xl rounded-bl-xl"
                                             style={{
                                                 width: "100%",

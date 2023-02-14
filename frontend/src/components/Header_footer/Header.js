@@ -1,60 +1,62 @@
 import { FiSearch } from "react-icons/fi";
 import { GrUserManager } from "react-icons/gr";
 import { GlobeAltIcon, MenuIcon } from "@heroicons/react/solid";
-import { useState } from "react";
+import React, { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { DateRangePicker } from "react-date-range";
+// import { DateRangePicker } from "react-date-range";
 import { useHistory } from "react-router-dom";
 
 // TODO implement DemoUser
 // import DemoUser from "./Profile/DemoUser";
 
 const Header = () => {
-    const [searchInput, setSearchInput] = useState("");
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-    const [guestsNum, setGuestsNum] = useState(1);
+    // const [searchInput, setSearchInput] = useState("");
+    // const [startDate, setStartDate] = useState(new Date());
+    // const [endDate, setEndDate] = useState(new Date());
+    // const [guestsNum, setGuestsNum] = useState(1);
     const history = useHistory();
 
-    const handleSelect = ranges => {
-        setStartDate(ranges.Selection.startDate);
-        setEndDate(ranges.Selection.endDate);
-    };
+    // const handleSelect = ranges => {
+    //     setStartDate(ranges.Selection.startDate);
+    //     setEndDate(ranges.Selection.endDate);
+    // };
 
-    const resetInput = () => {
-        setSearchInput("");
-    };
-    const selectionRange = {
-        startDate: startDate,
-        endDate: endDate,
-        key: "Selection",
-    };
+    // const resetInput = () => {
+    //     setSearchInput("");
+    // };
+    // const selectionRange = {
+    //     startDate: startDate,
+    //     endDate: endDate,
+    //     key: "Selection",
+    // };
 
-    const search = () => {
-        history.push({
-            pathname: "/search",
-            query: {
-                address: searchInput,
-                startDate: startDate.toISOString(),
-                endDate: endDate.toISOString(),
-                guestsNum,
-            },
-        });
-    };
+    // const search = () => {
+    //     history.push({
+    //         pathname: "/search",
+    //         query: {
+    //             address: searchInput,
+    //             startDate: startDate.toISOString(),
+    //             endDate: endDate.toISOString(),
+    //             guestsNum,
+    //         },
+    //     });
+    // };
 
     return (
         <div className="border-b sticky top-0 z-50 bg-white/[95%] ">
             <div className="flex justify-between items-center sm:mx-7 md:mx-11 lg:mx-13 ">
                 {/* Left */}
                 <div className="flex h-20">
-                    <a className="flex overflow-hidden ">
+                    <div
+                        className="flex overflow-hidden"
+                        onClick={() => history.push("/")}>
                         <img
                             src="https://cdn2.hubspot.net/hubfs/325665/Images/airbnb-logo.png"
+                            alt="logo"
                             className="cursor-pointer object-cover -my-7 "
-                            onClick={() => history.push("/")}
                         />
-                    </a>
+                    </div>
                 </div>
                 {/* Middle */}
                 <div className="hidden lg:flex justify-center items-center relative shadow-sm shadow-gray-400 border rounded-full ">
@@ -87,7 +89,7 @@ const Header = () => {
 
                     <div className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-[#ff5a60] text-white font-bold shadow-lg shadow-gray-300 hover:bg-[#f9787c] duration-100 ease-out cursor-pointer">
                         {/* <p className="text-[14px]">Sign in</p> */}
-                        <MenuIcon className="h-5"/>
+                        <MenuIcon className="h-5" />
                         <GrUserManager className="text-[20px]" />
                     </div>
                 </div>

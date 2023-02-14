@@ -24,9 +24,10 @@ const ImageGroup = ({ spot }) => {
                     <div>
                         {index === current && spot.spotImages.length > 1 ? (
                             <div className="relative group">
-                                <a href={`/spots/${spot.id}`} target="_blank">
+                                <a href={`/spots/${spot.id}`} target="_blank" rel="noreferrer">
                                     <img
                                         src={image.url}
+                                        alt='spot'
                                         className="object-fit rounded-[1.3rem] sm:h-[22rem] md:h-[19rem] lg:h-[18rem] w-[100%] "
                                         style={{
                                             boxShadow:
@@ -49,9 +50,10 @@ const ImageGroup = ({ spot }) => {
                                 <div className="relative group">
                                     <a
                                         href={`/spots/${spot.id}`}
-                                        target="_blank">
+                                        target="_blank" rel="noreferrer">
                                         <img
                                             src={image.url}
+                                            alt='spot'
                                             className="object-fit rounded-[1.3rem] sm:h-[25rem] md:h-[23rem] lg:h-[21rem] w-[100%]"
                                             style={{
                                                 boxShadow:

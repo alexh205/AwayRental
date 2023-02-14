@@ -66,7 +66,7 @@ export const login = (user) => async (dispatch) => {
   }
   let data = await response.json();
 
-  return response;
+  return data;
 };
 
 //! Logout
