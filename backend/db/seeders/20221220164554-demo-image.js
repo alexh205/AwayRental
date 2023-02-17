@@ -1,9 +1,12 @@
 "use strict";
-
+if (process.env.NODE_ENV === "production") {
+    options.schema = process.env.SCHEMA;
+}
 module.exports = {
     async up(queryInterface, Sequelize) {
+        options.tableName = "Images";
         return await queryInterface.bulkInsert(
-            "Images",
+            options,
             [
                 {
                     imageableId: 1,
@@ -242,6 +245,7 @@ module.exports = {
     },
 
     async down(queryInterface, Sequelize) {
-        return await queryInterface.bulkDelete("Images", {});
+        options.tableName = "Images";
+        return await queryInterface.bulkDelete(options, {});
     },
 };

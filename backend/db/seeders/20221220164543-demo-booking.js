@@ -1,9 +1,12 @@
 "use strict";
-
+if (process.env.NODE_ENV === "production") {
+    options.schema = process.env.SCHEMA;
+}
 module.exports = {
     async up(queryInterface, Sequelize) {
+        options.tableName = "Bookings";
         return await queryInterface.bulkInsert(
-            "Bookings",
+            options,
             [
                 {
                     userId: 2,
@@ -39,6 +42,7 @@ module.exports = {
     },
 
     async down(queryInterface, Sequelize) {
-        return await queryInterface.bulkDelete("Bookings", {});
+        options.tableName = "Bookings";
+        return await queryInterface.bulkDelete(options, {});
     },
 };
