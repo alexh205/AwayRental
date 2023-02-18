@@ -6,6 +6,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 // import { DateRangePicker } from "react-date-range";
 import { useHistory } from "react-router-dom";
+import awayRental from '../../images/awayRental.png'
 
 // TODO implement DemoUser
 // import DemoUser from "./Profile/DemoUser";
@@ -52,9 +53,9 @@ const Header = () => {
                         className="flex overflow-hidden"
                         onClick={() => history.push("/")}>
                         <img
-                            src="https://cdn2.hubspot.net/hubfs/325665/Images/airbnb-logo.png"
+                            src={awayRental}
                             alt="logo"
-                            className="cursor-pointer object-cover -my-7 "
+                            className="cursor-pointer object-contain -my-1 "
                         />
                     </div>
                 </div>
