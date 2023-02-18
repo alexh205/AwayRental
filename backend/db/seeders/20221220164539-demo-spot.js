@@ -28,7 +28,7 @@ module.exports = {
                     guests: 2,
                     price: 89,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/2e316727-50e2-45ac-9538-37fb7192fb1e.jpg?im_w=1200",
+                        "https://images.pexels.com/photos/1022936/pexels-photo-1022936.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 2,
@@ -49,7 +49,7 @@ module.exports = {
                     guests: 5,
                     price: 193,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-45096338/original/e1fe0e91-6b67-44b3-91e7-4f83a7fdeef6.jpeg?im_w=1200",
+                        "https://images.pexels.com/photos/1559825/pexels-photo-1559825.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 3,
@@ -70,7 +70,7 @@ module.exports = {
                     guests: 5,
                     price: 69,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/9b6849e6-019b-46a5-a7d5-98736dcdeed2.jpg?im_w=1200",
+                        "https://images.pexels.com/photos/2510067/pexels-photo-2510067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 4,
@@ -91,7 +91,7 @@ module.exports = {
                     guests: 5,
                     price: 403,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/miso/Hosting-54005986/original/c16c3d5f-f1ce-45a2-81ac-fd9fe66ac540.jpeg?im_w=1200",
+                        "https://images.pexels.com/photos/1560065/pexels-photo-1560065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 5,
@@ -112,7 +112,7 @@ module.exports = {
                     guests: 5,
                     price: 80,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-43801849/original/e5db54e1-e740-408b-ba5f-749bfe7e833c.jpeg?im_w=1200",
+                        "https://images.pexels.com/photos/1694360/pexels-photo-1694360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 1,
@@ -133,7 +133,7 @@ module.exports = {
                     guests: 5,
                     price: 480,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/1ab29317-e49b-494f-b25c-d8883e98795a.jpg?im_w=1200",
+                        "https://images.pexels.com/photos/2566860/pexels-photo-2566860.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 6,
@@ -154,7 +154,7 @@ module.exports = {
                     guests: 5,
                     price: 361,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/prohost-api/Hosting-42623668/original/2c0066b8-2c2c-4d03-b457-aa92f349a3a4.jpeg?im_w=1200",
+                        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 3,
@@ -175,7 +175,7 @@ module.exports = {
                     guests: 5,
                     price: 129,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/6fe5bcac-ac22-4b19-ad3b-1d88b6d570e6.jpg?im_w=1200",
+                        "https://images.pexels.com/photos/2816284/pexels-photo-2816284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 4,
@@ -196,7 +196,7 @@ module.exports = {
                     guests: 5,
                     price: 336,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/9b6546f7-ad6e-4b71-b55d-fa63f80f83e9.jpg?im_w=960",
+                        "https://images.pexels.com/photos/1586298/pexels-photo-1586298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 6,
@@ -217,7 +217,7 @@ module.exports = {
                     guests: 5,
                     price: 1500,
                     previewImg:
-                        "https://a0.muscache.com/im/pictures/b4abea63-fde9-4e65-b46a-337e594f4c37.jpg?im_w=960",
+                        "https://images.pexels.com/photos/3825883/pexels-photo-3825883.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 },
                 {
                     ownerId: 1,
