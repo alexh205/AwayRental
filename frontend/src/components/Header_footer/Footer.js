@@ -5,7 +5,7 @@ const Footer = () => {
                 <a href="https://github.com/alexh205">ABOUT</a>
             </div>
             <div className="text-xs text-gray-800 text-semibold">
-                <a href="https://github.com/alexh205/Airbnb_clone_Project">GitHub</a>
+                <a href="https://github.com/alexh205/AwayRental">GitHub</a>
             </div>
         </footer>
     );
