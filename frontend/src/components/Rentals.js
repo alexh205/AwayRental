@@ -13,7 +13,8 @@ const Rentals = ({ spots }) => {
                         "repeat(auto-fill, minmax(17rem, 2fr))",
                     gridColumnGap: "1.6rem",
                     gridRowGap: "2rem",
-                }}>
+                }}
+                >
                 {spots && spots.map(spot => <Rental spot={spot} />)}
             </div>
         </div>

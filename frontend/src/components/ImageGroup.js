@@ -1,74 +1,46 @@
-import React, { useState } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/outline";
-import { FaHeart } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+import { useHistory } from 'react-router-dom';
 
 const ImageGroup = ({ spot }) => {
-    const [current, setCurrent] = useState(0);
-    const Images = spot.spotImages;
-    const length = Images.length;
+    const imagesObj = Object.values(spot.spotImages);
+    const history = useHistory();
 
-    const nextImage = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1);
-    };
-    const prevImage = () => {
-        setCurrent(current === 0 ? length - 1 : current - 1);
+    const handleClick = () => {
+        history.push(`/spots/${spot.id}`);
     };
 
-    if (!Array.isArray(Images) || Images.length <= 0) {
-        return null;
-    }
+    const handleHeartClick = () => {};
+
     return (
-        <>
-            {spot.spotImages.map((image, index) => {
-                return (
-                    <div>
-                        {index === current && spot.spotImages.length > 1 ? (
-                            <div className="relative group">
-                                <a href={`/spots/${spot.id}`} target="_blank" rel="noreferrer">
-                                    <img
-                                        src={image.url}
-                                        alt='spot'
-                                        className="object-fit rounded-[1.3rem] sm:h-[22rem] md:h-[19rem] lg:h-[18rem] w-[100%] "
-                                        style={{
-                                            boxShadow:
-                                                "rgb(65 65 65) 0px 1px 8px -5px",
-                                        }}
-                                    />
-                                </a>
-                                <FaHeart className="absolute text-[22px] top-[1vh] right-[1.8vh] opacity-50" />
-                                <ChevronLeftIcon
-                                    className="absolute top-[45%] left-[7px] h-[4rem] rounded-full bg-gray-200 invisible group-hover:visible border-r-gray-700 opacity-70 text-gray-800 w-8 cursor-pointer select-none"
-                                    onClick={prevImage}
-                                />
-                                <ChevronRightIcon
-                                    className="absolute top-[45%] right-[7px] h-[4rem] rounded-full bg-gray-200 invisible group-hover:visible border-r-gray-700 opacity-70 text-gray-800 w-8 cursor-pointer select-none"
-                                    onClick={nextImage}
-                                />
-                            </div>
-                        ) : (
-                            spot.spotImages.length === 1 && (
-                                <div className="relative group">
-                                    <a
-                                        href={`/spots/${spot.id}`}
-                                        target="_blank" rel="noreferrer">
-                                        <img
-                                            src={image.url}
-                                            alt='spot'
-                                            className="object-fit rounded-[1.3rem] sm:h-[25rem] md:h-[23rem] lg:h-[21rem] w-[100%]"
-                                            style={{
-                                                boxShadow:
-                                                    "rgb(65 65 65) 0px 1px 8px -5px",
-                                            }}
-                                        />
-                                    </a>
-                                    <FaHeart className="absolute text-[22px] top-[1vh] right-[1.8vh]  opacity-50" />
-                                </div>
-                            )
-                        )}
+        <div className="relative h-56 ">
+            <Carousel
+                className="h-full flex "
+                infiniteLoop
+                showStatus={false}
+                showIndicators={true}
+                showThumbs={false}>
+                {imagesObj.map(image => (
+                    <div key={image.id} className="h-full  relative">
+                        <FaHeart
+                            className="absolute top-2 right-2 sm:top-[10px] sm:right-[34px] z-40 cursor-pointer opacity-90 text-slate-600 hover:text-red-600 hover:opacity-100"
+                            onClick={handleHeartClick}
+                        />
+
+                        <div className="cursor-pointer" onClick={handleClick}>
+                            <img
+                                loading="lazy"
+                                src={image.url}
+                                alt="carousel image"
+                                className="object-contain object-center rounded-xl"
+                            />
+                        </div>
                     </div>
-                );
-            })}
-        </>
+                ))}
+            </Carousel>
+        </div>
     );
 };
 

@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+const initialState = {};
 
 const GET = 'spots/GET';
 const GETBYID = 'spots/GETBYID';
@@ -114,7 +115,6 @@ export const userSpotsById = userId => async dispatch => {
     }
 };
 
-const initialState = {};
 
 const spotsReducer = (state = initialState, action) => {
     let newState = { ...state };

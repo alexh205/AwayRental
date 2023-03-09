@@ -55,7 +55,7 @@ const RentalDetail = () => {
                                             style={{
                                                 textDecoration: "underline",
                                             }}>
-                                            {spot.spotReviews.length} reviews
+                                            {spot.spotReviews?.length} reviews
                                         </div>
                                         <div className="pl-1">
                                             <DotSingle className="h-4 w-3" />
@@ -188,7 +188,7 @@ const RentalDetail = () => {
                                     <div className="flex justify-between">
                                         <div className="font-semibold text-[21px] pb-1">
                                             The {spot.type} Is Hosted by{" "}
-                                            {spot.Owner.firstName}
+                                            {spot.Owner?.firstName}
                                         </div>
                                         <div className="pr-3">
                                             <User className="h-10 " />
@@ -228,7 +228,7 @@ const RentalDetail = () => {
                                             </div>
                                             <div>
                                                 <div className="font-semibold">
-                                                    {spot.Owner.firstName} is a
+                                                    {spot.Owner?.firstName} is a
                                                     Superhost
                                                 </div>
                                                 <div className="text-gray-400 text-[15px]">

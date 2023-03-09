@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+const initialState = { user: null };
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
@@ -80,7 +81,6 @@ export const logout = () => async dispatch => {
     return response;
 };
 
-const initialState = { user: null };
 
 const sessionReducer = (state = initialState, action) => {
     let newState;
