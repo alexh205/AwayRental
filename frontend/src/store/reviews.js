@@ -1,33 +1,33 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from './csrf';
 
-const GET = "reviews/GET";
-const ADD = "reviews/ADD";
-const EDIT = "reviews/EDIT";
-const DELETE = "reviews/DELETE";
-const USERREVIEWS = "reviews/USERREVIEWS";
+const GET = 'reviews/GET';
+const ADD = 'reviews/ADD';
+const EDIT = 'reviews/EDIT';
+const DELETE = 'reviews/DELETE';
+const USERREVIEWS = 'reviews/USERREVIEWS';
 
 // const ADDREVIMAGE = "images/ADDREVIMAGE";
 
-const getReviews = (data) => ({
+const getReviews = data => ({
     type: GET,
     reviews: data,
 });
-const addReview = (data) => ({
+const addReview = data => ({
     type: ADD,
     reviews: data,
 });
 
-const editReview = (data) => ({
+const editReview = data => ({
     type: EDIT,
     reviews: data,
 });
 
-const userReviews = (data) => ({
+const userReviews = data => ({
     type: USERREVIEWS,
     reviews: data,
 });
 
-const deleteReview = (data) => ({
+const deleteReview = data => ({
     type: DELETE,
     reviews: data,
 });
@@ -43,26 +43,26 @@ const deleteReview = (data) => ({
 
 export const renderReviews = () => {
     return {
-        type: "RENDERREVIEWS",
+        type: 'RENDERREVIEWS',
     };
 };
 
-export const getAllReviews = (spotId) => async (dispatch) => {
+export const getAllReviews = spotId => async dispatch => {
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
 
     if (response.ok) {
         const { Reviews } = await response.json();
         const obj = {};
-        Reviews.forEach((review) => (obj[review.id] = review));
+        Reviews.forEach(review => (obj[review.id] = review));
         dispatch(getReviews(obj));
     }
 };
 
-export const addNewReview = (data) => async (dispatch) => {
+export const addNewReview = data => async dispatch => {
     const { spotId } = data;
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
     });
     if (response.ok) {
@@ -73,23 +73,23 @@ export const addNewReview = (data) => async (dispatch) => {
     }
 };
 
-export const getUserReviews = () => async (dispatch) => {
-    const response = await csrfFetch("/api/reviews/current");
+export const getUserReviews = () => async dispatch => {
+    const response = await csrfFetch('/api/reviews/current');
 
     if (response.ok) {
         const { Reviews } = await response.json();
         const obj = {};
-        Reviews.forEach((review) => (obj[review.id] = review));
+        Reviews.forEach(review => (obj[review.id] = review));
 
         dispatch(userReviews(obj));
     }
 };
 
-export const reviewEdit = (review) => async (dispatch) => {
+export const reviewEdit = review => async dispatch => {
     const { id } = review;
     const response = await csrfFetch(`/api/reviews/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(review),
     });
     const editedreview = await response.json();
@@ -100,9 +100,9 @@ export const reviewEdit = (review) => async (dispatch) => {
     }
 };
 
-export const reviewDelete = (id) => async (dispatch) => {
+export const reviewDelete = id => async dispatch => {
     const response = await csrfFetch(`/api/reviews/${id}`, {
-        method: "DELETE",
+        method: 'DELETE',
     });
 
     if (response.ok) {
@@ -137,7 +137,7 @@ const reviewsReducer = (state = initialState, action) => {
         //     userId: action.payload3,
         //   };
         //   return newState;
-        case "RENDERREVIEWS":
+        case 'RENDERREVIEWS':
             return initialState;
 
         default:

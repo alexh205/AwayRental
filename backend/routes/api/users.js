@@ -1,19 +1,19 @@
-const express = require("express");
+const express = require('express');
 
 //? Authentication
-const { setTokenCookie } = require("../../utils/auth");
+const { setTokenCookie } = require('../../utils/auth');
 
 //? Models
-const { User } = require("../../db/models");
+const { User } = require('../../db/models');
 
 //? Validation
-const { validateSignup } = require("../../utils/validation");
+const { validateSignup } = require('../../utils/validation');
 
 const router = express.Router();
 
 /**********************************************************************************/
 //! Sign up
-router.post("/", validateSignup, async (req, res) => {
+router.post('/', validateSignup, async (req, res) => {
     const { firstName, lastName, email, password, username } = req.body;
 
     //* Email verification
@@ -21,10 +21,10 @@ router.post("/", validateSignup, async (req, res) => {
 
     if (emailVerification) {
         return res.status(403).json({
-            message: "User already exists",
+            message: 'User already exists',
             statusCode: 403,
             errors: {
-                email: "User with that email already exists",
+                email: 'User with that email already exists',
             },
         });
     }
@@ -34,10 +34,10 @@ router.post("/", validateSignup, async (req, res) => {
 
     if (usernameVerification) {
         return res.status(403).json({
-            message: "User already exists",
+            message: 'User already exists',
             statusCode: 403,
             errors: {
-                email: "User with that username already exists",
+                email: 'User with that username already exists',
             },
         });
     }
@@ -52,9 +52,9 @@ router.post("/", validateSignup, async (req, res) => {
     });
 
     //* Excluding undesired parameters
-    const newUser = await User.scope("signUpUser").findOne({
+    const newUser = await User.scope('signUpUser').findOne({
         where: { id: user.id },
-        attributes: { exclude: ["id"] },
+        attributes: { exclude: ['id'] },
     });
 
     newUser.dataValues.token = setTokenCookie(res, user);

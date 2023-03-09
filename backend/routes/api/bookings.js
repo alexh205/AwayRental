@@ -1,50 +1,50 @@
-const express = require("express");
+const express = require('express');
 
 //? Authentication
-const { requireAuth } = require("../../utils/auth");
+const { requireAuth } = require('../../utils/auth');
 
-const { bookingIdValidation } = require("../../utils/validation");
+const { bookingIdValidation } = require('../../utils/validation');
 
 //? Models
-const { User, Image, Spot, Booking } = require("../../db/models");
+const { User, Image, Spot, Booking } = require('../../db/models');
 
-const { Op } = require("sequelize");
+const { Op } = require('sequelize');
 
 const router = express.Router();
 
 /**********************************************************************************/
 //! Get all of the current user's Bookings
 
-router.get("/current", requireAuth, async (req, res) => {
+router.get('/current', requireAuth, async (req, res) => {
     const userBookings = await Booking.findAll({
         where: { userId: req.user.id },
         attributes: [
-            "id",
-            "spotId",
-            "userId",
-            "startDate",
-            "endDate",
-            "createdAt",
-            "updatedAt",
+            'id',
+            'spotId',
+            'userId',
+            'startDate',
+            'endDate',
+            'createdAt',
+            'updatedAt',
         ],
         include: [
             {
                 model: Spot,
                 required: false,
                 attributes: [
-                    "id",
-                    "ownerId",
-                    "address",
-                    "city",
-                    "state",
-                    "country",
-                    "type",
-                    "petFriendly",
-                    "lat",
-                    "lng",
-                    "name",
-                    "price",
-                    "previewImg",
+                    'id',
+                    'ownerId',
+                    'address',
+                    'city',
+                    'state',
+                    'country',
+                    'type',
+                    'petFriendly',
+                    'lat',
+                    'lng',
+                    'name',
+                    'price',
+                    'previewImg',
                 ],
             },
         ],
@@ -71,7 +71,7 @@ router.get("/current", requireAuth, async (req, res) => {
 
     if (!userBookings.length) {
         return res.status(404).json({
-            message: "No bookings can be found for the current user",
+            message: 'No bookings can be found for the current user',
             statusCode: 404,
         });
     }
@@ -83,7 +83,7 @@ router.get("/current", requireAuth, async (req, res) => {
 //! Delete Booking
 
 router.delete(
-    "/:bookingId",
+    '/:bookingId',
     requireAuth,
     bookingIdValidation,
     async (req, res) => {
@@ -109,13 +109,13 @@ router.delete(
 
         if (deleteBooking.userId !== req.user.id) {
             return res.status(403).json({
-                message: "Unauthorized - Only booking owner can delete booking",
+                message: 'Unauthorized - Only booking owner can delete booking',
                 statusCode: 403,
             });
         } else {
             await deleteBooking.destroy();
             return res.json({
-                message: "Successfully deleted",
+                message: 'Successfully deleted',
                 statusCode: 200,
             });
         }
@@ -126,7 +126,7 @@ router.delete(
 //! Edit Booking
 
 router.put(
-    "/:bookingId",
+    '/:bookingId',
     requireAuth,
     bookingIdValidation,
     async (req, res) => {
@@ -153,17 +153,17 @@ router.put(
 
         if (startDateString > endDateString) {
             return res.status(400).json({
-                message: "Validation error",
+                message: 'Validation error',
                 statusCode: 400,
                 errors: {
-                    endDate: "endDate cannot be on or before startDate",
+                    endDate: 'endDate cannot be on or before startDate',
                 },
             });
         }
 
         if (editBooking.userId !== req.user.id) {
             return res.status(403).json({
-                message: "Unauthorized - Only booking owner can edit booking",
+                message: 'Unauthorized - Only booking owner can edit booking',
                 statusCode: 403,
             });
         }
@@ -179,11 +179,11 @@ router.put(
         if (bookingCheck.length > 0) {
             return res.status(403).json({
                 message:
-                    "Sorry, this spot is already booked for the specified dates",
+                    'Sorry, this spot is already booked for the specified dates',
                 statusCode: 403,
                 errors: {
-                    startDate: "Start date conflicts with an existing booking",
-                    endDate: "End date conflicts with an existing booking",
+                    startDate: 'Start date conflicts with an existing booking',
+                    endDate: 'End date conflicts with an existing booking',
                 },
             });
         }
@@ -198,10 +198,10 @@ router.put(
 
         if (Date.parse(endDate) < Date.parse(startDate)) {
             return res.status(403).json({
-                message: "Validation error",
+                message: 'Validation error',
                 statusCode: 400,
                 errors: {
-                    endDate: "endDate cannot come before startDate",
+                    endDate: 'endDate cannot come before startDate',
                 },
             });
         }

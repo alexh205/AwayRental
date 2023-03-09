@@ -1,17 +1,17 @@
-const express = require("express");
+const express = require('express');
 
 //? Authentication
-const { requireAuth } = require("../../utils/auth");
+const { requireAuth } = require('../../utils/auth');
 
 //? Models
-const { Image } = require("../../db/models");
+const { Image } = require('../../db/models');
 
 const router = express.Router();
 
 /**********************************************************************************/
 //! Delete Image
 
-router.delete("/:imageId", requireAuth, async (req, res) => {
+router.delete('/:imageId', requireAuth, async (req, res) => {
     const currImage = await Image.findByPk(req.params.imageId);
 
     if (!currImage) {
@@ -22,12 +22,12 @@ router.delete("/:imageId", requireAuth, async (req, res) => {
 
     if (req.user.id !== currImage.userId) {
         return res.status(403).json({
-            message: "Unauthorized - only owner can delete this image",
+            message: 'Unauthorized - only owner can delete this image',
             statusCode: 403,
         });
     } else {
         await currImage.destroy();
-        return res.json({ message: "Successfully deleted", statusCode: 200 });
+        return res.json({ message: 'Successfully deleted', statusCode: 200 });
     }
 });
 

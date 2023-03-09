@@ -1,5 +1,5 @@
-"use strict";
-const { Model } = require("sequelize");
+'use strict';
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class Image extends Model {
         getImageable(options) {
@@ -12,15 +12,15 @@ module.exports = (sequelize, DataTypes) => {
         }
         static associate(models) {
             Image.belongsTo(models.User, {
-                foreignKey: "imageableId",
+                foreignKey: 'imageableId',
                 constraints: false,
             });
             Image.belongsTo(models.Spot, {
-                foreignKey: "imageableId",
+                foreignKey: 'imageableId',
                 constraints: false,
             });
             Image.belongsTo(models.Review, {
-                foreignKey: "imageableId",
+                foreignKey: 'imageableId',
                 constraints: false,
             });
         }
@@ -28,14 +28,14 @@ module.exports = (sequelize, DataTypes) => {
     Image.init(
         {
             imageableId: DataTypes.INTEGER,
-            imageableType: { type: DataTypes.ENUM("Spot", "Review") },
+            imageableType: { type: DataTypes.ENUM('Spot', 'Review') },
             url: DataTypes.STRING,
             userId: { type: DataTypes.INTEGER, allowNull: false },
             preview: { type: DataTypes.BOOLEAN, allowNull: false },
         },
         {
             sequelize,
-            modelName: "Image",
+            modelName: 'Image',
         }
     );
     return Image;

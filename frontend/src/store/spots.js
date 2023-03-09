@@ -1,65 +1,65 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from './csrf';
 
-const GET = "spots/GET";
-const GETBYID = "spots/GETBYID";
-const ADD = "spots/ADD";
-const EDIT = "spots/EDIT";
-const USERSPOTS = "spots/USERSPOTS";
-const DELETE = "spots/DELETE";
+const GET = 'spots/GET';
+const GETBYID = 'spots/GETBYID';
+const ADD = 'spots/ADD';
+const EDIT = 'spots/EDIT';
+const USERSPOTS = 'spots/USERSPOTS';
+const DELETE = 'spots/DELETE';
 
-const getSpots = (data) => {
+const getSpots = data => {
     return {
         type: GET,
         spots: data,
     };
 };
-const getSpotId = (data) => {
+const getSpotId = data => {
     return {
         type: GETBYID,
         spot: data,
     };
 };
 
-const addSpot = (data) => {
+const addSpot = data => {
     return {
         type: ADD,
         spot: data,
     };
 };
 
-const editSpot = (data) => {
+const editSpot = data => {
     return {
         type: EDIT,
         spot: data,
     };
 };
 
-const userSpots = (userData) => {
+const userSpots = userData => {
     return {
         type: USERSPOTS,
         spots: userData,
     };
 };
 
-const deleteSpot = (data) => {
+const deleteSpot = data => {
     return {
         type: DELETE,
         spot: data,
     };
 };
 
-export const getAllSpots = () => async (dispatch) => {
-    const response = await csrfFetch("/api/spots");
+export const getAllSpots = () => async dispatch => {
+    const response = await csrfFetch('/api/spots');
 
     if (response.ok) {
         const { Spots } = await response.json();
         const objArr = {};
-        Spots.forEach((spot) => (objArr[spot.id] = spot));
+        Spots.forEach(spot => (objArr[spot.id] = spot));
         dispatch(getSpots(objArr));
     }
 };
 
-export const getSpotById = (spotId) => async (dispatch) => {
+export const getSpotById = spotId => async dispatch => {
     const response = await csrfFetch(`/api/spots/${spotId}`);
 
     if (response.ok) {
@@ -69,10 +69,10 @@ export const getSpotById = (spotId) => async (dispatch) => {
     }
 };
 
-export const addNewSpot = (spot) => async (dispatch) => {
-    const response = await csrfFetch("/api/spots", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+export const addNewSpot = spot => async dispatch => {
+    const response = await csrfFetch('/api/spots', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spot),
     });
 
@@ -82,11 +82,11 @@ export const addNewSpot = (spot) => async (dispatch) => {
     }
 };
 
-export const modifySpot = (spot) => async (dispatch) => {
+export const modifySpot = spot => async dispatch => {
     const { id } = spot;
     const response = await csrfFetch(`/api/spots/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(spot),
     });
 
@@ -95,9 +95,9 @@ export const modifySpot = (spot) => async (dispatch) => {
         dispatch(editSpot(editData));
     }
 };
-export const deleteSpotById = (spotId) => async (dispatch) => {
+export const deleteSpotById = spotId => async dispatch => {
     const response = await csrfFetch(`/api/spots/${spotId}`, {
-        method: "Delete",
+        method: 'Delete',
     });
 
     if (response.ok) {
@@ -105,7 +105,7 @@ export const deleteSpotById = (spotId) => async (dispatch) => {
         dispatch(deleteSpot(data));
     }
 };
-export const userSpotsById = (userId) => async (dispatch) => {
+export const userSpotsById = userId => async dispatch => {
     const response = await csrfFetch(`/api/spots/${userId}`);
 
     if (response.ok) {

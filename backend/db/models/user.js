@@ -1,6 +1,6 @@
-"use strict";
-const { Model, Validator } = require("sequelize");
-const bcrypt = require("bcryptjs");
+'use strict';
+const { Model, Validator } = require('sequelize');
+const bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
     class User extends Model {
         toSafeObject() {
@@ -12,12 +12,12 @@ module.exports = (sequelize, DataTypes) => {
             return bcrypt.compareSync(password, this.hashedPassword.toString());
         }
         static getCurrentUserById(id) {
-            return User.scope("currentUser").findByPk(id);
+            return User.scope('currentUser').findByPk(id);
         }
 
         static async login({ credential, password }) {
-            const { Op } = require("sequelize");
-            const user = await User.scope("loginUser").findOne({
+            const { Op } = require('sequelize');
+            const user = await User.scope('loginUser').findOne({
                 where: {
                     [Op.or]: {
                         username: credential,
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
             });
             if (user && user.validatePassword(password)) {
-                return await User.scope("currentUser").findByPk(user.id);
+                return await User.scope('currentUser').findByPk(user.id);
             }
         }
 
@@ -45,26 +45,26 @@ module.exports = (sequelize, DataTypes) => {
                 email,
                 hashedPassword,
             });
-            return await User.scope("currentUser").findByPk(user.id);
+            return await User.scope('currentUser').findByPk(user.id);
         }
 
         static associate(models) {
             User.hasMany(models.Spot, {
-                foreignKey: "ownerId",
-                onDelete: "CASCADE",
+                foreignKey: 'ownerId',
+                onDelete: 'CASCADE',
             });
             User.hasMany(models.Booking, {
-                foreignKey: "userId",
-                onDelete: "CASCADE",
+                foreignKey: 'userId',
+                onDelete: 'CASCADE',
             });
             User.hasMany(models.Review, {
-                foreignKey: "userId",
-                onDelete: "CASCADE",
+                foreignKey: 'userId',
+                onDelete: 'CASCADE',
             });
             User.hasOne(models.Image, {
-                foreignKey: "imageableId",
+                foreignKey: 'imageableId',
                 constraints: false,
-                scope: { imageableType: "User" },
+                scope: { imageableType: 'User' },
             });
         }
     }
@@ -89,7 +89,7 @@ module.exports = (sequelize, DataTypes) => {
                     len: [4, 30],
                     isNotEmail(value) {
                         if (Validator.isEmail(value)) {
-                            throw new Error("Cannot be an email.");
+                            throw new Error('Cannot be an email.');
                         }
                     },
                 },
@@ -116,16 +116,16 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             sequelize,
-            modelName: "User",
+            modelName: 'User',
             defaultScope: {
                 attributes: {
-                    exclude: ["hashedPassword", "createdAt", "updatedAt"],
+                    exclude: ['hashedPassword', 'createdAt', 'updatedAt'],
                 },
             },
             scopes: {
                 currentUser: {
                     attributes: {
-                        exclude: ["hashedPassword"],
+                        exclude: ['hashedPassword'],
                     },
                 },
                 loginUser: {
@@ -133,7 +133,7 @@ module.exports = (sequelize, DataTypes) => {
                 },
                 signUpUser: {
                     attributes: {
-                        exclude: ["createdAt", "updatedAt", "hashedPassword"],
+                        exclude: ['createdAt', 'updatedAt', 'hashedPassword'],
                     },
                 },
             },

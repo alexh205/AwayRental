@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
-const { jwtConfig } = require("../config");
-const { User } = require("../db/models");
+const jwt = require('jsonwebtoken');
+const { jwtConfig } = require('../config');
+const { User } = require('../db/models');
 
 const { secret, expiresIn } = jwtConfig;
 
@@ -13,14 +13,14 @@ const setTokenCookie = (res, user) => {
         { expiresIn: parseInt(expiresIn) } // 604,800 seconds = 1 week
     );
 
-    const isProduction = process.env.NODE_ENV === "production";
+    const isProduction = process.env.NODE_ENV === 'production';
 
     // Set the token cookie
-    res.cookie("token", token, {
+    res.cookie('token', token, {
         maxAge: expiresIn * 1000, // maxAge in milliseconds
         httpOnly: true,
         secure: isProduction,
-        sameSite: isProduction && "Lax",
+        sameSite: isProduction && 'Lax',
     });
 
     return token;
@@ -39,13 +39,13 @@ const restoreUser = (req, res, next) => {
 
         try {
             const { id } = jwtPayload.data;
-            req.user = await User.scope("currentUser").findByPk(id);
+            req.user = await User.scope('currentUser').findByPk(id);
         } catch (e) {
-            res.clearCookie("token");
+            res.clearCookie('token');
             return next();
         }
 
-        if (!req.user) res.clearCookie("token");
+        if (!req.user) res.clearCookie('token');
 
         return next();
     });
@@ -55,9 +55,9 @@ const restoreUser = (req, res, next) => {
 const requireAuth = (req, _res, next) => {
     if (req.user) return next();
 
-    const err = new Error("Unauthorized");
-    err.title = "Unauthorized";
-    err.error = ["Unauthorized"];
+    const err = new Error('Unauthorized');
+    err.title = 'Unauthorized';
+    err.error = ['Unauthorized'];
     err.status = 401;
     return next(err);
 };
