@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home/Home';
 import RentalDetail from './components/RentalDetail';
 
-function App() {
+const App = () => {
     return (
         <>
             <main>
@@ -14,6 +14,6 @@ function App() {
             </main>
         </>
     );
-}
+};
 
 export default App;
