@@ -2,11 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+input[type='text'],
+input[type='password'],
+input[type='email'] {
+  @apply w-full border my-1 py-2 px-3 rounded-2xl;
+}
+
+/* button {
+  @apply bg-gray-300;
+} */
+button.primary {
+  background-color: #ff5a60;
+  @apply bg-site-primary p-2 w-full text-white rounded-2xl;
+}
 .grad {
-    background: rgb(255, 255, 255);
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0) 57%,
-        rgba(0, 0, 0, 1) 100%
-    );
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 57%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
