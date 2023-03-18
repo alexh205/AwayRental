@@ -15,10 +15,15 @@ const App = () => {
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
           <Route path="/spots/:spotId" component={RentalDetail} />
+          <Route
+            path="/account/:subPage/:action"
+            exact={true}
+            component={AccountPage}
+          />
           <Route path="/account/:subPage?" component={AccountPage} />
         </Switch>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
