@@ -2,11 +2,15 @@ import React, {useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
 import Amenities from './Profile/Amenities';
 
-export const CreateSpot = () => {
+export const SpotForm = () => {
   const {action} = useParams();
 
   const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [country, setCountry] = useState('');
+  const [type, setType] = useState('');
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [photoLink, setPhotoLink] = useState('');
   const [description, setDescription] = useState('');
@@ -14,6 +18,9 @@ export const CreateSpot = () => {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [maxGuests, setMaxGuests] = useState(1);
+  const [bedroom, setBedroom] = useState(1);
+  const [bed, setBed] = useState(1);
+  const [bath, setBath] = useState(1);
   const [price, setPrice] = useState(0);
 
   const inputHeader = text => {
@@ -127,8 +134,10 @@ export const CreateSpot = () => {
               Add check in and check out times
             </p>
             <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
-              <div>
-                <h3 className="mt-2 -mb-1">Check in time</h3>
+              <div className="flex flex-col items-center">
+                <h3 className="mt-2 -mb-1 font-bold text-[17px] text-center">
+                  Check in time
+                </h3>
                 <input
                   value={checkIn}
                   onChange={e => setCheckIn(e.target.value)}
@@ -136,8 +145,10 @@ export const CreateSpot = () => {
                   placeholder="13:00"
                 />
               </div>
-              <div>
-                <h3 className="mt-2 -mb-1">Check out time</h3>
+              <div className="flex flex-col items-center">
+                <h3 className="mt-2 -mb-1 font-bold text-[17px]">
+                  Check out time
+                </h3>
                 <input
                   value={checkOut}
                   onChange={e => setCheckOut(e.target.value)}
@@ -146,18 +157,22 @@ export const CreateSpot = () => {
                 />
               </div>
               <div className="flex flex-col items-center w-full">
-                <h3 className="mt-2 -mb-1">Price per night</h3>
+                <h3 className="mt-2 -mb-1 font-bold text-[17px] ">
+                  Price per night
+                </h3>
                 <input
-                  className="w-full h-full my-2 rounded-2xl text-center border outline-none"
+                  className="w-full h-full my-1 rounded-2xl text-center border outline-none"
                   type="number"
                   value={maxGuests}
                   onChange={e => setMaxGuests(e.target.value)}
                 />
               </div>
               <div className="flex flex-col items-center w-full ">
-                <h3 className="mt-2 -mb-1">Price per night</h3>
+                <h3 className="mt-2 -mb-1 font-bold text-[17px]">
+                  Price per night
+                </h3>
                 <input
-                  className="w-full h-full my-2 rounded-2xl text-center border outline-none"
+                  className="w-full h-full my-1 rounded-2xl text-center border outline-none"
                   type="number"
                   value={price}
                   onChange={e => setPrice(e.target.value)}

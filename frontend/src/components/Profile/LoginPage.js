@@ -1,22 +1,36 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import {login} from '../../store/session';
+import {useDispatch, useSelector} from 'react-redux';
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const [errors, setErrors] = useState([]);
+
+  const sessionUser = useSelector(state => state.session.user);
+
+  if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = async e => {
     e.preventDefault();
-    try {
-    } catch (err) {
-      console.error(err);
-    }
+    setErrors([]);
+    return dispatch(login(email, password)).catch(async res => {
+      const data = await res.json();
+      if (data && data.errors) setErrors(data.errors);
+    });
   };
   return (
     <div className="mt-4">
       <h1 className="text-4xl text-center mb-4">Login</h1>
       <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
+        <ul>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
         <input
           type="email"
           placeholder="your@email.com"

@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header_footer/Header';
 import {Link, Redirect, useParams} from 'react-router-dom';
-import {CreateSpot} from '../CreateSpot';
+import {SpotForm} from '../SpotForm';
 const AccountPage = () =>
   // {user}
   {
@@ -85,7 +85,7 @@ const AccountPage = () =>
             <button className="primary max-w-sm mt-2">Logout</button>
           </div>
         )}
-        {subPage === 'spots' && <CreateSpot />}
+        {subPage === 'spots' && <SpotForm />}
       </div>
     );
   };

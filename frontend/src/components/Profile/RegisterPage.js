@@ -1,20 +1,36 @@
 import React, {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import {signup} from '../../store/session';
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
+  const [errors, setErrors] = useState([]);
 
+  const sessionUser = useSelector(state => state.session.user);
+
+  if (sessionUser) return <Redirect to="/" />;
+  
   const handleSubmit = async e => {
     e.preventDefault();
-    try {
-    } catch (err) {
-      console.error(err);
+    if (password === confirmPassword) {
+      setErrors([]);
+      return dispatch(signup(name, username, email, password)).catch(
+        async res => {
+          const data = await res.json();
+          if (data && data.errors) setErrors(data.errors);
+        }
+      );
     }
+    return setErrors([
+      'Confirm Password field must be the same as the Password field',
+    ]);
   };
   return (
     <div className="mt-4">
