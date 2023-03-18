@@ -37,11 +37,11 @@ module.exports = (sequelize, DataTypes) => {
       city: {type: DataTypes.STRING},
       state: {type: DataTypes.STRING},
       country: {type: DataTypes.STRING},
+      description: {type: DataTypes.STRING},
       type: {type: DataTypes.STRING},
-      petFriendly: {type: DataTypes.BOOLEAN},
       lat: {type: DataTypes.FLOAT},
       lng: {type: DataTypes.FLOAT},
-      name: {type: DataTypes.STRING},
+      title: {type: DataTypes.STRING},
       amenities: {type: DataTypes.STRING},
       bedroom: {
         type: DataTypes.INTEGER,
@@ -61,11 +61,17 @@ module.exports = (sequelize, DataTypes) => {
           isNumeric: true,
         },
       },
-      guests: {
+      maxGuests: {
         type: DataTypes.INTEGER,
         validate: {
           isNumeric: true,
         },
+      },
+      checkIn: {
+        type: DataTypes.STRING,
+      },
+      checkOut: {
+        type: DataTypes.STRING,
       },
       price: {
         type: DataTypes.INTEGER,
@@ -73,7 +79,6 @@ module.exports = (sequelize, DataTypes) => {
           isNumeric: true,
         },
       },
-      previewImg: {type: DataTypes.STRING},
     },
     {
       sequelize,
@@ -82,4 +87,3 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Spot;
 };
-

@@ -34,16 +34,12 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false,
         },
-        country: {
+        country: {type: Sequelize.STRING, allowNull: false},
+        description: {
           type: Sequelize.STRING,
-          allowNull: false,
         },
         type: {
           type: Sequelize.STRING,
-        },
-        petFriendly: {
-          type: Sequelize.BOOLEAN,
-          allowNull: false,
         },
         lat: {
           type: Sequelize.FLOAT,
@@ -51,7 +47,7 @@ module.exports = {
         lng: {
           type: Sequelize.FLOAT,
         },
-        name: {
+        title: {
           type: Sequelize.STRING,
           allowNull: false,
         },
@@ -67,14 +63,17 @@ module.exports = {
         bath: {
           type: Sequelize.INTEGER,
         },
-        guests: {
+        maxGuests: {
           type: Sequelize.INTEGER,
+        },
+        checkIn: {
+          type: Sequelize.STRING,
+        },
+        checkOut: {
+          type: Sequelize.STRING,
         },
         price: {
           type: Sequelize.INTEGER,
-        },
-        previewImg: {
-          type: Sequelize.STRING,
         },
         createdAt: {
           allowNull: false,

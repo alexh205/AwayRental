@@ -14,7 +14,7 @@ const router = express.Router();
 /**********************************************************************************/
 //! Sign up
 router.post('/', validateSignup, async (req, res) => {
-  const {firstName, lastName, email, password, username} = req.body;
+  const {name, email, password, username} = req.body;
 
   //* Email verification
   const emailVerification = await User.findOne({where: {email}});
@@ -44,8 +44,7 @@ router.post('/', validateSignup, async (req, res) => {
 
   //* Creation of a new user
   const user = await User.signup({
-    firstName,
-    lastName,
+    name,
     email,
     username,
     password,

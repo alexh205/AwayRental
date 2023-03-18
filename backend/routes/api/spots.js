@@ -97,9 +97,9 @@ router.get('/', filterQueryValidator, async (req, res) => {
     const {id} = spot;
 
     let firstImg = {};
-    firstImg.id = 0;
-    firstImg.url = spot.previewImg;
-    firstImg.preview = true;
+    // firstImg.id = 0;
+    // firstImg.url = spot.previewImg;
+    // firstImg.preview = true;
 
     //* Images
     let imagesList = [firstImg];
@@ -171,9 +171,9 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
     const {id} = spot;
 
     let firstImg = {};
-    firstImg.id = 0;
-    firstImg.url = spot.previewImg;
-    firstImg.preview = true;
+    // firstImg.id = 0;
+    // firstImg.url = spot.previewImg;
+    // firstImg.preview = true;
 
     //* Images
     let imagesList = [firstImg];
@@ -240,18 +240,19 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     city,
     state,
     country,
+    description,
     type,
-    petFriendly,
     lat,
     lng,
-    name,
+    title,
     amenities,
     bedroom,
     bed,
     bath,
-    guests,
+    maxGuests,
+    checkIn,
+    checkOut,
     price,
-    previewImg,
   } = req.body;
 
   const newSpot = await Spot.create({
@@ -260,18 +261,19 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     city: city,
     state: state,
     country: country,
+    description: description,
     type: type,
-    petFriendly: petFriendly,
     lat: lat,
     lng: lng,
-    name: name,
+    title: title,
     amenities: amenities,
     bedroom: bedroom,
     bed: bed,
     bath: bath,
-    guests: guests,
+    maxGuests: maxGuests,
+    checkIn: checkIn,
+    checkOut: checkOut,
     price: price,
-    previewImg: previewImg,
   });
 
   return res.status(201).json(newSpot);
@@ -293,9 +295,9 @@ router.get('/:spotId', spotIdValidation, async (req, res) => {
   }
 
   let firstImg = {};
-  firstImg.id = 0;
-  firstImg.url = currentSpot.previewImg;
-  firstImg.preview = true;
+  // firstImg.id = 0;
+  // firstImg.url = currentSpot.previewImg;
+  // firstImg.preview = true;
 
   //* Images
   let imagesList = [firstImg];
@@ -370,18 +372,19 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     city,
     state,
     country,
+    description,
     type,
-    petFriendly,
     lat,
     lng,
-    name,
+    title,
     amenities,
     bedroom,
     bed,
     bath,
-    guests,
+    maxGuests,
+    checkIn,
+    checkOut,
     price,
-    previewImg,
   } = req.body;
 
   const editedSpot = await Spot.findByPk(req.params.spotId);
@@ -394,9 +397,9 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
   }
 
   let firstImg = {};
-  firstImg.id = 0;
-  firstImg.url = editedSpot.previewImg;
-  firstImg.preview = true;
+  // firstImg.id = 0;
+  // firstImg.url = editedSpot.previewImg;
+  // firstImg.preview = true;
 
   //* Images
   let imagesList = [firstImg];
@@ -419,21 +422,23 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
 
   await editedSpot.update({
     address: address,
+    address: address,
     city: city,
     state: state,
     country: country,
+    description: description,
     type: type,
-    petFriendly: petFriendly,
     lat: lat,
     lng: lng,
-    name: name,
+    title: title,
     amenities: amenities,
     bedroom: bedroom,
     bed: bed,
     bath: bath,
-    guests: guests,
+    maxGuests: maxGuests,
+    checkIn: checkIn,
+    checkOut: checkOut,
     price: price,
-    previewImg: previewImg,
   });
 
   return res.json(editedSpot);
