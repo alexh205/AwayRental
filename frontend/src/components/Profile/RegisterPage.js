@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {signup} from '../../store/session';
 
 const RegisterPage = () => {
@@ -16,7 +16,7 @@ const RegisterPage = () => {
   const sessionUser = useSelector(state => state.session.user);
 
   if (sessionUser) return <Redirect to="/" />;
-  
+
   const handleSubmit = async e => {
     e.preventDefault();
     if (password === confirmPassword) {
