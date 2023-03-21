@@ -53,6 +53,20 @@ module.exports = (sequelize, DataTypes) => {
           isNumeric: true,
         },
       },
+      price: {
+        type: DataTypes.INTEGER,
+        validate: {
+          isNumeric: true,
+        },
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
     {
       sequelize,

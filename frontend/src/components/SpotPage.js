@@ -2,11 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {BiGridHorizontal} from 'react-icons/bi';
-import {AiOutlineLeft} from 'react-icons/ai';
+import {AiOutlineClose} from 'react-icons/ai';
+import BookingWidget from './Booking/BookingWidget';
 
 const SpotPage = () => {
   const {id} = useParams();
-  const [spot, setSpot] = useState(null);
+  const [spot, setSpot] = useState('');
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
 
   useEffect(() => {
     if (!id) {
@@ -17,19 +19,21 @@ const SpotPage = () => {
   if (!spot) return null;
   if (setShowAllPhotos) {
     return (
-      <div className="absolute inset-0 bg-white min-h-screen">
-        <div className="p-8 grid gap-4">
+      <div className="absolute inset-0 bg-black text-white min-h-screen">
+        <div className="p-8 grid gap-4 bg-black">
           <div>
-            <h2 className="text-3xl">Photos of {spot.title}</h2>
-            <button className="fixed right-12 top-8 flex gap-1 py-2 px-4 rounded-2xl shadow-black">
-              <AiOutlineLeft />
+            <h2 className="text-3xl mr-48">Photos of {spot.title}</h2>
+            <button
+              onClick={() => setShowAllPhotos(false)}
+              className="fixed right-12 top-8 flex gap-1 py-2 px-4 rounded-2xl shadow-black bg-white text-black">
+              <AiOutlineClose />
               Close photos
             </button>
           </div>
           {spot?.photos?.length > 0 &&
             spot.photos.map(photo => (
               <div>
-                <img src={photo.url} alt=""></img>
+                <img src={photo.url} alt="" />
               </div>
             ))}
         </div>
@@ -38,21 +42,41 @@ const SpotPage = () => {
   }
 
   return (
-    <div className="mt-4 bg-gray-100 -mx-8 px-8 py-8">
+    <div className="mt-4 bg-gray-100 -mx-8 px-8 pt-8">
       <h1 className="text-3xl">{spot.title}</h1>
       <a
-        className="my-2 text-semibold block underline"
+        className="flex gap-1 my-2 text-semibold underline"
         href={'https://maps.google.com/?q=' + spot.address}
         target="_blank">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+          />
+        </svg>
+
         {spot.address}
       </a>
       <div className="relative">
-        <div className="grid gap-2 grid-cols-[2fr_1fr]">
+        <div className="grid gap-2 grid-cols-[2fr_1fr] rounded-3xl overflow-hidden">
           <div>
             <div>
               {spot.photos?.[0] && (
                 <img
-                  className="aspect-square object-cover"
+                  onClick={() => setShowAllPhotos(true)}
+                  className="aspect-square cursor-pointer object-cover"
                   src={spot.photos[0].url}
                 />
               )}
@@ -62,14 +86,16 @@ const SpotPage = () => {
           <div className="grid">
             {spot.photos?.[1] && (
               <img
-                className="aspect-square object-cover"
+                onClick={() => setShowAllPhotos(true)}
+                className="aspect-square cursor-pointer object-cover"
                 src={spot.photos[1].url}
               />
             )}
             <div className="overflow-hidden">
               {spot.photos?.[2] && (
                 <img
-                  className="aspect-square object-cover relative"
+                  onClick={() => setShowAllPhotos(true)}
+                  className="aspect-square cursor-pointer object-cover relative"
                   src={spot.photos[2].url}
                 />
               )}
@@ -82,6 +108,31 @@ const SpotPage = () => {
           <BiGridHorizontal />
           Show more photos
         </button>
+      </div>
+
+      <div className="mt-8 mb-8 gap-8 grid grid-cols-1 md:grid-cols-[2fr_1fr]">
+        <div className="my-4">
+          <h2 className="font-semibold text-2xl">Description</h2>
+          {spot.description}
+        </div>
+        <div>
+          Check-in: {spot.checkIn}
+          <br />
+          Check-out: {spot.checkOut}
+          <br />
+          Max number of guests: {spot.maxGuests}
+        </div>
+        <div>
+          <BookingWidget spot={spot} />
+        </div>
+      </div>
+      <div className="bg-white -mx-8 px-8 py-8 border-t">
+        <div>
+          <h2 className="font-semibold text-2xl">Extra info</h2>
+        </div>
+        <div className="mb-4 mt-2 text-sm text-gray-700 leading-5">
+          extra information
+        </div>
       </div>
     </div>
   );

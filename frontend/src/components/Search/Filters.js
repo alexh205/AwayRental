@@ -28,8 +28,8 @@ const Filters = () => {
   return (
     <div className="sm:mx-6 md:mx-10 lg:mx-10">
       <div className="flex justify-center my-5 overflow-hidden">
-        {options.map(obj => (
-          <Filter title={obj.title} icon={obj.icon} className=" " />
+        {options.map((obj, idx) => (
+          <Filter title={obj.title} icon={obj.icon} key={idx} className=" " />
         ))}
       </div>
     </div>

@@ -96,13 +96,13 @@ router.get('/', filterQueryValidator, async (req, res) => {
   for (let spot of Spots) {
     const {id} = spot;
 
-    let firstImg = {};
+    // let firstImg = {};
     // firstImg.id = 0;
     // firstImg.url = spot.previewImg;
     // firstImg.preview = true;
 
     //* Images
-    let imagesList = [firstImg];
+    let imagesList = [];
 
     const imagesCurrSpot = await Image.findAll({
       where: {imageableType: 'Spot', imageableId: id},
@@ -170,13 +170,13 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
   for (let spot of currSpot) {
     const {id} = spot;
 
-    let firstImg = {};
+    // let firstImg = {};
     // firstImg.id = 0;
     // firstImg.url = spot.previewImg;
     // firstImg.preview = true;
 
     //* Images
-    let imagesList = [firstImg];
+    let imagesList = [];
 
     const imagesCurrSpot = await Image.findAll({
       where: {imageableType: 'Spot', imageableId: id},
@@ -294,13 +294,13 @@ router.get('/:spotId', spotIdValidation, async (req, res) => {
     });
   }
 
-  let firstImg = {};
+  // let firstImg = {};
   // firstImg.id = 0;
   // firstImg.url = currentSpot.previewImg;
   // firstImg.preview = true;
 
   //* Images
-  let imagesList = [firstImg];
+  let imagesList = [];
 
   const imagesCurrSpot = await Image.findAll({
     where: {imageableType: 'Spot', imageableId: req.params.spotId},
@@ -396,13 +396,13 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     });
   }
 
-  let firstImg = {};
+  // let firstImg = {};
   // firstImg.id = 0;
   // firstImg.url = editedSpot.previewImg;
   // firstImg.preview = true;
 
   //* Images
-  let imagesList = [firstImg];
+  let imagesList = [];
 
   const imagesCurrSpot = await Image.findAll({
     where: {imageableType: 'Spot', imageableId: req.params.spotId},
@@ -618,17 +618,35 @@ router.post(
       spotId: req.params.spotId,
       startDate: req.body.startDate,
       endDate: req.body.endDate,
-      guestsNum: req.body.guestsNum || 2,
+      guestsNum: req.body.guestsNum || 1,
+      phone: req.body.phone,
+      price: req.body.price,
+      name: req.body.name,
     });
 
-    const {id, spotId, userId, startDate, endDate, updatedAt, createdAt} =
-      newBooking;
+    const {
+      id,
+      spotId,
+      userId,
+      startDate,
+      endDate,
+      guestsNum,
+      name,
+      phone,
+      price,
+      updatedAt,
+      createdAt,
+    } = newBooking;
 
     return res.json({
       id,
       spotId,
       userId,
       startDate,
+      guestsNum,
+      price,
+      name,
+      phone,
       endDate,
       createdAt,
       updatedAt,
