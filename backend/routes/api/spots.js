@@ -355,7 +355,7 @@ router.get('/:spotId', spotIdValidation, async (req, res) => {
   //* Owner
   const spotOwner = await User.findOne({
     where: {id: currentSpot.ownerId},
-    attributes: ['id', 'firstName', 'lastName'],
+    attributes: ['id', 'name'],
   });
 
   currentSpot.dataValues.Owner = spotOwner;
@@ -674,7 +674,7 @@ router.get('/:spotId/reviews', async (req, res) => {
     include: [
       {
         model: User,
-        attributes: ['id', 'firstName', 'lastName'],
+        attributes: ['id', 'name'],
       },
       {
         model: Image,

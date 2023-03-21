@@ -81,7 +81,7 @@ router.get('/current', requireAuth, async (req, res) => {
     include: [
       {
         model: User,
-        attributes: ['id', 'firstName', 'lastName'],
+        attributes: ['id', 'name'],
         required: false,
       },
       {

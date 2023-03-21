@@ -8,6 +8,7 @@ import AccountPage from './components/Profile/AccountPage';
 import SpotPage from './components/SpotPage';
 import * as spotActions from './store/spots';
 
+
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
