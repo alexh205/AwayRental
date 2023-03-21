@@ -92,9 +92,9 @@ export const reviewEdit = review => async dispatch => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(review),
   });
-  const editedreview = await response.json();
+  const editedReview = await response.json();
   if (response.ok) {
-    dispatch(editReview(editedreview));
+    dispatch(editReview(editedReview));
   } else {
     throw response;
   }

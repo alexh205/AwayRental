@@ -253,7 +253,7 @@ export const SpotForm = () => {
               </div>
               <div className="flex flex-col items-center w-full ">
                 <h3 className="mt-2 -mb-1 font-bold text-[17px]">
-                  Price per night
+                  Max # of guests
                 </h3>
                 <input
                   className="w-full h-full my-1 rounded-2xl text-center border outline-none"
@@ -263,10 +263,12 @@ export const SpotForm = () => {
                 />
               </div>
             </div>
-            <button className="primary my-4">Save</button>
+            <button className="primary my-4 mx-6">Save</button>
           </form>
         </div>
       )}
     </div>
   );
 };
+
+export default SpotForm;

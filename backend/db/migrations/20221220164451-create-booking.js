@@ -44,6 +44,9 @@ module.exports = {
           type: Sequelize.INTEGER,
           allowNull: false,
         },
+        price: {type: Sequelize.INTEGER, allowNull: false},
+        name: {type: Sequelize.STRING, allowNull: false},
+        phone: {type: Sequelize.STRING, allowNull: false},
         createdAt: {
           allowNull: false,
           type: Sequelize.DATE,

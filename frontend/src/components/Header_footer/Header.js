@@ -60,7 +60,7 @@ const Header = () => {
             <GlobeAltIcon className="h-5" />
           </div>
 
-          <div className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer">
+          <div  onClick={() => history.push('/account')} className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer">
             {/* <p className="text-[14px]">Sign in</p> */}
             <MenuIcon className="h-5" />
             <GrUserManager className="text-[20px]" />
