@@ -1,11 +1,18 @@
 import React from 'react';
 import Image from './Image';
+import {useHistory} from 'react-router-dom';
 
 const SpotCard = ({spot}) => {
+  const history = useHistory();
+
   return (
     <div className="relative flex flex-col my-2 mx-3 bg-white z-10  border-2 rounded-2xl hover:shadow-xl cursor-pointer">
       <div>
-        <Image images={spot?.spotImages} spot={spot} />
+        <Image
+          images={spot.spotImages}
+          spot={spot}
+          onClick={() => history.push(`/spots/${spot.id}`)}
+        />
       </div>
       <div>
         <div className="flex flex-row items-center justify-between px-2 mx-auto">

@@ -15,8 +15,8 @@ const Header = () => {
   const history = useHistory();
 
   return (
-    <div className="border-b sticky top-0 z-50 bg-white/[95%] ">
-      <div className="flex justify-between items-center sm:mx-7 md:mx-11 lg:mx-13 ">
+    <div className="border-b sticky top-0 z-50 bg-[#f7f7f7] mx-6">
+      <div className="flex justify-between items-center  ">
         {/* Left */}
         <div className="flex h-20">
           <div
@@ -55,13 +55,8 @@ const Header = () => {
         </div>
         {/* Right */}
         <div className="flex items-center font-semibold text-gray-600">
-          <p className="text-[14px] cursor-pointer">Host Your Property</p>
-          <div className="flex items-center mx-3 gap-1">
-            <GlobeAltIcon className="h-5" />
-          </div>
-
           <div  onClick={() => history.push('/account')} className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer">
-            {/* <p className="text-[14px]">Sign in</p> */}
+            <p className="text-[14px]">Sign in</p>
             <MenuIcon className="h-5" />
             <GrUserManager className="text-[20px]" />
           </div>

@@ -34,9 +34,9 @@ router.post('/', validateLogin, async (req, res, next) => {
   });
 
   loginUser.dataValues.token = await setTokenCookie(res, user);
-  const {id, firstName, lastName, username, email} = loginUser.dataValues;
+  const {id, name, username, email} = loginUser.dataValues;
 
-  return res.json({id, firstName, lastName, username, email});
+  return res.json({id, name, username, email});
 });
 
 /**********************************************************************************/
@@ -71,12 +71,11 @@ router.get('/', restoreUser, (req, res) => {
 
 //   currUser.token = await setTokenCookie(res, user);
 
-//   const { id, firstName, lastName, email, username } = currUser;
+//   const { id, name, email, username } = currUser;
 
 //   res.json({
 //     id,
-//     firstName,
-//     lastName,
+//    name,
 //     email,
 //     username,
 //   });
