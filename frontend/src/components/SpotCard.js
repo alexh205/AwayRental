@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from './Image';
+import ImageGroup from './ImageGroup';
 import {useHistory} from 'react-router-dom';
 
 const SpotCard = ({spot}) => {
@@ -8,7 +8,7 @@ const SpotCard = ({spot}) => {
   return (
     <div className="relative flex flex-col my-2 mx-3 bg-white z-10  border-2 rounded-2xl hover:shadow-xl cursor-pointer">
       <div>
-        <Image
+        <ImageGroup
           images={spot.spotImages}
           spot={spot}
           onClick={() => history.push(`/spots/${spot.id}`)}

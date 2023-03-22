@@ -15,7 +15,7 @@ const Header = () => {
   const history = useHistory();
 
   return (
-    <div className="border-b sticky top-0 z-50 bg-[#f7f7f7] mx-6">
+    <div className="border-b sticky top-0 z-50 bg-[#f7f7f7] -mx-2">
       <div className="flex justify-between items-center  ">
         {/* Left */}
         <div className="flex h-20">
@@ -25,7 +25,7 @@ const Header = () => {
             <img
               src={awayRental}
               alt="logo"
-              className="cursor-pointer object-contain -my-1 "
+              className="cursor-pointer object-contain my-1 mx-10 "
             />
           </div>
         </div>
@@ -54,7 +54,7 @@ const Header = () => {
           </button>
         </div>
         {/* Right */}
-        <div className="flex items-center font-semibold text-gray-600">
+        <div className="flex items-center font-semibold text-gray-600 mx-12">
           <div  onClick={() => history.push('/account')} className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer">
             <p className="text-[14px]">Sign in</p>
             <MenuIcon className="h-5" />
