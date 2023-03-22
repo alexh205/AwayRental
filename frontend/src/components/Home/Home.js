@@ -18,7 +18,7 @@ function Home() {
     <>
       <Header />
       <Filters />
-      <div >
+      <div>
         <SpotFeed spots={spotsArr} />
       </div>
       <Footer />
