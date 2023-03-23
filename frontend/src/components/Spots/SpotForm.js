@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Link, useParams} from 'react-router-dom';
-import Amenities from './Profile/Amenities';
-import usaStates from '../../src/static/usaStates.json';
-import propertyTypes from '../../src/static/propertyTypes.json';
+import Amenities from '../Profile/Amenities';
+import usaStates from '../../static/usaStates.json';
+import propertyTypes from '../../static/propertyTypes.json';
 
 export const SpotForm = () => {
   const {action} = useParams();

@@ -1,5 +1,5 @@
 import React from 'react';
-import ImageGroup from './ImageGroup';
+import ImageGroup from '../Images/ImageGroup';
 import {useHistory} from 'react-router-dom';
 
 const SpotCard = ({spot}) => {

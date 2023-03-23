@@ -3,6 +3,7 @@ const initialState = {user: null};
 
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+const GET_USER = 'session/getUser';
 
 const setUser = user => {
   return {
@@ -81,6 +82,15 @@ export const logout = () => async dispatch => {
   return response;
 };
 
+export const getUser = id => async () => {
+  const response = await csrfFetch(`/api/session/current/${id}`);
+  
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  }
+};
+
 const sessionReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
@@ -96,6 +106,7 @@ const sessionReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.user = null;
       return newState;
+
     default:
       return state;
   }

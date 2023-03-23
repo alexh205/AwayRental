@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header_footer/Header';
 import {Link, Redirect, useParams} from 'react-router-dom';
-import {SpotForm} from '../SpotForm';
+import {SpotForm} from '../Spots/SpotForm';
 const AccountPage = () =>
   // {user}
   {

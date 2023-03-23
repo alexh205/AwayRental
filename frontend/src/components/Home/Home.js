@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Header from '../Header_footer/Header';
 import {useDispatch, useSelector} from 'react-redux';
 import Footer from '../Header_footer/Footer';
-import SpotFeed from '../SpotFeed';
+import SpotFeed from '../Spots/SpotFeed';
 import Filters from '../Search/Filters';
 import {getAllSpots} from '../../store/spots';
 
@@ -15,14 +15,14 @@ function Home() {
     dispatch(getAllSpots());
   }, []);
   return (
-    <>
+    <div >
       <Header />
       <Filters />
       <div>
         <SpotFeed spots={spotsArr} />
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 

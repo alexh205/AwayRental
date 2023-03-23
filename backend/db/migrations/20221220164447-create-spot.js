@@ -34,6 +34,10 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false,
         },
+        country: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
         description: {
           type: Sequelize.STRING,
         },

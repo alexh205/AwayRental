@@ -21,7 +21,7 @@ const ImageGroup = ({images, spot}) => {
         {images?.map(image => (
           <div key={image.id} className="relative">
             <FaHeart
-              className="absolute top-2 right-2 sm:top-[10px] sm:right-[34px] z-40 cursor-pointer opacity-90 text-slate-600 hover:text-red-600 hover:opacity-100"
+              className="absolute top-3 right-7 sm:top-[10px] sm:right-[34px] z-40 cursor-pointer opacity-90 text-slate-600 hover:text-red-600 hover:opacity-100 w-5 h-5 sm:w-6 sm:h-6"
               onClick={handleHeartClick}
             />
 
