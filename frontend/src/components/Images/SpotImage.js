@@ -8,7 +8,7 @@ const SpotImage = ({spot, setSelectImage}) => {
       <div className="absolute inset-0 bg-black text-white min-h-screen">
         <div className="bg-black p-8 grid gap-4">
           <div>
-            <h2 className="text-3xl mr-48 text-center">
+            <h2 className="sm:text-3xl text-xl sm:mr-48 mr-28 text-center">
               Photos of {spot.title}
             </h2>
             <button
@@ -16,7 +16,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                 setShowAllPhotos(false);
                 setSelectImage(false);
               }}
-              className="fixed right-12 top-8 flex gap-1 py-2 px-4 rounded-2xl shadow shadow-black bg-white text-black">
+              className="fixed right-8 top-8 flex gap-1 py-2 px-4 rounded-2xl shadow shadow-black bg-white text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -93,7 +93,7 @@ const SpotImage = ({spot, setSelectImage}) => {
           className={`${
             spot.spotImages.length < 4
               ? 'hidden'
-              : 'absolute hidden sm:flex flex-row items-center whitespace-nowrap bottom-2 right-2 py-2 px-4 bg-white rounded-2xl shadow-md shadow-gray-500 '
+              : 'absolute hidden sm:flex flex-row items-center whitespace-nowrap bottom-2 md:right-2 right-1 py-2 md:px-[14px] px-4 bg-white rounded-2xl shadow-md shadow-gray-500 '
           }`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

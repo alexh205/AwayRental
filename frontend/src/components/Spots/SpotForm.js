@@ -263,7 +263,9 @@ export const SpotForm = () => {
                 />
               </div>
             </div>
-            <button className="primary my-4 mx-6">Save</button>
+            <div className='mx-28'>
+              <button className="primary my-[18px]">Save</button>
+            </div>
           </form>
         </div>
       )}

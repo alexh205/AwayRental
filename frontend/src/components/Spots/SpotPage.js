@@ -11,6 +11,7 @@ import {CiHeart} from 'react-icons/ci';
 import SpotReview from '../Reviews/SpotReview';
 import RenderAmenities from './RenderAmenities';
 import AmenitiesModal from '../Modals/AmenitiesModal';
+import Map from '../Map';
 
 const SpotPage = () => {
   const {id} = useParams();
@@ -35,8 +36,8 @@ const SpotPage = () => {
       <div className="container mx-auto">
         {!selectImage && <Header />}
         <div className="-mx-4 px-16 pt-3 f">
-          <h1 className="text-3xl">{spot.title}</h1>
-          <div className="flex flex-row items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-6">
+          <h1 className="text-3xl whitespace-nowrap">{spot.title}</h1>
+          <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-6">
             <div className="flex flex-row items-center ">
               <div className="flex flex-row items-center ">
                 <div className="flex flex-row items-center">
@@ -89,20 +90,26 @@ const SpotPage = () => {
           </div>
 
           <div className="mt-8 mb-2 gap-8 grid grid-cols-1 md:grid-cols-3 pb-4 border-b">
-            <div className="my-1 col-span-2 mr-6">
+            <div className="my-1 col-span-2 mr-4">
               <div
                 className={`${
                   selectImage ? 'hidden' : 'flex flex-col justify-center'
                 }`}>
-                <div className="flex flex-row items-center justify-between border-b">
-                  <div className="opacity-80 flex flex-row items-center mb-3 text-lg">
-                    <div>{spot.maxGuests} guests</div>
-                    <BsDot className="mx-[2px]" />
-                    <div>{spot.bedroom} bedrooms</div>
-                    <BsDot className="mx-[2px]" />
-                    <div>{spot.bed} beds</div>
-                    <BsDot className="mx-[2px]" />
-                    <div>{spot.bath} bathrooms</div>
+                <div className="flex flex-row font-semibold items-center justify-between border-b">
+                  <div className="opacity-80 sm:flex sm:flex-row grid grid-col-1 items-center mb-3 text-lg">
+                    <div className="whitespace-nowrap">
+                      {spot.maxGuests} guests
+                    </div>
+                    <BsDot className="sm:flex hidden mx-[2px]" />
+                    <div className="whitespace-nowrap">
+                      {spot.bedroom} bedrooms
+                    </div>
+                    <BsDot className="sm:flex hidden mx-[2px]" />
+                    <div className="whitespace-nowrap">{spot.bed} beds</div>
+                    <BsDot className="sm:flex hidden mx-[2px]" />
+                    <div className="whitespace-nowrap">
+                      {spot.bath} bathrooms
+                    </div>
                   </div>
                   <div>
                     {/* <img src={spotOwner.profileImg} alt="host" className="" /> */}
@@ -113,7 +120,7 @@ const SpotPage = () => {
                 <h2 className="font-semibold text-2xl mt-1">Description</h2>
                 <p className="my-3">{spot.description}</p>
               </div>
-              <div className="border-b my-3">
+              <div className={`${selectImage ? 'hidden' : 'border-b my-3'}`}>
                 <h2 className="font-semibold text-xl">
                   Check-in & Check-out times
                 </h2>
@@ -143,7 +150,7 @@ const SpotPage = () => {
                     ))}
                 {spot && spot.amenities && (
                   <button
-                    className="bg-site-primary text-white my-3 mx-20 py-2 text-lg rounded-md"
+                    className="bg-site-primary text-white my-3 mx-auto py-2 px-2 text-base rounded-md whitespace-nowrap"
                     onClick={() => setModal(!modal)}>
                     Show all {spot.amenities.split(',').length} amenities
                   </button>
@@ -157,9 +164,15 @@ const SpotPage = () => {
               />
             </div>
           </div>
-          <div ref={targetRef} id="reviews">
+          <div
+            ref={targetRef}
+            id="reviews"
+            className={`${selectImage ? 'hidden' : 'block'}`}>
             <SpotReview spot={spot} />
           </div>
+        </div>
+        <div className="my-4">
+          <Map />
         </div>
       </div>
 
