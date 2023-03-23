@@ -60,25 +60,26 @@ router.get('/', restoreUser, (req, res) => {
 
 // /**********************************************************************************/
 // //! Get current User
-// router.get("/", restoreUser, requireAuth, async (req, res) => {
-//   const { user } = req;
+router.get('/current/:userId', async (req, res) => {
+  console.log(erq.params.userId)
+  //* Excluding undesired parameters
+  const currUser = await User.findOne({
+    where: {id: req.params.userId},
+    attributes: {exclude: ['createdAt', 'updatedAt']},
 
-//   //* Excluding undesired parameters
-//   const currUser = await User.findOne({
-//     where: { id: user.id },
-//     attributes: { exclude: ["createdAt", "updatedAt"] },
-//   });
+  });
 
-//   currUser.token = await setTokenCookie(res, user);
+  currUser.token = await setTokenCookie(res, currUser);
 
-//   const { id, name, email, username } = currUser;
+  const {id, name, email, username, profileImg} = currUser;
 
-//   res.json({
-//     id,
-//    name,
-//     email,
-//     username,
-//   });
-// });
+  res.json({
+    id,
+    name,
+    email,
+    username,
+    profileImg,
+  });
+});
 
 module.exports = router;

@@ -1,12 +1,11 @@
-import {FiSearch} from 'react-icons/fi';
+import React from 'react';
 import {GrUserManager} from 'react-icons/gr';
-import {GlobeAltIcon, MenuIcon} from '@heroicons/react/solid';
-import React, {useState} from 'react';
+import {MenuIcon} from '@heroicons/react/solid';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 // import { DateRangePicker } from "react-date-range";
 import {useHistory} from 'react-router-dom';
-import awayRental from '../../images/awayRental.png';
+import awayRental from '../../static/awayRental.png';
 
 // TODO implement DemoUser
 // import DemoUser from "./Profile/DemoUser";
@@ -15,22 +14,22 @@ const Header = () => {
   const history = useHistory();
 
   return (
-    <div className="border-b sticky top-0 z-50 bg-[#f7f7f7] -mx-2">
-      <div className="flex justify-between items-center  ">
+    <div className="border-b sticky top-0 z-50 bg-white  -mx-2">
+      <div className="flex justify-center sm:justify-between items-center  ">
         {/* Left */}
         <div className="flex h-20">
           <div
-            className="flex overflow-hidden"
+            className="sm:flex overflow-hidden hidden"
             onClick={() => history.push('/')}>
             <img
               src={awayRental}
               alt="logo"
-              className="cursor-pointer object-contain my-1 mx-10 "
+              className="cursor-pointer object-contain my-1 mx-7"
             />
           </div>
         </div>
-        {/* Middle */}
 
+        {/* Middle */}
         <div className="hidden lg:flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
           <div>Anywhere</div>
           <div className="border-l border-gray-300" />
@@ -53,9 +52,12 @@ const Header = () => {
             </svg>
           </button>
         </div>
+
         {/* Right */}
-        <div className="flex items-center font-semibold text-gray-600 mx-12">
-          <div  onClick={() => history.push('/account')} className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer">
+        <div className=" flex items-center font-semibold text-gray-600 mx-8">
+          <div
+            onClick={() => history.push('/account')}
+            className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer whitespace-nowrap">
             <p className="text-[14px]">Sign in</p>
             <MenuIcon className="h-5" />
             <GrUserManager className="text-[20px]" />

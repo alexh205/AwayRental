@@ -2,7 +2,6 @@ import React from 'react';
 import SpotCard from './SpotCard';
 
 const SpotFeed = ({spots}) => {
-  // console.log(spots);
   return (
     <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto gap-y-1 gap-x-1 px-2">
       {Object.values(spots)

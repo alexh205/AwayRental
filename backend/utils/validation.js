@@ -38,10 +38,10 @@ const validateSpot = [
     .exists({checkFalsy: true})
     .isString()
     .withMessage('type is required'),
-  check('petFriendly')
+  check('title')
     .exists({checkFalsy: true})
-    .isBoolean()
-    .withMessage('not a valid input'),
+    .isString()
+    .withMessage('Title is required'),
   check('lat')
     .exists({checkFalsy: true})
     .isFloat()
@@ -59,14 +59,26 @@ const validateSpot = [
     .exists({checkFalsy: true})
     .isString()
     .withMessage('Description is required'),
+  check('bedroom')
+    .exists({checkFalsy: true})
+    .isNumeric()
+    .withMessage('Number of bedrooms is required'),
+  check('bed')
+    .exists({checkFalsy: true})
+    .isNumeric()
+    .withMessage('Number of beds is required'),
+  check('bathroom')
+    .exists({checkFalsy: true})
+    .isNumeric()
+    .withMessage('Number of bathrooms is required'),
   check('price')
     .exists({checkFalsy: true})
     .isNumeric()
     .withMessage('Price per day is required'),
-  check('previewImg')
+  check('maxGuests')
     .exists({checkFalsy: true})
-    .isString()
-    .withMessage('a previewImg is required'),
+    .isNumeric()
+    .withMessage('max number of guests is required'),
   handleValidationErrors,
 ];
 

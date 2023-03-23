@@ -130,6 +130,8 @@ router.get('/', filterQueryValidator, async (req, res) => {
       if (review.stars) ratingTotal += review.stars;
     });
 
+    spot.dataValues.spotReviews = starRating;
+
     let avgRating;
 
     ratingTotal > 0
@@ -674,7 +676,7 @@ router.get('/:spotId/reviews', async (req, res) => {
     include: [
       {
         model: User,
-        attributes: ['id', 'name'],
+        attributes: ['id', 'name', 'profileImg'],
       },
       {
         model: Image,

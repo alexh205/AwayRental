@@ -5,9 +5,8 @@ import {useDispatch} from 'react-redux';
 import LoginPage from './components/Profile/LoginPage';
 import RegisterPage from './components/Profile/RegisterPage';
 import AccountPage from './components/Profile/AccountPage';
-import SpotPage from './components/SpotPage';
+import SpotPage from './components/Spots/SpotPage';
 import * as spotActions from './store/spots';
-
 
 const App = () => {
   const dispatch = useDispatch();
