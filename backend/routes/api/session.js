@@ -1,7 +1,7 @@
 const express = require('express');
 
 //? Authentication
-const {setTokenCookie, restoreUser, requireAuth} = require('../../utils/auth');
+const {setTokenCookie, restoreUser} = require('../../utils/auth');
 
 //? Models
 const {User} = require('../../db/models');
@@ -27,16 +27,9 @@ router.post('/', validateLogin, async (req, res, next) => {
     return next(err);
   }
 
-  //* Excluding undesired parameters
-  const loginUser = await User.findOne({
-    where: {id: user.dataValues.id},
-    attributes: {exclude: ['createdAt', 'updatedAt', 'hashedPassword']},
-  });
+  await setTokenCookie(res, user);
 
-  loginUser.dataValues.token = await setTokenCookie(res, user);
-  const {id, name, username, email} = loginUser.dataValues;
-
-  return res.json({id, name, username, email});
+  return res.json({user});
 });
 
 /**********************************************************************************/
@@ -52,34 +45,11 @@ router.delete('/', (_req, res) => {
 //! Restore session user
 router.get('/', restoreUser, (req, res) => {
   const {user} = req;
-
   if (user) {
-    return res.json(user.dataValues);
+    return res.json({
+      user: user.toSafeObject(),
+    });
   } else return res.json({});
-});
-
-// /**********************************************************************************/
-// //! Get current User
-router.get('/current/:userId', async (req, res) => {
-  console.log(erq.params.userId)
-  //* Excluding undesired parameters
-  const currUser = await User.findOne({
-    where: {id: req.params.userId},
-    attributes: {exclude: ['createdAt', 'updatedAt']},
-
-  });
-
-  currUser.token = await setTokenCookie(res, currUser);
-
-  const {id, name, email, username, profileImg} = currUser;
-
-  res.json({
-    id,
-    name,
-    email,
-    username,
-    profileImg,
-  });
 });
 
 module.exports = router;

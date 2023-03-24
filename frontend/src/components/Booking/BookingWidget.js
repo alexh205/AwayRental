@@ -5,7 +5,7 @@ import {addNewBooking} from '../../store/bookings';
 import {Redirect} from 'react-router-dom';
 import {BsDot} from 'react-icons/bs';
 
-const BookingWidget = ({spot}) => {
+const BookingWidget = ({spot, user}) => {
   const dispatch = useDispatch();
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
@@ -13,6 +13,7 @@ const BookingWidget = ({spot}) => {
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
   const [redirect, setRedirect] = useState('');
+  const [validateErrors, setValidateErrors] = useState([]);
 
   let numberOfNights = 0;
   if (checkIn && checkOut) {
@@ -22,17 +23,51 @@ const BookingWidget = ({spot}) => {
     );
   }
 
+  const validate = () => {
+    const errors = [];
+
+    if (!checkIn) errors.push("Please provide a 'Start Date'");
+    if (!checkOut) errors.push("Please provide a 'End Date'");
+    if (!name) errors.push("Please select a 'Name'");
+    if (!mobile) errors.push("Please provide a 'Phone Number'");
+
+    return errors;
+  };
+
   const handleBooking = async e => {
     e.preventDefault();
+
+    if (!user) {
+      alert('You must login to book this property!');
+      return;
+    }
+    const errors = validate();
+
+    if (errors.length > 0) {
+      return setValidateErrors(errors);
+    }
+
+    if (user.id === spot.ownerId) {
+      alert('You can not book a property you already own!');
+      return;
+    }
+
     const data = {
       spotId: spot.id,
-      startDate: checkIn,
-      endDate: checkOut,
-      guestsNum: numberOfGuests,
+      startDate: new Date(checkIn),
+      endDate: new Date(checkOut),
+      guestsNum: Number(numberOfGuests),
       name,
-      phone: mobile,
       price: numberOfNights * spot.price,
+      phone: mobile,
     };
+    setCheckIn('');
+    setCheckOut('');
+    setNumberOfGuests(1);
+    setName('');
+    setMobile('');
+    setValidateErrors([]);
+
     const response = await dispatch(addNewBooking(data));
     setRedirect(`/account/bookings/${response}`);
   };
@@ -77,6 +112,15 @@ const BookingWidget = ({spot}) => {
         </div>
       </div>
       <div className="border rounded-2xl mt-4">
+        {validateErrors.length > 0 && (
+          <div className="my-2 ml-2">
+            <ul className="text-red-600 text-[13px] font-semibold ml-2">
+              {validateErrors.map((error, i) => (
+                <li key={i}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className="flex xl:flex-row flex-col items-center">
           <div className="py-3 px-4">
             <label className="text-base mr-2 font-semibold">Check in:</label>
@@ -124,11 +168,12 @@ const BookingWidget = ({spot}) => {
           </div>
         )}
       </div>
-      <button className="primary mt-4" onClick={handleBooking}>
+      <button
+        className="primary mt-4 whitespace-nowrap"
+        onClick={handleBooking}>
         Book this property
         {numberOfNights > 0 && (
           <span>
-            {' '}
             ${numberOfNights * spot.price} ({numberOfNights} nights)
           </span>
         )}

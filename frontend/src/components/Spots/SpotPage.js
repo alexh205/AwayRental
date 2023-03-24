@@ -11,7 +11,7 @@ import {CiHeart} from 'react-icons/ci';
 import SpotReview from '../Reviews/SpotReview';
 import RenderAmenities from './RenderAmenities';
 import AmenitiesModal from '../Modals/AmenitiesModal';
-import Map from '../Map';
+// import Map from '../Map';
 
 const SpotPage = () => {
   const {id} = useParams();
@@ -29,7 +29,6 @@ const SpotPage = () => {
     }
     dispatch(getSpotById(id)).then(res => setSpot(res));
   }, []);
-  // console.log(spot.amenities.split(','));
 
   return (
     <>
@@ -89,8 +88,8 @@ const SpotPage = () => {
             />
           </div>
 
-          <div className="mt-8 mb-2 gap-8 grid grid-cols-1 md:grid-cols-3 pb-4 border-b">
-            <div className="my-1 col-span-2 mr-4">
+          <div className="mt-8 mb-2 gap-6 grid grid-cols-1 lg:grid-cols-3 pb-4 border-b">
+            <div className="my-1 col-span-2 mr-3">
               <div
                 className={`${
                   selectImage ? 'hidden' : 'flex flex-col justify-center'
@@ -148,14 +147,14 @@ const SpotPage = () => {
                         <RenderAmenities amenity={amenity} />
                       </div>
                     ))}
-                {spot && spot.amenities && (
-                  <button
-                    className="bg-site-primary text-white my-3 mx-auto py-2 px-2 text-base rounded-md whitespace-nowrap"
-                    onClick={() => setModal(!modal)}>
-                    Show all {spot.amenities.split(',').length} amenities
-                  </button>
-                )}
               </div>
+              {spot && spot.amenities && (
+                <button
+                  className="bg-site-primary text-white my-3 mx-auto py-2 px-4 text-base rounded-md  sm:ml-[108px]  whitespace-nowrap"
+                  onClick={() => setModal(!modal)}>
+                  Show all {spot.amenities.split(',').length} amenities
+                </button>
+              )}
             </div>
             <div className={`${selectImage ? 'hidden' : 'relative'}`}>
               <BookingWidget
@@ -164,16 +163,18 @@ const SpotPage = () => {
               />
             </div>
           </div>
-          <div
-            ref={targetRef}
-            id="reviews"
-            className={`${selectImage ? 'hidden' : 'block'}`}>
-            <SpotReview spot={spot} />
-          </div>
+          {spot && spot.spotReviews.length > 0 && (
+            <div
+              ref={targetRef}
+              id="reviews"
+              className={`${selectImage ? 'hidden' : 'block'}`}>
+              <SpotReview spot={spot} />
+            </div>
+          )}
         </div>
-        <div className="my-4">
+        {/* <div className="my-4">
           <Map />
-        </div>
+        </div> */}
       </div>
 
       {modal && (

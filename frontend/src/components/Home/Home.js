@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from '../Header_footer/Header';
 import {useDispatch, useSelector} from 'react-redux';
 import Footer from '../Header_footer/Footer';
@@ -8,14 +8,13 @@ import {getAllSpots} from '../../store/spots';
 
 function Home() {
   const dispatch = useDispatch();
-  const spotsList = useSelector(state => state.spots);
-  const spotsArr = Object.values(spotsList);
-
+  const spotsArr = useSelector(state => state.spots);
   useEffect(() => {
     dispatch(getAllSpots());
   }, []);
+
   return (
-    <div >
+    <div>
       <Header />
       <Filters />
       <div>
