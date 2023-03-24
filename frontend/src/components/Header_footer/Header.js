@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {GrUserManager} from 'react-icons/gr';
 import {MenuIcon} from '@heroicons/react/solid';
 import 'react-date-range/dist/styles.css'; // main style file
@@ -12,6 +13,7 @@ import awayRental from '../../static/awayRental.png';
 
 const Header = () => {
   const history = useHistory();
+  const user = useSelector(state => state.session.user?.user);
 
   return (
     <div className="border-b sticky top-0 z-50 bg-white  -mx-2">
@@ -19,7 +21,7 @@ const Header = () => {
         {/* Left */}
         <div className="flex h-20">
           <div
-            className="sm:flex overflow-hidden hidden"
+            className="flex overflow-hidden"
             onClick={() => history.push('/')}>
             <img
               src={awayRental}
@@ -56,10 +58,10 @@ const Header = () => {
         {/* Right */}
         <div className=" flex items-center font-semibold text-gray-600 mx-8">
           <div
-            onClick={() => history.push('/account')}
+            onClick={() => history.push(!user ? '/login' : '/account')}
             className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer whitespace-nowrap">
-            <p className="text-[14px]">Sign in</p>
-            <MenuIcon className="h-5" />
+            {!user ? <p className="text-[14px]">Sign in</p> : <p>{user?.name}</p>}
+            {/* <MenuIcon className="h-5" /> */}
             <GrUserManager className="text-[20px]" />
           </div>
         </div>

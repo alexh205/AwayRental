@@ -16,7 +16,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                 setShowAllPhotos(false);
                 setSelectImage(false);
               }}
-              className="fixed right-8 top-8 flex gap-1 py-2 px-4 rounded-2xl shadow shadow-black bg-white text-black">
+              className="fixed right-8 top-7 flex gap-1 py-2 px-4 rounded-2xl shadow shadow-black bg-white text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"

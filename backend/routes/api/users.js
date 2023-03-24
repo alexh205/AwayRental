@@ -51,13 +51,14 @@ router.post('/', validateSignup, async (req, res) => {
   });
 
   //* Excluding undesired parameters
-  const newUser = await User.scope('signUpUser').findOne({
-    where: {id: user.id},
-    attributes: {exclude: ['id']},
-  });
+  // const newUser = await User.scope('signUpUser').findOne({
+  //   where: {id: user.id},
+  //   attributes: {exclude: ['id']},
+  // });
 
-  newUser.dataValues.token = setTokenCookie(res, user);
+  // newUser.dataValues.token = await setTokenCookie(res, user);
+  await setTokenCookie(res, user);
 
-  return res.json(newUser);
+  return res.json({user});
 });
 module.exports = router;

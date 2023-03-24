@@ -12,7 +12,7 @@ module.exports = {
       [
         {
           name: 'Demo User',
-          email: 'demoi@user.io',
+          email: 'demo@user.io',
           username: 'demoUser',
           hashedPassword: bcrypt.hashSync('password'),
           profileImg: 'https://www.whichfaceisreal.com/realimages/68259.jpeg',

@@ -17,7 +17,7 @@ const SpotReview = ({spot}) => {
   return (
     <>
       {spot && (
-        <div  className="mb-7 mt-4">
+        <div className="mb-7 mt-4">
           <h2 className="text-2xl font-semibold mb-1">User reviews</h2>
           <div className="flex flex-row items-center">
             <div className="flex flex-row items-center text-[22px] ">

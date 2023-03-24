@@ -1,17 +1,19 @@
 import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
 import LoginPage from './components/Profile/LoginPage';
 import RegisterPage from './components/Profile/RegisterPage';
 import AccountPage from './components/Profile/AccountPage';
 import SpotPage from './components/Spots/SpotPage';
-import * as spotActions from './store/spots';
+import {useSelector, useDispatch} from 'react-redux';
+import {restoreUser} from './store/session';
 
 const App = () => {
+  const user = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(spotActions.getAllSpots());
+    dispatch(restoreUser());
   }, [dispatch]);
   return (
     <>

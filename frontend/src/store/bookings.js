@@ -48,6 +48,7 @@ export const getAllBookings = spotId => async dispatch => {
 
 export const addNewBooking = data => async dispatch => {
   const {spotId} = data;
+
   const response = await csrfFetch(`/api/spots/${spotId}/bookings`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -55,6 +56,7 @@ export const addNewBooking = data => async dispatch => {
   });
   if (response.ok) {
     const newBooking = await response.json();
+
     dispatch(addBooking(newBooking));
     return newBooking.id;
   } else {
@@ -101,18 +103,18 @@ export const reviewDelete = id => async dispatch => {
 
 const initialState = {};
 const bookingsReducer = (state = initialState, action) => {
-  const newState = {...state};
+  let newState = {...state};
   switch (action.type) {
     case GET:
       newState = {...action.bookings};
     case ADD:
-      newState = {...state, [action.bookings.id]: action.bookings};
+      newState = {...newState, [action.bookings.id]: action.bookings};
       return newState;
     case USERBOOKINGS:
       newState = {...action.bookings};
       return newState;
     case EDIT:
-      newState = {...state, [action.bookings.id]: action.bookings};
+      newState = {...newState, [action.bookings.id]: action.bookings};
       return newState;
     case DELETE:
       delete newState[action.bookings.id];
