@@ -63,7 +63,7 @@ module.exports = {
         bed: {
           type: Sequelize.INTEGER,
         },
-        bath: {
+        bathroom: {
           type: Sequelize.INTEGER,
         },
         maxGuests: {

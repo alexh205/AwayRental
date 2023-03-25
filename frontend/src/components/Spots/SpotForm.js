@@ -21,7 +21,7 @@ export const SpotForm = () => {
   const [maxGuests, setMaxGuests] = useState(1);
   const [bedroom, setBedroom] = useState(1);
   const [bed, setBed] = useState(1);
-  const [bath, setBath] = useState(0);
+  const [bathroom, setBathroom] = useState(0);
   const [price, setPrice] = useState(0);
 
   const inputHeader = text => {
@@ -206,8 +206,8 @@ export const SpotForm = () => {
                 <input
                   className="w-full h-full my-1 rounded-2xl text-center border outline-none"
                   type="number"
-                  value={bath}
-                  onChange={e => setBath(e.target.value)}
+                  value={bathroom}
+                  onChange={e => setBathroom(e.target.value)}
                 />
               </div>
             </div>

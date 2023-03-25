@@ -15,6 +15,7 @@ const BookingWidget = ({spot, user}) => {
   const [redirect, setRedirect] = useState('');
   const [validateErrors, setValidateErrors] = useState([]);
 
+
   let numberOfNights = 0;
   if (checkIn && checkOut) {
     numberOfNights = differenceInCalendarDays(

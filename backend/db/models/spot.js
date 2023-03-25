@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
           isNumeric: true,
         },
       },
-      bath: {
+      bathroom: {
         type: DataTypes.INTEGER,
         validate: {
           isNumeric: true,

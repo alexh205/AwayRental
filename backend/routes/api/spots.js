@@ -250,7 +250,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     amenities,
     bedroom,
     bed,
-    bath,
+    bathroom,
     maxGuests,
     checkIn,
     checkOut,
@@ -271,7 +271,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     amenities: amenities,
     bedroom: bedroom,
     bed: bed,
-    bath: bath,
+    bathroom: bathroom,
     maxGuests: maxGuests,
     checkIn: checkIn,
     checkOut: checkOut,
@@ -382,7 +382,7 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     amenities,
     bedroom,
     bed,
-    bath,
+    bathroom,
     maxGuests,
     checkIn,
     checkOut,
@@ -436,7 +436,7 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     amenities: amenities,
     bedroom: bedroom,
     bed: bed,
-    bath: bath,
+    bathroom: bathroom,
     maxGuests: maxGuests,
     checkIn: checkIn,
     checkOut: checkOut,
@@ -620,7 +620,7 @@ router.post(
     }
 
     console.log("this works");
-    
+
     const newBooking = await Booking.create({
       userId: req.user.id,
       spotId: req.params.spotId,

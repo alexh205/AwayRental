@@ -4,7 +4,9 @@ import {Link, Redirect, useParams} from 'react-router-dom';
 import {SpotForm} from '../Spots/SpotForm';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../../store/session';
-const AccountPage = () => {
+import Bookings from '../Booking/Bookings';
+
+const AccountNav = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user?.user);
 
@@ -94,8 +96,9 @@ const AccountPage = () => {
         </div>
       )}
       {subPage === 'spots' && <SpotForm />}
+      {subPage === 'bookings' && <Bookings />}
     </div>
   );
 };
 
-export default AccountPage;
+export default AccountNav;
