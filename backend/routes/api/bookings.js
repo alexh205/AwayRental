@@ -223,10 +223,11 @@ router.put(
 //! get Booking by Id
 
 router.get(
-  '/spots/:bookingId',
+  '/:bookingId/spot',
   requireAuth,
   bookingIdValidation,
   async (req, res) => {
+    console.log(req.params);
     const getBooking = await Booking.findOne({
       where: {id: req.params.bookingId},
       attributes: [
@@ -235,24 +236,41 @@ router.get(
         'userId',
         'price',
         'name',
-        'phone',
         'guestsNum',
         'startDate',
         'endDate',
         'createdAt',
-        'updatedAt',
       ],
       include: [
         {
           model: Spot,
           required: false,
           attributes: [
-            'id',,
+            'id',
+            'ownerId',
+            'address',
+            'city',
+            'state',
+            'country',
+            'description',
+            'type',
+            'lat',
+            'lng',
+            'title',
+            'amenities',
+            'bedroom',
+            'bed',
+            'bathroom',
+            'checkIn',
+            'checkOut',
+            'maxGuests',
+            'price',
           ],
         },
       ],
     });
-    return res.json({Booking: getBooking});
+
+    return res.json(getBooking);
   }
 );
 
