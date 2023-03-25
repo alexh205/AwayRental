@@ -1,16 +1,17 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import BookingWidget from '../Booking/BookingWidget';
+import {BsDot} from 'react-icons/bs';
+// import {CiHeart} from 'react-icons/ci';
 import {getSpotById} from '../../store/spots';
+import BookingWidget from '../Booking/BookingWidget';
 import Header from '../Header_footer/Header';
 import SpotImage from '../Images/SpotImage';
 import LocationLink from './LocationLink';
-import {BsDot} from 'react-icons/bs';
-import {CiHeart} from 'react-icons/ci';
 import SpotReview from '../Reviews/SpotReview';
 import RenderAmenities from './RenderAmenities';
 import AmenitiesModal from '../Modals/AmenitiesModal';
+import {BiMap} from 'react-icons/bi';
 // import Map from '../Map';
 
 const SpotPage = () => {
@@ -20,7 +21,7 @@ const SpotPage = () => {
   const [selectImage, setSelectImage] = useState(false);
   const [modal, setModal] = useState(false);
   const targetRef = useRef(null); // to create a reference to the target element
-  const user = useSelector(state => state.session.user?.user)
+  const user = useSelector(state => state.session.user?.user);
 
   const showModal = Boolean => setModal(false);
 
@@ -31,9 +32,20 @@ const SpotPage = () => {
     dispatch(getSpotById(id)).then(res => setSpot(res));
   }, []);
 
+  // formatting AM/PM time
+  const formatTime = (time, isCheckIn) => {
+    const hour = parseInt(time?.split(':')[0]);
+    const amOrPm = hour >= 12 ? 'PM' : 'AM';
+    if (isCheckIn) {
+      return `${hour > 12 ? hour - 12 : hour}:00 ${amOrPm}`;
+    } else {
+      return `${((hour + 11) % 12) + 1}:00 ${amOrPm}`;
+    }
+  };
+
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container mx-auto ">
         {!selectImage && <Header />}
         <div className="-mx-4 px-16 pt-3 f">
           <h1 className="text-3xl whitespace-nowrap">{spot.title}</h1>
@@ -72,21 +84,20 @@ const SpotPage = () => {
                 )}
                 <BsDot className="mx-[2px]" />
               </div>
-              <LocationLink className={'flex flex-row items-center'}>
-                {spot.city + ', ' + spot.state + ', ' + spot.country}
-              </LocationLink>
+              <div className="flex flex-row items-center">
+                <BiMap className="w-6 h-6 mr-1" />
+                <LocationLink className={'flex flex-row items-center'}>
+                  {spot.city + ', ' + spot.state + ', ' + spot.country}
+                </LocationLink>
+              </div>
             </div>
-            <div className="underline flex items-center p-2 hover:bg-gray-100 hover:rounded-xl cursor-pointer">
+            {/* <div className="underline flex items-center p-2 hover:bg-gray-100 hover:rounded-xl cursor-pointer">
               <CiHeart className="w-5 h-5 mr-1" />
               Save
-            </div>
+            </div> */}
           </div>
           <div>
-            <SpotImage
-              spot={spot}
-              setSelectImage={setSelectImage}
-              selectImage={selectImage}
-            />
+            <SpotImage spot={spot} setSelectImage={setSelectImage} />
           </div>
 
           <div className="mt-8 mb-2 gap-6 grid grid-cols-1 lg:grid-cols-3 pb-4 border-b">
@@ -102,13 +113,19 @@ const SpotPage = () => {
                     </div>
                     <BsDot className="sm:flex hidden mx-[2px]" />
                     <div className="whitespace-nowrap">
-                      {spot.bedroom} bedrooms
+                      {`${spot.bedroom} ${
+                        spot.bedroom > 1 ? 'bedrooms' : 'bedroom'
+                      }`}
                     </div>
                     <BsDot className="sm:flex hidden mx-[2px]" />
-                    <div className="whitespace-nowrap">{spot.bed} beds</div>
+                    <div className="whitespace-nowrap">{`${spot.bed} ${
+                      spot.bed > 1 ? 'beds' : 'bed'
+                    }`}</div>
                     <BsDot className="sm:flex hidden mx-[2px]" />
                     <div className="whitespace-nowrap">
-                      {spot.bathroom} bathrooms
+                      {`${spot.bathroom} ${
+                        spot.bathroom > 1 ? 'bathrooms' : 'bathroom'
+                      }`}
                     </div>
                   </div>
                   <div>
@@ -127,11 +144,15 @@ const SpotPage = () => {
                 <div className="opacity-80">
                   <div className="mt-[5px] flex flex-row items-center">
                     Check-in:{' '}
-                    <p className="font-bold ml-2">{spot.checkIn} PM</p>
+                    <p className="font-bold ml-1">
+                      {formatTime(spot.checkIn, true)}
+                    </p>
                   </div>
                   <div className="my-[5px] flex flex-row items-center">
                     Check-out:{' '}
-                    <p className="font-bold ml-1">{spot.checkOut} AM</p>
+                    <p className="font-bold ml-1">
+                      {formatTime(spot.checkOut, false)}
+                    </p>
                   </div>
                 </div>
               </div>

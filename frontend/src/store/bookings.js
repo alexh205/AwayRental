@@ -10,6 +10,12 @@ const getBooking = data => ({
   type: GET,
   bookings: data,
 });
+
+const getSingleBooking = data => ({
+  type: GET,
+  bookings: data,
+});
+
 const addBooking = data => ({
   type: ADD,
   bookings: data,
@@ -43,6 +49,16 @@ export const getAllBookings = spotId => async dispatch => {
     const obj = {};
     Bookings.forEach(booking => (obj[booking.id] = booking));
     dispatch(getBooking(obj));
+  }
+};
+export const getSingleBookingThunk = bookingId => async dispatch => {
+  const response = await csrfFetch(`/api/bookings/${bookingId}/spot`);
+
+  if (response.ok) {
+    const booking = await response.json();
+    // console.log(booking);
+    return booking;
+    // dispatch(getBooking(booking));
   }
 };
 

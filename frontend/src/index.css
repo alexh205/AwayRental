@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  /** limits the user's ability to endlessly scroll in both the y and x axises */
+  overflow-y: auto;
+  overscroll-behavior-y: none;
+  overflow-x: auto;
+  overscroll-behavior-x: none;
+}
+
 input[type='text'],
 input[type='password'],
 input[type='email'],
