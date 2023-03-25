@@ -22,6 +22,10 @@ router.get('/current', requireAuth, async (req, res) => {
       'id',
       'spotId',
       'userId',
+      'price',
+      'name',
+      'phone',
+      'guestsNum',
       'startDate',
       'endDate',
       'createdAt',
@@ -56,24 +60,17 @@ router.get('/current', requireAuth, async (req, res) => {
     ],
   });
 
-  // for (let booking of userBookings) {
-  //   let spotId = booking.dataValues.Spot.dataValues.id;
+  for (let booking of userBookings) {
+    let spotId = booking.dataValues.Spot.dataValues.id;
 
-  //   //* Images
-  //   let previewImage = [];
+    //* Images
 
-  //   let spotPhoto = await Image.findAll({
-  //     where: [{ imageableId: spotId }, { imageableType: "Spot" }],
-  //   });
+    let spotPhoto = await Image.findAll({
+      where: [{imageableId: spotId}, {imageableType: 'Spot'}],
+    });
 
-  //   for (let photo of spotPhoto) {
-  //     previewImage.push(photo.url);
-  //   }
-
-  //   previewImage.length > 0
-  //     ? (booking.dataValues.Spot.dataValues.previewImage = previewImage[0])
-  //     : (booking.dataValues.Spot.dataValues.previewImage = null);
-  // }
+    booking.dataValues.Spot.dataValues.previewImage = spotPhoto[0].url;
+  }
 
   if (!userBookings.length) {
     return res.status(404).json({
@@ -219,6 +216,43 @@ router.put(
       createdAt,
       updatedAt,
     });
+  }
+);
+
+/**********************************************************************************/
+//! get Booking by Id
+
+router.get(
+  '/spots/:bookingId',
+  requireAuth,
+  bookingIdValidation,
+  async (req, res) => {
+    const getBooking = await Booking.findOne({
+      where: {id: req.params.bookingId},
+      attributes: [
+        'id',
+        'spotId',
+        'userId',
+        'price',
+        'name',
+        'phone',
+        'guestsNum',
+        'startDate',
+        'endDate',
+        'createdAt',
+        'updatedAt',
+      ],
+      include: [
+        {
+          model: Spot,
+          required: false,
+          attributes: [
+            'id',,
+          ],
+        },
+      ],
+    });
+    return res.json({Booking: getBooking});
   }
 );
 

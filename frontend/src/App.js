@@ -3,8 +3,10 @@ import Home from './components/Home/Home';
 import React, {useEffect} from 'react';
 import LoginPage from './components/Profile/LoginPage';
 import RegisterPage from './components/Profile/RegisterPage';
-import AccountPage from './components/Profile/AccountPage';
+import AccountNav from './components/Profile/AccountNav';
 import SpotPage from './components/Spots/SpotPage';
+import Bookings from './components/Booking/Bookings';
+import BookingPage from './components/Booking/BookingPage';
 import {useSelector, useDispatch} from 'react-redux';
 import {restoreUser} from './store/session';
 
@@ -25,10 +27,12 @@ const App = () => {
           <Route
             path="/account/:subPage/:action"
             exact={true}
-            component={AccountPage}
+            component={AccountNav}
           />
-          <Route exact path="/account/:subPage?" component={AccountPage} />
+          <Route exact path="/account/:subPage?" component={AccountNav} />
           <Route path="/spots/:id" component={SpotPage} />
+          <Route path="/account/bookings" component={Bookings} />
+          <Route path="/bookings/:id" component={BookingPage} />
         </Switch>
       </main>
       {/* <Footer /> */}

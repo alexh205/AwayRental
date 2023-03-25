@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import BookingWidget from '../Booking/BookingWidget';
 import {getSpotById} from '../../store/spots';
 import Header from '../Header_footer/Header';
@@ -20,6 +20,7 @@ const SpotPage = () => {
   const [selectImage, setSelectImage] = useState(false);
   const [modal, setModal] = useState(false);
   const targetRef = useRef(null); // to create a reference to the target element
+  const user = useSelector(state => state.session.user?.user)
 
   const showModal = Boolean => setModal(false);
 
@@ -107,7 +108,7 @@ const SpotPage = () => {
                     <div className="whitespace-nowrap">{spot.bed} beds</div>
                     <BsDot className="sm:flex hidden mx-[2px]" />
                     <div className="whitespace-nowrap">
-                      {spot.bath} bathrooms
+                      {spot.bathroom} bathrooms
                     </div>
                   </div>
                   <div>
@@ -159,6 +160,7 @@ const SpotPage = () => {
             <div className={`${selectImage ? 'hidden' : 'relative'}`}>
               <BookingWidget
                 spot={spot}
+                user={user}
                 className="absolute top-0 right-0 bottom-0 left-0"
               />
             </div>

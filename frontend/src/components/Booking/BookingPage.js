@@ -1,11 +1,18 @@
-import React from 'react'
-import {useParams} from 'react-router-dom'
+import React, {useEffect} from 'react';
+import {useParams} from 'react-router-dom';
+import Header from '../Header_footer/Header';
+
 
 const BookingPage = () => {
-    const {id} = useParams()
-  return (
-    <div>single booking: {id}</div>
-  )
-}
+  const {id} = useParams();
 
-export default BookingPage
+  useEffect(() => {}, []);
+  return (
+    <>
+      <Header />
+      <div className="my-8">Hello</div>
+    </>
+  );
+};
+
+export default BookingPage;
