@@ -31,6 +31,7 @@ const App = () => {
           />
           <Route exact path="/account/:subPage?" component={AccountNav} />
           <Route path="/spots/:id" component={SpotPage} />
+
           <Route path="/account/bookings" component={Bookings} />
           <Route path="/bookings/:id" component={BookingPage} />
         </Switch>

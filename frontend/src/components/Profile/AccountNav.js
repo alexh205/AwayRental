@@ -1,14 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../Header_footer/Header';
 import {Link, Redirect, useParams} from 'react-router-dom';
 import {SpotForm} from '../Spots/SpotForm';
 import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../../store/session';
 import Bookings from '../Booking/Bookings';
+import UserSpots from '../Spots/UserSpots';
 
 const AccountNav = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user?.user);
+  const [selected, setSelected] = useState(false);
+
+  useEffect(() => {
+    setSelected(false);
+  }, []);
 
   let {subPage} = useParams();
   if (!subPage) {
@@ -95,7 +101,14 @@ const AccountNav = () => {
           </button>
         </div>
       )}
-      {subPage === 'spots' && <SpotForm />}
+      {subPage === 'spots' && (
+        <>
+          {selected && <SpotForm setSelected={setSelected} />}
+          {!selected && (
+            <UserSpots selected={selected} setSelected={setSelected} />
+          )}
+        </>
+      )}
       {subPage === 'bookings' && <Bookings />}
     </div>
   );
