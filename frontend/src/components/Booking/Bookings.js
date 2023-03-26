@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getUserBookings} from '../../store/bookings';
 import {ImCreditCard} from 'react-icons/im';
 import BookingDates from './BookingDates';
+import {BsPeopleFill} from 'react-icons/bs';
 
 const Bookings = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Bookings = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="container grid lg:grid-cols-2 grid-cols-1 gap-3">
+      <div className="container grid lg:grid-cols-2 grid-cols-1 gap-4">
         {bookingArr?.length > 0 &&
           bookingArr.map((booking, ind) => (
             <Link
@@ -47,7 +48,7 @@ const Bookings = () => {
 
                   <div className="md:mt-2 mt-4">
                     <div className="flex items-center">
-                      Guests #{' '}
+                      <BsPeopleFill className="w-6 h-6 mr-1" /> Guests:{' '}
                       <p className="ml-2 text-lg font-semibold">
                         {booking.guestsNum}
                       </p>

@@ -56,9 +56,9 @@ export const getSingleBookingThunk = bookingId => async dispatch => {
 
   if (response.ok) {
     const booking = await response.json();
-    // console.log(booking);
+
     return booking;
-    // dispatch(getBooking(booking));
+
   }
 };
 

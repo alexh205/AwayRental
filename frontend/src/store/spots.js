@@ -100,11 +100,12 @@ export const deleteSpotById = spotId => async dispatch => {
   }
 };
 export const userSpotsById = userId => async dispatch => {
-  const response = await csrfFetch(`/api/spots/${userId}`);
+  const response = await csrfFetch('/api/spots/current');
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(userSpots(data));
+    return data;
+    // dispatch(userSpots(data));
   }
 };
 

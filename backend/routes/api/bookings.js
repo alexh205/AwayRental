@@ -227,7 +227,7 @@ router.get(
   requireAuth,
   bookingIdValidation,
   async (req, res) => {
-    console.log(req.params);
+    
     const getBooking = await Booking.findOne({
       where: {id: req.params.bookingId},
       attributes: [

@@ -570,7 +570,6 @@ router.post(
   async (req, res) => {
     const bookingSpot = await Spot.findByPk(req.params.spotId);
 
-
     if (!bookingSpot) {
       return res
         .status(404)
@@ -584,11 +583,8 @@ router.post(
       });
     }
 
-
     const firstDate = Date.parse(req.body.startDate);
     const lastDate = Date.parse(req.body.endDate);
-
-
 
     if (firstDate > lastDate) {
       return res.status(400).json({
@@ -618,8 +614,6 @@ router.post(
         },
       });
     }
-
-    console.log("this works");
 
     const newBooking = await Booking.create({
       userId: req.user.id,

@@ -1,16 +1,20 @@
 import React, {useState} from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {Redirect, useParams} from 'react-router-dom';
 import Amenities from '../Profile/Amenities';
 import usaStates from '../../static/usaStates.json';
 import propertyTypes from '../../static/propertyTypes.json';
+import {addNewSpot} from '../../store/spots';
+import {useDispatch} from 'react-redux';
 
-export const SpotForm = () => {
+export const SpotForm = ({setSelected}) => {
   const {action} = useParams();
+  const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
+  const [country, setCountry] = useState('');
   const [type, setType] = useState('');
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [photoLink, setPhotoLink] = useState('');
@@ -18,11 +22,13 @@ export const SpotForm = () => {
   const [amenities, setAmenities] = useState([]);
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
-  const [maxGuests, setMaxGuests] = useState(1);
-  const [bedroom, setBedroom] = useState(1);
-  const [bed, setBed] = useState(1);
+  const [maxGuests, setMaxGuests] = useState(0);
+  const [bedroom, setBedroom] = useState(0);
+  const [bed, setBed] = useState(0);
   const [bathroom, setBathroom] = useState(0);
   const [price, setPrice] = useState(0);
+
+  const [validateErrors, setValidateErrors] = useState([]);
 
   const inputHeader = text => {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -41,43 +47,131 @@ export const SpotForm = () => {
     );
   };
 
+  const validate = () => {
+    const errors = [];
+    if (!title) errors.push("Please provide a 'Title'");
+    if (!address) errors.push("Please provide a 'Address'");
+    if (!city) errors.push("Please provide a 'City'");
+    if (!state) errors.push("Please provide a 'State'");
+    if (!country) errors.push("Please provide a 'Country'");
+    if (!type) errors.push("Please provide a 'Type'");
+    if (!description) errors.push("Please provide a 'Description'");
+    if (amenities.length < 1) errors.push("Please provide a 'Amenities'");
+    if (!checkIn) errors.push("Please provide a 'Start Date'");
+    if (!checkOut) errors.push("Please provide a 'End Date'");
+    if (maxGuests < 1) errors.push("Please provide a 'Max Guests'");
+    if (bedroom < 1) errors.push("Please provide a 'Bedroom'");
+    if (bed < 1) errors.push("Please provide a 'Bed'");
+    if (bathroom < 1) errors.push("Please provide a 'Bathroom'");
+    if (price < 1) errors.push("Please provide a 'Price'");
+
+    return errors;
+  };
+
+  const saveSpot = e => {
+    e.preventDefault();
+
+    const errors = validate();
+
+    if (errors.length > 0) {
+      return setValidateErrors(errors);
+    }
+
+    const newSpot = {
+      title,
+      address,
+      city,
+      state,
+      country,
+      type,
+      description,
+      amenities,
+      checkIn,
+      checkOut,
+      maxGuests,
+      bedroom,
+      bed,
+      bathroom,
+      price,
+    };
+    
+
+    dispatch(addNewSpot({}));
+    setTitle('');
+    setAddress('');
+    setCity('');
+    setState('');
+    setCountry('');
+    setType('');
+    setDescription('');
+    setAmenities([]);
+    setCheckIn('');
+    setCheckOut('');
+    setMaxGuests(0);
+    setBedroom(0);
+    setBed(0);
+    setBathroom(0);
+    setPrice(0);
+    setValidateErrors([]);
+  };
+
+  const handleCancel = () => {
+    // e.preventDefault();
+    setTitle('');
+    setAddress('');
+    setCity('');
+    setState('');
+    setCountry('');
+    setType('');
+    setDescription('');
+    setAmenities([]);
+    setCheckIn('');
+    setCheckOut('');
+    setMaxGuests(0);
+    setBedroom(0);
+    setBed(0);
+    setBathroom(0);
+    setPrice(0);
+    setValidateErrors([]);
+
+    return <Redirect to={'/'} />;
+  };
+
   return (
     <div className="mx-8 h-fit">
-      {action !== 'new' && (
-        <div className="text-center">
-          <Link
-            className="inline-flex gap-1 bg-site-primary text-white py-2 px-6 rounded-full"
-            to={'/account/spots/new'}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-            Add a new spot
-          </Link>
-        </div>
-      )}
       {action === 'new' && (
         <div>
           <form>
-            {preInput(
-              'Title',
-              'Provide a short heading/title for the property'
-            )}
-            <input
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-              type="text"
-              placeholder="Title, ex) Friendly cozy house"
-            />
+            <div className="flex sm:flex-row flex-col items-center w-full gap-4">
+              <div className="flex flex-col justify-center w-full">
+                {preInput(
+                  'Title',
+                  'Provide a short heading/title for the property'
+                )}
+                <input
+                  value={title}
+                  onChange={e => setTitle(e.target.value)}
+                  type="text"
+                  placeholder="Title, ex) Friendly cozy house"
+                />
+              </div>
+              <div className="flex flex-col justify-center w-full">
+                {preInput('Property type', 'Select the type of property')}
+                <select
+                  className="border rounded-2xl py-2 text-center"
+                  value={type}
+                  onChange={e => setType(e.target.value)}>
+                  <option value="" disabled>
+                    --Please select a Type--
+                  </option>
+                  {propertyTypes.map((type, idx) => (
+                    <option key={idx} value={type}>
+                      {type}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
             {preInput('Address', 'Address to the property')}
             <input
               value={address}
@@ -110,22 +204,16 @@ export const SpotForm = () => {
                 </select>
               </div>
               <div className="flex flex-col justify-center w-full">
-                {preInput('Property type', '')}
-                <select
-                  className="border rounded-2xl py-2 text-center"
-                  value={type}
-                  onChange={e => setType(e.target.value)}>
-                  <option value="" disabled>
-                    --Please select a Type--
-                  </option>
-                  {propertyTypes.map((type, idx) => (
-                    <option key={idx} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
+                {preInput('Country', '')}
+                <input
+                  value={country}
+                  onChange={e => setCountry(e.target.value)}
+                  type="text"
+                  placeholder="Country"
+                />
               </div>
             </div>
+
             {preInput(
               'Photos',
               'Provide a well rounded presentation of the property'
@@ -263,8 +351,24 @@ export const SpotForm = () => {
                 />
               </div>
             </div>
-            <div className='mx-28'>
-              <button className="primary my-[18px]">Save</button>
+            {validateErrors.length > 0 && (
+              <div className="my-2 ml-2">
+                <ul className="text-red-600 text-[13px] font-semibold ml-2">
+                  {validateErrors.map((error, i) => (
+                    <li key={i}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <div className="mx-28 flex sm:flex-row flex-col gap-2 items-center">
+              <button onClick={saveSpot} className="primary my-3">
+                Save
+              </button>
+              <button
+                onClick={handleCancel}
+                className="bg-gray-600 py-2 w-full rounded-2xl text-white my-3">
+                Cancel
+              </button>
             </div>
           </form>
         </div>

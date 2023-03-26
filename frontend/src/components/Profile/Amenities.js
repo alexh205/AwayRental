@@ -23,66 +23,83 @@ import {VscDeviceCameraVideo} from 'react-icons/vsc';
 import {TbPlant, TbAirConditioning} from 'react-icons/tb';
 
 const Amenities = ({selected, onChange}) => {
+  const handleClick = e => {
+    const {name, checked} = e.target;
+    if (checked && !selected.includes(name)) {
+      onChange([...selected, name]);
+    } else if (!checked && selected.includes(name)) {
+      onChange([...selected.filter(selectedName => selectedName !== name)]);
+    }
+  };
+
   return (
     <>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="Wifi" onChange={handleClick} />
         <BsWifi className="h-6 w-6" />
         <span>Wifi</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="Radio" onChange={handleClick} />
         <MdOutlineRadio className="h-6 w-6" />
         <span>Radio</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="Private entrance" onChange={handleClick} />
         <BsDoorOpen className="w-6 h-6" />
         <span>Private entrance</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          name="Security on property"
+          onChange={handleClick}
+        />
         <VscDeviceCameraVideo className="w-6 h-6" />
         <span>Security on property</span>
       </label>
 
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="Street parking" onChange={handleClick} />
         <BsCarFront className="w-6 h-6" />
         <span>Street parking</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          name="Parking on premise"
+          onChange={handleClick}
+        />
         <GiHomeGarage className="w-6 h-6" />
         <span>Parking on premise</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="water_front" onChange={handleClick} />
         <MdOutlineWater className="w-6 h-6" />
         <span>Water front</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="grand_view" onChange={handleClick} />
         <TbPlant className="w-6 h-6" />
         <span>Garden view</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="tv" onChange={handleClick} />
         <MdMonitor className="w-6 h-6" />
         <span>TV</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="pets" onChange={handleClick} />
         <MdPets className="w-6 h-6" />
         <span>Pets</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="hot_water" onChange={handleClick} />
         <FaHotTub className="w-5 h-5" />
         <span>Hot water</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="hair_dryer" onChange={handleClick} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -97,62 +114,70 @@ const Amenities = ({selected, onChange}) => {
         <span>Hair dryer</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="heating" onChange={handleClick} />
         <GiFurnace className="w-6 h-6" />
         <span>Heating</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="ac" onChange={handleClick} />
         <TbAirConditioning className="h-6 w-6" />
         <span>AC</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="fan" onChange={handleClick} />
         <FaFan className="h-5 w-5" />
         <span>Fan</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="smoke_alarm" onChange={handleClick} />
         <GiRingingAlarm className="h-5 w-5" />
         <span>Smoke alarm</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          name="fire_extinguisher"
+          onChange={handleClick}
+        />
         <FaFireExtinguisher className="h-5 w-5" />
         <span>Fire extinguisher</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="kitchen" onChange={handleClick} />
         <GiChickenOven className="h-5 w-5" />
         <span>Kitchen</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="microwave" onChange={handleClick} />
         <MdOutlineMicrowave className="h-5 w-5" />
         <span>Microwave</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="oven" onChange={handleClick} />
         <GiCookingPot className="h-5 w-5" />
         <span>Oven</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="refrigerator" onChange={handleClick} />
         <MdOutlineKitchen className="h-5 w-5" />
         <span>Refrigerator</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          name="bathtub_or_shower"
+          onChange={handleClick}
+        />
         <MdOutlineBathtub className="h-5 w-5" />
         <span>Bathtub or shower</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="dining_table" onChange={handleClick} />
         <MdOutlineTableBar className="h-5 w-5" />
         <span>Dining table</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" />
+        <input type="checkbox" name="coffee_maker" onChange={handleClick} />
         <MdCoffeeMaker className="h-5 w-5" />
         <span>Coffee maker</span>
       </label>
