@@ -162,7 +162,7 @@ const SpotPage = () => {
               <div className="grid sm:grid-cols-2 grid-cols-1">
                 {spot &&
                   spot.amenities
-                    .split(',')
+
                     .slice(0, 6)
                     .map((amenity, ind) => (
                       <div key={ind}>
@@ -174,7 +174,7 @@ const SpotPage = () => {
                 <button
                   className="bg-site-primary hover:bg-site-secondary text-white my-3 mx-auto py-2 px-4 text-base rounded-md  sm:ml-[108px]  whitespace-nowrap"
                   onClick={() => setModal(!modal)}>
-                  Show all {spot.amenities.split(',').length} amenities
+                  Show all {spot.amenities.length} amenities
                 </button>
               )}
             </div>
@@ -203,7 +203,7 @@ const SpotPage = () => {
       {modal && (
         <AmenitiesModal
           showModal={showModal}
-          amenities={spot.amenities.split(',')}
+          amenities={spot.amenities}
           modal={modal}
         />
       )}
