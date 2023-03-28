@@ -39,7 +39,15 @@ const SpotCard = ({spot}) => {
         </div>
 
         <div className="flex flex-row items-center px-2 mx-auto mb-2">
-          <p className="font-bold mr-1">${spot.price}</p> night
+          <p className="font-bold mr-1">
+            {spot.price
+              ?.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              })
+              .replace('.00', '')}
+          </p>{' '}
+          night
         </div>
       </div>
     </div>

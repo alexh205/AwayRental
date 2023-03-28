@@ -1,8 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {BsDot} from 'react-icons/bs';
-// import {CiHeart} from 'react-icons/ci';
+import {BsDot, BsFillStarFill} from 'react-icons/bs';
 import {getSpotById} from '../../store/spots';
 import BookingWidget from '../Booking/BookingWidget';
 import Header from '../Header_footer/Header';
@@ -32,7 +31,7 @@ const SpotPage = () => {
     dispatch(getSpotById(id)).then(res => setSpot(res));
   }, []);
 
-  // formatting AM/PM time
+  //? formatting AM/PM time
   const formatTime = (time, isCheckIn) => {
     const hour = parseInt(time?.split(':')[0]);
     const amOrPm = hour >= 12 ? 'PM' : 'AM';
@@ -53,22 +52,12 @@ const SpotPage = () => {
             <div className="flex flex-row items-center ">
               <div className="flex flex-row items-center ">
                 <div className="flex flex-row items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="w-4 h-4 mr-1">
-                    <path
-                      fillRule="evenodd"
-                      d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <BsFillStarFill className="w-4 h-4 mr-1" />
                   {spot.avgRating}
                 </div>
                 <BsDot className="mx-[2px]" />
                 {spot.numReviews > 0 ? (
-                  <div className="font-medium underline cursor-pointer">
+                  <div className="font-medium underline cursor-pointer hover:text-amber-600">
                     <a
                       href="#reviews"
                       onClick={() => targetRef.current.scrollIntoView()}>
@@ -76,9 +65,7 @@ const SpotPage = () => {
                     </a>
                   </div>
                 ) : (
-                  <a
-                    href="#reviews"
-                    onClick={() => targetRef.current.scrollIntoView()}>
+                  <a>
                     <div className="font-medium underline">0 reviews</div>
                   </a>
                 )}
@@ -91,10 +78,6 @@ const SpotPage = () => {
                 </LocationLink>
               </div>
             </div>
-            {/* <div className="underline flex items-center p-2 hover:bg-gray-100 hover:rounded-xl cursor-pointer">
-              <CiHeart className="w-5 h-5 mr-1" />
-              Save
-            </div> */}
           </div>
           <div>
             <SpotImage spot={spot} setSelectImage={setSelectImage} />
@@ -161,16 +144,13 @@ const SpotPage = () => {
 
               <div className="grid sm:grid-cols-2 grid-cols-1">
                 {spot &&
-                  spot.amenities
-
-                    .slice(0, 6)
-                    .map((amenity, ind) => (
-                      <div key={ind}>
-                        <RenderAmenities amenity={amenity} />
-                      </div>
-                    ))}
+                  spot.amenities.slice(0, 6).map((amenity, ind) => (
+                    <div key={ind}>
+                      <RenderAmenities amenity={amenity} />
+                    </div>
+                  ))}
               </div>
-              {spot && spot.amenities && (
+              {spot && spot?.amenities.length > 6 && (
                 <button
                   className="bg-site-primary hover:bg-site-secondary text-white my-3 mx-auto py-2 px-4 text-base rounded-md  sm:ml-[108px]  whitespace-nowrap"
                   onClick={() => setModal(!modal)}>

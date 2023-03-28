@@ -261,7 +261,6 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     price,
   } = req.body;
 
-  console.log(amenities);
   const newSpot = await Spot.create({
     ownerId: req.user.id,
     address: address,
@@ -285,6 +284,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
 
   return res.status(201).json({
     id: newSpot.id,
+    ownerId: newSpot.ownerId,
     address: newSpot.address,
     city: newSpot.city,
     state: newSpot.state,

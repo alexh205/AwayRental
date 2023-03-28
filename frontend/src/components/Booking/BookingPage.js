@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import Header from '../Header_footer/Header';
 import {getSingleBookingThunk} from '../../store/bookings';
 import {useDispatch} from 'react-redux';
@@ -14,6 +14,7 @@ import {BsDot} from 'react-icons/bs';
 const BookingPage = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [booking, setBooking] = useState('');
   const [spot, setSpot] = useState('');
   const [selectImage, setSelectImage] = useState('');
@@ -37,6 +38,11 @@ const BookingPage = () => {
     } else {
       return `${((hour + 11) % 12) + 1}:00 ${amOrPm}`;
     }
+  };
+
+  const handlePhotoClick = e => {
+    e.preventDefault();
+    history.push(`/spots/${spot.id}`);
   };
 
   if (!booking || !spot) return null;
@@ -72,7 +78,12 @@ const BookingPage = () => {
           <div className="flex items-center">
             <div className="bg-site-primary sm:p-6 p-4 text-white rounded-2xl flex flex-row items.center justify-center h-[3rem] sm:h-auto whitespace-nowrap">
               <div className="md:text-2xl text-base mr-2">Total price:</div>
-              <div className="md:text-2xl text-xl">${booking.price}</div>
+              <div className="md:text-2xl text-xl">
+                {booking.price?.toLocaleString('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                }) .replace('.00', '')}
+              </div>
             </div>
           </div>
         </div>
@@ -112,7 +123,9 @@ const BookingPage = () => {
           </div>
         </div>
         {spot && (
-          <div className="mb-5">
+          <div
+            className="mb-5 cursor-pointer"
+            onClick={e => handlePhotoClick(e)}>
             <SpotImage spot={spot} setSelectImage={setSelectImage} />
           </div>
         )}

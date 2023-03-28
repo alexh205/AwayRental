@@ -2,7 +2,6 @@ import {csrfFetch} from './csrf';
 const initialState = {};
 
 const GET = 'spots/GET';
-const ADD = 'spots/ADD';
 const EDIT = 'spots/EDIT';
 const USERSPOTS = 'spots/USERSPOTS';
 const DELETE = 'spots/DELETE';
@@ -11,13 +10,6 @@ const getSpots = data => {
   return {
     type: GET,
     spots: data,
-  };
-};
-
-const addSpot = data => {
-  return {
-    type: ADD,
-    spot: data,
   };
 };
 
@@ -73,8 +65,7 @@ export const addNewSpot = spot => async dispatch => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(addSpot(data));
-    // dispatch()
+
     return data;
   }
 };
@@ -107,8 +98,7 @@ export const userSpotsById = userId => async dispatch => {
 
   if (response.ok) {
     const data = await response.json();
-    return data
-
+    return data;
   }
 };
 
@@ -129,9 +119,6 @@ const spotsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET:
       newState = {...action.spots};
-      return newState;
-    case ADD:
-      newState = {...state, [action.spot.id]: action.spot};
       return newState;
     case USERSPOTS:
       newState = {...action.spots};

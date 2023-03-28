@@ -46,60 +46,72 @@ const SpotImage = ({spot, setSelectImage}) => {
   }
   if (spot)
     return (
-      <div className="relative">
-        <div className="sm:grid gap-[5px] grid-cols-3 flex rounded-3xl overflow-hidden">
-          <div className="col-span-2">
-            {spot.spotImages[0] && (
+      <>
+        {spot.spotImages.length === 1 ? (
+          <div className="flex">
+            <div className="h-fit flex items-center justify-center mx-auto">
               <img
-                onClick={() => {
-                  setShowAllPhotos(true);
-                  setSelectImage(true);
-                }}
-                className="aspect-square cursor-pointer w-full object-cover"
+                className="h-fit aspect-auto object-contain rounded-3xl"
                 src={spot.spotImages[0].url}
               />
-            )}
-          </div>
-
-          <div className="grid">
-            {spot.spotImages[1] && (
-              <img
-                onClick={() => {
-                  setShowAllPhotos(true);
-                  setSelectImage(true);
-                }}
-                className="aspect-square cursor-pointer object-cover hidden sm:block"
-                src={spot.spotImages[1].url}
-              />
-            )}
-            <div className="grid -mb-1">
-              {spot.spotImages[2] && (
-                <img
-                  onClick={() => {
-                    setShowAllPhotos(true);
-                    setSelectImage(true);
-                  }}
-                  className="aspect-square cursor-pointer object-cover relative hidden sm:block"
-                  src={spot.spotImages[2].url}
-                />
-              )}
             </div>
           </div>
-        </div>
-        <button
-          onClick={() => {
-            setShowAllPhotos(true);
-            setSelectImage(true);
-          }}
-          className={`${
-            spot.spotImages.length < 4
-              ? 'hidden'
-              : 'absolute hidden sm:flex flex-row items-center whitespace-nowrap bottom-2 md:right-2 right-1 py-2 md:px-[14px] px-4 bg-white rounded-2xl shadow-md shadow-gray-500 '
-          }`}>
-          <BsImage className='w-5 h-5 mr-2' />
-          Show all photos
-        </button>
-      </div>
+        ) : spot.spotImages.length === 0 ? null : (
+          <div className="relative">
+            <div className="sm:grid gap-[5px] grid-cols-3 flex rounded-3xl overflow-hidden">
+              <div className="col-span-2">
+                {spot.spotImages[0] && (
+                  <img
+                    onClick={() => {
+                      setShowAllPhotos(true);
+                      setSelectImage(true);
+                    }}
+                    className="aspect-square cursor-pointer w-full object-cover"
+                    src={spot.spotImages[0].url}
+                  />
+                )}
+              </div>
+
+              <div className="grid">
+                {spot.spotImages[1] && (
+                  <img
+                    onClick={() => {
+                      setShowAllPhotos(true);
+                      setSelectImage(true);
+                    }}
+                    className="aspect-square cursor-pointer object-cover hidden sm:block"
+                    src={spot.spotImages[1].url}
+                  />
+                )}
+
+                {spot.spotImages[2] && (
+                  <img
+                    onClick={() => {
+                      setShowAllPhotos(true);
+                      setSelectImage(true);
+                    }}
+                    className="aspect-square cursor-pointer object-cover relative hidden sm:block -mb-1"
+                    src={spot.spotImages[2].url}
+                  />
+                )}
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                setShowAllPhotos(true);
+                setSelectImage(true);
+              }}
+              className={`${
+                spot.spotImages.length < 4
+                  ? 'hidden'
+                  : 'absolute hidden sm:flex flex-row items-center whitespace-nowrap bottom-2 md:right-2 right-1 py-2 md:px-[14px] px-4 bg-white rounded-2xl shadow-md shadow-gray-500 '
+              }`}>
+              <BsImage className="w-5 h-5 mr-2" />
+              Show all photos
+            </button>
+          </div>
+        )}
+      </>
     );
 };
 

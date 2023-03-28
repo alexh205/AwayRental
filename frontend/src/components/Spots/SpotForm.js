@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Redirect, useParams, useHistory} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import Amenities from '../Profile/Amenities';
 import usaStates from '../../static/usaStates.json';
 import propertyTypes from '../../static/propertyTypes.json';
@@ -98,31 +98,52 @@ export const SpotForm = ({setSelected}) => {
         price,
       })
     );
-    if (addedPhotos) {
+
+    if (addedPhotos.length > 0) {
       await dispatch(addSpotImages(addedPhotos, createdSpot.id));
+
+      await dispatch(getAllSpots());
+      setTitle('');
+      setAddress('');
+      setCity('');
+      setState('');
+      setCountry('');
+      setType('');
+      setDescription('');
+      setAmenities([]);
+      setCheckIn('');
+      setCheckOut('');
+      setMaxGuests(0);
+      setBedroom(0);
+      setBed(0);
+      setBathroom(0);
+      setPrice(0);
+      setAddedPhotos([]);
+      setValidateErrors([]);
+      setSelected(false);
+      history.push(`/spots/${createdSpot.id}`);
+    } else {
+      await dispatch(getAllSpots());
+      setTitle('');
+      setAddress('');
+      setCity('');
+      setState('');
+      setCountry('');
+      setType('');
+      setDescription('');
+      setAmenities([]);
+      setCheckIn('');
+      setCheckOut('');
+      setMaxGuests(0);
+      setBedroom(0);
+      setBed(0);
+      setBathroom(0);
+      setPrice(0);
+      setAddedPhotos([]);
+      setValidateErrors([]);
+      setSelected(false);
+      history.push(`/spots/${createdSpot.id}`);
     }
-
-    // await dispatch(getAllSpots());
-
-    setTitle('');
-    setAddress('');
-    setCity('');
-    setState('');
-    setCountry('');
-    setType('');
-    setDescription('');
-    setAmenities([]);
-    setCheckIn('');
-    setCheckOut('');
-    setMaxGuests(0);
-    setBedroom(0);
-    setBed(0);
-    setBathroom(0);
-    setPrice(0);
-    setAddedPhotos([]);
-    setValidateErrors([]);
-    setSelected(false);
-    history.push(`/spots/${createdSpot.id}`);
   };
 
   const handleCancel = e => {
