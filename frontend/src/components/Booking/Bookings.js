@@ -22,7 +22,7 @@ const Bookings = () => {
             <Link
               key={ind}
               to={`/bookings/${booking.id}`}
-              className="flex bg-gray-200 rounded-2xl my-2 first-line:overflow-hidden ">
+              className="flex bg-gray-200 rounded-2xl my-2 first-line:overflow-hidden hover:shadow-2xl">
               <div className="w-48 h-full md:h-52 mr-5">
                 <img
                   src={booking.Spot?.previewImage}
@@ -45,7 +45,12 @@ const Bookings = () => {
                       Total price:{' '}
                       <p className="ml-1 md:text-2xl text-lg">
                         {' '}
-                        ${booking.price}
+                        {booking.price
+                          ?.toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                          })
+                          .replace('.00', '')}
                       </p>
                     </span>
                   </div>
