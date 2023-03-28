@@ -139,6 +139,8 @@ router.get('/', filterQueryValidator, async (req, res) => {
       : (avgRating = 0);
     spot.dataValues.reviewsTotal = numReviews;
     spot.dataValues.avgRating = avgRating;
+
+    spot.dataValues.amenities = JSON.parse(spot.dataValues.amenities);
   }
 
   if (!Object.entries(req.query).length) {
@@ -228,6 +230,8 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
       : (avgRating = 0);
 
     spot.dataValues.avgRating = avgRating;
+
+    spot.dataValues.amenities = JSON.parse(spot.dataValues.amenities);
   }
 
   return res.json(currSpot);
@@ -257,6 +261,7 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     price,
   } = req.body;
 
+  console.log(amenities);
   const newSpot = await Spot.create({
     ownerId: req.user.id,
     address: address,
@@ -265,10 +270,10 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     country: country,
     description: description,
     type: type,
-    lat: lat,
-    lng: lng,
+    // lat: lat,
+    // lng: lng,
     title: title,
-    amenities: amenities,
+    amenities: JSON.stringify(amenities),
     bedroom: bedroom,
     bed: bed,
     bathroom: bathroom,
@@ -278,7 +283,26 @@ router.post('/', requireAuth, validateSpot, async (req, res) => {
     price: price,
   });
 
-  return res.status(201).json(newSpot);
+  return res.status(201).json({
+    id: newSpot.id,
+    address: newSpot.address,
+    city: newSpot.city,
+    state: newSpot.state,
+    country: newSpot.country,
+    description: newSpot.description,
+    type: newSpot.type,
+    // lat: newSpot.lat,
+    // lng: newSpot.lng,
+    title: newSpot.title,
+    amenities: JSON.parse(newSpot.amenities),
+    bedroom: Number(newSpot.bedroom),
+    bed: Number(newSpot.bed),
+    bathroom: Number(newSpot.bathroom),
+    maxGuests: Number(newSpot.maxGuests),
+    checkIn: newSpot.checkIn,
+    checkOut: newSpot.checkOut,
+    price: Number(newSpot.price),
+  });
 });
 
 /**********************************************************************************/
@@ -353,6 +377,10 @@ router.get('/:spotId', spotIdValidation, async (req, res) => {
 
   currentSpot.dataValues.numReviews = numReviews;
   currentSpot.dataValues.avgRating = avgRating;
+
+  currentSpot.dataValues.amenities = JSON.parse(
+    currentSpot.dataValues.amenities
+  );
 
   //* Owner
   const spotOwner = await User.findOne({
@@ -433,7 +461,7 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     lat: lat,
     lng: lng,
     title: title,
-    amenities: amenities,
+    amenities: JSON.stringify(amenities),
     bedroom: bedroom,
     bed: bed,
     bathroom: bathroom,
@@ -487,6 +515,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
       statusCode: 404,
     });
   }
+
   if (currentSpot.dataValues.ownerId !== req.user.id) {
     return res.status(403).json({
       message: 'Unauthorized',
@@ -494,19 +523,32 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     });
   }
 
-  //* new Image
-  let newImage = await Image.create({
-    imageableId: currentSpot.id,
-    imageableType: 'Spot',
-    url: req.body.url,
-    userId: req.user.id,
-    preview: false,
-  });
+  //* new Images
 
-  newImage = newImage.toJSON();
-  const {id, url, preview} = newImage;
+  for (const url of req.body) {
+    await Image.create({
+      imageableId: currentSpot.id,
+      imageableType: 'Spot',
+      url: url,
+      userId: req.user.id,
+      preview: false,
+    });
+  }
 
-  return res.json({id, url, preview});
+  // //* new Image
+  // let newImage = await Image.create({
+  //   imageableId: currentSpot.id,
+  //   imageableType: 'Spot',
+  //   url: req.body.url,
+  //   userId: req.user.id,
+  //   preview: false,
+  // });
+
+  // images = newImage.toJSON();
+  // const {id, url, preview} = newImage;
+
+  // return res.json({id, url, preview});
+  return 'Image created!';
 });
 
 /**********************************************************************************/

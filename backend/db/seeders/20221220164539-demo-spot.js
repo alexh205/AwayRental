@@ -22,7 +22,7 @@ module.exports = {
           lng: -104.9384,
           title: 'House #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 1,
           bed: 1,
           bathroom: 1,
@@ -44,7 +44,7 @@ module.exports = {
           lng: -93.5722,
           title: 'Lakefront #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 3,
           bed: 3,
           bathroom: 1,
@@ -66,7 +66,7 @@ module.exports = {
           lng: -77.0369,
           title: 'Treehouse #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 4,
           bathroom: 2,
@@ -88,7 +88,7 @@ module.exports = {
           lng: -115.1458,
           title: 'Apartment #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 3,
           bed: 3,
           bathroom: 1,
@@ -110,7 +110,7 @@ module.exports = {
           lng: -114.9721,
           title: 'Cabin #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 2,
           bed: 2,
           bathroom: 1,
@@ -132,7 +132,7 @@ module.exports = {
           lng: -97.1003,
           title: 'House #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -154,7 +154,7 @@ module.exports = {
           lng: -121.8034,
           title: 'Water Home #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -176,7 +176,7 @@ module.exports = {
           lng: -77.0796,
           title: 'Life in a the wild',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -198,7 +198,7 @@ module.exports = {
           lng: -102.0317,
           title: 'Winter Wonderland',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -220,7 +220,7 @@ module.exports = {
           lng: -79.8224,
           title: 'Paradise Home',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -242,7 +242,7 @@ module.exports = {
           lng: -122.1132,
           title: 'House #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -264,7 +264,7 @@ module.exports = {
           lng: -118.2987,
           title: 'Cottage #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -286,7 +286,7 @@ module.exports = {
           lng: -80.1157,
           title: 'Lakefront #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -308,7 +308,7 @@ module.exports = {
           lng: -118.2987,
           title: 'House #6',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -330,7 +330,7 @@ module.exports = {
           lng: -82.5834,
           title: 'Island #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -352,7 +352,7 @@ module.exports = {
           lng: -73.9772,
           title: 'Apartment #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -374,7 +374,7 @@ module.exports = {
           lng: -106.3,
           title: 'Apartment #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -396,7 +396,7 @@ module.exports = {
           lng: -95.4342,
           title: 'Lakefront #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -418,7 +418,7 @@ module.exports = {
           lng: -79.9947,
           title: 'Lakefront #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -440,7 +440,7 @@ module.exports = {
           lng: -104.7134,
           title: 'Apartment #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -462,7 +462,7 @@ module.exports = {
           lng: -112.1872,
           title: 'Cottage #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -484,7 +484,7 @@ module.exports = {
           lng: -78.8871,
           title: 'Camper #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -506,7 +506,7 @@ module.exports = {
           lng: -77.0312,
           title: 'Cottage #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -528,7 +528,7 @@ module.exports = {
           lng: -77.4471,
           title: 'Apartment #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -550,7 +550,7 @@ module.exports = {
           lng: -84.3824,
           title: 'Tiny House #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -572,7 +572,7 @@ module.exports = {
           lng: -104.5523,
           title: 'Cabin #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -594,7 +594,7 @@ module.exports = {
           lng: -80.1741,
           title: 'Cabin #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -616,7 +616,7 @@ module.exports = {
           lng: -73.9772,
           title: 'Apartment #6',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -638,7 +638,7 @@ module.exports = {
           lng: -71.1122,
           title: 'Apartment #7',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -660,7 +660,7 @@ module.exports = {
           lng: -85.6578,
           title: 'Lakefront #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -682,7 +682,7 @@ module.exports = {
           lng: -105.0547,
           title: 'Cottage #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -704,7 +704,7 @@ module.exports = {
           lng: -94.3703,
           title: 'Cottage #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -726,7 +726,7 @@ module.exports = {
           lng: -80.0244,
           title: 'Lakefront #6',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -748,7 +748,7 @@ module.exports = {
           lng: -117.714,
           title: 'Farm #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -770,7 +770,7 @@ module.exports = {
           lng: -89.9715,
           title: 'Apartment #8',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -792,7 +792,7 @@ module.exports = {
           lng: -76.1977,
           title: 'Tiny House #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -814,7 +814,7 @@ module.exports = {
           lng: -87.4062,
           title: 'House #7',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -836,7 +836,7 @@ module.exports = {
           lng: -89.8826,
           title: 'Tiny House #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -858,7 +858,7 @@ module.exports = {
           lng: -77.0146,
           title: 'House #8',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -880,7 +880,7 @@ module.exports = {
           lng: -96.1711,
           title: 'Cabin #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -902,7 +902,7 @@ module.exports = {
           lng: -95.3981,
           title: 'Cottage #6',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -924,7 +924,7 @@ module.exports = {
           lng: -95.4342,
           title: 'Tiny House #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -946,7 +946,7 @@ module.exports = {
           lng: -78.6253,
           title: 'House #9',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -968,7 +968,7 @@ module.exports = {
           lng: -73.9708,
           title: 'Tiny House #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -990,7 +990,7 @@ module.exports = {
           lng: -87.6873,
           title: 'Farm #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1012,7 +1012,7 @@ module.exports = {
           lng: -112.1226,
           title: 'House #10',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1034,7 +1034,7 @@ module.exports = {
           lng: -96.1711,
           title: 'Cottage #7',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1056,7 +1056,7 @@ module.exports = {
           lng: -111.9489,
           title: 'Tiny House #6',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1078,7 +1078,7 @@ module.exports = {
           lng: -77.0338,
           title: 'Apartment #9',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1100,7 +1100,7 @@ module.exports = {
           lng: -76.1282,
           title: 'Room with a view',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1122,7 +1122,7 @@ module.exports = {
           lng: -86.6655,
           title: 'Tiny House #7',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1144,7 +1144,7 @@ module.exports = {
           lng: -121.4444,
           title: 'Cottage #8',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1166,7 +1166,7 @@ module.exports = {
           lng: -97.4913,
           title: 'Apartment #10',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1188,7 +1188,7 @@ module.exports = {
           lng: -87.7596,
           title: 'Bed & breakfast #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1210,7 +1210,7 @@ module.exports = {
           lng: -72.7188,
           title: 'Cabin #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1232,7 +1232,7 @@ module.exports = {
           lng: -80.2153,
           title: 'Island #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1254,7 +1254,7 @@ module.exports = {
           lng: -89.4239,
           title: 'Apartment #11',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1276,7 +1276,7 @@ module.exports = {
           lng: -119.6397,
           title: 'Cabin #6',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1298,7 +1298,7 @@ module.exports = {
           lng: -73.8226,
           title: 'Island #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1320,7 +1320,7 @@ module.exports = {
           lng: -75.2603,
           title: 'House #11',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1342,7 +1342,7 @@ module.exports = {
           lng: -73.3637,
           title: 'Lakefront #7',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1364,7 +1364,7 @@ module.exports = {
           lng: -97.2915,
           title: 'House #12',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1386,7 +1386,7 @@ module.exports = {
           lng: -97.4075,
           title: 'Lakefront #8',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1408,7 +1408,7 @@ module.exports = {
           lng: -75.1262,
           title: 'Apartment #12',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1430,7 +1430,7 @@ module.exports = {
           lng: -96.341,
           title: 'Bed & breakfast #2',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1452,7 +1452,7 @@ module.exports = {
           lng: -75.9113,
           title: 'House #13',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1474,7 +1474,7 @@ module.exports = {
           lng: -77.0146,
           title: 'Cottage #9',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1496,7 +1496,7 @@ module.exports = {
           lng: -98.5755,
           title: 'Cottage #10',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1518,7 +1518,7 @@ module.exports = {
           lng: -79.8224,
           title: 'Room with a nice view',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1540,7 +1540,7 @@ module.exports = {
           lng: -84.2819,
           title: 'Bed & breakfast #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1562,7 +1562,7 @@ module.exports = {
           lng: -83.2474,
           title: 'Apartment #13',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1584,7 +1584,7 @@ module.exports = {
           lng: -80.6473,
           title: 'Cabin #7',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1606,7 +1606,7 @@ module.exports = {
           lng: -78.4924,
           title: 'Camper #3',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1628,7 +1628,7 @@ module.exports = {
           lng: -84.8741,
           title: 'Cabin #8',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1650,7 +1650,7 @@ module.exports = {
           lng: -96.7676,
           title: 'Bed & breakfast #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1672,7 +1672,7 @@ module.exports = {
           lng: -121.6703,
           title: 'Apartment #14',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1694,7 +1694,7 @@ module.exports = {
           lng: -73.9221,
           title: 'Lakefront #9',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1716,7 +1716,7 @@ module.exports = {
           lng: -90.1708,
           title: 'Lakefront #10',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1738,7 +1738,7 @@ module.exports = {
           lng: -117.1851,
           title: 'Cottage #11',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1760,7 +1760,7 @@ module.exports = {
           lng: -77.1395,
           title: 'Island #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1782,7 +1782,7 @@ module.exports = {
           lng: -93.2361,
           title: 'Farm #4',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1804,7 +1804,7 @@ module.exports = {
           lng: -96.7776,
           title: 'Apartment #15',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1826,7 +1826,7 @@ module.exports = {
           lng: -82.7087,
           title: 'Apartment #16',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1848,7 +1848,7 @@ module.exports = {
           lng: -118.1994,
           title: 'House #14',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1870,7 +1870,7 @@ module.exports = {
           lng: -91.7098,
           title: 'Lakefront #11',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1892,7 +1892,7 @@ module.exports = {
           lng: -111.1238,
           title: 'Island #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1914,7 +1914,7 @@ module.exports = {
           lng: -94.764,
           title: 'Apartment #17',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1936,7 +1936,7 @@ module.exports = {
           lng: -77.0146,
           title: 'Bed & breakfast #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1958,7 +1958,7 @@ module.exports = {
           lng: -96.7776,
           title: 'Apartment #18',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -1980,7 +1980,7 @@ module.exports = {
           lng: -77.4471,
           title: 'Apartment #19',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2002,7 +2002,7 @@ module.exports = {
           lng: -82.4388,
           title: 'Lakefront #12',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2024,7 +2024,7 @@ module.exports = {
           lng: -93.4719,
           title: 'Cabin #9',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2046,7 +2046,7 @@ module.exports = {
           lng: -93.8881,
           title: 'Apartment #20',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2068,7 +2068,7 @@ module.exports = {
           lng: -118.2987,
           title: 'Apartment #21',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2090,7 +2090,7 @@ module.exports = {
           lng: -106.3,
           title: 'Camper #1',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2112,7 +2112,7 @@ module.exports = {
           lng: -89.9715,
           title: 'House #15',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2134,7 +2134,7 @@ module.exports = {
           lng: -84.5244,
           title: 'Apartment #22',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2156,7 +2156,7 @@ module.exports = {
           lng: -73.8253,
           title: 'Farm #5',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2178,7 +2178,7 @@ module.exports = {
           lng: -72.6048,
           title: 'House #16',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,
@@ -2200,7 +2200,7 @@ module.exports = {
           lng: -89.3242,
           title: 'Farm #6',
           amenities:
-            'Wifi, Radio, Parking on premise, TV, Hot Water, AC, Smoke alarm, Fire extinguisher, Kitchen, Microwave, Refrigerator , Bathtub or shower ',
+            '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
           bed: 2,
           bathroom: 2,

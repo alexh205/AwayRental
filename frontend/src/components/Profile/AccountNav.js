@@ -11,10 +11,11 @@ const AccountNav = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user?.user);
   const [selected, setSelected] = useState(false);
+  console.log(selected);
 
   useEffect(() => {
     setSelected(false);
-  }, []);
+  }, [dispatch]);
 
   let {subPage} = useParams();
   if (!subPage) {
@@ -96,7 +97,9 @@ const AccountNav = () => {
         <div className="text-center max-w-lg mx-auto">
           Logged in as {user.name} ({user.email})
           <br />
-          <button className="primary max-w-sm mt-2" onClick={logoutUser}>
+          <button
+            className="primary max-w-sm mt-2 bg-site-primary hover:bg-site-secondary"
+            onClick={logoutUser}>
             Logout
           </button>
         </div>

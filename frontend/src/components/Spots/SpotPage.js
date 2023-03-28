@@ -48,7 +48,7 @@ const SpotPage = () => {
       <div className="container mx-auto ">
         {!selectImage && <Header />}
         <div className="-mx-4 px-16 pt-3 f">
-          <h1 className="text-3xl whitespace-nowrap">{spot.title}</h1>
+          <h1 className="text-4xl whitespace-nowrap">{spot.title}</h1>
           <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-6">
             <div className="flex flex-row items-center ">
               <div className="flex flex-row items-center ">
@@ -172,7 +172,7 @@ const SpotPage = () => {
               </div>
               {spot && spot.amenities && (
                 <button
-                  className="bg-site-primary text-white my-3 mx-auto py-2 px-4 text-base rounded-md  sm:ml-[108px]  whitespace-nowrap"
+                  className="bg-site-primary hover:bg-site-secondary text-white my-3 mx-auto py-2 px-4 text-base rounded-md  sm:ml-[108px]  whitespace-nowrap"
                   onClick={() => setModal(!modal)}>
                   Show all {spot.amenities.split(',').length} amenities
                 </button>

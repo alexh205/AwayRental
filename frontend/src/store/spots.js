@@ -2,7 +2,6 @@ import {csrfFetch} from './csrf';
 const initialState = {};
 
 const GET = 'spots/GET';
-
 const ADD = 'spots/ADD';
 const EDIT = 'spots/EDIT';
 const USERSPOTS = 'spots/USERSPOTS';
@@ -43,6 +42,8 @@ const deleteSpot = data => {
   };
 };
 
+// Thunk
+
 export const getAllSpots = () => async dispatch => {
   const response = await csrfFetch('/api/spots');
 
@@ -73,6 +74,8 @@ export const addNewSpot = spot => async dispatch => {
   if (response.ok) {
     const data = await response.json();
     dispatch(addSpot(data));
+    // dispatch()
+    return data;
   }
 };
 
@@ -91,7 +94,7 @@ export const modifySpot = spot => async dispatch => {
 };
 export const deleteSpotById = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}`, {
-    method: 'Delete',
+    method: 'DELETE',
   });
 
   if (response.ok) {
@@ -104,11 +107,23 @@ export const userSpotsById = userId => async dispatch => {
 
   if (response.ok) {
     const data = await response.json();
-    return data;
-    // dispatch(userSpots(data));
+    return data
+
   }
 };
 
+export const addSpotImages = (images, spotId) => async dispatch => {
+  const response = await csrfFetch(`/api/spots/${spotId}/images`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(images),
+  });
+  if (response.ok) {
+    const data = await response.json();
+  }
+};
+
+//? Reducer
 const spotsReducer = (state = initialState, action) => {
   let newState = {...state};
   switch (action.type) {

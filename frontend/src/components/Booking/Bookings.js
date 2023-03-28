@@ -16,18 +16,18 @@ const Bookings = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="container grid lg:grid-cols-2 grid-cols-1 gap-4">
+      <div className="container grid lg:grid-cols-2 grid-cols-1 gap-4 mx-2">
         {bookingArr?.length > 0 &&
           bookingArr.map((booking, ind) => (
             <Link
               key={ind}
               to={`/bookings/${booking.id}`}
-              className="flex bg-gray-200 rounded-2xl my-2 first-line:overflow-hidden">
-              <div className="w-44 h-[255px] md:h-44 m-2">
+              className="flex bg-gray-200 rounded-2xl my-2 first-line:overflow-hidden ">
+              <div className="w-48 h-full md:h-52 mr-5">
                 <img
                   src={booking.Spot?.previewImage}
                   alt=""
-                  className="object-cover h-full w-full rounded-2xl"
+                  className="object-fill h-full w-full rounded-l-2xl"
                 />
               </div>
               <div className="py-3 pr-2 flex-grow ml-2 ">
@@ -41,8 +41,12 @@ const Bookings = () => {
                   />
                   <div className="flex md:gap-2 gap-3 items-center md:mt-2 mt-0">
                     <ImCreditCard className="w-6 h-6" />
-                    <span className="md:text-xl text-base text-center ">
-                      Total price: ${booking.price}
+                    <span className="md:text-xl text-base text-center flex flex-row items-center">
+                      Total price:{' '}
+                      <p className="ml-1 md:text-2xl text-lg">
+                        {' '}
+                        ${booking.price}
+                      </p>
                     </span>
                   </div>
 

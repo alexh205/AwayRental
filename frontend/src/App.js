@@ -9,9 +9,9 @@ import Bookings from './components/Booking/Bookings';
 import BookingPage from './components/Booking/BookingPage';
 import {useSelector, useDispatch} from 'react-redux';
 import {restoreUser} from './store/session';
+import UserSpots from './components/Spots/UserSpots';
 
 const App = () => {
-  const user = useSelector(state => state.session.user);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,7 +31,7 @@ const App = () => {
           />
           <Route exact path="/account/:subPage?" component={AccountNav} />
           <Route path="/spots/:id" component={SpotPage} />
-
+          <Route path="/account/spots" component={UserSpots} />
           <Route path="/account/bookings" component={Bookings} />
           <Route path="/bookings/:id" component={BookingPage} />
         </Switch>
