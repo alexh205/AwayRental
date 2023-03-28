@@ -1,14 +1,17 @@
 import React, {useState} from 'react';
-import {Redirect, useParams} from 'react-router-dom';
+import {Redirect, useParams, useHistory} from 'react-router-dom';
 import Amenities from '../Profile/Amenities';
 import usaStates from '../../static/usaStates.json';
 import propertyTypes from '../../static/propertyTypes.json';
-import {addNewSpot} from '../../store/spots';
+import {addNewSpot, getAllSpots} from '../../store/spots';
 import {useDispatch} from 'react-redux';
+import PhotoUpload from '../Images/PhotoUpload';
+import {addSpotImages} from '../../store/spots';
 
 export const SpotForm = ({setSelected}) => {
   const {action} = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
@@ -17,7 +20,6 @@ export const SpotForm = ({setSelected}) => {
   const [country, setCountry] = useState('');
   const [type, setType] = useState('');
   const [addedPhotos, setAddedPhotos] = useState([]);
-  const [photoLink, setPhotoLink] = useState('');
   const [description, setDescription] = useState('');
   const [amenities, setAmenities] = useState([]);
   const [checkIn, setCheckIn] = useState('');
@@ -50,15 +52,15 @@ export const SpotForm = ({setSelected}) => {
   const validate = () => {
     const errors = [];
     if (!title) errors.push("Please provide a 'Title'");
-    if (!address) errors.push("Please provide a 'Address'");
+    if (!address) errors.push("Please provide an 'Address'");
     if (!city) errors.push("Please provide a 'City'");
     if (!state) errors.push("Please provide a 'State'");
     if (!country) errors.push("Please provide a 'Country'");
     if (!type) errors.push("Please provide a 'Type'");
     if (!description) errors.push("Please provide a 'Description'");
-    if (amenities.length < 1) errors.push("Please provide a 'Amenities'");
+    if (amenities.length < 1) errors.push("Please provide the 'Amenities'");
     if (!checkIn) errors.push("Please provide a 'Start Date'");
-    if (!checkOut) errors.push("Please provide a 'End Date'");
+    if (!checkOut) errors.push("Please provide an 'End Date'");
     if (maxGuests < 1) errors.push("Please provide a 'Max Guests'");
     if (bedroom < 1) errors.push("Please provide a 'Bedroom'");
     if (bed < 1) errors.push("Please provide a 'Bed'");
@@ -68,7 +70,7 @@ export const SpotForm = ({setSelected}) => {
     return errors;
   };
 
-  const saveSpot = e => {
+  const saveSpot = async e => {
     e.preventDefault();
 
     const errors = validate();
@@ -77,26 +79,31 @@ export const SpotForm = ({setSelected}) => {
       return setValidateErrors(errors);
     }
 
-    const newSpot = {
-      title,
-      address,
-      city,
-      state,
-      country,
-      type,
-      description,
-      amenities,
-      checkIn,
-      checkOut,
-      maxGuests,
-      bedroom,
-      bed,
-      bathroom,
-      price,
-    };
-    
+    const createdSpot = await dispatch(
+      addNewSpot({
+        title,
+        address,
+        city,
+        state,
+        country,
+        type,
+        description,
+        amenities,
+        checkIn,
+        checkOut,
+        maxGuests,
+        bedroom,
+        bed,
+        bathroom,
+        price,
+      })
+    );
+    if (addedPhotos) {
+      await dispatch(addSpotImages(addedPhotos, createdSpot.id));
+    }
 
-    dispatch(addNewSpot({}));
+    // await dispatch(getAllSpots());
+
     setTitle('');
     setAddress('');
     setCity('');
@@ -112,11 +119,14 @@ export const SpotForm = ({setSelected}) => {
     setBed(0);
     setBathroom(0);
     setPrice(0);
+    setAddedPhotos([]);
     setValidateErrors([]);
+    setSelected(false);
+    history.push(`/spots/${createdSpot.id}`);
   };
 
-  const handleCancel = () => {
-    // e.preventDefault();
+  const handleCancel = e => {
+    e.preventDefault();
     setTitle('');
     setAddress('');
     setCity('');
@@ -132,13 +142,14 @@ export const SpotForm = ({setSelected}) => {
     setBed(0);
     setBathroom(0);
     setPrice(0);
+    setAddedPhotos([]);
     setValidateErrors([]);
-
-    return <Redirect to={'/'} />;
+    setSelected(false);
+    history.push('/account/spots');
   };
 
   return (
-    <div className="mx-8 h-fit">
+    <div className="mx-14 my-6 h-screen">
       {action === 'new' && (
         <div>
           <form>
@@ -218,35 +229,7 @@ export const SpotForm = ({setSelected}) => {
               'Photos',
               'Provide a well rounded presentation of the property'
             )}
-            <div className="flex gap-2">
-              <input
-                value={photoLink}
-                onChange={e => setPhotoLink(e.target.value)}
-                type="text"
-                placeholder={'Add a photo url'}
-              />
-              <button className="bg-gray-200 px-4 rounded-2xl">
-                Add&nbsp;photo
-              </button>
-            </div>
-            <div className="mt-2 grid grid-col-3 md:grid-cols-4 lg:grid-cols-6">
-              <button className="flex gap-1 justify-center items-center border bg-transparent rounded-2xl p-8 text-2xl text-gray-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-8 h-8">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z"
-                  />
-                </svg>
-                <p className="text-xl text-gray-500">Upload</p>
-              </button>
-            </div>
+            <PhotoUpload addedPhotos={addedPhotos} onChange={setAddedPhotos} />
             {preInput(
               'Description',
               'Description of the property, what makes it special'
@@ -303,7 +286,7 @@ export const SpotForm = ({setSelected}) => {
             <p className="text-gray-500 text-sm">
               Add check in and check out times
             </p>
-            <div className="grid gap-2 grid-cols-2 md:grid-cols-4">
+            <div className="grid gap-2 grid-cols-2 md:grid-cols-4 mb-3">
               <div className="flex flex-col items-center">
                 <h3 className="mt-2 -mb-1 font-bold text-[17px] text-center">
                   Check in time
@@ -353,20 +336,20 @@ export const SpotForm = ({setSelected}) => {
             </div>
             {validateErrors.length > 0 && (
               <div className="my-2 ml-2">
-                <ul className="text-red-600 text-[13px] font-semibold ml-2">
+                <div className="text-red-600 text-[13px] font-semibold  grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
                   {validateErrors.map((error, i) => (
-                    <li key={i}>{error}</li>
+                    <div key={i}>{error}</div>
                   ))}
-                </ul>
+                </div>
               </div>
             )}
-            <div className="mx-28 flex sm:flex-row flex-col gap-2 items-center">
-              <button onClick={saveSpot} className="primary my-3">
+            <div className="mx-28 mb-7 flex sm:flex-row flex-col gap-2 items-center">
+              <button onClick={saveSpot} className="primary my-2 text-lg">
                 Save
               </button>
               <button
                 onClick={handleCancel}
-                className="bg-gray-600 py-2 w-full rounded-2xl text-white my-3">
+                className="bg-gray-600 py-[9px] w-full rounded-2xl text-lg text-white my-2">
                 Cancel
               </button>
             </div>

@@ -170,7 +170,7 @@ const BookingWidget = ({spot, user}) => {
         )}
       </div>
       <button
-        className="primary mt-4 whitespace-nowrap"
+        className="primary mt-4 whitespace-nowrap bg-site-primary hover:bg-site-secondary"
         onClick={handleBooking}>
         Book this property
         {numberOfNights > 0 && (

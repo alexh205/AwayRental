@@ -12,12 +12,16 @@ const UserSpots = ({setSelected}) => {
   useEffect(() => {
     dispatch(userSpotsById(user.id)).then(res => setSpots(res));
   }, []);
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleSpots = spots.slice(0, 4);
+  const hiddenSpots = spots.slice(4);
 
   return (
     <div>
       <div className="text-center">
         <Link
-          className="inline-flex gap-1 bg-site-primary text-white py-2 px-6 rounded-full"
+          className="inline-flex gap-1 bg-site-primary hover:bg-site-secondary text-white py-2 px-6 rounded-full"
           onClick={() => {
             setSelected(true);
           }}
@@ -38,30 +42,70 @@ const UserSpots = ({setSelected}) => {
           Add a new spot
         </Link>
       </div>
-      <div className="mt-4 container mx-auto">
-        {spots.length > 0 &&
-          spots.map((spot, ind) => {
-            const {id, title, description} = spot;
-            return (
-              <Link
-                key={ind}
-                to={`/account/spots/${id}`}
-                className="flex cursor-pointer gap-x-4 gap-y-2 bg-gray-100 p-4 rounded-2xl my-4">
-                <div class="flex w-36 sm:w-48 md:w-64 h-36 sm:h-48 md:h-64 grow shrink-0">
+      <div className="mt-4 container mx-auto grid lg:grid-cols-2 grid-cols-1 gap-5">
+        {visibleSpots.map((spot, ind) => {
+          const {id, title, description} = spot;
+          return (
+            <Link
+              key={ind}
+              to={`/account/spots/\${id}`}
+              className="flex cursor-pointer gap-x-4 gap-y-2 bg-gray-100 p-4 rounded-2xl my-4">
+              <div className="flex items-center justify-center">
+                <div className="flex w-36 sm:w-48 md:w-64 h-36 sm:h-48 md:h-64 grow shrink-0">
                   <img
                     src={spot?.spotImages[0]?.url}
                     alt={title}
-                    class="object-cover w-full h-full rounded-2xl"
+                    className="object-cover w-full h-full rounded-l-2xl"
                   />
                 </div>
+              </div>
+              <div className="grow-0 shrink">
+                <h2 className="text-2xl font-semibold">{title}</h2>
+                <p className="text-sm mt-2">{description}</p>
+              </div>
+            </Link>
+          );
+        })}
 
-                <div className="grow-0 shrink">
-                  <h2 className="text-2xl font-semibold">{title}</h2>
-                  <p className="text-sm mt-2">{description}</p>
-                </div>
-              </Link>
-            );
-          })}
+        {hiddenSpots.length > 0 && (
+          <>
+            {expanded
+              ? hiddenSpots.map((spot, ind) => {
+                  const {id, title, description} = spot;
+                  return (
+                    <Link
+                      key={ind}
+                      to={`/account/spots/\${id}`}
+                      className="flex cursor-pointer gap-x-4 gap-y-2 bg-gray-100 p-4 rounded-2xl my-4">
+                      <div className="flex items-center justify-center">
+                        <div className="flex w-36 sm:w-48 md:w-64 h-36 sm:h-48 md:h-64 grow shrink-0">
+                          <img
+                            src={spot?.spotImages[0]?.url}
+                            alt={title}
+                            className="object-cover w-full h-full rounded-2xl"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grow-0 shrink">
+                        <h2 className="text-2xl font-semibold">{title}</h2>
+                        <p className="text-sm mt-2">{description}</p>
+                      </div>
+                    </Link>
+                  );
+                })
+              : null}
+          </>
+        )}
+      </div>
+      <div className="flex justify-center">
+        <div className="flex items-center justify-center mt-2 mb-4 w-[200px]">
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="p-2 w-full rounded-2xl bg-site-primary hover:bg-site-secondary text-xl text-white">
+            {expanded ? 'Hide' : `Show all (${spots.length})`}
+          </button>
+        </div>
       </div>
     </div>
   );

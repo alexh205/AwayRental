@@ -38,7 +38,7 @@ const Header = () => {
           <div>Any week</div>
           <div className="border-l border-gray-300" />
           <div className="text-gray-400">Add guests</div>
-          <button className="bg-site-primary text-white p-1 rounded-full">
+          <button className="bg-site-primary hover:bg-site-secondary text-white p-1 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

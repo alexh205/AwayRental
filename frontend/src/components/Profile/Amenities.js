@@ -74,32 +74,32 @@ const Amenities = ({selected, onChange}) => {
         <span>Parking on premise</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="water_front" onChange={handleClick} />
+        <input type="checkbox" name="Water front" onChange={handleClick} />
         <MdOutlineWater className="w-6 h-6" />
         <span>Water front</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="grand_view" onChange={handleClick} />
+        <input type="checkbox" name="Grand view" onChange={handleClick} />
         <TbPlant className="w-6 h-6" />
         <span>Garden view</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="tv" onChange={handleClick} />
+        <input type="checkbox" name="Tv" onChange={handleClick} />
         <MdMonitor className="w-6 h-6" />
         <span>TV</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="pets" onChange={handleClick} />
+        <input type="checkbox" name="Pets" onChange={handleClick} />
         <MdPets className="w-6 h-6" />
         <span>Pets</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="hot_water" onChange={handleClick} />
+        <input type="checkbox" name="Hot water" onChange={handleClick} />
         <FaHotTub className="w-5 h-5" />
         <span>Hot water</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="hair_dryer" onChange={handleClick} />
+        <input type="checkbox" name="Hair dryer" onChange={handleClick} />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -114,70 +114,70 @@ const Amenities = ({selected, onChange}) => {
         <span>Hair dryer</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="heating" onChange={handleClick} />
+        <input type="checkbox" name="Heating" onChange={handleClick} />
         <GiFurnace className="w-6 h-6" />
         <span>Heating</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="ac" onChange={handleClick} />
+        <input type="checkbox" name="Ac" onChange={handleClick} />
         <TbAirConditioning className="h-6 w-6" />
         <span>AC</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="fan" onChange={handleClick} />
+        <input type="checkbox" name="Fan" onChange={handleClick} />
         <FaFan className="h-5 w-5" />
         <span>Fan</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="smoke_alarm" onChange={handleClick} />
+        <input type="checkbox" name="Smoke alarm" onChange={handleClick} />
         <GiRingingAlarm className="h-5 w-5" />
         <span>Smoke alarm</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
-          name="fire_extinguisher"
+          name="Fire extinguisher"
           onChange={handleClick}
         />
         <FaFireExtinguisher className="h-5 w-5" />
         <span>Fire extinguisher</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="kitchen" onChange={handleClick} />
+        <input type="checkbox" name="Kitchen" onChange={handleClick} />
         <GiChickenOven className="h-5 w-5" />
         <span>Kitchen</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="microwave" onChange={handleClick} />
+        <input type="checkbox" name="Microwave" onChange={handleClick} />
         <MdOutlineMicrowave className="h-5 w-5" />
         <span>Microwave</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="oven" onChange={handleClick} />
+        <input type="checkbox" name="Oven" onChange={handleClick} />
         <GiCookingPot className="h-5 w-5" />
         <span>Oven</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="refrigerator" onChange={handleClick} />
+        <input type="checkbox" name="Refrigerator" onChange={handleClick} />
         <MdOutlineKitchen className="h-5 w-5" />
         <span>Refrigerator</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
-          name="bathtub_or_shower"
+          name="Bathtub or shower"
           onChange={handleClick}
         />
         <MdOutlineBathtub className="h-5 w-5" />
         <span>Bathtub or shower</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="dining_table" onChange={handleClick} />
+        <input type="checkbox" name="Dining table" onChange={handleClick} />
         <MdOutlineTableBar className="h-5 w-5" />
         <span>Dining table</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="coffee_maker" onChange={handleClick} />
+        <input type="checkbox" name="Coffee maker" onChange={handleClick} />
         <MdCoffeeMaker className="h-5 w-5" />
         <span>Coffee maker</span>
       </label>

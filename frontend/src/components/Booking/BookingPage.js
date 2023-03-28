@@ -45,7 +45,7 @@ const BookingPage = () => {
     <div className="container mx-auto">
       {!selectImage && <Header />}
       <div className="my-8">
-        <h1 className="text-3xl mb-4">{booking.Spot?.title}</h1>
+        <h1 className="text-4xl mb-4">{booking.Spot?.title}</h1>
         <div className="flex flex-row items-center">
           <BiMap className="w-6 h-6 mr-1" />
           <LocationLink className="my-3 block">

@@ -14,7 +14,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="mb-14">
       <Header />
       <Filters />
       <div>
