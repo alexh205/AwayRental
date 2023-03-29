@@ -10,6 +10,7 @@ import SpotImage from '../Images/SpotImage';
 import {getSpotById} from '../../store/spots';
 import {BsPeopleFill} from 'react-icons/bs';
 import {BsDot} from 'react-icons/bs';
+import CreateReview from '../Reviews/CreateReview';
 
 const BookingPage = () => {
   const {id} = useParams();
@@ -18,6 +19,8 @@ const BookingPage = () => {
   const [booking, setBooking] = useState('');
   const [spot, setSpot] = useState('');
   const [selectImage, setSelectImage] = useState('');
+  const [stay, setStay] = useState(false);
+  const [reviewed, setReviewed] = useState(false);
 
   useEffect(() => {
     dispatch(getSingleBookingThunk(id)).then(res => setBooking(res));
@@ -29,7 +32,7 @@ const BookingPage = () => {
     }
   }, [booking, dispatch]);
 
-  // formatting AM/PM time
+  //* formatting AM/PM time
   const formatTime = (time, isCheckIn) => {
     const hour = parseInt(time?.split(':')[0]);
     const amOrPm = hour >= 12 ? 'PM' : 'AM';
@@ -44,6 +47,21 @@ const BookingPage = () => {
     e.preventDefault();
     history.push(`/spots/${spot.id}`);
   };
+
+  //! only review past stays
+  const currentDate = new Date();
+  const stayEnd = new Date(booking.endDate);
+
+  useEffect(() => {
+    if (currentDate.getTime() >= stayEnd.getTime()) {
+      setStay(true);
+    }
+    spot.spotReviews?.find(review => {
+      if (review.userId === booking.userId) {
+        setReviewed(true);
+      }
+    });
+  }, [currentDate]);
 
   if (!booking || !spot) return null;
 
@@ -79,10 +97,12 @@ const BookingPage = () => {
             <div className="bg-site-primary sm:p-6 p-4 text-white rounded-2xl flex flex-row items.center justify-center h-[3rem] sm:h-auto whitespace-nowrap">
               <div className="md:text-2xl text-base mr-2">Total price:</div>
               <div className="md:text-2xl text-xl">
-                {booking.price?.toLocaleString('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                }) .replace('.00', '')}
+                {booking.price
+                  ?.toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                  })
+                  .replace('.00', '')}
               </div>
             </div>
           </div>
@@ -130,6 +150,11 @@ const BookingPage = () => {
           </div>
         )}
       </div>
+      {stay && !reviewed && (
+        <div>
+          <CreateReview spot={spot} />
+        </div>
+      )}
     </div>
   );
 };
