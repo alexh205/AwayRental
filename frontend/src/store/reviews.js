@@ -6,8 +6,6 @@ const EDIT = 'reviews/EDIT';
 const DELETE = 'reviews/DELETE';
 const USERREVIEWS = 'reviews/USERREVIEWS';
 
-// const ADDREVIMAGE = "images/ADDREVIMAGE";
-
 const getReviews = data => ({
   type: GET,
   reviews: data,
@@ -32,15 +30,6 @@ const deleteReview = data => ({
   reviews: data,
 });
 
-// const addReviewImages = (url, reviewId, userId) => {
-//   return {
-//     type: ADDREVIMAGE,
-//     payload1: url,
-//     payload2: reviewId,
-//     payload3: userId,
-//   };
-// };
-
 export const renderReviews = () => {
   return {
     type: 'RENDERREVIEWS',
@@ -60,6 +49,7 @@ export const getAllReviews = spotId => async dispatch => {
 
 export const addNewReview = data => async dispatch => {
   const {spotId} = data;
+
   const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -67,9 +57,6 @@ export const addNewReview = data => async dispatch => {
   });
   if (response.ok) {
     const newReview = await response.json();
-    dispatch(addReview(newReview));
-  } else {
-    return response;
   }
 };
 
@@ -130,13 +117,6 @@ const reviewsReducer = (state = initialState, action) => {
     case DELETE:
       delete newState[action.reviews.id];
       return newState;
-    // case createReviewImage:
-    //   const imagesArr = newState[action.payload2];
-    //   imagesArr[imagesArr.length] = {
-    //     url: action.payload1,
-    //     userId: action.payload3,
-    //   };
-    //   return newState;
     case 'RENDERREVIEWS':
       return initialState;
 

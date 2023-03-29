@@ -96,11 +96,6 @@ router.get('/', filterQueryValidator, async (req, res) => {
   for (let spot of Spots) {
     const {id} = spot;
 
-    // let firstImg = {};
-    // firstImg.id = 0;
-    // firstImg.url = spot.previewImg;
-    // firstImg.preview = true;
-
     //* Images
     let imagesList = [];
 
@@ -173,11 +168,6 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
 
   for (let spot of currSpot) {
     const {id} = spot;
-
-    // let firstImg = {};
-    // firstImg.id = 0;
-    // firstImg.url = spot.previewImg;
-    // firstImg.preview = true;
 
     //* Images
     let imagesList = [];
@@ -320,11 +310,6 @@ router.get('/:spotId', spotIdValidation, async (req, res) => {
     });
   }
 
-  // let firstImg = {};
-  // firstImg.id = 0;
-  // firstImg.url = currentSpot.previewImg;
-  // firstImg.preview = true;
-
   //* Images
   let imagesList = [];
 
@@ -425,11 +410,6 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
       statusCode: 404,
     });
   }
-
-  // let firstImg = {};
-  // firstImg.id = 0;
-  // firstImg.url = editedSpot.previewImg;
-  // firstImg.preview = true;
 
   //* Images
   let imagesList = [];
@@ -535,19 +515,6 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     });
   }
 
-  // //* new Image
-  // let newImage = await Image.create({
-  //   imageableId: currentSpot.id,
-  //   imageableType: 'Spot',
-  //   url: req.body.url,
-  //   userId: req.user.id,
-  //   preview: false,
-  // });
-
-  // images = newImage.toJSON();
-  // const {id, url, preview} = newImage;
-
-  // return res.json({id, url, preview});
   return 'Image created!';
 });
 
