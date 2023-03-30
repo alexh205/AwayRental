@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import {FaStar} from 'react-icons/fa';
 import {addNewReview} from '../../store/reviews';
-import {getAllSpots} from '../../store/spots';
+
 
 const CreateReview = ({spot}) => {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ const CreateReview = ({spot}) => {
     };
 
     await dispatch(addNewReview(data));
-    await dispatch(getAllSpots());
+
 
     setReview('');
     setRating(0);
@@ -51,10 +51,7 @@ const CreateReview = ({spot}) => {
   return (
     <>
       <div className="inline-flex flex-col lg:flex  mx-5 md:mx-40 mb-7">
-        <div className="flex flex-col mt-8 border-b">
-          <h1 className="font-bold text-4xl text-ninja_green">
-            Write a Review
-          </h1>
+        <div className="flex flex-col">
           {validateErrors.length > 0 && (
             <div className="my-2 ml-2">
               <h3 className="font-bold text-[16px] ">
@@ -128,7 +125,7 @@ const CreateReview = ({spot}) => {
                 setReview('');
                 setRating(0);
                 setHover(0);
-                history.push(`/spots/${spot.id}`);
+                history.push('/account/bookings');
               }}>
               Cancel
             </button>

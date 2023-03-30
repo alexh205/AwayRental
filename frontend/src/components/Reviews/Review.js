@@ -1,14 +1,19 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {BsFillStarFill} from 'react-icons/bs';
-import {getAllReviews, reviewDelete} from '../../store/reviews';
+import {reviewDelete} from '../../store/reviews';
 
-const Review = ({review}) => {
+import EditModal from './EditModal';
+import {getSpotById} from '../../store/spots';
+
+const Review = ({review, spotReviews, updateContainer, setSpot}) => {
   const dispatch = useDispatch();
+  const [modal, setModal] = useState(false);
+  const showModal = Boolean => setModal(Boolean);
 
   //? Truncate review text beyond 100 characters
   const [isExpanded, setIsExpanded] = useState(false);
-  const [location, setLocation] = useState(review.spotId);
+
   const user = useSelector(state => state.session.user.user);
 
   const toggleExpansion = () => {
@@ -17,19 +22,24 @@ const Review = ({review}) => {
   const max_length = 100; // Maximum number of characters to display before truncating the text
 
   const truncatedText =
-    review.review.length > max_length
+    review.review?.length > max_length
       ? review.review.slice(0, max_length) + '...'
       : review.review;
 
   const handleEdit = e => {
     e.preventDefault();
+    setModal(true);
   };
 
   const handleDelete = async e => {
     e.preventDefault();
-
-    await dispatch(reviewDelete(review.id));
-    // await dispatch(getAllReviews(location));
+    if (spotReviews.length === 1) {
+      updateContainer(false);
+    }
+    await Promise.all([
+      dispatch(reviewDelete(review.id)),
+      dispatch(getSpotById(review.spotId)).then(res => console.log(res)),
+    ]);
   };
 
   return (
@@ -37,12 +47,12 @@ const Review = ({review}) => {
       <div className="flex flex-row items-center ">
         <div className="h-14 w-14 mr-4">
           <img
-            src={review.User.profileImg}
+            src={review.User?.profileImg}
             className="rounded-full object-contain text-center"
           />
         </div>
         <div className="flex flex-col">
-          <p className="text-sm font-bold">{review.User.name}</p>
+          <p className="text-sm font-bold">{review.User?.name}</p>
 
           <div className="flex flex-row items-center">
             <p className="opacity-60 text-sm">
@@ -59,23 +69,23 @@ const Review = ({review}) => {
         </div>
       </div>
       {user.id === review.userId && (
-        <div className="mt-1 ml-2">
-          <button
-            className="mr-2 border-2 py-1 px-2 rounded-xl hover:shadow-xl bg-slate-500 hover:bg-slate-400 text-white text-[13px] font-semibold"
+        <div className="mt-1 ml-2 flex flex-row">
+          <div
+            className="cursor-pointer mr-4 hover:text-amber-600 text-blue-500 text-sm font-semibold"
             onClick={handleEdit}>
             Edit
-          </button>
-          <button
-            className="border-2 py-1 px-2 rounded-xl hover:shadow-xl bg-slate-500 hover:bg-slate-400 text-white text-[13px] font-semibold"
+          </div>
+          <div
+            className="cursor-pointer hover:text-amber-600 text-site-primary text-sm font-semibold"
             onClick={handleDelete}>
             Delete
-          </button>
+          </div>
         </div>
       )}
 
       <div className="my-3">
         {isExpanded ? review.review : truncatedText}
-        {review.review.length > max_length && (
+        {review.review?.length > max_length && (
           <span
             className="text-blue-500 text-sm cursor-pointer ml-1"
             onClick={toggleExpansion}>
@@ -83,6 +93,7 @@ const Review = ({review}) => {
           </span>
         )}
       </div>
+      {modal && <EditModal showModal={showModal} reviewObj={review} />}
     </div>
   );
 };

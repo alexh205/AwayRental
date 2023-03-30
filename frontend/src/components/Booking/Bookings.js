@@ -40,7 +40,7 @@ const Bookings = () => {
                     className="md:my-3 my-5 text-gray-500 sm:flex-row flex-col"
                   />
                   <div className="flex md:gap-2 gap-3 items-center md:mt-2 mt-0">
-                    <ImCreditCard className="w-6 h-6" />
+                    <ImCreditCard className="w-7 h-7" />
                     <span className="md:text-xl text-base text-center flex flex-row items-center">
                       Total price:{' '}
                       <p className="ml-1 md:text-2xl text-lg">
