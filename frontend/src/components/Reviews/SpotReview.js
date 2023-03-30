@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Review from './Review';
 import {getAllReviews} from '../../store/reviews';
 
-const SpotReview = ({spot, setSpot}) => {
+const SpotReview = ({spot}) => {
   const dispatch = useDispatch();
   const [container, setContainer] = useState(true);
 
@@ -55,7 +55,6 @@ const SpotReview = ({spot, setSpot}) => {
                   review={review}
                   spotReviews={Object.values(reviewObjs)}
                   updateContainer={updateContainer}
-                  setSpot={setSpot}
                 />
               </div>
             ))}

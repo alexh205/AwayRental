@@ -6,7 +6,7 @@ import {reviewDelete} from '../../store/reviews';
 import EditModal from './EditModal';
 import {getSpotById} from '../../store/spots';
 
-const Review = ({review, spotReviews, updateContainer, setSpot}) => {
+const Review = ({review, spotReviews, updateContainer}) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const showModal = Boolean => setModal(Boolean);
@@ -36,10 +36,8 @@ const Review = ({review, spotReviews, updateContainer, setSpot}) => {
     if (spotReviews.length === 1) {
       updateContainer(false);
     }
-    await Promise.all([
-      dispatch(reviewDelete(review.id)),
-      dispatch(getSpotById(review.spotId)).then(res => console.log(res)),
-    ]);
+
+    await dispatch(reviewDelete(review.id));
   };
 
   return (

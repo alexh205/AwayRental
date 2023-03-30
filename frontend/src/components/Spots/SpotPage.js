@@ -118,11 +118,13 @@ const SpotPage = () => {
                 </div>
               </div>
               <div className="border-b my-4">
-                <h2 className="font-semibold text-2xl mt-1">Description</h2>
+                <h2 className="font-semibold text-2xl text-site-primary mt-1">
+                  Description
+                </h2>
                 <p className="my-3">{spot.description}</p>
               </div>
               <div className={`${selectImage ? 'hidden' : 'border-b my-3'}`}>
-                <h2 className="font-semibold text-xl">
+                <h2 className="font-bold text-site-primary text-xl mb-2 ">
                   Check-in & Check-out times
                 </h2>
                 <div className="opacity-80">
@@ -141,17 +143,19 @@ const SpotPage = () => {
                 </div>
               </div>
 
-              <h2 className="font-semibold text-2xl my-2">Top amenities</h2>
+              <h2 className="font-bold text-2xl text-site-primary my-2">
+                Top amenities
+              </h2>
 
               <div className="grid sm:grid-cols-2 grid-cols-1">
-                {spot &&
-                  spot.amenities.slice(0, 6).map((amenity, ind) => (
+                {spot.amenities &&
+                  spot?.amenities.slice(0, 6).map((amenity, ind) => (
                     <div key={ind}>
                       <RenderAmenities amenity={amenity} />
                     </div>
                   ))}
               </div>
-              {spot && spot?.amenities.length > 6 && (
+              {spot && spot.amenities.length > 6 && (
                 <button
                   className="bg-site-primary hover:bg-site-secondary text-white my-3 mx-auto py-2 px-4 text-base rounded-md  sm:ml-[108px]  whitespace-nowrap"
                   onClick={() => setModal(!modal)}>

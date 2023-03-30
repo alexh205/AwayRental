@@ -8,7 +8,7 @@ import {getAllSpots} from '../../store/spots';
 
 function Home() {
   const dispatch = useDispatch();
-  const spotsArr = useSelector(state => state.spots);
+  const spotsArr = useSelector(state => state.spots.spots);
   useEffect(() => {
     dispatch(getAllSpots());
   }, []);
