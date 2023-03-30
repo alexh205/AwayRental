@@ -1,6 +1,7 @@
 import {csrfFetch} from './csrf';
-const initialState = {};
+const initialState = {spots: {}, spot: {}};
 
+const GETALL = 'spots/GETALL';
 const GET = 'spots/GET';
 const EDIT = 'spots/EDIT';
 const USERSPOTS = 'spots/USERSPOTS';
@@ -8,11 +9,17 @@ const DELETE = 'spots/DELETE';
 
 const getSpots = data => {
   return {
-    type: GET,
+    type: GETALL,
     spots: data,
   };
 };
 
+const getSpot = data => {
+  return {
+    type: GET,
+    spot: data,
+  };
+};
 const editSpot = data => {
   return {
     type: EDIT,
@@ -52,6 +59,7 @@ export const getSpotById = spotId => async dispatch => {
 
   if (response.ok) {
     const spotData = await response.json();
+    dispatch(getSpot(spotData));
     return spotData;
   }
 };
@@ -117,14 +125,17 @@ export const addSpotImages = (images, spotId) => async dispatch => {
 const spotsReducer = (state = initialState, action) => {
   let newState = {...state};
   switch (action.type) {
+    case GETALL:
+      newState.spots = {...action.spots};
+      return newState;
     case GET:
-      newState = {...action.spots};
+      newState.spot = {...action.spot};
       return newState;
     case USERSPOTS:
-      newState = {...action.spots};
+      newState.spots = {...action.spots};
       return newState;
     case EDIT:
-      newState = {...state, [action.spot.id]: action.spot};
+      newState.spots = {...newState.spots, [action.spot.id]: action.spot};
       return newState;
     case DELETE:
       delete newState[action.spot.id];
