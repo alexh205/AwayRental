@@ -12,7 +12,6 @@ const AccountNav = () => {
   const user = useSelector(state => state.session.user?.user);
   const [selected, setSelected] = useState(false);
 
-
   useEffect(() => {
     setSelected(false);
   }, [dispatch]);

@@ -21,6 +21,7 @@ const BookingPage = () => {
   const [selectImage, setSelectImage] = useState('');
   const [stay, setStay] = useState(false);
   const [reviewed, setReviewed] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     dispatch(getSingleBookingThunk(id)).then(res => setBooking(res));
@@ -66,11 +67,14 @@ const BookingPage = () => {
   if (!booking || !spot) return null;
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto h-fit">
       {!selectImage && <Header />}
       <div className="my-8">
-        <h1 className="text-4xl mb-4">{booking.Spot?.title}</h1>
+        <h1 className="text-4xl mb-3">{booking.Spot?.title}</h1>
         <div className="flex flex-row items-center">
+          <h3 className="mr-2 text-xl font-semibold text-site-primary">
+            Location:
+          </h3>
           <BiMap className="w-6 h-6 mr-1" />
           <LocationLink className="my-3 block">
             {booking.Spot?.city +
@@ -94,22 +98,22 @@ const BookingPage = () => {
             </div>
           </div>
           <div className="flex items-center">
-            <div className="bg-site-primary sm:p-6 p-4 text-white rounded-2xl flex flex-row items.center justify-center h-[3rem] sm:h-auto whitespace-nowrap">
-              <div className="md:text-2xl text-base mr-2">Total price:</div>
-              <div className="md:text-2xl text-xl">
+            <div className="bg-site-primary sm:p-6 p-3 text-white rounded-2xl flex flex-row items.center justify-center h-[2.8rem] sm:h-auto whitespace-nowrap">
+              <div className="md:text-2xl text-lg mr-2">Total price:</div>
+              <div className="md:text-2xl text-lg">
                 {booking.price
                   ?.toLocaleString('en-US', {
                     style: 'currency',
                     currency: 'USD',
                   })
-                  .replace('.00', '')}
+                  .replace('.00', '')}{' '}
               </div>
             </div>
           </div>
         </div>
         <div className="p-5 my-4 border-4 border-double rounded-xl flex lg:flex-row flex-col ">
           <h2 className="text-xl font-semibold md:mr-2 mr-0 whitespace-nowrap">
-            Location detail:
+            General details:
           </h2>
           <div className="opacity-80 sm:flex sm:flex-row grid grid-col-1 items-center text-lg">
             <div className="whitespace-nowrap">
@@ -134,9 +138,9 @@ const BookingPage = () => {
                 {formatTime(spot.checkIn, true)}
               </p>
             </div>
-            <div className=" flex flex-row items-center ml-2">
+            <div className=" flex flex-row text-lg items-center ml-2">
               Check-out:{' '}
-              <p className="font-bold ml-1">
+              <p className="font-bold ml-1 text-base">
                 {formatTime(spot.checkOut, false)}
               </p>
             </div>
@@ -152,7 +156,23 @@ const BookingPage = () => {
       </div>
       {stay && !reviewed && (
         <div>
-          <CreateReview spot={spot} />
+          {!show && (
+            <div className="mb-14 flex md:flex-row flex-col items-center justify-around">
+              <h2 className="md:text-xl text-lg">
+                We hope you had a wonderful stay, and we hope that you share
+                your experience with us
+              </h2>
+              <button
+                className=" text-white text-lg shadow-lg hover:bg-site-secondary font-semibold p-[5px] rounded-2xl bg-site-primary whitespace-nowrap"
+                onClick={e => {
+                  e.preventDefault();
+                  setShow(true);
+                }}>
+                Write a review
+              </button>
+            </div>
+          )}
+          {show && <CreateReview spot={spot} />}
         </div>
       )}
     </div>

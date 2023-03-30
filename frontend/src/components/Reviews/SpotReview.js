@@ -1,22 +1,24 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {BsDot} from 'react-icons/bs';
 import {useDispatch, useSelector} from 'react-redux';
 import Review from './Review';
 import {getAllReviews} from '../../store/reviews';
 
-const SpotReview = ({spot}) => {
+const SpotReview = ({spot, setSpot}) => {
   const dispatch = useDispatch();
+  const [container, setContainer] = useState(true);
+
+  const updateContainer = Boolean => setContainer(Boolean);
+
   useEffect(() => {
-    if (spot && spot.id) {
-      dispatch(getAllReviews(spot.id));
-    }
-  }, [spot, spot.id]);
+    dispatch(getAllReviews(spot.id));
+  }, [spot, dispatch]);
 
   const reviewObjs = useSelector(state => state.reviews);
 
   return (
     <>
-      {spot && (
+      {spot && container && (
         <div className="mb-7 mt-4">
           <h2 className="text-2xl font-semibold mb-1">User reviews</h2>
           <div className="flex flex-row items-center">
@@ -49,7 +51,12 @@ const SpotReview = ({spot}) => {
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-2">
             {Object.values(reviewObjs).map((review, ind) => (
               <div key={ind} className="my-8">
-                <Review review={review} spot={spot} />
+                <Review
+                  review={review}
+                  spotReviews={Object.values(reviewObjs)}
+                  updateContainer={updateContainer}
+                  setSpot={setSpot}
+                />
               </div>
             ))}
           </div>

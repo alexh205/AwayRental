@@ -19,6 +19,19 @@ router.put('/:reviewId', requireAuth, reviewValidation, async (req, res) => {
 
   const reviewToEdit = await Review.findOne({
     where: {id: req.params.reviewId},
+    include: [
+      {
+        model: User,
+        attributes: ['id', 'name', 'profileImg'],
+      },
+      {
+        model: Image,
+        required: false,
+        as: 'ReviewImages',
+        where: {imageableType: 'Review'},
+        attributes: ['id', 'url'],
+      },
+    ],
   });
 
   if (!reviewToEdit) {
@@ -60,10 +73,11 @@ router.delete('/:reviewId', requireAuth, async (req, res) => {
 
   if (req.user.id === deleteReview.userId) {
     await deleteReview.destroy();
-    return res.json({
-      message: 'Successfully deleted',
-      statusCode: 200,
-    });
+    return res.json(
+      deleteReview.id
+      // message: 'Successfully deleted',
+      // statusCode: 200,
+    );
   } else {
     return res.status(403).json({
       message: 'Unauthorized - only review owner can delete this review',

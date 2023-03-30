@@ -79,11 +79,9 @@ export const reviewEdit = review => async dispatch => {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(review),
   });
-  const editedReview = await response.json();
   if (response.ok) {
+    const editedReview = await response.json();
     dispatch(editReview(editedReview));
-  } else {
-    throw response;
   }
 };
 
@@ -115,7 +113,7 @@ const reviewsReducer = (state = initialState, action) => {
       newState = {...state, [action.reviews.id]: action.reviews};
       return newState;
     case DELETE:
-      delete newState[action.reviews.id];
+      delete newState[action.reviews];
       return newState;
     case 'RENDERREVIEWS':
       return initialState;

@@ -3,7 +3,7 @@ import {useParams, useHistory} from 'react-router-dom';
 import Amenities from '../Profile/Amenities';
 import usaStates from '../../static/usaStates.json';
 import propertyTypes from '../../static/propertyTypes.json';
-import {addNewSpot, getAllSpots} from '../../store/spots';
+import {addNewSpot} from '../../store/spots';
 import {useDispatch} from 'react-redux';
 import PhotoUpload from '../Images/PhotoUpload';
 import {addSpotImages} from '../../store/spots';
@@ -102,7 +102,7 @@ export const SpotForm = ({setSelected}) => {
     if (addedPhotos.length > 0) {
       await dispatch(addSpotImages(addedPhotos, createdSpot.id));
 
-      await dispatch(getAllSpots());
+
       setTitle('');
       setAddress('');
       setCity('');
@@ -123,7 +123,7 @@ export const SpotForm = ({setSelected}) => {
       setSelected(false);
       history.push(`/spots/${createdSpot.id}`);
     } else {
-      await dispatch(getAllSpots());
+      
       setTitle('');
       setAddress('');
       setCity('');

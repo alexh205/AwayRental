@@ -22,7 +22,7 @@ const SpotPage = () => {
   const targetRef = useRef(null); // to create a reference to the target element
   const user = useSelector(state => state.session.user?.user);
 
-  const showModal = Boolean => setModal(false);
+  const showModal = Boolean => setModal(Boolean);
 
   useEffect(() => {
     if (!id) {
@@ -111,9 +111,10 @@ const SpotPage = () => {
                       }`}
                     </div>
                   </div>
-                  <div>
-                    {/* <img src={spotOwner.profileImg} alt="host" className="" /> */}
-                  </div>
+                  {/* <div>
+                    <h2>This property is hosted by {}</h2>
+                    <img src={spotOwner.profileImg} alt="host" className="" />
+                  </div> */}
                 </div>
               </div>
               <div className="border-b my-4">
@@ -181,11 +182,7 @@ const SpotPage = () => {
       </div>
 
       {modal && (
-        <AmenitiesModal
-          showModal={showModal}
-          amenities={spot.amenities}
-          modal={modal}
-        />
+        <AmenitiesModal showModal={showModal} amenities={spot.amenities} />
       )}
     </>
   );

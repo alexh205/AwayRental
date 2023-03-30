@@ -13,7 +13,6 @@ const UserSpots = ({setSelected}) => {
   }, []);
   const [expanded, setExpanded] = useState(false);
 
-
   const visibleSpots = spots.slice(0, 4);
   const hiddenSpots = spots.slice(4);
 
@@ -22,7 +21,7 @@ const UserSpots = ({setSelected}) => {
   //   : `${description.slice(0, 100)}...`;
 
   return (
-    <div className=''>
+    <div className="">
       <div className="text-center">
         <Link
           className="inline-flex gap-1 bg-site-primary hover:bg-site-secondary text-white py-2 px-6 rounded-full"
@@ -93,7 +92,7 @@ const UserSpots = ({setSelected}) => {
                       <div className="grow-0 shrink flex flex-col justify-center items-center">
                         <h2 className="text-2xl font-semibold ">{title}</h2>
                         <p className="text-sm mt-2">
-                         {description.slice(0, 500)}...
+                          {description.slice(0, 500)}...
                         </p>
                       </div>
                     </Link>
