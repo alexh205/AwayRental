@@ -24,10 +24,10 @@ const PhotoUpload = ({addedPhotos, onChange}) => {
     onChange([...addedPhotos.filter(photo => photo !== link)]);
   };
 
-    const selectAsMainPhoto = (e, link) => {
-      e.preventDefault();
-      onChange([link, ...addedPhotos.filter(photo => photo !== link)]);
-    };
+  const selectAsMainPhoto = (e, link) => {
+    e.preventDefault();
+    onChange([link, ...addedPhotos.filter(photo => photo !== link)]);
+  };
 
   return (
     <>
@@ -46,8 +46,8 @@ const PhotoUpload = ({addedPhotos, onChange}) => {
       </div>
       <div className="mt-2 grid gap-2 grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {addedPhotos?.length > 0 &&
-          addedPhotos.map(link => (
-            <div className="h-32 flex relative" key={link}>
+          addedPhotos.map((link, ind) => (
+            <div className="h-32 flex relative" key={ind}>
               <img
                 className="rounded-2xl w-full object-cover"
                 src={link}

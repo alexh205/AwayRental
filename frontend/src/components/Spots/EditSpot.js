@@ -104,6 +104,7 @@ const EditSpot = () => {
     }
   }
 
+  console.log(addedPhotos);
   const saveSpot = async e => {
     e.preventDefault();
 
@@ -112,46 +113,49 @@ const EditSpot = () => {
     if (errors.length > 0) {
       return setValidateErrors(errors);
     }
+    const spot = {
+      id: Number(id),
+      address,
+      city,
+      state,
+      country,
+      description,
+      type,
+      title,
+      amenities,
+      bedroom,
+      bed,
+      bathroom,
+      maxGuests,
+      checkIn,
+      checkOut,
+      price,
+    };
+    const editSpot = await dispatch(editSpotThunk(spot));
 
-    const editSpot = await dispatch(
-      editSpotThunk({
-        title,
-        address,
-        city,
-        state,
-        country,
-        type,
-        description,
-        amenities,
-        checkIn,
-        checkOut,
-        maxGuests,
-        bedroom,
-        bed,
-        bathroom,
-        price,
-      })
-    );
-
-    await dispatch(addSpotImagesThunk(addedPhotos, editSpot.id));
-    setTitle('');
-    setAddress('');
-    setCity('');
-    setState('');
-    setCountry('');
-    setType('');
-    setDescription('');
-    setAmenities([]);
-    setCheckIn('');
-    setCheckOut('');
-    setMaxGuests(0);
-    setBedroom(0);
-    setBed(0);
-    setBathroom(0);
-    setPrice(0);
-    setAddedPhotos([]);
-    setValidateErrors([]);
-    history.push(`/spots/${editSpot.id}`);
+    //   await dispatch(addSpotImagesThunk(addedPhotos, editSpot.id));
+    //   setTitle('');
+    //   setAddress('');
+    //   setCity('');
+    //   setState('');
+    //   setCountry('');
+    //   setType('');
+    //   setDescription('');
+    //   setAmenities([]);
+    //   setCheckIn('');
+    //   setCheckOut('');
+    //   setMaxGuests(0);
+    //   setBedroom(0);
+    //   setBed(0);
+    //   setBathroom(0);
+    //   setPrice(0);
+    //   setAddedPhotos([]);
+    //   setValidateErrors([]);
+    //   history.push(`/spots/${editSpot.id}`);
+  };
+  const handleCancel = e => {
+    e.preventDefault();
+    history.push('/account/spots');
   };
 
   return (
@@ -360,7 +364,7 @@ const EditSpot = () => {
                 Save
               </button>
               <button
-                // onClick={handleCancel}
+                onClick={handleCancel}
                 className="bg-gray-600 py-[9px] w-full rounded-2xl text-lg text-white my-2">
                 Cancel
               </button>

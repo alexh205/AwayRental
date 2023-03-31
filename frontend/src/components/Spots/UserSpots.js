@@ -106,8 +106,12 @@ const UserSpots = ({setSelected, spots, setSpots}) => {
         <div className="flex items-center justify-center mt-2 mb-4 w-[200px]">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="p-2 w-full rounded-2xl bg-site-primary hover:bg-site-secondary text-xl text-white">
-            {expanded ? 'Hide' : `Show all (${spots.length - 4})`}
+            className={`${
+              spots.length <= 4
+                ? 'hidden'
+                : 'p-2 w-full rounded-2xl bg-site-primary hover:bg-site-secondary text-xl text-white'
+            }`}>
+            {expanded ? 'Hide' : `Show all (${spots.length})`}
           </button>
         </div>
       </div>

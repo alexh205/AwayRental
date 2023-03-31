@@ -80,6 +80,7 @@ export const addNewSpotThunk = spot => async dispatch => {
 
 export const editSpotThunk = spot => async dispatch => {
   const {id} = spot;
+  console.log('Thunk spot', spot);
   const response = await csrfFetch(`/api/spots/${id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
@@ -88,7 +89,8 @@ export const editSpotThunk = spot => async dispatch => {
 
   if (response.ok) {
     const editData = await response.json();
-    dispatch(editSpot(editData));
+    // dispatch(editSpot(editData));
+    return editData;
   }
 };
 export const deleteSpotByIdThunk = spotId => async dispatch => {
