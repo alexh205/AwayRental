@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {BsDot, BsFillStarFill} from 'react-icons/bs';
-import {getSpotById} from '../../store/spots';
+import {getSpotByIdThunk} from '../../store/spots';
 import BookingWidget from '../Booking/BookingWidget';
 import Header from '../Header_footer/Header';
 import SpotImage from '../Images/SpotImage';
@@ -13,9 +13,11 @@ import AmenitiesModal from '../Modals/AmenitiesModal';
 import {BiMap} from 'react-icons/bi';
 // import Map from '../Map';
 
+
 const SpotPage = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
+  const history = useHistory();
   const [spot, setSpot] = useState('');
   const [selectImage, setSelectImage] = useState(false);
   const [modal, setModal] = useState(false);
@@ -28,7 +30,7 @@ const SpotPage = () => {
     if (!id) {
       return;
     }
-    dispatch(getSpotById(id)).then(res => setSpot(res));
+    dispatch(getSpotByIdThunk(id)).then(res => setSpot(res));
   }, []);
 
   //? formatting AM/PM time
@@ -42,13 +44,19 @@ const SpotPage = () => {
     }
   };
 
+  const handleSpotEdit = e => {
+    e.preventDefault();
+
+    history.push(`/spots/${id}/edit`);
+  };
+
   return (
     <>
       <div className="container mx-auto ">
         {!selectImage && <Header />}
         <div className="-mx-4 px-16 pt-3 f">
           <h1 className="text-4xl whitespace-nowrap">{spot.title}</h1>
-          <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-6">
+          <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-4">
             <div className="flex flex-row items-center ">
               <div className="flex flex-row items-center ">
                 <div className="flex flex-row items-center">
@@ -78,6 +86,16 @@ const SpotPage = () => {
                 </LocationLink>
               </div>
             </div>
+          </div>
+          <div className="my-2 flex flex-row items-center">
+            <button className="mr-4 ml-2 p-[4px] bg-slate-500 hover:bg-slate-400 hover:shadow-lg text-white rounded-lg">
+              Delete
+            </button>
+            <button
+              className=" p-[4px]  bg-site-primary hover:bg-site-secondary hover:shadow-lg text-white rounded-lg"
+              onClick={handleSpotEdit}>
+              Modify
+            </button>
           </div>
           <div>
             <SpotImage spot={spot} setSelectImage={setSelectImage} />

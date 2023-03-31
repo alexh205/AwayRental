@@ -2,13 +2,11 @@ import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {FaStar} from 'react-icons/fa';
 import {MdClose} from 'react-icons/md';
-import {useHistory} from 'react-router-dom';
 import {reviewEdit} from '../../store/reviews';
 
-const EditModal = ({showModal, reviewObj}) => {
+const EditReviewModal = ({showModal, reviewObj}) => {
   const dispatch = useDispatch();
-  const history = useHistory();
-
+  
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
@@ -138,14 +136,25 @@ const EditModal = ({showModal, reviewObj}) => {
                   required={true}
                   placeholder="How was your stay? What did you like and dislike?"></textarea>
               </div>
-
-              <button
-                className={
-                  'flex ml-2 sm:ml-6 border-2 rounded-xl p-[4px] hover:shadow-xl bg-site-primary mt-5 hover:bg-site-secondary text-white font-semibold'
-                }
-                onClick={onReviewEdit}>
-                Submit
-              </button>
+              <div className="flex flex-row mt-5 justify-end ">
+                <button
+                  className="flex border-2 rounded-xl p-[4px] hover:shadow-xl bg-slate-500 hover:bg-slate-400 text-white font-semibold"
+                  onClick={() => {
+                    setReview('');
+                    setRating(0);
+                    setHover(0);
+                    showModal(false);
+                  }}>
+                  Cancel
+                </button>
+                <button
+                  className={
+                    'flex ml-2 sm:ml-6 border-2 rounded-xl p-[4px] hover:shadow-xl bg-site-primary hover:bg-site-secondary text-white font-semibold'
+                  }
+                  onClick={onReviewEdit}>
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -154,4 +163,4 @@ const EditModal = ({showModal, reviewObj}) => {
   );
 };
 
-export default EditModal;
+export default EditReviewModal;

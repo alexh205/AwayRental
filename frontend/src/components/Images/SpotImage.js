@@ -7,9 +7,9 @@ const SpotImage = ({spot, setSelectImage}) => {
   if (showAllPhotos) {
     return (
       <div className="absolute inset-0 bg-black text-white min-h-screen">
-        <div className="bg-black p-8 grid gap-4">
+        <div className="bg-black p-8 grid gap-4 ">
           <div>
-            <h2 className="sm:text-3xl text-xl sm:mr-48 mr-28 text-center">
+            <h2 className="sm:text-3xl text-xl text-center">
               Photos of {spot.title}
             </h2>
             <button
@@ -36,8 +36,8 @@ const SpotImage = ({spot, setSelectImage}) => {
             spot.spotImages.map((photo, ind) => (
               <div
                 key={ind}
-                className="flex flex-col items-center justify-center">
-                <img src={photo.url} alt="" />
+                className="flex flex-col items-center justify-center mx-20">
+                <img src={photo.url} alt="" className='object-contain'/>
               </div>
             ))}
         </div>

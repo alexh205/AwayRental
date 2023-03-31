@@ -35,23 +35,39 @@ const Amenities = ({selected, onChange}) => {
   return (
     <>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Wifi" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Wifi')}
+          name="Wifi"
+          onChange={handleClick}
+        />
         <BsWifi className="h-6 w-6" />
         <span>Wifi</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Radio" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Radio')}
+          name="Radio"
+          onChange={handleClick}
+        />
         <MdOutlineRadio className="h-6 w-6" />
         <span>Radio</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Private entrance" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Private entrance')}
+          name="Private entrance"
+          onChange={handleClick}
+        />
         <BsDoorOpen className="w-6 h-6" />
         <span>Private entrance</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes('Security on property')}
           name="Security on property"
           onChange={handleClick}
         />
@@ -60,13 +76,19 @@ const Amenities = ({selected, onChange}) => {
       </label>
 
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Street parking" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Street parking')}
+          name="Street parking"
+          onChange={handleClick}
+        />
         <BsCarFront className="w-6 h-6" />
         <span>Street parking</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes('Parking on premise')}
           name="Parking on premise"
           onChange={handleClick}
         />
@@ -74,32 +96,62 @@ const Amenities = ({selected, onChange}) => {
         <span>Parking on premise</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Water front" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Water front')}
+          name="Water front"
+          onChange={handleClick}
+        />
         <MdOutlineWater className="w-6 h-6" />
         <span>Water front</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Grand view" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Grand view')}
+          name="Grand view"
+          onChange={handleClick}
+        />
         <TbPlant className="w-6 h-6" />
         <span>Garden view</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Tv" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Tv')}
+          name="Tv"
+          onChange={handleClick}
+        />
         <MdMonitor className="w-6 h-6" />
         <span>TV</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Pets" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Pets')}
+          name="Pets"
+          onChange={handleClick}
+        />
         <MdPets className="w-6 h-6" />
         <span>Pets</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Hot water" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Hot water')}
+          name="Hot water"
+          onChange={handleClick}
+        />
         <FaHotTub className="w-5 h-5" />
         <span>Hot water</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Hair dryer" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Hair dryer')}
+          name="Hair dryer"
+          onChange={handleClick}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -114,28 +166,49 @@ const Amenities = ({selected, onChange}) => {
         <span>Hair dryer</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Heating" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Heating')}
+          name="Heating"
+          onChange={handleClick}
+        />
         <GiFurnace className="w-6 h-6" />
         <span>Heating</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Ac" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Ac')}
+          name="Ac"
+          onChange={handleClick}
+        />
         <TbAirConditioning className="h-6 w-6" />
         <span>AC</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Fan" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Fan')}
+          name="Fan"
+          onChange={handleClick}
+        />
         <FaFan className="h-5 w-5" />
         <span>Fan</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Smoke alarm" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Smoke alarm')}
+          name="Smoke alarm"
+          onChange={handleClick}
+        />
         <GiRingingAlarm className="h-5 w-5" />
         <span>Smoke alarm</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes('Fire extinguisher')}
           name="Fire extinguisher"
           onChange={handleClick}
         />
@@ -143,28 +216,49 @@ const Amenities = ({selected, onChange}) => {
         <span>Fire extinguisher</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Kitchen" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Kitchen')}
+          name="Kitchen"
+          onChange={handleClick}
+        />
         <GiChickenOven className="h-5 w-5" />
         <span>Kitchen</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Microwave" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Microwave')}
+          name="Microwave"
+          onChange={handleClick}
+        />
         <MdOutlineMicrowave className="h-5 w-5" />
         <span>Microwave</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Oven" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Oven')}
+          name="Oven"
+          onChange={handleClick}
+        />
         <GiCookingPot className="h-5 w-5" />
         <span>Oven</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Refrigerator" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Refrigerator')}
+          name="Refrigerator"
+          onChange={handleClick}
+        />
         <MdOutlineKitchen className="h-5 w-5" />
         <span>Refrigerator</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
         <input
           type="checkbox"
+          checked={selected.includes('Bathtub or shower')}
           name="Bathtub or shower"
           onChange={handleClick}
         />
@@ -172,12 +266,22 @@ const Amenities = ({selected, onChange}) => {
         <span>Bathtub or shower</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Dining table" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Dining table')}
+          name="Dining table"
+          onChange={handleClick}
+        />
         <MdOutlineTableBar className="h-5 w-5" />
         <span>Dining table</span>
       </label>
       <label className="border p-4 flex rounded-2xl gap-2 items-center cursor-pointer">
-        <input type="checkbox" name="Coffee maker" onChange={handleClick} />
+        <input
+          type="checkbox"
+          checked={selected.includes('Coffee maker')}
+          name="Coffee maker"
+          onChange={handleClick}
+        />
         <MdCoffeeMaker className="h-5 w-5" />
         <span>Coffee maker</span>
       </label>

@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {BsFillStarFill} from 'react-icons/bs';
 import {reviewDelete} from '../../store/reviews';
 
-import EditModal from './EditModal';
+import EditModal from './EditReviewModal';
 import {getSpotById} from '../../store/spots';
 
 const Review = ({review, spotReviews, updateContainer}) => {
@@ -69,12 +69,12 @@ const Review = ({review, spotReviews, updateContainer}) => {
       {user.id === review.userId && (
         <div className="mt-1 ml-2 flex flex-row">
           <div
-            className="cursor-pointer mr-4 hover:text-amber-600 text-blue-500 text-sm font-semibold"
+            className="cursor-pointer mr-4 hover:text-amber-600 text-blue-500 text-sm font-bold outline px-1"
             onClick={handleEdit}>
             Edit
           </div>
           <div
-            className="cursor-pointer hover:text-amber-600 text-site-primary text-sm font-semibold"
+            className="cursor-pointer hover:text-amber-600 text-site-primary text-sm font-bold outline px-1"
             onClick={handleDelete}>
             Delete
           </div>

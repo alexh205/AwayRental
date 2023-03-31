@@ -438,8 +438,8 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     country: country,
     description: description,
     type: type,
-    lat: lat,
-    lng: lng,
+    // lat: lat,
+    // lng: lng,
     title: title,
     amenities: JSON.stringify(amenities),
     bedroom: bedroom,
@@ -482,7 +482,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 });
 
 /**********************************************************************************/
-//! Create an Image for a spotId
+//! Create an Image/delete for a spotId
 
 router.post('/:spotId/images', requireAuth, async (req, res) => {
   const currentSpot = await Spot.findOne({
@@ -503,9 +503,19 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     });
   }
 
+  const spotImages = await Image.findAll({
+    where: {imageableType: 'Spot', imageableId: currentSpot.id},
+    attributes: ['url'],
+  });
+
+  const filteredImages = req.body.filter(url => !spotImages.includes(url));
+  // filter out all new images
+
+  const removedImages = req.body.filter(url => spotImages.includes(url));
+  // filter out all removed images
   //* new Images
 
-  for (const url of req.body) {
+  for (const url of filteredImages) {
     await Image.create({
       imageableId: currentSpot.id,
       imageableType: 'Spot',
@@ -513,6 +523,25 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
       userId: req.user.id,
       preview: false,
     });
+  }
+
+  for (const urlObj of removedImages) {
+    const currImage = await Image.findOne({where: {url: urlObj}});
+    if (!currImage) {
+      return res
+        .status(404)
+        .json({message: "image couldn't be located", statusCode: 404});
+    }
+
+    if (req.user.id !== currImage.userId) {
+      return res.status(403).json({
+        message: 'Unauthorized - only owner can delete this image',
+        statusCode: 403,
+      });
+    } else {
+      await currImage.destroy();
+      return res.json({message: 'Successfully deleted', statusCode: 200});
+    }
   }
 
   return 'Image created!';

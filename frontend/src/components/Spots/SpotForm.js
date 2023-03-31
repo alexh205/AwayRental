@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams, useHistory} from 'react-router-dom';
 import Amenities from '../Profile/Amenities';
 import usaStates from '../../static/usaStates.json';
 import propertyTypes from '../../static/propertyTypes.json';
-import {addNewSpot} from '../../store/spots';
+import {addNewSpotThunk} from '../../store/spots';
 import {useDispatch} from 'react-redux';
 import PhotoUpload from '../Images/PhotoUpload';
-import {addSpotImages} from '../../store/spots';
+import {addSpotImagesThunk} from '../../store/spots';
+import {userSpotsByIdThunk} from '../../store/spots';
 
-export const SpotForm = ({setSelected}) => {
+export const SpotForm = ({setSelected, setSpots}) => {
   const {action} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -31,6 +32,14 @@ export const SpotForm = ({setSelected}) => {
   const [price, setPrice] = useState(0);
 
   const [validateErrors, setValidateErrors] = useState([]);
+
+  // handles users selecting the browser's back button
+  useEffect(() => {
+    window.addEventListener('popstate', () => {
+      // renders the user's spots page
+      setSelected(false);
+    });
+  }, []);
 
   const inputHeader = text => {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -80,7 +89,7 @@ export const SpotForm = ({setSelected}) => {
     }
 
     const createdSpot = await dispatch(
-      addNewSpot({
+      addNewSpotThunk({
         title,
         address,
         city,
@@ -100,8 +109,7 @@ export const SpotForm = ({setSelected}) => {
     );
 
     if (addedPhotos.length > 0) {
-      await dispatch(addSpotImages(addedPhotos, createdSpot.id));
-
+      await dispatch(addSpotImagesThunk(addedPhotos, createdSpot.id));
 
       setTitle('');
       setAddress('');
@@ -123,7 +131,6 @@ export const SpotForm = ({setSelected}) => {
       setSelected(false);
       history.push(`/spots/${createdSpot.id}`);
     } else {
-      
       setTitle('');
       setAddress('');
       setCity('');
@@ -222,7 +229,7 @@ export const SpotForm = ({setSelected}) => {
               <div className="flex flex-col justify-center w-full">
                 {preInput('State', '')}
                 <select
-                  className="border rounded-2xl  py-2 text-center"
+                  className="border rounded-2xl py-2 pl-2"
                   value={state}
                   onChange={e => setState(e.target.value)}>
                   <option value="" disabled>
@@ -257,6 +264,8 @@ export const SpotForm = ({setSelected}) => {
             )}
             <textarea
               value={description}
+              rows="12"
+              maxLength="1200"
               onChange={e => setDescription(e.target.value)}
             />
             {preInput(
@@ -339,8 +348,8 @@ export const SpotForm = ({setSelected}) => {
                 <input
                   className="w-full h-full my-1 rounded-2xl text-center border outline-none"
                   type="number"
-                  value={maxGuests}
-                  onChange={e => setMaxGuests(e.target.value)}
+                  value={price}
+                  onChange={e => setPrice(e.target.value)}
                 />
               </div>
               <div className="flex flex-col items-center w-full ">
@@ -350,8 +359,8 @@ export const SpotForm = ({setSelected}) => {
                 <input
                   className="w-full h-full my-1 rounded-2xl text-center border outline-none"
                   type="number"
-                  value={price}
-                  onChange={e => setPrice(e.target.value)}
+                  value={maxGuests}
+                  onChange={e => setMaxGuests(e.target.value)}
                 />
               </div>
             </div>
