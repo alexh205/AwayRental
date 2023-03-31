@@ -6,7 +6,6 @@ import {useDispatch} from 'react-redux';
 import LocationLink from '../Spots/LocationLink';
 import BookingDates from './BookingDates';
 import {BiMap} from 'react-icons/bi';
-import SpotImage from '../Images/SpotImage';
 import {getSpotByIdThunk} from '../../store/spots';
 import {BsPeopleFill} from 'react-icons/bs';
 import {BsDot} from 'react-icons/bs';
@@ -104,7 +103,7 @@ const BookingPage = () => {
                 </button>
               </div>
             )}
-            {modal && <CreateReviewModal spot={spot} showModal={showModal}/>}
+            {modal && <CreateReviewModal spot={spot} showModal={showModal} />}
           </div>
         )}
         <div className="bg-gray-200 p-6 my-5 rounded-2xl flex justify-between">
@@ -171,10 +170,12 @@ const BookingPage = () => {
         </div>
 
         {spot && (
-          <div
-            className="mb-5 cursor-pointer"
-            onClick={e => handlePhotoClick(e)}>
-            <SpotImage spot={spot} setSelectImage={setSelectImage} />
+          <div className="mb-5  flex justify-center max-h-[1000px]">
+            <img
+              src={spot.spotImages[0].url}
+              className="object-cover max-w-auto h-auto rounded-2xl outline-none hover:shadow-xl transform transition duration-300 hover:-translate-y-1 cursor-pointer"
+              onClick={e => handlePhotoClick(e)}
+            />
           </div>
         )}
       </div>

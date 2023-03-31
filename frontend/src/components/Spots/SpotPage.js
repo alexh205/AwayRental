@@ -10,9 +10,9 @@ import LocationLink from './LocationLink';
 import SpotReview from '../Reviews/SpotReview';
 import RenderAmenities from './RenderAmenities';
 import AmenitiesModal from '../Modals/AmenitiesModal';
+import SpotDeletionModal from './SpotDeletionModal';
 import {BiMap} from 'react-icons/bi';
 // import Map from '../Map';
-
 
 const SpotPage = () => {
   const {id} = useParams();
@@ -53,7 +53,9 @@ const SpotPage = () => {
   return (
     <>
       <div className="container mx-auto ">
-        {!selectImage && <Header />}
+        <div className={`${selectImage ? 'hidden' : 'block'}`}>
+          <Header />
+        </div>
         <div className="-mx-4 px-16 pt-3 f">
           <h1 className="text-4xl whitespace-nowrap">{spot.title}</h1>
           <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-4">
@@ -87,16 +89,16 @@ const SpotPage = () => {
               </div>
             </div>
           </div>
-          <div className="my-2 flex flex-row items-center">
-            <button className="mr-4 ml-2 p-[4px] bg-slate-500 hover:bg-slate-400 hover:shadow-lg text-white rounded-lg">
-              Delete
-            </button>
-            <button
-              className=" p-[4px]  bg-site-primary hover:bg-site-secondary hover:shadow-lg text-white rounded-lg"
-              onClick={handleSpotEdit}>
-              Modify
-            </button>
-          </div>
+          {user?.id === spot?.ownerId && (
+            <div className="my-2 flex flex-row items-center">
+              <button
+                className=" mr-4 ml-2 p-[4px]  bg-site-primary hover:bg-site-secondary hover:shadow-lg text-white rounded-lg"
+                onClick={handleSpotEdit}>
+                Modify
+              </button>
+              <SpotDeletionModal setSelectImage={setSelectImage} spotId={id} />
+            </div>
+          )}
           <div>
             <SpotImage spot={spot} setSelectImage={setSelectImage} />
           </div>

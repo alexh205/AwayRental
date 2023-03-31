@@ -389,8 +389,8 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     country,
     description,
     type,
-    lat,
-    lng,
+    // lat,
+    // lng,
     title,
     amenities,
     bedroom,
@@ -403,6 +403,7 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
   } = req.body;
 
   const editedSpot = await Spot.findByPk(req.params.spotId);
+  console.log('editedSpot', editedSpot);
 
   if (!editedSpot) {
     return res.status(404).json({
@@ -421,7 +422,7 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
 
   imagesCurrSpot.forEach(image => {
     image = image.toJSON();
-    reviewsList.push(image);
+    imagesList.push(image);
   });
 
   editedSpot.dataValues.spotImages = imagesList;

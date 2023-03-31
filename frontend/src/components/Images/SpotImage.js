@@ -37,7 +37,7 @@ const SpotImage = ({spot, setSelectImage}) => {
               <div
                 key={ind}
                 className="flex flex-col items-center justify-center mx-20">
-                <img src={photo.url} alt="" className='object-contain'/>
+                <img src={photo.url} alt="" className="object-contain" />
               </div>
             ))}
         </div>
