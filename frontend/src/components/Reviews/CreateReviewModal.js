@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {FaStar} from 'react-icons/fa';
+import {MdClose} from 'react-icons/md';
 import {useHistory} from 'react-router-dom';
-import {getAllReviews, reviewEdit} from '../../store/reviews';
+import {addNewReview} from '../../store/reviews';
 
-const EditReview = ({showModal, reviewObj}) => {
+const CreateReviewModal = ({showModal, spot}) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-  const [valid, setValid] = useState(false);
 
   const [validateErrors, setValidateErrors] = useState([]);
+  const user = useSelector(state => state.session.user.user);
 
   const validate = () => {
     const errors = [];
@@ -23,56 +24,57 @@ const EditReview = ({showModal, reviewObj}) => {
     return errors;
   };
 
-  if (review) {
-    if (!valid) {
-      setReview(reviewObj.review);
-      setRating(reviewObj.rating);
-      setHover(reviewObj.rating);
-      setValid(true);
-    }
+  const onReviewCreation = async e => {
+    e.preventDefault();
 
-    const onReviewEdit = async e => {
-      e.preventDefault();
+    const errors = validate();
+    if (errors.length > 0) return setValidateErrors(errors);
 
-      const errors = validate();
-      if (errors.length > 0) return setValidateErrors(errors);
-
-      const data = {
-        review,
-        stars: rating,
-        userId: reviewObj.userId,
-        spotId: reviewObj.spotId,
-      };
-
-      await dispatch(reviewEdit(data));
-      await dispatch(getAllReviews());
-
-      setReview('');
-      setRating(0);
-      setHover(0);
-      setValidateErrors([]);
-      showModal(false);
-      history.push(`/spots/${reviewObj.spotId}`);
+    const data = {
+      review,
+      stars: rating,
+      userId: user.id,
+      spotId: spot.id,
     };
-    return (
-      <div className="fixed inset-0 z-30 overflow-y-auto">
-        <div className="fixed inset-0 bg-gray-900 opacity-75"></div>
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="inline-flex flex-col lg:flex  mx-5 md:mx-40 mb-7">
-            <div className="flex flex-col mt-8 border-b">
-              {validateErrors.length > 0 && (
-                <div className="my-2 ml-2">
-                  <h3 className="font-bold text-[16px] ">
-                    The following errors were found:
-                  </h3>
-                  <ul className="text-red-600 text-[13px] font-semibold ml-2">
-                    {validateErrors.map((error, i) => (
-                      <li key={i}>{error}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
+
+    await dispatch(addNewReview(data));
+
+    setReview('');
+    setRating(0);
+    setHover(0);
+    setValidateErrors([]);
+    history.push(`/spots/${spot.id}`);
+    showModal(false);
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 overflow-y-auto">
+      <div className="fixed inset-0 bg-gray-900 opacity-75"></div>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="relative w-full max-w-lg p-8 border-solid border-2  bg-white rounded-xl shadow-lg">
+          <button
+            className="absolute top-0 right-0 p-2 text-gray-400 hover:text-gray-500"
+            onClick={() => showModal(false)}>
+            <span className="sr-only">Close Modal</span>
+            <MdClose className="w-8 h-8 text-lg mt-1 mr-1" />
+          </button>
+          <h2 className="mb-4 sm:text-3xl text-2xl font-bold whitespace-nowrap border-b-2 pb-2 text-center">
+            Write a review
+          </h2>
+          <div>
+            {validateErrors.length > 0 && (
+              <div className="my-2 ml-2">
+                <h3 className="font-bold text-[16px] ">
+                  The following errors were found:
+                </h3>
+                <ul className="text-red-600 text-[13px] font-semibold ml-2">
+                  {validateErrors.map((error, i) => (
+                    <li key={i}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             <form className="mt-6">
               <div className="flex flex-row items-center justify-between mb-3 ml-1">
                 <h1 className="font-bold text-xl ">Overall Rating</h1>
@@ -117,7 +119,7 @@ const EditReview = ({showModal, reviewObj}) => {
               </div>
 
               <div className="border-b flex flex-col">
-                <label className="font-bold text-xl my-4">Add a review</label>
+                <label className="font-bold text-xl my-4">Add a review body</label>
                 <textarea
                   className="mb-6 mx-42 border-[2px] p-2 rounded-sm"
                   rows="6"
@@ -130,12 +132,12 @@ const EditReview = ({showModal, reviewObj}) => {
               </div>
               <div className="flex flex-row mt-5 justify-end ">
                 <button
-                  className="border-2 rounded-xl p-[4px] shadow-xl hover:shadow-xl bg-slate-500 hover:bg-slate-400 text-white font-semibold"
+                  className="flex border-2 rounded-xl p-[4px] hover:shadow-xl bg-slate-500 hover:bg-slate-400 text-white font-semibold"
                   onClick={() => {
                     setReview('');
                     setRating(0);
                     setHover(0);
-                    history.push(`/spots/${reviewObj.spotId}`);
+                    showModal(false)
                   }}>
                   Cancel
                 </button>
@@ -143,7 +145,7 @@ const EditReview = ({showModal, reviewObj}) => {
                   className={
                     'flex ml-2 sm:ml-6 border-2 rounded-xl p-[4px] hover:shadow-xl bg-site-primary hover:bg-site-secondary text-white font-semibold'
                   }
-                  onClick={onReviewEdit}>
+                  onClick={onReviewCreation}>
                   Submit
                 </button>
               </div>
@@ -151,8 +153,8 @@ const EditReview = ({showModal, reviewObj}) => {
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
-export default EditReview;
+export default CreateReviewModal;

@@ -1,17 +1,17 @@
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {userSpotsById} from '../../store/spots';
+import {userSpotsByIdThunk} from '../../store/spots';
 
-const UserSpots = ({setSelected}) => {
+const UserSpots = ({setSelected, spots, setSpots}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user?.user);
-  const [spots, setSpots] = useState([]);
+
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    dispatch(userSpotsById(user.id)).then(res => setSpots(res));
+    dispatch(userSpotsByIdThunk(user.id)).then(res => setSpots(res));
   }, []);
-  const [expanded, setExpanded] = useState(false);
 
   const visibleSpots = spots.slice(0, 4);
   const hiddenSpots = spots.slice(4);

@@ -43,7 +43,7 @@ const deleteSpot = data => {
 
 // Thunk
 
-export const getAllSpots = () => async dispatch => {
+export const getAllSpotsThunk = () => async dispatch => {
   const response = await csrfFetch('/api/spots');
 
   if (response.ok) {
@@ -54,7 +54,7 @@ export const getAllSpots = () => async dispatch => {
   }
 };
 
-export const getSpotById = spotId => async dispatch => {
+export const getSpotByIdThunk = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}`);
 
   if (response.ok) {
@@ -64,7 +64,7 @@ export const getSpotById = spotId => async dispatch => {
   }
 };
 
-export const addNewSpot = spot => async dispatch => {
+export const addNewSpotThunk = spot => async dispatch => {
   const response = await csrfFetch('/api/spots', {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
@@ -78,7 +78,7 @@ export const addNewSpot = spot => async dispatch => {
   }
 };
 
-export const modifySpot = spot => async dispatch => {
+export const editSpotThunk = spot => async dispatch => {
   const {id} = spot;
   const response = await csrfFetch(`/api/spots/${id}`, {
     method: 'PUT',
@@ -91,7 +91,7 @@ export const modifySpot = spot => async dispatch => {
     dispatch(editSpot(editData));
   }
 };
-export const deleteSpotById = spotId => async dispatch => {
+export const deleteSpotByIdThunk = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}`, {
     method: 'DELETE',
   });
@@ -101,7 +101,7 @@ export const deleteSpotById = spotId => async dispatch => {
     dispatch(deleteSpot(data));
   }
 };
-export const userSpotsById = userId => async dispatch => {
+export const userSpotsByIdThunk = userId => async dispatch => {
   const response = await csrfFetch('/api/spots/current');
 
   if (response.ok) {
@@ -110,7 +110,7 @@ export const userSpotsById = userId => async dispatch => {
   }
 };
 
-export const addSpotImages = (images, spotId) => async dispatch => {
+export const addSpotImagesThunk = (images, spotId) => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}/images`, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},

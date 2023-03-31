@@ -11,6 +11,7 @@ const AccountNav = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user?.user);
   const [selected, setSelected] = useState(false);
+  const [spots, setSpots] = useState([]);
 
   useEffect(() => {
     setSelected(false);
@@ -105,9 +106,16 @@ const AccountNav = () => {
       )}
       {subPage === 'spots' && (
         <>
-          {selected && <SpotForm setSelected={setSelected} />}
+          {selected && (
+            <SpotForm setSelected={setSelected} setSpots={setSpots} />
+          )}
           {!selected && (
-            <UserSpots selected={selected} setSelected={setSelected} />
+            <UserSpots
+              selected={selected}
+              setSelected={setSelected}
+              spots={spots}
+              setSpots={setSpots}
+            />
           )}
         </>
       )}

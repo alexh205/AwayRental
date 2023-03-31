@@ -7,10 +7,10 @@ import LocationLink from '../Spots/LocationLink';
 import BookingDates from './BookingDates';
 import {BiMap} from 'react-icons/bi';
 import SpotImage from '../Images/SpotImage';
-import {getSpotById} from '../../store/spots';
+import {getSpotByIdThunk} from '../../store/spots';
 import {BsPeopleFill} from 'react-icons/bs';
 import {BsDot} from 'react-icons/bs';
-import CreateReview from '../Reviews/CreateReview';
+import CreateReviewModal from '../Reviews/CreateReviewModal';
 
 const BookingPage = () => {
   const {id} = useParams();
@@ -21,7 +21,9 @@ const BookingPage = () => {
   const [selectImage, setSelectImage] = useState('');
   const [stay, setStay] = useState(false);
   const [reviewed, setReviewed] = useState(false);
-  const [show, setShow] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  const showModal = Boolean => setModal(Boolean);
 
   useEffect(() => {
     dispatch(getSingleBookingThunk(id)).then(res => setBooking(res));
@@ -29,7 +31,7 @@ const BookingPage = () => {
 
   useEffect(() => {
     if (booking) {
-      dispatch(getSpotById(booking?.Spot.id)).then(res => setSpot(res));
+      dispatch(getSpotByIdThunk(booking?.Spot.id)).then(res => setSpot(res));
     }
   }, [booking, dispatch]);
 
@@ -84,7 +86,28 @@ const BookingPage = () => {
               booking.Spot?.country}
           </LocationLink>
         </div>
-        <div className="bg-gray-200 p-6 my-6 rounded-2xl flex justify-between">
+        {stay && !reviewed && (
+          <div className="border-y">
+            {!modal && (
+              <div className="my-4 flex md:flex-row flex-col items-center md:justify-around ">
+                <h2 className="md:text-xl text-lg">
+                  We hope you had a wonderful stay, and we hope that you share
+                  your experience with us
+                </h2>
+                <button
+                  className=" text-white text-lg shadow-lg hover:bg-site-secondary font-semibold p-[5px] rounded-2xl bg-site-primary whitespace-nowrap"
+                  onClick={e => {
+                    e.preventDefault();
+                    setModal(true);
+                  }}>
+                  Write a review
+                </button>
+              </div>
+            )}
+            {modal && <CreateReviewModal spot={spot} showModal={showModal}/>}
+          </div>
+        )}
+        <div className="bg-gray-200 p-6 my-5 rounded-2xl flex justify-between">
           <div>
             <h2 className="sm:text-2xl text-xl mb-4 ">
               Your booking information
@@ -146,6 +169,7 @@ const BookingPage = () => {
             </div>
           </div>
         </div>
+
         {spot && (
           <div
             className="mb-5 cursor-pointer"
@@ -154,27 +178,6 @@ const BookingPage = () => {
           </div>
         )}
       </div>
-      {stay && !reviewed && (
-        <div>
-          {!show && (
-            <div className="mb-14 flex md:flex-row flex-col items-center justify-around">
-              <h2 className="md:text-xl text-lg">
-                We hope you had a wonderful stay, and we hope that you share
-                your experience with us
-              </h2>
-              <button
-                className=" text-white text-lg shadow-lg hover:bg-site-secondary font-semibold p-[5px] rounded-2xl bg-site-primary whitespace-nowrap"
-                onClick={e => {
-                  e.preventDefault();
-                  setShow(true);
-                }}>
-                Write a review
-              </button>
-            </div>
-          )}
-          {show && <CreateReview spot={spot} />}
-        </div>
-      )}
     </div>
   );
 };

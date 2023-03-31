@@ -10,6 +10,7 @@ import BookingPage from './components/Booking/BookingPage';
 import {useSelector, useDispatch} from 'react-redux';
 import {restoreUser} from './store/session';
 import UserSpots from './components/Spots/UserSpots';
+import EditSpot from './components/Spots/EditSpot';
 
 const App = () => {
 
@@ -30,6 +31,7 @@ const App = () => {
             component={AccountNav}
           />
           <Route exact path="/account/:subPage?" component={AccountNav} />
+          <Route path="/spots/:id/edit" component={EditSpot} />
           <Route path="/spots/:id" component={SpotPage} />
           <Route path="/account/spots" component={UserSpots} />
           <Route path="/account/bookings" component={Bookings} />

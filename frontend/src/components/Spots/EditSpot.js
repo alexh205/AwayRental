@@ -1,6 +1,19 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {useHistory, useParams} from 'react-router-dom';
+import {
+  addSpotImagesThunk,
+  editSpotThunk,
+  getSpotByIdThunk,
+} from '../../store/spots';
+import propertyTypes from '../../static/propertyTypes.json';
+import usaStates from '../../static/usaStates.json';
+import Amenities from '../Profile/Amenities';
+import PhotoUpload from '../Images/PhotoUpload';
+import Header from '../Header_footer/Header';
 
 const EditSpot = () => {
+  const [spot, setSpot] = useState('');
   const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -18,7 +31,18 @@ const EditSpot = () => {
   const [bathroom, setBathroom] = useState(0);
   const [price, setPrice] = useState(0);
 
+  const [valid, setValid] = useState(false);
+
   const [validateErrors, setValidateErrors] = useState([]);
+
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const {id} = useParams();
+
+  useEffect(() => {
+    dispatch(getSpotByIdThunk(id)).then(res => setSpot(res));
+  }, []);
 
   const inputHeader = text => {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -58,6 +82,28 @@ const EditSpot = () => {
     return errors;
   };
 
+  if (spot) {
+    if (!valid) {
+      setTitle(spot.title);
+      setAddress(spot.address);
+      setCity(spot.city);
+      setState(spot.state);
+      setCountry(spot.country);
+      setType(spot.type);
+      setDescription(spot.description);
+      setAmenities(spot.amenities);
+      setCheckIn(spot.checkIn);
+      setCheckOut(spot.checkOut);
+      setMaxGuests(spot.maxGuests);
+      setBedroom(spot.bedroom);
+      setBed(spot.bed);
+      setBathroom(spot.bathroom);
+      setPrice(spot.price);
+      setAddedPhotos(spot.spotImages.map(({url}) => url));
+      setValid(true);
+    }
+  }
+
   const saveSpot = async e => {
     e.preventDefault();
 
@@ -67,8 +113,8 @@ const EditSpot = () => {
       return setValidateErrors(errors);
     }
 
-    const createdSpot = await dispatch(
-      addNewSpot({
+    const editSpot = await dispatch(
+      editSpotThunk({
         title,
         address,
         city,
@@ -87,55 +133,7 @@ const EditSpot = () => {
       })
     );
 
-    if (addedPhotos.length > 0) {
-      await dispatch(addSpotImages(addedPhotos, createdSpot.id));
-
-    
-      setTitle('');
-      setAddress('');
-      setCity('');
-      setState('');
-      setCountry('');
-      setType('');
-      setDescription('');
-      setAmenities([]);
-      setCheckIn('');
-      setCheckOut('');
-      setMaxGuests(0);
-      setBedroom(0);
-      setBed(0);
-      setBathroom(0);
-      setPrice(0);
-      setAddedPhotos([]);
-      setValidateErrors([]);
-      setSelected(false);
-      history.push(`/spots/${createdSpot.id}`);
-    } else {
-
-      setTitle('');
-      setAddress('');
-      setCity('');
-      setState('');
-      setCountry('');
-      setType('');
-      setDescription('');
-      setAmenities([]);
-      setCheckIn('');
-      setCheckOut('');
-      setMaxGuests(0);
-      setBedroom(0);
-      setBed(0);
-      setBathroom(0);
-      setPrice(0);
-      setAddedPhotos([]);
-      setValidateErrors([]);
-      setSelected(false);
-      history.push(`/spots/${createdSpot.id}`);
-    }
-  };
-
-  const handleCancel = e => {
-    e.preventDefault();
+    await dispatch(addSpotImagesThunk(addedPhotos, editSpot.id));
     setTitle('');
     setAddress('');
     setCity('');
@@ -153,14 +151,17 @@ const EditSpot = () => {
     setPrice(0);
     setAddedPhotos([]);
     setValidateErrors([]);
-    setSelected(false);
-    history.push('/account/spots');
+    history.push(`/spots/${editSpot.id}`);
   };
 
   return (
-    <div className="mx-14 my-6 h-screen">
-      {action === 'new' && (
+    <>
+      <Header />
+      <div className="mx-14 my-6 h-screen">
         <div>
+          <h2 className="md:text-4xl text-2xl font-semibold flex flex-row justify-center items-center border-b pb-1">
+            Edit <p className="text-site-primary ml-2">{spot.title}</p>
+          </h2>
           <form>
             <div className="flex sm:flex-row flex-col items-center w-full gap-4">
               <div className="flex flex-col justify-center w-full">
@@ -210,7 +211,7 @@ const EditSpot = () => {
               <div className="flex flex-col justify-center w-full">
                 {preInput('State', '')}
                 <select
-                  className="border rounded-2xl  py-2 text-center"
+                  className="border rounded-2xl py-2 pl-2"
                   value={state}
                   onChange={e => setState(e.target.value)}>
                   <option value="" disabled>
@@ -245,6 +246,8 @@ const EditSpot = () => {
             )}
             <textarea
               value={description}
+              rows="12"
+              maxLength="1200"
               onChange={e => setDescription(e.target.value)}
             />
             {preInput(
@@ -327,8 +330,8 @@ const EditSpot = () => {
                 <input
                   className="w-full h-full my-1 rounded-2xl text-center border outline-none"
                   type="number"
-                  value={maxGuests}
-                  onChange={e => setMaxGuests(e.target.value)}
+                  value={price}
+                  onChange={e => setPrice(e.target.value)}
                 />
               </div>
               <div className="flex flex-col items-center w-full ">
@@ -338,8 +341,8 @@ const EditSpot = () => {
                 <input
                   className="w-full h-full my-1 rounded-2xl text-center border outline-none"
                   type="number"
-                  value={price}
-                  onChange={e => setPrice(e.target.value)}
+                  value={maxGuests}
+                  onChange={e => setMaxGuests(e.target.value)}
                 />
               </div>
             </div>
@@ -357,15 +360,15 @@ const EditSpot = () => {
                 Save
               </button>
               <button
-                onClick={handleCancel}
+                // onClick={handleCancel}
                 className="bg-gray-600 py-[9px] w-full rounded-2xl text-lg text-white my-2">
                 Cancel
               </button>
             </div>
           </form>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 
