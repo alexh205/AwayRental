@@ -41,6 +41,16 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     }
 
+    static async update({name, username, email, userId}) {
+      const user = await User.findByPk(userId);
+
+      user.name = name;
+      user.username = username;
+      user.email = email;
+      await user.save();
+      return await User.scope('currentUser').findByPk(user.id);
+    }
+
     static associate(models) {
       User.hasMany(models.Spot, {
         foreignKey: 'ownerId',

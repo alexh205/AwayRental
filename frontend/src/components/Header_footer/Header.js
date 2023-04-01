@@ -8,15 +8,14 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import {useHistory} from 'react-router-dom';
 import awayRental from '../../static/awayRental.png';
 
-// TODO implement DemoUser
-// import DemoUser from "./Profile/DemoUser";
+
 
 const Header = () => {
   const history = useHistory();
   const user = useSelector(state => state.session.user?.user);
 
   return (
-    <div className="border-b sticky top-0 z-50 bg-white  -mx-2">
+    <div className="border-b sticky top-0 z-20 bg-white  -mx-2">
       <div className="flex justify-center sm:justify-between items-center  ">
         {/* Left */}
         <div className="flex h-20">
@@ -60,7 +59,7 @@ const Header = () => {
           <div
             onClick={() => history.push(!user ? '/login' : '/account')}
             className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer whitespace-nowrap">
-            {!user ? <p className="text-[14px]">Sign in</p> : <p>{user?.name}</p>}
+            {!user ? <p className="text-[14px]">Sign in</p> : <p>{user.name}</p>}
             {/* <MenuIcon className="h-5" /> */}
             <GrUserManager className="text-[20px]" />
           </div>

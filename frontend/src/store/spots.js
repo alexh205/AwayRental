@@ -80,7 +80,7 @@ export const addNewSpotThunk = spot => async dispatch => {
 
 export const editSpotThunk = spot => async dispatch => {
   const {id} = spot;
-  console.log('Thunk spot', spot);
+
   const response = await csrfFetch(`/api/spots/${id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
@@ -103,8 +103,16 @@ export const deleteSpotByIdThunk = spotId => async dispatch => {
     dispatch(deleteSpot(data));
   }
 };
-export const userSpotsByIdThunk = userId => async dispatch => {
+export const userSpotsByIdThunk = () => async dispatch => {
   const response = await csrfFetch('/api/spots/current');
+
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  }
+};
+export const userDetailThunk = () => async dispatch => {
+  const response = await csrfFetch('/api/spots/currentUser/current');
 
   if (response.ok) {
     const data = await response.json();

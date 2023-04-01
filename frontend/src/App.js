@@ -7,8 +7,8 @@ import AccountNav from './components/Profile/AccountNav';
 import SpotPage from './components/Spots/SpotPage';
 import Bookings from './components/Booking/Bookings';
 import BookingPage from './components/Booking/BookingPage';
-import {useSelector, useDispatch} from 'react-redux';
-import {restoreUser} from './store/session';
+import {useDispatch} from 'react-redux';
+import {restoreUserThunk} from './store/session';
 import UserSpots from './components/Spots/UserSpots';
 import EditSpot from './components/Spots/EditSpot';
 
@@ -16,7 +16,7 @@ const App = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(restoreUser());
+    dispatch(restoreUserThunk());
   }, [dispatch]);
   return (
     <>

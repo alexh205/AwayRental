@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {signup} from '../../store/session';
+import {signupThunk} from '../../store/session';
 import Header from '../Header_footer/Header';
 
 const RegisterPage = () => {
@@ -22,7 +22,7 @@ const RegisterPage = () => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(signup(name, username, email, password)).catch(
+      return dispatch(signupThunk(name, username, email, password)).catch(
         async res => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);

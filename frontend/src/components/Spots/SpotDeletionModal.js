@@ -3,15 +3,13 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {deleteSpotByIdThunk} from '../../store/spots';
 
-const SpotDeletionModal = ({spotId, setSelectImage}) => {
+const SpotDeletionModal = ({spotId}) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [showConfirm, setShowConfirm] = useState(false);
 
   const handleDeleteClick = e => {
     e.preventDefault();
-    setSelectImage(true);
-
     setShowConfirm(true);
   };
 
@@ -22,7 +20,6 @@ const SpotDeletionModal = ({spotId, setSelectImage}) => {
   };
 
   const handleCancelClick = () => {
-    setSelectImage(false);
     setShowConfirm(false);
   };
 
@@ -35,9 +32,9 @@ const SpotDeletionModal = ({spotId, setSelectImage}) => {
       </button>
 
       {showConfirm && (
-        <div className="fixed h-screen w-screen inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70">
+        <div className="fixed h-screen w-screen inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 z-40">
           <div className="bg-white p-6 rounded-md">
-            <p>Are you sure you want to delete?</p>
+            <p>Are you sure you want to delete this property?</p>
             <div className="mt-4 flex justify-end">
               <button className="mr-2" onClick={handleCancelClick}>
                 Cancel

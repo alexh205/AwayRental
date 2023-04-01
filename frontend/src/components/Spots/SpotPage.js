@@ -53,9 +53,7 @@ const SpotPage = () => {
   return (
     <>
       <div className="container mx-auto ">
-        <div className={`${selectImage ? 'hidden' : 'block'}`}>
-          <Header />
-        </div>
+        <Header />
         <div className="-mx-4 px-16 pt-3 f">
           <h1 className="text-4xl whitespace-nowrap">{spot.title}</h1>
           <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-4">
@@ -96,7 +94,7 @@ const SpotPage = () => {
                 onClick={handleSpotEdit}>
                 Modify
               </button>
-              <SpotDeletionModal setSelectImage={setSelectImage} spotId={id} />
+              <SpotDeletionModal spotId={id} />
             </div>
           )}
           <div>
@@ -183,7 +181,7 @@ const SpotPage = () => {
                 </button>
               )}
             </div>
-            <div className={`${selectImage ? 'hidden' : 'relative'}`}>
+            <div className="relative">
               <BookingWidget
                 spot={spot}
                 user={user}

@@ -14,7 +14,7 @@ const CreateReviewModal = ({showModal, spot}) => {
   const [hover, setHover] = useState(0);
 
   const [validateErrors, setValidateErrors] = useState([]);
-  const user = useSelector(state => state.session.user.user);
+  const user = useSelector(state => state.session.user?.user);
 
   const validate = () => {
     const errors = [];
