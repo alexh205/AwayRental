@@ -27,6 +27,10 @@ const Filters = () => {
     dispatch(getAllSpotsThunk({type: `${filterId}`, page: 1, size: 20}));
   }, [filterId]);
 
+  useEffect(() => {
+    dispatch(getAllSpotsThunk({page: 1, size: 20}));
+  }, []);
+
   const spotsArr = useSelector(state => state.spots.spots);
 
   const options = [

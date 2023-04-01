@@ -11,11 +11,6 @@ const getBooking = data => ({
   bookings: data,
 });
 
-const getSingleBooking = data => ({
-  type: GET,
-  bookings: data,
-});
-
 const addBooking = data => ({
   type: ADD,
   bookings: data,
@@ -125,9 +120,6 @@ const bookingsReducer = (state = initialState, action) => {
       newState = {...action.bookings};
     case ADD:
       newState = {...newState, [action.bookings.id]: action.bookings};
-      return newState;
-    case USERBOOKINGS:
-      newState = {...action.bookings};
       return newState;
     case EDIT:
       newState = {...newState, [action.bookings.id]: action.bookings};

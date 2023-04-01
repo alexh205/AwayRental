@@ -20,19 +20,19 @@ const getSpot = data => {
     spot: data,
   };
 };
-const editSpot = data => {
-  return {
-    type: EDIT,
-    spot: data,
-  };
-};
+// const editSpot = data => {
+//   return {
+//     type: EDIT,
+//     spot: data,
+//   };
+// };
 
-const userSpots = userData => {
-  return {
-    type: USERSPOTS,
-    spots: userData,
-  };
-};
+// const userSpots = userData => {
+//   return {
+//     type: USERSPOTS,
+//     spots: userData,
+//   };
+// };
 
 const deleteSpot = data => {
   return {
@@ -43,18 +43,19 @@ const deleteSpot = data => {
 
 // Thunk
 
-export const getAllSpotsThunk = (filters = {}) => async dispatch => {
-  const params = new URLSearchParams(filters);
-  const response = await csrfFetch(`/api/spots?${params}`);
+export const getAllSpotsThunk =
+  (filters = {}) =>
+  async dispatch => {
+    const params = new URLSearchParams(filters);
+    const response = await csrfFetch(`/api/spots?${params}`);
 
-  if (response.ok) {
-    const { Spots } = await response.json();
-    const objArr = {};
-    Spots.forEach(spot => (objArr[spot.id] = spot));
-    dispatch(getSpots(objArr));
-  }
-};
-
+    if (response.ok) {
+      const {Spots} = await response.json();
+      const objArr = {};
+      Spots.forEach(spot => (objArr[spot.id] = spot));
+      dispatch(getSpots(objArr));
+    }
+  };
 
 export const getSpotByIdThunk = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}`);
@@ -129,7 +130,7 @@ export const addSpotImagesThunk = (images, spotId) => async dispatch => {
     body: JSON.stringify(images),
   });
   if (response.ok) {
-    const data = await response.json();
+    // const data = await response.json();
   }
 };
 

@@ -10,10 +10,10 @@ const getReviews = data => ({
   type: GET,
   reviews: data,
 });
-const addReview = data => ({
-  type: ADD,
-  reviews: data,
-});
+// const addReview = data => ({
+//   type: ADD,
+//   reviews: data,
+// });
 
 const editReview = data => ({
   type: EDIT,
@@ -56,7 +56,7 @@ export const addNewReview = data => async dispatch => {
     body: JSON.stringify(data),
   });
   if (response.ok) {
-    const newReview = await response.json();
+    // const newReview = await response.json();
   }
 };
 
