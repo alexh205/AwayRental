@@ -11,9 +11,9 @@ import {useDispatch} from 'react-redux';
 import {restoreUserThunk} from './store/session';
 import UserSpots from './components/Spots/UserSpots';
 import EditSpot from './components/Spots/EditSpot';
+import Filters from './components/Search/Filters';
 
 const App = () => {
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(restoreUserThunk());
@@ -36,6 +36,7 @@ const App = () => {
           <Route path="/account/spots" component={UserSpots} />
           <Route path="/account/bookings" component={Bookings} />
           <Route path="/bookings/:id" component={BookingPage} />
+          <Route path="/filters/:filterId" component={Filters} />
         </Switch>
       </main>
       {/* <Footer /> */}
