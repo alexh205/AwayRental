@@ -49,14 +49,42 @@ const SpotImage = ({spot, setSelectImage}) => {
       <>
         {spot.spotImages.length === 1 ? (
           <div className="flex">
-            <div className="h-fit flex items-center justify-center mx-auto">
+            <div className="h-fit flex items-center justify-center mx-auto cursor-pointer">
               <img
+                className="h-fit aspect-auto object-contain rounded-3xl"
+                src={spot.spotImages[0].url}
+                onClick={() => {
+                  setShowAllPhotos(true);
+                  setSelectImage(true);
+                }}
+              />
+            </div>
+          </div>
+        ) : spot.spotImages.length === 0 ? null : spot.spotImages.length ===
+          2 ? (
+          <div className="flex lg:flex-row flex-col gap-2">
+            <div className="h-fit flex items-center justify-center mx-auto cursor-pointer">
+              <img
+                onClick={() => {
+                  setShowAllPhotos(true);
+                  setSelectImage(true);
+                }}
                 className="h-fit aspect-auto object-contain rounded-3xl"
                 src={spot.spotImages[0].url}
               />
             </div>
+            <div className="h-fit flex items-center justify-center mx-auto cursor-pointer">
+              <img
+                onClick={() => {
+                  setShowAllPhotos(true);
+                  setSelectImage(true);
+                }}
+                className="h-fit aspect-auto object-contain rounded-3xl"
+                src={spot.spotImages[1].url}
+              />
+            </div>
           </div>
-        ) : spot.spotImages.length === 0 ? null : (
+        ) : (
           <div className="relative">
             <div className="sm:grid gap-[5px] grid-cols-3 flex rounded-3xl overflow-hidden">
               <div className="col-span-2">
@@ -101,11 +129,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                 setShowAllPhotos(true);
                 setSelectImage(true);
               }}
-              className={`${
-                spot.spotImages.length < 4
-                  ? 'hidden'
-                  : 'absolute hidden sm:flex flex-row items-center whitespace-nowrap bottom-2 md:right-2 right-1 py-2 md:px-[14px] px-4 bg-white rounded-2xl shadow-md shadow-gray-500 '
-              }`}>
+              className="absolute hidden sm:flex flex-row items-center whitespace-nowrap bottom-2 md:right-2 right-1 py-2 md:px-[14px] px-4 bg-white rounded-2xl shadow-md shadow-gray-500 ">
               <BsImage className="w-5 h-5 mr-2" />
               Show all photos
             </button>

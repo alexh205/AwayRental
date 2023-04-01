@@ -36,9 +36,9 @@ const UserProfile = ({setUserProfileInfo, user}) => {
     if (errors.length > 0) {
       return setValidateErrors(errors);
     }
-    await dispatch(editUserThunk({name, username, email})).then(() =>
-      setUserProfileInfo(false)
-    );
+    await dispatch(editUserThunk({name, username, email}))
+      .then(() => alert('Profile was saved!'))
+      .then(() => setUserProfileInfo(false));
   };
 
   const handleCancel = e => {

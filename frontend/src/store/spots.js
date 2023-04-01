@@ -43,16 +43,18 @@ const deleteSpot = data => {
 
 // Thunk
 
-export const getAllSpotsThunk = () => async dispatch => {
-  const response = await csrfFetch('/api/spots');
+export const getAllSpotsThunk = (filters = {}) => async dispatch => {
+  const params = new URLSearchParams(filters);
+  const response = await csrfFetch(`/api/spots?${params}`);
 
   if (response.ok) {
-    const {Spots} = await response.json();
+    const { Spots } = await response.json();
     const objArr = {};
     Spots.forEach(spot => (objArr[spot.id] = spot));
     dispatch(getSpots(objArr));
   }
 };
+
 
 export const getSpotByIdThunk = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}`);

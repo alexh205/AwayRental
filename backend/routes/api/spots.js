@@ -22,11 +22,54 @@ const {Op} = require('sequelize');
 //! Get all spots by query filters
 
 router.get('/', filterQueryValidator, async (req, res) => {
-  const {maxLat, minLat, minLng, maxLng, minPrice, maxPrice} = req.query;
-
+  const {
+    maxLat,
+    minLat,
+    minLng,
+    maxLng,
+    minPrice,
+    maxPrice,
+    type,
+    minBedrooms,
+    maxBedrooms,
+    state,
+    country,
+  } = req.query;
+  console.log(req.query);
   const query = {
     where: {},
   };
+
+  //* Type Filters
+  if (type) {
+    query.where.type = req.query.type;
+  }
+
+  //* State Filters
+  if (state) {
+    query.where.state = req.query.state;
+  }
+
+  //* Country Filters
+  if (country) {
+    query.where.country = req.query.country;
+  }
+
+  //* Bedroom Filters
+  if (minBedrooms && maxBedrooms) {
+    query.where.lat = {
+      [Op.lt]: req.query.maxBedrooms,
+      [Op.gt]: req.query.minBedrooms,
+    };
+  } else if (minBedrooms && !maxBedrooms) {
+    query.where.lat = {
+      [Op.gt]: req.query.minBedrooms,
+    };
+  } else if (!minBedrooms && maxBedrooms) {
+    query.where.lat = {
+      [Op.lt]: req.query.maxBedrooms,
+    };
+  }
 
   //* Page filters
   let page = req.query.page;
@@ -214,32 +257,37 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
 
 /******** userProfile Detail */
 
-router.get('/currentUser/current', restoreUser, requireAuth, async (req, res) => {
-  const currSpot = await Spot.findAll({
-    where: {ownerId: req.user.id},
-  });
+router.get(
+  '/currentUser/current',
+  restoreUser,
+  requireAuth,
+  async (req, res) => {
+    const currSpot = await Spot.findAll({
+      where: {ownerId: req.user.id},
+    });
 
-  const currReviews = await Review.findAll({
-    where: {userId: req.user.id},
-  });
+    const currReviews = await Review.findAll({
+      where: {userId: req.user.id},
+    });
 
-  const currBookings = await Booking.findAll({
-    where: {userId: req.user.id},
-  });
+    const currBookings = await Booking.findAll({
+      where: {userId: req.user.id},
+    });
 
-  if (!currSpot.length) {
-    return res.status(404).json({
-      message: 'No spots can be found for the current user',
-      statusCode: 404,
+    if (!currSpot.length) {
+      return res.status(404).json({
+        message: 'No spots can be found for the current user',
+        statusCode: 404,
+      });
+    }
+
+    return res.json({
+      spots: currSpot,
+      reviews: currReviews,
+      bookings: currBookings,
     });
   }
-
-  return res.json({
-    spots: currSpot,
-    reviews: currReviews,
-    bookings: currBookings,
-  });
-});
+);
 
 /**********************************************************************************/
 //! create a spot
