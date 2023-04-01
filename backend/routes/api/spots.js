@@ -184,21 +184,6 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
 
     spot.dataValues.spotImages = imagesList;
 
-    //* Reviews
-    let reviewsList = [];
-
-    const reviewsCurrSpot = await Review.findAll({
-      where: {spotId: id},
-      attributes: ['id', 'userId', 'review', 'stars'],
-    });
-
-    reviewsCurrSpot.forEach(review => {
-      review = review.toJSON();
-      reviewsList.push(review);
-    });
-
-    spot.dataValues.spotReviews = reviewsList;
-
     //* Ratings
     const starRating = await Review.findAll({
       where: {
@@ -225,6 +210,35 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
   }
 
   return res.json(currSpot);
+});
+
+/******** userProfile Detail */
+
+router.get('/currentUser/current', restoreUser, requireAuth, async (req, res) => {
+  const currSpot = await Spot.findAll({
+    where: {ownerId: req.user.id},
+  });
+
+  const currReviews = await Review.findAll({
+    where: {userId: req.user.id},
+  });
+
+  const currBookings = await Booking.findAll({
+    where: {userId: req.user.id},
+  });
+
+  if (!currSpot.length) {
+    return res.status(404).json({
+      message: 'No spots can be found for the current user',
+      statusCode: 404,
+    });
+  }
+
+  return res.json({
+    spots: currSpot,
+    reviews: currReviews,
+    bookings: currBookings,
+  });
 });
 
 /**********************************************************************************/
@@ -403,7 +417,6 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
   } = req.body;
 
   const editedSpot = await Spot.findByPk(req.params.spotId);
-  console.log('editedSpot', editedSpot);
 
   if (!editedSpot) {
     return res.status(404).json({

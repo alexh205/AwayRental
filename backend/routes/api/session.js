@@ -4,7 +4,7 @@ const express = require('express');
 const {setTokenCookie, restoreUser} = require('../../utils/auth');
 
 //? Models
-const {User} = require('../../db/models');
+const {User, Review, Spot} = require('../../db/models');
 
 //? Validation
 const {validateLogin} = require('../../utils/validation');
@@ -45,6 +45,7 @@ router.delete('/', (_req, res) => {
 //! Restore session user
 router.get('/', restoreUser, (req, res) => {
   const {user} = req;
+
   if (user) {
     return res.json({
       user: user.toSafeObject(),

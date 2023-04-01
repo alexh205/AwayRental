@@ -61,4 +61,63 @@ router.post('/', validateSignup, async (req, res) => {
 
   return res.json({user});
 });
+
+/**********************************************************************************/
+//! User Edit
+
+router.put('/', async (req, res) => {
+  const {name, email, username} = req.body;
+  //* Email verification
+  const emailVerification = await User.findOne({where: {email}});
+
+  if (emailVerification && emailVerification.email !== req.body.email) {
+    return res.status(403).json({
+      message: 'User already exists',
+      statusCode: 403,
+      errors: {
+        email: 'User with that email already exists',
+      },
+    });
+  }
+  //* Username verification
+  const usernameVerification = await User.findOne({where: {username}});
+
+  if (
+    usernameVerification &&
+    usernameVerification.username !== req.body.username
+  ) {
+    return res.status(403).json({
+      message: 'User already exists',
+      statusCode: 403,
+      errors: {
+        email: 'User with that username already exists',
+      },
+    });
+  }
+
+  const userId = req.user.id;
+  //* Editing user
+
+  const user = await User.update({name, username, email, userId});
+
+  await setTokenCookie(res, user);
+
+  return res.json({user});
+});
+
+/**********************************************************************************/
+//! User Password Edit
+
+// router.put('/password', async (req, res) => {
+//   const {password, id} = req.body;
+
+//   //* Editing user's password
+
+//   const user = await User.update({password, id});
+
+//   await setTokenCookie(res, user);
+
+//   return res.json({user});
+// });
+
 module.exports = router;

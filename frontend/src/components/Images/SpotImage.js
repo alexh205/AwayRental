@@ -6,7 +6,7 @@ const SpotImage = ({spot, setSelectImage}) => {
 
   if (showAllPhotos) {
     return (
-      <div className="absolute inset-0 bg-black text-white min-h-screen">
+      <div className="absolute z-30 inset-0 bg-black text-white min-h-screen">
         <div className="bg-black p-8 grid gap-4 ">
           <div>
             <h2 className="sm:text-3xl text-xl text-center">

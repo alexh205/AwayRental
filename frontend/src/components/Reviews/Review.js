@@ -14,7 +14,7 @@ const Review = ({review, spotReviews, updateContainer}) => {
   //? Truncate review text beyond 100 characters
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const user = useSelector(state => state.session.user.user);
+  const user = useSelector(state => state.session.user?.user);
 
   const toggleExpansion = () => {
     setIsExpanded(!isExpanded);

@@ -6,12 +6,13 @@ const SpotCard = ({spot}) => {
   const history = useHistory();
 
   return (
-    <div className="relative flex flex-col my-2 mx-3 bg-white z-10  border-2 rounded-2xl hover:shadow-xl cursor-pointer">
+    <div className="relative flex flex-col my-2 mx-3 bg-white z-10  border-2 rounded-2xl hover:shadow-xl">
       <div>
         <ImageGroup
           images={spot.spotImages}
           spot={spot}
           onClick={() => history.push(`/spots/${spot.id}`)}
+          className="cursor-pointer"
         />
       </div>
       <div>

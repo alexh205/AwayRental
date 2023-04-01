@@ -104,7 +104,7 @@ const EditSpot = () => {
     }
   }
 
-  console.log(addedPhotos);
+  
   const saveSpot = async e => {
     e.preventDefault();
 

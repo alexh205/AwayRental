@@ -1,17 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import Header from '../Header_footer/Header';
-import {Link, Redirect, useParams} from 'react-router-dom';
+import {Link, Redirect, useParams, useHistory} from 'react-router-dom';
 import {SpotForm} from '../Spots/SpotForm';
 import {useSelector, useDispatch} from 'react-redux';
-import {logout} from '../../store/session';
+import {logoutThunk} from '../../store/session';
 import Bookings from '../Booking/Bookings';
 import UserSpots from '../Spots/UserSpots';
+import {GrContactInfo} from 'react-icons/gr';
+import {IoKeySharp} from 'react-icons/io5';
+import {BsHouseDoor} from 'react-icons/bs';
+import {SlNotebook} from 'react-icons/sl';
+import {userDetailThunk} from '../../store/spots';
+import UserProfile from './UserProfile';
+// import UserPassword from './UserPassword';
 
 const AccountNav = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector(state => state.session.user?.user);
   const [selected, setSelected] = useState(false);
+  const [userDetails, setUserDetails] = useState([]);
   const [spots, setSpots] = useState([]);
+  const [userProfileInfo, setUserProfileInfo] = useState(false);
+  const [userPassword, setUserPassword] = useState(false);
 
   useEffect(() => {
     setSelected(false);
@@ -21,13 +32,18 @@ const AccountNav = () => {
   if (!subPage) {
     subPage = 'profile';
   }
+
+  useEffect(() => {
+    dispatch(userDetailThunk()).then(res => setUserDetails(res));
+  }, [dispatch]);
+
   if (!user) {
     return <Redirect to="/" />;
   }
 
   const logoutUser = async e => {
     e.preventDefault();
-    await dispatch(logout());
+    await dispatch(logoutThunk());
   };
 
   const linkClasses = (type = null) => {
@@ -94,15 +110,84 @@ const AccountNav = () => {
         </Link>
       </nav>
       {subPage === 'profile' && (
-        <div className="text-center max-w-lg mx-auto">
-          Logged in as {user.name} ({user.email})
-          <br />
-          <button
-            className="primary max-w-sm mt-2 bg-site-primary hover:bg-site-secondary"
-            onClick={logoutUser}>
-            Logout
-          </button>
-        </div>
+        <>
+          {!userProfileInfo && !userPassword && (
+            <div className="text-center max-w-lg mx-auto flex flex-col justify-center items-center">
+              <div className="mb-4 flex flex-row items-center text-2xl justify-center">
+                Welcome Back <p className="ml-2 font-bold">{user?.name}</p>!
+              </div>
+              {/* <div className="grid md:grid-cols-4 grid-col-2 gap-4 my-2 "> */}
+              <div className="grid md:grid-cols-3 grid-col-2 gap-4 my-2 ">
+                <div
+                  className="flex flex-col items-start border-2 rounded-xl p-[4px] cursor-pointer hover:shadow-lg"
+                  onClick={() => {
+                    setUserProfileInfo(true);
+                    setUserPassword(false);
+                  }}>
+                  <GrContactInfo className="w-7 h-7 ml-2 my-2 " />
+                  <div>Personal Info</div>
+                  <div className="text-sm text-start opacity-50 mb-1">
+                    User Personal details
+                  </div>
+                </div>
+                {/* <div
+                  className="flex flex-col items-start border-2 rounded-xl p-[4px] cursor-pointer hover:shadow-lg"
+                  onClick={() => {
+                    setUserPassword(true);
+                    setUserProfileInfo(false);
+                  }}>
+                  <IoKeySharp className="w-6 h-6 ml-2 my-2 " />
+                  <div>Password</div>
+                  <div className="text-sm opacity-50 mb-1 text-start">
+                    Update password
+                  </div>
+                </div> */}
+                <div className="col-span-2 border-2 rounded-xl py-2 justify-center items-center">
+                  <div className="flex flex-col items-start">
+                    <div
+                      className="flex flex-row ml-2 cursor-pointer hover:shadow-xl hover:scale-110 items-center mt-3"
+                      onClick={() => {
+                        history.push('/account/spots');
+                      }}>
+                      <BsHouseDoor className="mr-1 h-6 w-6" />
+                      <div className="mr-2 text-site-primary font-semibold text-xl">
+                        Owned Properties:
+                      </div>
+                      <div className="font-semibold text-xl">
+                        {userDetails.spots?.length}
+                      </div>
+                    </div>
+                    <div
+                      className="flex flex-row ml-2 cursor-pointer hover:shadow-xl hover:scale-110 items-center mt-4 "
+                      onClick={() => {
+                        history.push('/account/bookings');
+                      }}>
+                      <SlNotebook className="w-6 h-6 mr-1" />
+                      <div className="mr-2 text-site-primary font-semibold text-xl">
+                        Bookings:
+                      </div>
+                      <div className="font-semibold text-xl">
+                        {userDetails.bookings?.length}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                className="primary max-w-sm mt-2 bg-site-primary hover:bg-site-secondary"
+                onClick={logoutUser}>
+                Logout
+              </button>
+            </div>
+          )}
+          {userProfileInfo && (
+            <UserProfile setUserProfileInfo={setUserProfileInfo} user={user} />
+          )}
+          {/* {userPassword && (
+            <UserPassword setUserPassword={setUserPassword} user={user} />
+          )} */}
+        </>
       )}
       {subPage === 'spots' && (
         <>

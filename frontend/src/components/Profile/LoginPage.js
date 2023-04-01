@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import {login} from '../../store/session';
+import {loginThunk} from '../../store/session';
 import {useDispatch, useSelector} from 'react-redux';
 import Header from '../Header_footer/Header';
 
@@ -18,7 +18,7 @@ const LoginPage = () => {
   const handleSubmit = async e => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(login(email, password)).catch(async res => {
+    return dispatch(loginThunk(email, password)).catch(async res => {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);
     });
@@ -27,7 +27,7 @@ const LoginPage = () => {
   const demoLogin = async e => {
     e.preventDefault();
 
-    await dispatch(login('demo@user.io', 'password'));
+    await dispatch(loginThunk('demo@user.io', 'password'));
   };
 
   return (
