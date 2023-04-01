@@ -29,8 +29,6 @@ const Filters = () => {
 
   const spotsArr = useSelector(state => state.spots.spots);
 
-  console.log('spotsArr', spotsArr);
-
   const options = [
     {title: 'House', icon: <BsHouseFill />},
     {title: 'Apartment', icon: <MdApartment />},
