@@ -38,9 +38,9 @@ module.exports = (sequelize, DataTypes) => {
       state: {type: DataTypes.STRING},
       country: {type: DataTypes.STRING},
       description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(500),
         validate: {
-          len: [0, 500],
+          len: [10, 500],
         },
       },
       type: {type: DataTypes.STRING},
