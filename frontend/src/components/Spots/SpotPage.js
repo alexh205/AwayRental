@@ -73,9 +73,7 @@ const SpotPage = () => {
                     </a>
                   </div>
                 ) : (
-                  <a>
-                    <div className="font-medium underline">0 reviews</div>
-                  </a>
+                  <div className="font-medium underline">0 reviews</div>
                 )}
                 <BsDot className="mx-[2px]" />
               </div>

@@ -11,7 +11,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [redirect, setRedirect] = useState(false);
+
   const [errors, setErrors] = useState([]);
 
   const sessionUser = useSelector(state => state.session.user);
@@ -29,6 +29,7 @@ const RegisterPage = () => {
         }
       );
     }
+
     return setErrors([
       'Confirm Password field must be the same as the Password field',
     ]);
@@ -38,6 +39,9 @@ const RegisterPage = () => {
       <Header />
       <div className="mt-4">
         <h1 className="text-4xl text-center mb-4">Register</h1>
+        <div className="flex items-center justify-center mb-2">
+          <p className="text-red-500 font-medium">{errors}</p>
+        </div>
         <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
           <input
             type="text"

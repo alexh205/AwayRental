@@ -7,7 +7,6 @@ import {logoutThunk} from '../../store/session';
 import Bookings from '../Booking/Bookings';
 import UserSpots from '../Spots/UserSpots';
 import {GrContactInfo} from 'react-icons/gr';
-import {IoKeySharp} from 'react-icons/io5';
 import {BsHouseDoor} from 'react-icons/bs';
 import {SlNotebook} from 'react-icons/sl';
 import {userDetailThunk} from '../../store/spots';

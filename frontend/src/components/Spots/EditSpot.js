@@ -1,11 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {useHistory, useParams} from 'react-router-dom';
-import {
-  addSpotImagesThunk,
-  editSpotThunk,
-  getSpotByIdThunk,
-} from '../../store/spots';
+import {editSpotThunk, getSpotByIdThunk} from '../../store/spots';
 import propertyTypes from '../../static/propertyTypes.json';
 import usaStates from '../../static/usaStates.json';
 import Amenities from '../Profile/Amenities';
@@ -104,7 +100,6 @@ const EditSpot = () => {
     }
   }
 
-  
   const saveSpot = async e => {
     e.preventDefault();
 

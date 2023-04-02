@@ -51,7 +51,7 @@ const PhotoUpload = ({addedPhotos, onChange}) => {
               <img
                 className="rounded-2xl w-full object-cover"
                 src={link}
-                alt=""
+                alt="spot"
               />
               <button
                 onClick={e => removePhoto(e, link)}

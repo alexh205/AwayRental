@@ -7,7 +7,7 @@ import {addNewSpotThunk} from '../../store/spots';
 import {useDispatch} from 'react-redux';
 import PhotoUpload from '../Images/PhotoUpload';
 import {addSpotImagesThunk} from '../../store/spots';
-import {userSpotsByIdThunk} from '../../store/spots';
+
 
 export const SpotForm = ({setSelected, setSpots}) => {
   const {action} = useParams();

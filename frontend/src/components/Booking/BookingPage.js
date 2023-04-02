@@ -173,6 +173,7 @@ const BookingPage = () => {
           <div className="mb-5  flex justify-center max-h-[1000px]">
             <img
               src={spot.spotImages[0].url}
+              alt="spot"
               className="object-cover max-w-auto h-auto rounded-2xl outline-none hover:shadow-xl transform transition duration-300 hover:-translate-y-1 cursor-pointer"
               onClick={e => handlePhotoClick(e)}
             />

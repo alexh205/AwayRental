@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {BsFillStarFill} from 'react-icons/bs';
 import {reviewDelete} from '../../store/reviews';
-
 import EditModal from './EditReviewModal';
-import {getSpotById} from '../../store/spots';
 
 const Review = ({review, spotReviews, updateContainer}) => {
   const dispatch = useDispatch();
@@ -46,6 +44,7 @@ const Review = ({review, spotReviews, updateContainer}) => {
         <div className="h-14 w-14 mr-4">
           <img
             src={review.User?.profileImg}
+            alt="profile"
             className="rounded-full object-contain text-center"
           />
         </div>

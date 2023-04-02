@@ -37,7 +37,7 @@ const SpotImage = ({spot, setSelectImage}) => {
               <div
                 key={ind}
                 className="flex flex-col items-center justify-center mx-20">
-                <img src={photo.url} alt="" className="object-contain" />
+                <img src={photo.url} alt="spot" className="object-contain" />
               </div>
             ))}
         </div>
@@ -53,6 +53,7 @@ const SpotImage = ({spot, setSelectImage}) => {
               <img
                 className="h-fit aspect-auto object-contain rounded-3xl"
                 src={spot.spotImages[0].url}
+                alt="spot"
                 onClick={() => {
                   setShowAllPhotos(true);
                   setSelectImage(true);
@@ -71,6 +72,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                 }}
                 className="h-fit aspect-auto object-contain rounded-3xl"
                 src={spot.spotImages[0].url}
+                alt="spot"
               />
             </div>
             <div className="h-fit flex items-center justify-center mx-auto cursor-pointer">
@@ -81,6 +83,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                 }}
                 className="h-fit aspect-auto object-contain rounded-3xl"
                 src={spot.spotImages[1].url}
+                alt="spot"
               />
             </div>
           </div>
@@ -96,6 +99,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                     }}
                     className="aspect-square cursor-pointer w-full object-cover"
                     src={spot.spotImages[0].url}
+                    alt="spot"
                   />
                 )}
               </div>
@@ -109,6 +113,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                     }}
                     className="aspect-square cursor-pointer object-cover hidden sm:block"
                     src={spot.spotImages[1].url}
+                    alt="spot"
                   />
                 )}
 
@@ -120,6 +125,7 @@ const SpotImage = ({spot, setSelectImage}) => {
                     }}
                     className="aspect-square cursor-pointer object-cover relative hidden sm:block -mb-1"
                     src={spot.spotImages[2].url}
+                    alt="spot"
                   />
                 )}
               </div>

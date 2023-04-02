@@ -1,14 +1,11 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {GrUserManager} from 'react-icons/gr';
-import {MenuIcon} from '@heroicons/react/solid';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 // import { DateRangePicker } from "react-date-range";
 import {useHistory} from 'react-router-dom';
 import awayRental from '../../static/awayRental.png';
-
-
 
 const Header = () => {
   const history = useHistory();
@@ -59,8 +56,11 @@ const Header = () => {
           <div
             onClick={() => history.push(!user ? '/login' : '/account')}
             className="flex items-center border px-3 py-[11px] rounded-full gap-2 bg-site-primary text-white font-bold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer whitespace-nowrap">
-            {!user ? <p className="text-[14px]">Sign in</p> : <p>{user.name}</p>}
-            {/* <MenuIcon className="h-5" /> */}
+            {!user ? (
+              <p className="text-[14px]">Sign in</p>
+            ) : (
+              <p>{user.name}</p>
+            )}
             <GrUserManager className="text-[20px]" />
           </div>
         </div>

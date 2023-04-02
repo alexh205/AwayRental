@@ -8,7 +8,6 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [redirect, setRedirect] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const sessionUser = useSelector(state => state.session.user);

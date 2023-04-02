@@ -26,7 +26,7 @@ const Bookings = () => {
               <div className="w-48 h-full md:h-52 mr-5">
                 <img
                   src={booking.Spot?.previewImage}
-                  alt=""
+                  alt="spot"
                   className="object-fill h-full w-full rounded-l-2xl"
                 />
               </div>

@@ -9,7 +9,8 @@ const LocationLink = ({children, className = null}) => {
     <a
       className={className}
       target="_blank"
-      href={'https://maps.google.com/?q=' + children}>
+      href={'https://maps.google.com/?q=' + children}
+      rel="noreferrer">
       {children}
     </a>
   );
