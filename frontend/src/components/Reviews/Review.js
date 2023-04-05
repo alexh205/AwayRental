@@ -65,7 +65,7 @@ const Review = ({review, spotReviews, updateContainer}) => {
           </div>
         </div>
       </div>
-      {user.id === review.userId && (
+      {user?.id === review.userId && (
         <div className="mt-1 ml-2 flex flex-row">
           <div
             className="cursor-pointer mr-4 hover:text-amber-600 text-blue-500 text-sm font-bold outline px-1"
