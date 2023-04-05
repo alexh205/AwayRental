@@ -41,12 +41,13 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     }
 
-    static async update({name, username, email, userId}) {
+    static async update({name, username, email, profileImg, userId}) {
       const user = await User.findByPk(userId);
 
       user.name = name;
       user.username = username;
       user.email = email;
+      user.profileImg = profileImg;
       await user.save();
       return await User.scope('currentUser').findByPk(user.id);
     }

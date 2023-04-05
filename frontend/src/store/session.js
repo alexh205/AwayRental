@@ -51,7 +51,7 @@ export const signupThunk = user => async dispatch => {
 };
 
 export const editUserThunk = user => async dispatch => {
-  const {name, username, email} = user;
+  const {name, username, email, profileImg} = user;
 
   const response = await csrfFetch('/api/users', {
     method: 'PUT',
@@ -59,6 +59,7 @@ export const editUserThunk = user => async dispatch => {
       name,
       username,
       email,
+      profileImg,
     }),
   });
   if (response.ok) {
