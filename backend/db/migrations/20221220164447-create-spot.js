@@ -23,7 +23,7 @@ module.exports = {
           },
         },
         address: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(500),
           allowNull: false,
         },
         city: {
@@ -55,7 +55,7 @@ module.exports = {
           allowNull: false,
         },
         amenities: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(400),
         },
         bedroom: {
           type: Sequelize.INTEGER,

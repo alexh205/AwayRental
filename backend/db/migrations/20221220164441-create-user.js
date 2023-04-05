@@ -15,7 +15,7 @@ module.exports = {
           type: Sequelize.INTEGER,
         },
         name: {
-          type: Sequelize.STRING(20),
+          type: Sequelize.STRING(40),
           allowNull: false,
         },
         username: {
@@ -24,7 +24,7 @@ module.exports = {
           unique: true,
         },
         email: {
-          type: Sequelize.STRING(256),
+          type: Sequelize.STRING(300),
           allowNull: false,
           unique: true,
         },

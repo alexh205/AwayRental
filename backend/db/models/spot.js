@@ -40,14 +40,14 @@ module.exports = (sequelize, DataTypes) => {
       description: {
         type: DataTypes.STRING(500),
         validate: {
-          len: [10, 500],
+          len: [6, 500],
         },
       },
       type: {type: DataTypes.STRING},
       lat: {type: DataTypes.FLOAT},
       lng: {type: DataTypes.FLOAT},
       title: {type: DataTypes.STRING},
-      amenities: {type: DataTypes.STRING},
+      amenities: {type: DataTypes.STRING(400)},
       bedroom: {
         type: DataTypes.INTEGER,
         validate: {
