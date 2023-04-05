@@ -116,17 +116,17 @@ const AccountNav = () => {
                 Welcome Back <p className="ml-2 font-bold">{user?.name}</p>!
               </div>
               {/* <div className="grid md:grid-cols-4 grid-col-2 gap-4 my-2 "> */}
-              <div className="grid md:grid-cols-3 grid-col-2 gap-4 my-2 ">
+              <div className="grid md:grid-cols-2 grid-col-2 gap-4 my-2 ">
                 <div
                   className="flex flex-col items-start border-2 rounded-xl p-[4px] cursor-pointer hover:shadow-lg"
                   onClick={() => {
                     setUserProfileInfo(true);
                     setUserPassword(false);
                   }}>
-                  <GrContactInfo className="w-7 h-7 ml-2 my-2 " />
+                  <GrContactInfo className="w-8 h-8 mx-auto my-2 " />
                   <div>Personal Info</div>
                   <div className="text-sm text-start opacity-50 mb-1">
-                    User Personal details
+                    Modify user details
                   </div>
                 </div>
                 {/* <div
@@ -141,37 +141,32 @@ const AccountNav = () => {
                     Update password
                   </div>
                 </div> */}
-                <div className="col-span-2 border-2 rounded-xl py-2 justify-center items-center">
+                <div className="border-2 rounded-xl py-2 justify-center items-center">
+                  <BsHouseDoor className="mx-auto h-6 w-6 mb-2 " />
                   <div className="flex flex-col items-start">
-                    <div
-                      className="flex flex-row ml-2 cursor-pointer hover:shadow-xl hover:scale-110 items-center mt-3"
-                      onClick={() => {
-                        history.push('/account/spots');
-                      }}>
-                      <BsHouseDoor className="mr-1 h-6 w-6" />
-                      <div className="mr-2 text-site-primary font-semibold text-xl">
-                        Owned Properties:
-                      </div>
-                      <div className="font-semibold text-xl">
-                        {userDetails.spots?.length}
-                      </div>
-                    </div>
-                    <div
-                      className="flex flex-row ml-2 cursor-pointer hover:shadow-xl hover:scale-110 items-center mt-4 "
-                      onClick={() => {
-                        history.push('/account/bookings');
-                      }}>
-                      <SlNotebook className="w-6 h-6 mr-1" />
-                      <div className="mr-2 text-site-primary font-semibold text-xl">
-                        Bookings:
-                      </div>
-                      <div className="font-semibold text-xl">
-                        {userDetails.bookings?.length}
-                      </div>
+                    <div className="ml-1">Properties:</div>
+                    <div className="mx-auto ont-semibold text-xl text-">
+                      {userDetails.spots?.length}
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* <div>
+                <div
+                  className="flex flex-row ml-2 cursor-pointer hover:shadow-xl items-center mt-4 "
+                  onClick={() => {
+                    history.push('/account/bookings');
+                  }}>
+                  <SlNotebook className="w-6 h-6 mr-1" />
+                  <div className="mr-2 text-site-primary font-semibold text-xl">
+                    Bookings:
+                  </div>
+                  <div className="font-semibold text-xl">
+                    {userDetails.bookings?.length}
+                  </div>
+                </div>
+              </div> */}
 
               <button
                 className="primary max-w-sm mt-2 bg-site-primary hover:bg-site-secondary"

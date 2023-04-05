@@ -24,11 +24,12 @@ const Filters = () => {
   const {filterId} = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllSpotsThunk({type: `${filterId}`, page: 1, size: 20}));
+    if (filterId)
+      dispatch(getAllSpotsThunk({type: `${filterId}`, page: 1, size: 20}));
   }, [filterId]);
 
   useEffect(() => {
-    dispatch(getAllSpotsThunk({page: 1, size: 20}));
+    if (!filterId) dispatch(getAllSpotsThunk({page: 1, size: 20}));
   }, []);
 
   const spotsArr = useSelector(state => state.spots.spots);
@@ -58,8 +59,8 @@ const Filters = () => {
         </div>
       </div>
       {filterId && (
-        <div className="ml-12 mb-2 flex flex-row items-center">
-          Category <FiArrowRight className="mx-1" />{' '}
+        <div className="ml-12 mb-2 flex flex-row text-lg items-center">
+          Property <FiArrowRight className="mx-1" />{' '}
           <p className="font-bold">{filterId}</p>
         </div>
       )}

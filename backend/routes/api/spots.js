@@ -35,7 +35,7 @@ router.get('/', filterQueryValidator, async (req, res) => {
     state,
     country,
   } = req.query;
- 
+
   const query = {
     where: {},
   };

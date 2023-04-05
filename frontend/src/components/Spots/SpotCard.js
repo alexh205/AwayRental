@@ -38,7 +38,7 @@ const SpotCard = ({spot}) => {
             {spot.avgRating}
           </div>
         </div>
-
+        <div className='px-2 text-gray-500 opacity-70 text-[16px]'>{spot.type}</div>
         <div className="flex flex-row items-center px-2 mx-auto mb-2">
           <p className="font-bold mr-1">
             {spot.price

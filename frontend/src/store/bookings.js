@@ -53,7 +53,6 @@ export const getSingleBookingThunk = bookingId => async dispatch => {
     const booking = await response.json();
 
     return booking;
-
   }
 };
 
@@ -123,6 +122,9 @@ const bookingsReducer = (state = initialState, action) => {
       return newState;
     case EDIT:
       newState = {...newState, [action.bookings.id]: action.bookings};
+      return newState;
+    case USERBOOKINGS:
+      newState = {...action.bookings};
       return newState;
     case DELETE:
       delete newState[action.bookings.id];

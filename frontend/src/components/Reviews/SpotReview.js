@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {BsDot} from 'react-icons/bs';
 import {useDispatch, useSelector} from 'react-redux';
 import Review from './Review';
-import {getAllReviews} from '../../store/reviews';
+import {getSpotReviewsThunk} from '../../store/reviews';
 
 const SpotReview = ({spot}) => {
   const dispatch = useDispatch();
@@ -10,11 +10,22 @@ const SpotReview = ({spot}) => {
 
   const updateContainer = Boolean => setContainer(Boolean);
 
-  useEffect(() => {
-    dispatch(getAllReviews(spot.id));
-  }, [spot, dispatch]);
+  const reviewState = useSelector(state => state.reviews);
 
-  const reviewObjs = useSelector(state => state.reviews);
+  const numReviews = Object.values(reviewState).length;
+  let ratingTotal = 0;
+
+  Object.values(reviewState).forEach(review => {
+    if (review.stars) ratingTotal += review.stars;
+  });
+
+  let avgRating;
+
+  ratingTotal > 0
+    ? (avgRating = Math.round((ratingTotal / numReviews) * 100) / 100)
+    : (avgRating = 0);
+
+  const reviewAvgRating = avgRating;
 
   return (
     <>
@@ -34,12 +45,12 @@ const SpotReview = ({spot}) => {
                   clipRule="evenodd"
                 />
               </svg>
-              {spot.avgRating}
+              {reviewAvgRating}
             </div>
             <BsDot className="mx-[2px]" />
-            {spot.numReviews > 0 ? (
+            {Object.values(reviewState).length > 0 ? (
               <div className="font-medium flex flex-row items-center text-[22px]">
-                {spot.numReviews}
+                {Object.values(reviewState).length}
                 <p className=" ml-1 ">reviews</p>
               </div>
             ) : (
@@ -49,11 +60,11 @@ const SpotReview = ({spot}) => {
             )}
           </div>
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-2">
-            {Object.values(reviewObjs).map((review, ind) => (
+            {Object.values(reviewState).map((review, ind) => (
               <div key={ind} className="my-8">
                 <Review
                   review={review}
-                  spotReviews={Object.values(reviewObjs)}
+                  spotReviews={reviewState}
                   updateContainer={updateContainer}
                 />
               </div>
