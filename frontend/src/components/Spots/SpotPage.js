@@ -3,6 +3,7 @@ import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {BsDot, BsFillStarFill} from 'react-icons/bs';
 import {getSpotByIdThunk} from '../../store/spots';
+import {getSpotReviewsThunk} from '../../store/reviews';
 import BookingWidget from '../Booking/BookingWidget';
 import Header from '../Header_footer/Header';
 import SpotImage from '../Images/SpotImage';
@@ -19,10 +20,27 @@ const SpotPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [spot, setSpot] = useState('');
+  // const [reviews, setReviews] = useState('');
   const [selectImage, setSelectImage] = useState(false);
   const [modal, setModal] = useState(false);
   const targetRef = useRef(null); // to create a reference to the target element
   const user = useSelector(state => state.session.user?.user);
+  const reviewState = useSelector(state => state.reviews);
+
+  const numReviews = Object.values(reviewState).length;
+  let ratingTotal = 0;
+
+  Object.values(reviewState).forEach(review => {
+    if (review.stars) ratingTotal += review.stars;
+  });
+
+  let avgRating;
+
+  ratingTotal > 0
+    ? (avgRating = Math.round((ratingTotal / numReviews) * 100) / 100)
+    : (avgRating = 0);
+
+  const reviewAvgRating = avgRating;
 
   const showModal = Boolean => setModal(Boolean);
 
@@ -31,6 +49,7 @@ const SpotPage = () => {
       return;
     }
     dispatch(getSpotByIdThunk(id)).then(res => setSpot(res));
+    dispatch(getSpotReviewsThunk(id));
   }, []);
 
   //? formatting AM/PM time
@@ -61,15 +80,15 @@ const SpotPage = () => {
               <div className="flex flex-row items-center ">
                 <div className="flex flex-row items-center">
                   <BsFillStarFill className="w-4 h-4 mr-1" />
-                  {spot.avgRating}
+                  {reviewAvgRating}
                 </div>
                 <BsDot className="mx-[2px]" />
-                {spot.numReviews > 0 ? (
+                {Object.values(reviewState).length > 0 ? (
                   <div className="font-medium underline cursor-pointer hover:text-amber-600">
                     <a
                       href="#reviews"
                       onClick={() => targetRef.current.scrollIntoView()}>
-                      {spot.numReviews} reviews
+                      {Object.values(reviewState).length} reviews
                     </a>
                   </div>
                 ) : (
@@ -187,7 +206,7 @@ const SpotPage = () => {
               />
             </div>
           </div>
-          {spot && spot.spotReviews.length > 0 && (
+          {Object.values(reviewState).length > 0 && (
             <div
               ref={targetRef}
               id="reviews"

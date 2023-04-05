@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {differenceInCalendarDays} from 'date-fns';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {addNewBooking} from '../../store/bookings';
 import {Redirect} from 'react-router-dom';
 import {BsDot, BsFillStarFill} from 'react-icons/bs';
@@ -14,6 +14,23 @@ const BookingWidget = ({spot, user}) => {
   const [mobile, setMobile] = useState('');
   const [redirect, setRedirect] = useState('');
   const [validateErrors, setValidateErrors] = useState([]);
+
+  const reviewState = useSelector(state => state.reviews);
+
+  const numReviews = Object.values(reviewState).length;
+  let ratingTotal = 0;
+
+  Object.values(reviewState).forEach(review => {
+    if (review.stars) ratingTotal += review.stars;
+  });
+
+  let avgRating;
+
+  ratingTotal > 0
+    ? (avgRating = Math.round((ratingTotal / numReviews) * 100) / 100)
+    : (avgRating = 0);
+
+  const reviewAvgRating = avgRating;
 
   let numberOfNights = 0;
   if (checkIn && checkOut) {
@@ -91,12 +108,12 @@ const BookingWidget = ({spot, user}) => {
         <div className="flex flex-row items-center">
           <div className="flex flex-row items-center text-base">
             <BsFillStarFill className="w-4 h-4 mr-1" />
-            {spot.avgRating}
+            {reviewAvgRating}
           </div>
           <BsDot className="mx-1" />
-          {spot.numReviews > 0 ? (
+          {Object.values(reviewState).length > 0 ? (
             <div className="font-medium underline flex flex-row items-center text-base text-gray-500 ">
-              {spot.numReviews}
+              {Object.values(reviewState).length}
               <p className="text-base text-gray-500 ml-1">reviews</p>
             </div>
           ) : (

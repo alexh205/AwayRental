@@ -36,7 +36,7 @@ export const renderReviews = () => {
   };
 };
 
-export const getAllReviews = spotId => async dispatch => {
+export const getSpotReviewsThunk = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
 
   if (response.ok) {
@@ -104,13 +104,13 @@ const reviewsReducer = (state = initialState, action) => {
       newState = {...action.reviews};
       return newState;
     case ADD:
-      newState = {...state, [action.reviews.id]: action.reviews};
+      newState = {...newState, [action.reviews.id]: action.reviews};
       return newState;
     case USERREVIEWS:
       newState = {...action.reviews};
       return newState;
     case EDIT:
-      newState = {...state, [action.reviews.id]: action.reviews};
+      newState = {...newState, [action.reviews.id]: action.reviews};
       return newState;
     case DELETE:
       delete newState[action.reviews];

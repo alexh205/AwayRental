@@ -3,22 +3,20 @@ import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {userSpotsByIdThunk} from '../../store/spots';
 
-const UserSpots = ({setSelected, spots, setSpots}) => {
+const UserSpots = ({setSelected, spots, setSpots = () => {}}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user?.user);
 
   const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
-    dispatch(userSpotsByIdThunk(user.id)).then(res => setSpots(res));
-  }, []);
+    if (user?.id) {
+      dispatch(userSpotsByIdThunk(user.id)).then(res => setSpots(res));
+    }
+  }, [dispatch, user?.id, setSpots]);
 
   const visibleSpots = spots.slice(0, 4);
   const hiddenSpots = spots.slice(4);
-
-  // const truncatedDescription = truncated
-  //   ? description
-  //   : `${description.slice(0, 100)}...`;
 
   return (
     <div className="">
@@ -92,7 +90,7 @@ const UserSpots = ({setSelected, spots, setSpots}) => {
                       <div className="grow-0 shrink flex flex-col justify-center items-center">
                         <h2 className="text-2xl font-semibold ">{title}</h2>
                         <p className="text-sm mt-2">
-                          {description.slice(0, 500)}...
+                          {description.slice(0, 300)}...
                         </p>
                       </div>
                     </Link>

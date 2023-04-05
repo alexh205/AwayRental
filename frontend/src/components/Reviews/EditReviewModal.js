@@ -6,7 +6,7 @@ import {reviewEdit} from '../../store/reviews';
 
 const EditReviewModal = ({showModal, reviewObj}) => {
   const dispatch = useDispatch();
-  
+
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
