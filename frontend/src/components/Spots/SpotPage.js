@@ -103,17 +103,18 @@ const SpotPage = () => {
                 </LocationLink>
               </div>
             </div>
+            {user?.id === spot?.ownerId && (
+              <div className="md:my-0 my-2 flex flex-row items-center md:mr-2 mr-0">
+                <button
+                  className=" mr-4 ml-2 p-[4px]  bg-site-primary hover:bg-site-secondary hover:shadow-lg text-white rounded-lg"
+                  onClick={handleSpotEdit}>
+                  Modify
+                </button>
+                <SpotDeletionModal spotId={id} />
+              </div>
+            )}
           </div>
-          {user?.id === spot?.ownerId && (
-            <div className="my-2 flex flex-row items-center">
-              <button
-                className=" mr-4 ml-2 p-[4px]  bg-site-primary hover:bg-site-secondary hover:shadow-lg text-white rounded-lg"
-                onClick={handleSpotEdit}>
-                Modify
-              </button>
-              <SpotDeletionModal spotId={id} />
-            </div>
-          )}
+
           <div>
             <SpotImage spot={spot} setSelectImage={setSelectImage} />
           </div>

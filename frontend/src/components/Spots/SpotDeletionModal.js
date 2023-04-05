@@ -35,8 +35,10 @@ const SpotDeletionModal = ({spotId}) => {
         <div className="fixed h-screen w-screen inset-0 flex items-center justify-center bg-gray-900 bg-opacity-70 z-40">
           <div className="bg-white p-6 rounded-md">
             <p>Are you sure you want to delete this property?</p>
-            <div className="mt-4 flex justify-end">
-              <button className="mr-2" onClick={handleCancelClick}>
+            <div className="mt-4 flex justify-end ">
+              <button
+                className="mr-2 hover:shadow-lg text-black p-1 border-2 rounded-lg "
+                onClick={handleCancelClick}>
                 Cancel
               </button>
               <button
