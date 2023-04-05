@@ -115,8 +115,15 @@ const AccountNav = () => {
               <div className="mb-4 flex flex-row items-center text-2xl justify-center">
                 Welcome Back <p className="ml-2 font-bold">{user?.name}</p>!
               </div>
+              <div className="h-48 w-48 mb-2">
+                <img
+                  src={user.profileImg}
+                  alt="user"
+                  className="rounded-3xl object-cover h-full w-full"
+                />
+              </div>
               {/* <div className="grid md:grid-cols-4 grid-col-2 gap-4 my-2 "> */}
-              <div className="grid md:grid-cols-2 grid-col-2 gap-4 my-2 ">
+              <div className="grid md:grid-cols-3 grid-cols-2 gap-4 my-2 ">
                 <div
                   className="flex flex-col items-start border-2 rounded-xl p-[4px] cursor-pointer hover:shadow-lg"
                   onClick={() => {
@@ -124,8 +131,8 @@ const AccountNav = () => {
                     setUserPassword(false);
                   }}>
                   <GrContactInfo className="w-8 h-8 mx-auto my-2 " />
-                  <div>Personal Info</div>
-                  <div className="text-sm text-start opacity-50 mb-1">
+                  <div className="mx-auto">Personal Info</div>
+                  <div className="text-sm text-start opacity-50">
                     Modify user details
                   </div>
                 </div>
@@ -141,35 +148,32 @@ const AccountNav = () => {
                     Update password
                   </div>
                 </div> */}
-                <div className="border-2 rounded-xl py-2 justify-center items-center">
-                  <BsHouseDoor className="mx-auto h-6 w-6 mb-2 " />
-                  <div className="flex flex-col items-start">
-                    <div className="ml-1">Properties:</div>
-                    <div className="mx-auto ont-semibold text-xl text-">
+                <div
+                  className="border-2 rounded-xl py-2 justify-center items-center my-auto hover:shadow-lg cursor-pointer"
+                  onClick={() => history.push('/account/bookings')}>
+                  <SlNotebook className="w-7 h-7 mb-2 mx-auto" />
+                  <div className="flex flex-col items-start ">
+                    <div className="mx-auto">Bookings:</div>
+                    <div className="mx-auto ont-semibold text-xl text-site-primary font-bold">
+                      {userDetails.bookings?.length}
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="border-2 rounded-xl py-2 justify-center items-center my-auto hover:shadow-lg cursor-pointer"
+                  onClick={() => history.push('/account/spots')}>
+                  <BsHouseDoor className="mx-auto h-7 w-7 mb-2 " />
+                  <div className="flex flex-col items-start ">
+                    <div className=" mx-auto">Properties:</div>
+                    <div className="mx-auto ont-semibold text-xl text-site-primary font-bold">
                       {userDetails.spots?.length}
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* <div>
-                <div
-                  className="flex flex-row ml-2 cursor-pointer hover:shadow-xl items-center mt-4 "
-                  onClick={() => {
-                    history.push('/account/bookings');
-                  }}>
-                  <SlNotebook className="w-6 h-6 mr-1" />
-                  <div className="mr-2 text-site-primary font-semibold text-xl">
-                    Bookings:
-                  </div>
-                  <div className="font-semibold text-xl">
-                    {userDetails.bookings?.length}
-                  </div>
-                </div>
-              </div> */}
-
               <button
-                className="primary max-w-sm mt-2 bg-site-primary hover:bg-site-secondary"
+                className="primary max-w-sm mt-4 bg-site-primary hover:bg-site-secondary"
                 onClick={logoutUser}>
                 Logout
               </button>
