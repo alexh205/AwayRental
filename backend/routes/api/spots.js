@@ -547,66 +547,56 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 //! Create an Image/delete for a spotId
 
 router.post('/:spotId/images', requireAuth, async (req, res) => {
-  const currentSpot = await Spot.findOne({
-    where: {id: req.params.spotId},
-  });
-
-  if (!currentSpot) {
-    return res.status(404).json({
-      message: "Spot couldn't be found",
-      statusCode: 404,
+  try {
+    const currentSpot = await Spot.findOne({
+      where: {id: req.params.spotId},
     });
-  }
 
-  if (currentSpot.dataValues.ownerId !== req.user.id) {
-    return res.status(403).json({
-      message: 'Unauthorized',
-      statusCode: 403,
-    });
-  }
-
-  const spotImages = await Image.findAll({
-    where: {imageableType: 'Spot', imageableId: currentSpot.id},
-    attributes: ['url'],
-  });
-
-  const filteredImages = req.body.filter(url => !spotImages.includes(url));
-  // filter out all new images
-
-  const removedImages = req.body.filter(url => spotImages.includes(url));
-  // filter out all removed images
-  //* new Images
-
-  for (const url of filteredImages) {
-    await Image.create({
-      imageableId: currentSpot.id,
-      imageableType: 'Spot',
-      url: url,
-      userId: req.user.id,
-      preview: false,
-    });
-  }
-
-  for (const urlObj of removedImages) {
-    const currImage = await Image.findOne({where: {url: urlObj}});
-    if (!currImage) {
-      return res
-        .status(404)
-        .json({message: "image couldn't be located", statusCode: 404});
+    if (!currentSpot) {
+      throw new Error("Spot couldn't be found");
     }
 
-    if (req.user.id !== currImage.userId) {
-      return res.status(403).json({
-        message: 'Unauthorized - only owner can delete this image',
-        statusCode: 403,
+    if (currentSpot.ownerId !== req.user.id) {
+      throw new Error(
+        'Unauthorized - only owner can manage images for this spot'
+      );
+    }
+
+    const spotImages = await Image.findAll({
+      where: {imageableType: 'Spot', imageableId: currentSpot.id},
+      attributes: ['url', 'id', 'preview'],
+    });
+
+    const filteredImages = req.body.filter(
+      url => !spotImages.some(image => image.url === url)
+    );
+    // filter out images that already exist in both req.body and spotImages
+
+    const removedImages = spotImages.filter(
+      image => !req.body.includes(image.url)
+    );
+    // filter out images that are no longer in req.body
+
+    // Delete images
+    for (const image of removedImages) {
+      await Image.destroy({where: {id: image.id}});
+    }
+
+    // Create new images
+    for (const url of filteredImages) {
+      await Image.create({
+        imageableId: currentSpot.id,
+        imageableType: 'Spot',
+        url: url,
+        userId: req.user.id,
+        preview: false,
       });
-    } else {
-      await currImage.destroy();
-      return res.json({message: 'Successfully deleted', statusCode: 200});
     }
-  }
 
-  return 'Image created!';
+    return res.json({message: 'Images updated successfully', statusCode: 200});
+  } catch (error) {
+    return res.status(400).json({message: error.message, statusCode: 400});
+  }
 });
 
 /**********************************************************************************/

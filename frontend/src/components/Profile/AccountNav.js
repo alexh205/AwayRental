@@ -190,7 +190,7 @@ const AccountNav = () => {
       {subPage === 'spots' && (
         <>
           {selected && (
-            <SpotForm setSelected={setSelected} setSpots={setSpots} />
+            <SpotForm setSelected={setSelected} />
           )}
           {!selected && (
             <UserSpots

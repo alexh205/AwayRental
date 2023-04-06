@@ -20,7 +20,6 @@ const SpotPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [spot, setSpot] = useState('');
-  // const [reviews, setReviews] = useState('');
   const [selectImage, setSelectImage] = useState(false);
   const [modal, setModal] = useState(false);
   const targetRef = useRef(null); // to create a reference to the target element

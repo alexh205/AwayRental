@@ -51,7 +51,7 @@ module.exports = {
           type: Sequelize.FLOAT,
         },
         title: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(250),
           allowNull: false,
         },
         amenities: {

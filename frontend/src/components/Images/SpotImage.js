@@ -63,8 +63,7 @@ const SpotImage = ({spot, setSelectImage}) => {
               />
             </div>
           </div>
-        ) : spot.spotImages.length === 0 ? null : spot.spotImages.length ===
-          2 ? (
+        ) : spot.spotImages.length === 2 ? (
           <div className="flex lg:flex-row flex-col gap-2">
             <div className="h-fit flex items-center justify-center mx-auto cursor-pointer">
               <img
@@ -105,7 +104,6 @@ const SpotImage = ({spot, setSelectImage}) => {
                   />
                 )}
               </div>
-
               <div className="grid">
                 {spot.spotImages[1] && (
                   <img

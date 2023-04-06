@@ -10,6 +10,7 @@ const SpotReview = ({spot}) => {
 
   const updateContainer = Boolean => setContainer(Boolean);
 
+  useEffect(() => {}, [spot.id]);
   const reviewState = useSelector(state => state.reviews);
 
   const numReviews = Object.values(reviewState).length;

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {useHistory, useParams} from 'react-router-dom';
-import {editSpotThunk, getSpotByIdThunk} from '../../store/spots';
+import {editSpotThunk, getSpotByIdThunk, addSpotImagesThunk} from '../../store/spots';
 import propertyTypes from '../../static/propertyTypes.json';
 import usaStates from '../../static/usaStates.json';
 import Amenities from '../Profile/Amenities';
@@ -10,22 +10,22 @@ import Header from '../Header_footer/Header';
 
 const EditSpot = () => {
   const [spot, setSpot] = useState('');
-  const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
-  const [type, setType] = useState('');
-  const [addedPhotos, setAddedPhotos] = useState([]);
   const [description, setDescription] = useState('');
+  const [type, setType] = useState('');
+  const [title, setTitle] = useState('');
   const [amenities, setAmenities] = useState([]);
-  const [checkIn, setCheckIn] = useState('');
-  const [checkOut, setCheckOut] = useState('');
-  const [maxGuests, setMaxGuests] = useState(0);
   const [bedroom, setBedroom] = useState(0);
   const [bed, setBed] = useState(0);
   const [bathroom, setBathroom] = useState(0);
+  const [maxGuests, setMaxGuests] = useState(0);
+  const [checkIn, setCheckIn] = useState('');
+  const [checkOut, setCheckOut] = useState('');
   const [price, setPrice] = useState(0);
+  const [addedPhotos, setAddedPhotos] = useState([]);
 
   const [valid, setValid] = useState(false);
 
@@ -60,12 +60,28 @@ const EditSpot = () => {
   const validate = () => {
     const errors = [];
     if (!title) errors.push("Please provide a 'Title'");
+    if (title.length > 250 || title.length < 6) {
+      if (title.length > 250) {
+        errors.push("Description can't be longer than 250 characters");
+      }
+      if (title.length < 3) {
+        errors.push('Description must be at least 3 characters long');
+      }
+    }
     if (!address) errors.push("Please provide an 'Address'");
     if (!city) errors.push("Please provide a 'City'");
     if (!state) errors.push("Please provide a 'State'");
     if (!country) errors.push("Please provide a 'Country'");
     if (!type) errors.push("Please provide a 'Type'");
     if (!description) errors.push("Please provide a 'Description'");
+    if (description.length > 1000 || description.length < 6) {
+      if (description.length > 1000) {
+        errors.push("Description can't be longer than 1000 characters");
+      }
+      if (description.length < 6) {
+        errors.push('Description must be at least 6 characters long');
+      }
+    }
     if (amenities.length < 1) errors.push("Please provide the 'Amenities'");
     if (!checkIn) errors.push("Please provide a 'Start Date'");
     if (!checkOut) errors.push("Please provide an 'End Date'");
@@ -108,6 +124,7 @@ const EditSpot = () => {
     if (errors.length > 0) {
       return setValidateErrors(errors);
     }
+
     const spot = {
       id: Number(id),
       address,
@@ -128,25 +145,25 @@ const EditSpot = () => {
     };
     const editSpot = await dispatch(editSpotThunk(spot));
 
-    //   await dispatch(addSpotImagesThunk(addedPhotos, editSpot.id));
-    //   setTitle('');
-    //   setAddress('');
-    //   setCity('');
-    //   setState('');
-    //   setCountry('');
-    //   setType('');
-    //   setDescription('');
-    //   setAmenities([]);
-    //   setCheckIn('');
-    //   setCheckOut('');
-    //   setMaxGuests(0);
-    //   setBedroom(0);
-    //   setBed(0);
-    //   setBathroom(0);
-    //   setPrice(0);
-    //   setAddedPhotos([]);
-    //   setValidateErrors([]);
-    //   history.push(`/spots/${editSpot.id}`);
+    await dispatch(addSpotImagesThunk(addedPhotos, editSpot.id));
+    setTitle('');
+    setAddress('');
+    setCity('');
+    setState('');
+    setCountry('');
+    setType('');
+    setDescription('');
+    setAmenities([]);
+    setCheckIn('');
+    setCheckOut('');
+    setMaxGuests(0);
+    setBedroom(0);
+    setBed(0);
+    setBathroom(0);
+    setPrice(0);
+    setAddedPhotos([]);
+    setValidateErrors([]);
+    history.push(`/spots/${editSpot.id}`);
   };
   const handleCancel = e => {
     e.preventDefault();

@@ -45,6 +45,7 @@ export const getSpotReviewsThunk = spotId => async dispatch => {
     Reviews.forEach(review => (obj[review.id] = review));
     dispatch(getReviews(obj));
   }
+  dispatch(renderReviews());
 };
 
 export const addNewReview = data => async dispatch => {

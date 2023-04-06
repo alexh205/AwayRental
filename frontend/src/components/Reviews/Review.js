@@ -45,7 +45,7 @@ const Review = ({review, spotReviews, updateContainer}) => {
           <img
             src={review.User?.profileImg}
             alt="profile"
-            className="rounded-full object-contain text-center"
+            className="rounded-full h-full w-full object-cover text-center"
           />
         </div>
         <div className="flex flex-col">
@@ -66,7 +66,7 @@ const Review = ({review, spotReviews, updateContainer}) => {
         </div>
       </div>
       {user?.id === review.userId && (
-        <div className="mt-1 ml-2 flex flex-row">
+        <div className="my-2 ml-2 flex flex-row">
           <div
             className="cursor-pointer mr-4 hover:text-amber-600 text-blue-500 text-sm font-bold outline px-1"
             onClick={handleEdit}>

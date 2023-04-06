@@ -174,7 +174,7 @@ module.exports = {
           type: 'Farm',
           lat: 38.7351,
           lng: -77.0796,
-          title: 'Life in a the wild',
+          title: 'Life in the wild',
           amenities:
             '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,

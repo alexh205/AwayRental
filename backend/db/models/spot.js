@@ -46,24 +46,32 @@ module.exports = (sequelize, DataTypes) => {
       type: {type: DataTypes.STRING},
       lat: {type: DataTypes.FLOAT},
       lng: {type: DataTypes.FLOAT},
-      title: {type: DataTypes.STRING},
+      title: {
+        type: DataTypes.STRING(250),
+        validate: {
+          len: [3, 250],
+        },
+      },
       amenities: {type: DataTypes.STRING(400)},
       bedroom: {
         type: DataTypes.INTEGER,
         validate: {
           isNumeric: true,
+          len: [1, 12],
         },
       },
       bed: {
         type: DataTypes.INTEGER,
         validate: {
           isNumeric: true,
+          let: [1, 24],
         },
       },
       bathroom: {
         type: DataTypes.INTEGER,
         validate: {
           isNumeric: true,
+          len: [1, 12],
         },
       },
       maxGuests: {

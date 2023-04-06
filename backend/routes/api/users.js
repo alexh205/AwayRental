@@ -101,7 +101,7 @@ router.put('/', async (req, res) => {
 
     const user = await User.update({name, username, email, profileImg, userId});
 
-    console.log(user);
+    
   await setTokenCookie(res, user);
 
   return res.json({user});

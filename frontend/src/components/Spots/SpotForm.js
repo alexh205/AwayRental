@@ -9,7 +9,7 @@ import PhotoUpload from '../Images/PhotoUpload';
 import {addSpotImagesThunk} from '../../store/spots';
 
 
-export const SpotForm = ({setSelected, setSpots}) => {
+export const SpotForm = ({setSelected}) => {
   const {action} = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -67,6 +67,14 @@ export const SpotForm = ({setSelected, setSpots}) => {
     if (!country) errors.push("Please provide a 'Country'");
     if (!type) errors.push("Please provide a 'Type'");
     if (!description) errors.push("Please provide a 'Description'");
+    if (description.length > 1000 || description.length < 6) {
+      if (description.length > 1000) {
+        errors.push("Description can't be longer than 1000 characters");
+      }
+      if (description.length < 6) {
+        errors.push('Description must be at least 6 characters long');
+      }
+    }
     if (amenities.length < 1) errors.push("Please provide the 'Amenities'");
     if (!checkIn) errors.push("Please provide a 'Start Date'");
     if (!checkOut) errors.push("Please provide an 'End Date'");
