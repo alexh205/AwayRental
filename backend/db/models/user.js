@@ -70,6 +70,10 @@ module.exports = (sequelize, DataTypes) => {
         constraints: false,
         scope: {imageableType: 'User'},
       });
+      User.hasMany(models.WishList, {
+        foreignKey: 'ownerId',
+        onDelete: 'CASCADE',
+      });
     }
   }
   User.init(
