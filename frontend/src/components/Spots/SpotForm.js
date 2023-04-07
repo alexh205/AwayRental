@@ -117,6 +117,7 @@ export const SpotForm = ({setSelected}) => {
     );
 
     if (addedPhotos.length > 0) {
+      console.log(addedPhotos);
       await dispatch(addSpotImagesThunk(addedPhotos, createdSpot.id));
 
       setTitle('');

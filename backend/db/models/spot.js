@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'spotId',
         onDelete: 'CASCADE',
       });
+      Spot.hasMany(models.WishList, {
+        foreignKey: 'spotId',
+      });
     }
   }
   Spot.init(
@@ -52,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
           len: [3, 250],
         },
       },
-      amenities: {type: DataTypes.STRING(400)},
+      amenities: {type: DataTypes.STRING(800)},
       bedroom: {
         type: DataTypes.INTEGER,
         validate: {

@@ -55,7 +55,7 @@ module.exports = {
           allowNull: false,
         },
         amenities: {
-          type: Sequelize.STRING(400),
+          type: Sequelize.STRING(800),
         },
         bedroom: {
           type: Sequelize.INTEGER,

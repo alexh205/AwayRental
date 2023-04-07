@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable(
-      'Images',
+      'WishLists',
       {
         id: {
           allowNull: false,
@@ -14,26 +14,19 @@ module.exports = {
           primaryKey: true,
           type: Sequelize.INTEGER,
         },
-        imageableId: {
-          type: Sequelize.INTEGER,
-        },
-        imageableType: {
-          type: Sequelize.ENUM('User', 'Spot', 'Review'),
-        },
-        url: {
+        title: {
           type: Sequelize.STRING,
         },
         userId: {
           type: Sequelize.INTEGER,
-          allowNull: false,
           onDelete: 'CASCADE',
           references: {
             model: 'Users',
             key: 'id',
           },
         },
-        preview: {
-          type: Sequelize.BOOLEAN,
+        spotId: {
+          type: Sequelize.INTEGER,
         },
         createdAt: {
           allowNull: false,
@@ -50,6 +43,6 @@ module.exports = {
     );
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Images', options);
+    await queryInterface.dropTable('WishLists', options);
   },
 };
