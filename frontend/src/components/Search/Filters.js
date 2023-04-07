@@ -52,14 +52,14 @@ const Filters = () => {
     <div className="mb-14">
       <Header />
       <div className="sm:mx-6 md:mx-10 lg:mx-10">
-        <div className="flex justify-center my-5 overflow-hidden">
+        <div className="flex justify-center mb-2 mt-4 overflow-hidden">
           {options.map((obj, idx) => (
             <Filter title={obj.title} icon={obj.icon} key={idx} />
           ))}
         </div>
       </div>
       {filterId && (
-        <div className="ml-12 mb-2 flex flex-row text-lg items-center">
+        <div className="ml-12 flex flex-row text-lg items-center">
           Property <FiArrowRight className="mx-1" />{' '}
           <p className="font-bold">{filterId}</p>
         </div>

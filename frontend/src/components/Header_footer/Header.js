@@ -1,11 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
 import {GrUserManager} from 'react-icons/gr';
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
-// import { DateRangePicker } from "react-date-range";
 import {useHistory} from 'react-router-dom';
 import awayRental from '../../static/awayRental.png';
+import {RxMagnifyingGlass} from 'react-icons/rx';
 
 const Header = () => {
   const history = useHistory();
@@ -35,19 +33,7 @@ const Header = () => {
           <div className="border-l border-gray-300" />
           <div className="text-gray-400">Add guests</div>
           <button className="bg-site-primary hover:bg-site-secondary text-white p-1 rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
+            <RxMagnifyingGlass className="w-4 h-4" />
           </button>
         </div>
 

@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         as: 'Owner',
       });
 
-      WishList.hasMany(models.Spot, {
-        foreignKey: 'spotId',
+      WishList.belongsToMany(models.Spot, {
+        through: 'SpotWishList',
+        foreignKey: 'wishListId',
+        onDelete: 'CASCADE',
       });
     }
   }
@@ -22,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       ownerId: DataTypes.INTEGER,
-      spotId: DataTypes.INTEGER,
     },
     {
       sequelize,

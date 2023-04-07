@@ -28,8 +28,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'spotId',
         onDelete: 'CASCADE',
       });
-      Spot.hasMany(models.WishList, {
+      Spot.belongsToMany(models.WishList, {
+        through: 'SpotWishList',
         foreignKey: 'spotId',
+        onDelete: 'CASCADE',
       });
     }
   }

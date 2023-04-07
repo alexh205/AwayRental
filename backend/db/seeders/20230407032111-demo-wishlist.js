@@ -5,16 +5,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 module.exports = {
   async up(queryInterface, Sequelize) {
-    options.tableName = 'WishList';
+    options.tableName = 'WishLists';
     return await queryInterface.bulkInsert(options, [
-      {title: 'Spring 2022', userId: 1, spotId: 50},
-      {title: 'Spring 2022', userId: 1, spotId: 52},
-      {title: 'Spring 2022', userId: 1, spotId: 62},
+      {title: 'Spring 2022', ownerId: 1},
     ]);
   },
 
   async down(queryInterface, Sequelize) {
-    options.tableName = 'WishList';
+    options.tableName = 'WishLists';
     return await queryInterface.bulkDelete(options, {});
   },
 };

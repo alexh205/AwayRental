@@ -4,26 +4,33 @@ if (process.env.NODE_ENV === 'production') {
   options.schema = process.env.SCHEMA;
 }
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable(
-      'WishLists',
+      'SpotWishList',
       {
         id: {
+          type: Sequelize.INTEGER,
           allowNull: false,
           autoIncrement: true,
           primaryKey: true,
-          type: Sequelize.INTEGER,
         },
-        title: {
-          type: Sequelize.STRING,
-        },
-        ownerId: {
+        spotId: {
           type: Sequelize.INTEGER,
-          onDelete: 'CASCADE',
+          allowNull: false,
           references: {
-            model: 'Users',
+            model: 'Spots',
             key: 'id',
           },
+          onDelete: 'CASCADE',
+        },
+        wishListId: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'WishLists',
+            key: 'id',
+          },
+          onDelete: 'CASCADE',
         },
         createdAt: {
           allowNull: false,
@@ -39,7 +46,8 @@ module.exports = {
       options
     );
   },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('WishLists', options);
+
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('SpotWishList', options);
   },
 };
