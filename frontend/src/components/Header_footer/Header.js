@@ -26,12 +26,12 @@ const Header = () => {
         </div>
 
         {/* Middle */}
-        <div className="hidden lg:flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300">
-          <div>Anywhere</div>
+        <div className="hidden lg:flex gap-2 border border-gray-300 rounded-full py-2 px-4 shadow-md shadow-gray-300 hover:shadow-lg transition duration-200 ">
+          <div className="cursor-pointer ">Anywhere</div>
           <div className="border-l border-gray-300" />
-          <div>Any week</div>
+          <div className="cursor-pointer ">Any week</div>
           <div className="border-l border-gray-300" />
-          <div className="text-gray-400">Add guests</div>
+          <div className="cursor-pointer">Add guests</div>
           <button className="bg-site-primary hover:bg-site-secondary text-white p-1 rounded-full">
             <RxMagnifyingGlass className="w-4 h-4" />
           </button>

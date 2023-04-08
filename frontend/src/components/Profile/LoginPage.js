@@ -48,7 +48,7 @@ const LoginPage = () => {
         <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
           <ul>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <li key={idx} className='text-red-500'>{error}</li>
             ))}
           </ul>
           <input

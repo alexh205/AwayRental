@@ -4,13 +4,13 @@ const express = require('express');
 const {setTokenCookie, restoreUser} = require('../../utils/auth');
 
 //? Models
-const {User, Review, Spot} = require('../../db/models');
+const {User} = require('../../db/models');
 
 //? Validation
 const {validateLogin} = require('../../utils/validation');
 
 const router = express.Router();
-
+ 
 /**********************************************************************************/
 //! Log in
 router.post('/', validateLogin, async (req, res, next) => {

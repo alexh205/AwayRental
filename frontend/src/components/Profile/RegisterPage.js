@@ -11,6 +11,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [profileImg, setProfileImg] = useState('');
 
   const [errors, setErrors] = useState([]);
 
@@ -22,12 +23,12 @@ const RegisterPage = () => {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(signupThunk(name, username, email, password)).catch(
-        async res => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        }
-      );
+      return dispatch(
+        signupThunk(name, username, email, password, profileImg)
+      ).catch(async res => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
     }
 
     return setErrors([
@@ -39,8 +40,23 @@ const RegisterPage = () => {
       <Header />
       <div className="mt-4">
         <h1 className="text-4xl text-center mb-4">Register</h1>
+        <div
+          className={`${
+            !profileImg
+              ? 'hidden'
+              : 'mx-auto container flex justify-center my-3 w-56 h-56'
+          }`}>
+          <img
+            src={profileImg}
+            alt="user profile"
+            className="object-cover rounded-xl w-full h-full border-double border-gray-400 border-4 shadow-xl"
+          />
+        </div>
         <div className="flex items-center justify-center mb-2">
-          <p className="text-red-500 font-medium">{errors}</p>
+          {errors.length > 0 &&
+            errors.map(error => (
+              <p className="text-red-500 font-medium">{error}</p>
+            ))}
         </div>
         <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
           <input
@@ -72,6 +88,12 @@ const RegisterPage = () => {
             placeholder="confirm password"
             value={confirmPassword}
             onChange={e => setConfirmPassword(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="image url"
+            value={profileImg}
+            onChange={e => setProfileImg(e.target.value)}
           />
           <button className="primary">Register</button>
           <div className="text-center py-2 text-gray-500">

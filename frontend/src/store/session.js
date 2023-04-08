@@ -32,23 +32,24 @@ export const restoreUserThunk = () => async dispatch => {
 };
 
 //! Signup
-export const signupThunk = user => async dispatch => {
-  const {name, username, email, password} = user;
-  const response = await csrfFetch('/api/users', {
-    method: 'POST',
-    body: JSON.stringify({
-      name,
-      username,
-      email,
-      password,
-    }),
-  });
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(setUser(data));
-  }
-  return response;
-};
+export const signupThunk =
+  (name, username, email, password, profileImg) => async dispatch => {
+    const response = await csrfFetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({
+        name,
+        username,
+        email,
+        password,
+        profileImg,
+      }),
+    });
+    if (response.ok) {
+      const data = await response.json();
+      dispatch(setUser(data));
+    }
+    return response;
+  };
 
 export const editUserThunk = user => async dispatch => {
   const {name, username, email, profileImg} = user;

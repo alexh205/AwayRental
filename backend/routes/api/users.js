@@ -14,7 +14,7 @@ const router = express.Router();
 /**********************************************************************************/
 //! Sign up
 router.post('/', validateSignup, async (req, res) => {
-  const {name, email, password, username} = req.body;
+  const {name, email, password, username, profileImg} = req.body;
 
   //* Email verification
   const emailVerification = await User.findOne({where: {email}});
@@ -48,6 +48,7 @@ router.post('/', validateSignup, async (req, res) => {
     email,
     username,
     password,
+    profileImg,
   });
 
   //* Excluding undesired parameters
@@ -86,22 +87,21 @@ router.put('/', async (req, res) => {
   if (
     usernameVerification &&
     usernameVerification.username !== req.body.username
-    ) {
-      return res.status(403).json({
-        message: 'User already exists',
-        statusCode: 403,
-        errors: {
-          email: 'User with that username already exists',
-        },
-      });
-    }
+  ) {
+    return res.status(403).json({
+      message: 'User already exists',
+      statusCode: 403,
+      errors: {
+        email: 'User with that username already exists',
+      },
+    });
+  }
 
-    const userId = req.user.id;
-    //* Editing user
+  const userId = req.user.id;
+  //* Editing user
 
-    const user = await User.update({name, username, email, profileImg, userId});
+  const user = await User.update({name, username, email, profileImg, userId});
 
-    
   await setTokenCookie(res, user);
 
   return res.json({user});

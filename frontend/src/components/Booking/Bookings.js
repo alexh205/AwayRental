@@ -14,6 +14,15 @@ const Bookings = () => {
     dispatch(getUserBookings());
   }, [dispatch]);
 
+  if (bookingArr.length === 0)
+    return (
+      <div className="flex items-center justify-center container mx-auto">
+        <p className="text-xl font-medium">
+          You currently do not have any booking history!
+        </p>
+      </div>
+    );
+
   return (
     <div className="flex justify-center">
       <div className="container grid lg:grid-cols-2 grid-cols-1 gap-4 mx-2">

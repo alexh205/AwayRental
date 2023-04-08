@@ -155,7 +155,7 @@ const AccountNav = () => {
                   <div className="flex flex-col items-start ">
                     <div className="mx-auto">Bookings:</div>
                     <div className="mx-auto ont-semibold text-xl text-site-primary font-bold">
-                      {userDetails.bookings?.length}
+                      {userDetails.bookings?.length || 0}
                     </div>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ const AccountNav = () => {
                   <div className="flex flex-col items-start ">
                     <div className=" mx-auto">Properties:</div>
                     <div className="mx-auto ont-semibold text-xl text-site-primary font-bold">
-                      {userDetails.spots?.length}
+                      {userDetails.spots?.length || 0}
                     </div>
                   </div>
                 </div>
@@ -189,9 +189,7 @@ const AccountNav = () => {
       )}
       {subPage === 'spots' && (
         <>
-          {selected && (
-            <SpotForm setSelected={setSelected} />
-          )}
+          {selected && <SpotForm setSelected={setSelected} />}
           {!selected && (
             <UserSpots
               selected={selected}
