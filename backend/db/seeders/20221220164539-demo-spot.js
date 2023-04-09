@@ -342,7 +342,7 @@ module.exports = {
         {
           ownerId: 1,
           address: '23 Ilene Way',
-          city: 'New York City',
+          city: 'New York',
           state: 'New York',
           country: 'United States',
           description:
@@ -606,7 +606,7 @@ module.exports = {
         {
           ownerId: 3,
           address: '28 Crowley Pass',
-          city: 'New York City',
+          city: 'New York',
           state: 'New York',
           country: 'United States',
           description:
@@ -1684,7 +1684,7 @@ module.exports = {
         {
           ownerId: 6,
           address: '6379 Nova Parkway',
-          city: 'New York City',
+          city: 'New York',
           state: 'New York',
           country: 'United States',
           description:
