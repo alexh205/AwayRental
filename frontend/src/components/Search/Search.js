@@ -1,32 +1,118 @@
-import {useLocation} from 'react-router-dom';
-import React from 'react';
-import {format} from 'date-fns';
+import React, {useEffect} from 'react';
+import {format, differenceInCalendarDays} from 'date-fns';
+import Header from '../Header_footer/Header';
+import Footer from '../Header_footer/Footer';
+import {getAllSpotsThunk} from '../../store/spots';
+import {useDispatch, useSelector} from 'react-redux';
+import SearchResult from './SearchResult';
 
 const Search = () => {
-  const location = useLocation();
+  const dispatch = useDispatch();
 
-  // const { address, startDate, endDate, guestsNum } = location.query;
+  // Get the current URL
+  const url = new URL(window.location.href);
 
-  // const formattedStartDate = format(new Date(startDate), "dd MMM yyyy");
-  // const formattedEndDate = format(new Date(endDate), "dd MMM yyyy");
-  // const range = `${formattedStartDate} - ${formattedEndDate}`;
+  // Extract query parameters from the URL
+  const city = url.searchParams.get('city');
+  const startDateString = url.searchParams.get('startDate');
+  const endDateString = url.searchParams.get('endDate');
+  const guestsNum = url.searchParams.get('guestsNum');
+
+  // Convert startDateString and endDateString to Date objects
+  const startDate = format(new Date(startDateString), 'dd MMM yyyy');
+  const endDate = format(new Date(endDateString), 'dd MMM yyyy');
+  const range = `${startDate} - ${endDate}`;
+  const daysTotal = differenceInCalendarDays(
+    new Date(endDateString),
+    new Date(startDateString)
+  );
+
+  const PAGE_SIZE = {
+    page: 1,
+    size: 10,
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (url) {
+        dispatch(
+          getAllSpotsThunk({
+            city: `${city}`,
+            numGests: `${guestsNum}`,
+            ...PAGE_SIZE,
+          })
+        );
+      }
+    };
+    fetchData();
+  }, []);
+  const spots = useSelector(state => state.spots?.spots);
+
   return (
     <div>
+      <Header placeholder={`${city} | ${range} | ${guestsNum} guests`} />
       <main className="flex">
-        <section className="flex-grow pt-14 px-6">
-          <p>{/* 300+ Stays - {range} - for {guestsNum} Guests */}</p>
-          <h1 className="text-3xl font-semibold mt-2 mb-6">
-            {/* Stays in {address} */}
-          </h1>
-          {/* <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
-                        <p className="button">Cancellation Flexibility</p>
-                        <p className="button">Type of Place</p>
-                        <p className="button">Price</p>
-                        <p className="button">Room and Beds</p>
-                        <p className="button">More Filters</p>
-                    </div> */}
+        <section className="flex-grow pt-10 px-6">
+          <p>
+            {Object.values(spots).length} Stays - {range} - for {guestsNum}{' '}
+            Guests
+          </p>
+          <h1 className="text-3xl font-semibold mt-2 mb-6">Stays in {city}</h1>
+          {/* <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
+            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
+              Type of Property
+            </p>
+            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
+              Price
+            </p>
+            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
+              Bedroom
+            </p>
+            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
+              More Filters
+            </p>
+          </div> */}
+          <div className="mb-10">
+            {spots &&
+              Object.values(spots).map(
+                ({
+                  id,
+                  city,
+                  state,
+                  title,
+                  amenities,
+                  price,
+                  spotImages,
+                  avgRating,
+                  type,
+                  bedroom,
+                  bathroom,
+                  bed,
+                  maxGuests,
+                }) => (
+                  <SearchResult
+                    key={id}
+                    id={id}
+                    image={spotImages[0].url}
+                    title={title}
+                    type={type}
+                    rating={avgRating}
+                    city={city}
+                    state={state}
+                    amenities={amenities}
+                    price={price}
+                    bedroom={bedroom}
+                    bathroom={bathroom}
+                    bed={bed}
+                    maxGuests={maxGuests}
+                    days={daysTotal}
+                  />
+                )
+              )}
+          </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

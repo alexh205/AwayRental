@@ -70,9 +70,9 @@ const SpotPage = () => {
 
   return (
     <>
-      <div className="container mx-auto ">
+      <div className="mx-auto ">
         <Header />
-        <div className="-mx-4 px-16 pt-3 f">
+        <div className="mx-10 px-16 pt-3">
           <h1 className="text-4xl whitespace-nowrap">{spot.title}</h1>
           <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-4">
             <div className="flex flex-row items-center ">

@@ -20,7 +20,6 @@ const {Op} = require('sequelize');
 
 /**********************************************************************************/
 //! Get all spots by query filters
-
 router.get('/', filterQueryValidator, async (req, res) => {
   const {
     maxLat,
@@ -32,6 +31,12 @@ router.get('/', filterQueryValidator, async (req, res) => {
     type,
     minBedrooms,
     maxBedrooms,
+    minBathrooms,
+    maxBathrooms,
+    numGuests,
+    startDate,
+    endDate,
+    city,
     state,
     country,
   } = req.query;
@@ -40,34 +45,52 @@ router.get('/', filterQueryValidator, async (req, res) => {
     where: {},
   };
 
-  //* Type Filters
-  if (type) {
-    query.where.type = req.query.type;
+  //* Type, City, State, Country filters
+  if (type) query.where.type = type;
+  if (city) {
+    query.where.city = {
+      [Op.like]: `%${city}%`,
+    };
   }
+  if (state) query.where.state = state;
+  if (country) query.where.country = country;
 
-  //* State Filters
-  if (state) {
-    query.where.state = req.query.state;
-  }
-
-  //* Country Filters
-  if (country) {
-    query.where.country = req.query.country;
+  //* maxGuests Filter
+  if (numGuests) {
+    query.where.maxGuests = {
+      [Op.lte]: numGuests,
+      [Op.gte]: 1,
+    };
   }
 
   //* Bedroom Filters
   if (minBedrooms && maxBedrooms) {
-    query.where.lat = {
-      [Op.lt]: req.query.maxBedrooms,
-      [Op.gt]: req.query.minBedrooms,
+    query.where.bedroom = {
+      [Op.lt]: maxBedrooms,
+      [Op.gt]: minBedrooms,
     };
   } else if (minBedrooms && !maxBedrooms) {
-    query.where.lat = {
-      [Op.gt]: req.query.minBedrooms,
+    query.where.bedroom = {
+      [Op.gt]: minBedrooms,
     };
   } else if (!minBedrooms && maxBedrooms) {
-    query.where.lat = {
-      [Op.lt]: req.query.maxBedrooms,
+    query.where.bedroom = {
+      [Op.lt]: maxBedrooms,
+    };
+  }
+  //* Bathroom Filters
+  if (minBathrooms && maxBathrooms) {
+    query.where.bathroom = {
+      [Op.lt]: maxBathrooms,
+      [Op.gt]: minBathrooms,
+    };
+  } else if (minBathrooms && !maxBathrooms) {
+    query.where.bathroom = {
+      [Op.gt]: minBathrooms,
+    };
+  } else if (!minBathrooms && maxBathrooms) {
+    query.where.bathroom = {
+      [Op.lt]: maxBathrooms,
     };
   }
 
@@ -88,48 +111,48 @@ router.get('/', filterQueryValidator, async (req, res) => {
   //* Latitude filters
   if (minLat && maxLat) {
     query.where.lat = {
-      [Op.lt]: req.query.maxLat,
-      [Op.gt]: req.query.minLat,
+      [Op.lt]: maxLat,
+      [Op.gt]: minLat,
     };
   } else if (minLat && !maxLat) {
     query.where.lat = {
-      [Op.gt]: req.query.minLat,
+      [Op.gt]: minLat,
     };
   } else if (!minLat && maxLat) {
     query.where.lat = {
-      [Op.lt]: req.query.maxLat,
+      [Op.lt]: maxLat,
     };
   }
 
   //* Longitude filters
   if (minLng && maxLng) {
     query.where.lng = {
-      [Op.lt]: req.query.maxLng,
-      [Op.gt]: req.query.minLng,
+      [Op.lt]: maxLng,
+      [Op.gt]: minLng,
     };
   } else if (minLng && !maxLng) {
     query.where.lng = {
-      [Op.gt]: req.query.minLng,
+      [Op.gt]: minLng,
     };
   } else if (!minLng && maxLng) {
     query.where.lng = {
-      [Op.lt]: req.query.maxLng,
+      [Op.lt]: maxLng,
     };
   }
 
   //* Price filters
   if (minPrice && maxPrice) {
     query.where.price = {
-      [Op.lt]: req.query.maxPrice,
-      [Op.gt]: req.query.minPrice,
+      [Op.lt]: maxPrice,
+      [Op.gt]: minPrice,
     };
   } else if (minPrice && !maxPrice) {
     query.where.price = {
-      [Op.gt]: req.query.minPrice,
+      [Op.gt]: minPrice,
     };
   } else if (!minPrice && maxPrice) {
     query.where.price = {
-      [Op.lt]: req.query.maxPrice,
+      [Op.lt]: maxPrice,
     };
   }
 
@@ -178,19 +201,32 @@ router.get('/', filterQueryValidator, async (req, res) => {
     spot.dataValues.reviewsTotal = numReviews;
     spot.dataValues.avgRating = avgRating;
 
+    //* Booking
+    const bookings = await Booking.findAll({
+      where: {
+        spotId: id,
+      },
+    });
+
+    let bookingSpot = {};
+    bookings.forEach((booking, index) => {
+      bookingSpot[index] = booking;
+    });
+
+    spot.dataValues.spotBookings = bookingSpot;
     spot.dataValues.amenities = JSON.parse(spot.dataValues.amenities);
   }
 
+  const response = {
+    Spots,
+  };
+  // Send response to client
   if (!Object.entries(req.query).length) {
-    return res.json({
-      Spots,
-    });
+    res.json(response);
   } else {
-    return res.json({
-      Spots,
-      page: page,
-      size: size,
-    });
+    response.page = page;
+    response.size = size;
+    res.json(response);
   }
 });
 
@@ -247,6 +283,20 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
       ? (avgRating = Math.round((ratingTotal / numReviews) * 100) / 100)
       : (avgRating = 0);
 
+    //* Booking
+    const bookings = await Booking.findAll({
+      where: {
+        spotId: id,
+      },
+    });
+
+    let bookingSpot = {};
+    bookings.forEach((booking, index) => {
+      bookingSpot[index] = booking;
+    });
+
+    spot.dataValues.spotBookings = bookingSpot;
+
     spot.dataValues.avgRating = avgRating;
 
     spot.dataValues.amenities = JSON.parse(spot.dataValues.amenities);
@@ -255,7 +305,8 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
   return res.json(currSpot);
 });
 
-/******** userProfile Detail */
+/**************************************************************************************/
+//! userProfile Detail
 
 router.get(
   '/currentUser/current',
@@ -386,6 +437,20 @@ router.get('/:spotId', spotIdValidation, async (req, res) => {
   });
 
   currentSpot.dataValues.spotImages = imagesList;
+
+  //* Booking
+  const bookings = await Booking.findAll({
+    where: {
+      spotId: req.params.spotId,
+    },
+  });
+
+  let bookingSpot = {};
+  bookings.forEach((booking, index) => {
+    bookingSpot[index] = booking;
+  });
+
+  currentSpot.dataValues.spotBookings = bookingSpot;
 
   //* Reviews
   let reviewsList = [];

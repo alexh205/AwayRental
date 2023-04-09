@@ -60,7 +60,7 @@ const Filters = () => {
       </div>
       {filterId && (
         <div className="ml-12 flex flex-row text-lg items-center">
-          Property <FiArrowRight className="mx-1" />{' '}
+          Property Type <FiArrowRight className="mx-1" />{' '}
           <p className="font-bold">{filterId}</p>
         </div>
       )}
