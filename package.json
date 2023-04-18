@@ -13,15 +13,18 @@
     "start": "npm start --prefix backend",
     "build": "npm run build --prefix backend"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexh205/AwayRental.git"
-  },
+  "repository": "git+https://github.com/alexh205/AwayRental.git",
   "keywords": [],
-  "author": "",
+  "author": "Alex Hunt",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/alexh205/AwayRental/issues"
   },
-  "homepage": "https://github.com/alexh205/AwayRental#readme"
+  "homepage": "https://github.com/alexh205/AwayRental#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2"
+  }
 }

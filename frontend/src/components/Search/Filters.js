@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
-import {useParams} from 'react-router-dom';
-import {FaUmbrellaBeach} from 'react-icons/fa';
-import {BsHouseFill} from 'react-icons/bs';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { FaUmbrellaBeach } from 'react-icons/fa';
+import { BsHouseFill } from 'react-icons/bs';
 import {
   GiFishingBoat,
   GiTreehouse,
@@ -9,43 +9,43 @@ import {
   GiIsland,
   GiFarmTractor,
 } from 'react-icons/gi';
-import {MdApartment, MdOutlineBedroomParent} from 'react-icons/md';
-import {TbBuildingCottage} from 'react-icons/tb';
-import {AiOutlineClear} from 'react-icons/ai';
+import { MdApartment, MdOutlineBedroomParent } from 'react-icons/md';
+import { TbBuildingCottage } from 'react-icons/tb';
+import { AiOutlineClear } from 'react-icons/ai';
 import Filter from './Filter';
 import Header from '../Header_footer/Header';
-import {getAllSpotsThunk} from '../../store/spots';
-import {useDispatch, useSelector} from 'react-redux';
+import { getAllSpotsThunk } from '../../store/spots';
+import { useDispatch, useSelector } from 'react-redux';
 import SpotCard from '../Spots/SpotCard';
 import Footer from '../Header_footer/Footer';
-import {FiArrowRight} from 'react-icons/fi';
+import { FiArrowRight } from 'react-icons/fi';
 
 const Filters = () => {
-  const {filterId} = useParams();
+  const { filterId } = useParams();
   const dispatch = useDispatch();
   useEffect(() => {
     if (filterId)
-      dispatch(getAllSpotsThunk({type: `${filterId}`, page: 1, size: 20}));
+      dispatch(getAllSpotsThunk({ type: `${filterId}`, page: 1, size: 20 }));
   }, [filterId]);
 
   useEffect(() => {
-    if (!filterId) dispatch(getAllSpotsThunk({page: 1, size: 20}));
+    if (!filterId) dispatch(getAllSpotsThunk({ page: 1, size: 20 }));
   }, []);
 
   const spotsArr = useSelector(state => state.spots.spots);
 
   const options = [
-    {title: 'House', icon: <BsHouseFill />},
-    {title: 'Apartment', icon: <MdApartment />},
-    {title: 'Cabin', icon: <GiWoodCabin />},
-    {title: 'Lakefront', icon: <FaUmbrellaBeach />},
-    {title: 'Treehouse', icon: <GiTreehouse />},
-    {title: 'Houseboat', icon: <GiFishingBoat />},
-    {title: 'Room', icon: <MdOutlineBedroomParent />},
-    {title: 'Cottage', icon: <TbBuildingCottage />},
-    {title: 'Farm', icon: <GiFarmTractor />},
-    {title: 'Island', icon: <GiIsland />},
-    {title: 'Reset', icon: <AiOutlineClear />},
+    { title: 'House', icon: <BsHouseFill /> },
+    { title: 'Apartment', icon: <MdApartment /> },
+    { title: 'Cabin', icon: <GiWoodCabin /> },
+    { title: 'Lakefront', icon: <FaUmbrellaBeach /> },
+    { title: 'Treehouse', icon: <GiTreehouse /> },
+    { title: 'Houseboat', icon: <GiFishingBoat /> },
+    { title: 'Room', icon: <MdOutlineBedroomParent /> },
+    { title: 'Cottage', icon: <TbBuildingCottage /> },
+    { title: 'Farm', icon: <GiFarmTractor /> },
+    { title: 'Island', icon: <GiIsland /> },
+    { title: 'Reset', icon: <AiOutlineClear /> },
   ];
 
   return (

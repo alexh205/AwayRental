@@ -1,5 +1,5 @@
 'use strict';
-const {Model} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Image extends Model {
     getImageable(options) {
@@ -28,10 +28,10 @@ module.exports = (sequelize, DataTypes) => {
   Image.init(
     {
       imageableId: DataTypes.INTEGER,
-      imageableType: {type: DataTypes.ENUM('Spot', 'Review')},
+      imageableType: { type: DataTypes.ENUM('Spot', 'Review') },
       url: DataTypes.STRING,
-      userId: {type: DataTypes.INTEGER, allowNull: false},
-      preview: {type: DataTypes.BOOLEAN, allowNull: false},
+      userId: { type: DataTypes.INTEGER, allowNull: false },
+      preview: { type: DataTypes.BOOLEAN, allowNull: false },
     },
     {
       sequelize,
