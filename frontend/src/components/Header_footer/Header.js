@@ -56,7 +56,7 @@ const Header = ({placeholder}) => {
       </div>
 
       {/* Middle */}
-      <div className="flex items-center sm:border-2 rounded-full md:shadow-sm md:mx-10 mx-2">
+      <div className="flex items-center sm:border-2 rounded-full md:shadow-sm md:mx-6 mx-2">
         <input
           type="text"
           className="bg-transparent flex-grow sm:border-none ml-2 outline-none py-2 text-base text-gray-600 placeholder:text-lg placeholder-gray-400"
