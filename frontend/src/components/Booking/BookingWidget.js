@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {differenceInCalendarDays} from 'date-fns';
 import {useDispatch, useSelector} from 'react-redux';
-import {addNewBooking} from '../../store/bookings';
+import {addNewBookingThunk} from '../../store/bookings';
 import {Redirect} from 'react-router-dom';
 import {BsDot, BsFillStarFill} from 'react-icons/bs';
 
@@ -85,7 +85,7 @@ const BookingWidget = ({spot, user}) => {
     setMobile('');
     setValidateErrors([]);
 
-    const response = await dispatch(addNewBooking(data));
+    const response = await dispatch(addNewBookingThunk(data));
     setRedirect(`/account/bookings/${response}`);
   };
 

@@ -1,14 +1,14 @@
 const express = require('express');
 
 //? Authentication
-const {requireAuth} = require('../../utils/auth');
+const { requireAuth } = require('../../utils/auth');
 
-const {bookingIdValidation} = require('../../utils/validation');
+const { bookingIdValidation } = require('../../utils/validation');
 
 //? Models
-const {User, Image, Spot, Booking} = require('../../db/models');
+const { User, Image, Spot, Booking } = require('../../db/models');
 
-const {Op} = require('sequelize');
+const { Op } = require('sequelize');
 
 const router = express.Router();
 
@@ -17,7 +17,7 @@ const router = express.Router();
 
 router.get('/current', requireAuth, async (req, res) => {
   const userBookings = await Booking.findAll({
-    where: {userId: req.user.id},
+    where: { userId: req.user.id },
     attributes: [
       'id',
       'spotId',
@@ -66,7 +66,7 @@ router.get('/current', requireAuth, async (req, res) => {
     //* Images
 
     let spotPhoto = await Image.findAll({
-      where: [{imageableId: spotId}, {imageableType: 'Spot'}],
+      where: [{ imageableId: spotId }, { imageableType: 'Spot' }],
     });
 
     booking.dataValues.Spot.dataValues.previewImage = spotPhoto[0].url;
@@ -79,7 +79,7 @@ router.get('/current', requireAuth, async (req, res) => {
     });
   }
 
-  return res.json({Bookings: userBookings});
+  return res.json({ Bookings: userBookings });
 });
 
 /**********************************************************************************/
@@ -173,9 +173,9 @@ router.put(
 
     const bookingCheck = await Booking.findAll({
       where: [
-        {id: req.params.bookingId},
-        {startDate: {[Op.lt]: req.body.endDate}},
-        {endDate: {[Op.gt]: req.body.startDate}},
+        { id: req.params.bookingId },
+        { startDate: { [Op.lt]: req.body.endDate } },
+        { endDate: { [Op.gt]: req.body.startDate } },
       ],
     });
 
@@ -195,7 +195,7 @@ router.put(
       endDate: req.body.endDate,
     });
 
-    const {id, spotId, userId, startDate, endDate, createdAt, updatedAt} =
+    const { id, spotId, userId, startDate, endDate, createdAt, updatedAt } =
       editBooking;
 
     if (Date.parse(endDate) < Date.parse(startDate)) {
@@ -228,7 +228,7 @@ router.get(
   bookingIdValidation,
   async (req, res) => {
     const getBooking = await Booking.findOne({
-      where: {id: req.params.bookingId},
+      where: { id: req.params.bookingId },
       attributes: [
         'id',
         'spotId',

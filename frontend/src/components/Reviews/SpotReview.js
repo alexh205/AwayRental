@@ -1,16 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {BsDot} from 'react-icons/bs';
-import {useDispatch, useSelector} from 'react-redux';
+import React, { useState } from 'react';
+import { BsDot } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 import Review from './Review';
-import {getSpotReviewsThunk} from '../../store/reviews';
 
-const SpotReview = ({spot}) => {
-  const dispatch = useDispatch();
+
+const SpotReview = ({ spot }) => {
+
   const [container, setContainer] = useState(true);
 
   const updateContainer = Boolean => setContainer(Boolean);
 
-  useEffect(() => {}, [spot.id]);
   const reviewState = useSelector(state => state.reviews);
 
   const numReviews = Object.values(reviewState).length;
@@ -25,8 +24,6 @@ const SpotReview = ({spot}) => {
   ratingTotal > 0
     ? (avgRating = Math.round((ratingTotal / numReviews) * 100) / 100)
     : (avgRating = 0);
-
-  const reviewAvgRating = avgRating;
 
   return (
     <>
@@ -46,7 +43,7 @@ const SpotReview = ({spot}) => {
                   clipRule="evenodd"
                 />
               </svg>
-              {reviewAvgRating}
+              {avgRating}
             </div>
             <BsDot className="mx-[2px]" />
             {Object.values(reviewState).length > 0 ? (

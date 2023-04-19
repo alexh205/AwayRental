@@ -1,18 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import {useParams, useHistory} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import Header from '../Header_footer/Header';
-import {getSingleBookingThunk} from '../../store/bookings';
-import {useDispatch} from 'react-redux';
+import { getSingleBookingThunk } from '../../store/bookings';
+import { useDispatch } from 'react-redux';
 import LocationLink from '../Spots/LocationLink';
 import BookingDates from './BookingDates';
-import {BiMap} from 'react-icons/bi';
-import {getSpotByIdThunk} from '../../store/spots';
-import {BsPeopleFill} from 'react-icons/bs';
-import {BsDot} from 'react-icons/bs';
-import CreateReviewModal from '../Reviews/CreateReviewModal';
+import { BiMap } from 'react-icons/bi';
+import { getSpotByIdThunk } from '../../store/spots';
+import { BsPeopleFill } from 'react-icons/bs';
+import { BsDot } from 'react-icons/bs';
+import CreateReviewModal from '../Modals/CreateReviewModal';
 
 const BookingPage = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const [booking, setBooking] = useState('');
@@ -142,14 +142,12 @@ const BookingPage = () => {
               {`${spot.bedroom} ${spot.bedroom > 1 ? 'bedrooms' : 'bedroom'}`}
             </div>
             <BsDot className="sm:flex hidden mx-[2px]" />
-            <div className="whitespace-nowrap">{`${spot.bed} ${
-              spot.bed > 1 ? 'beds' : 'bed'
-            }`}</div>
+            <div className="whitespace-nowrap">{`${spot.bed} ${spot.bed > 1 ? 'beds' : 'bed'
+              }`}</div>
             <BsDot className="sm:flex hidden mx-[2px]" />
             <div className="whitespace-nowrap">
-              {`${spot.bathroom} ${
-                spot.bathroom > 1 ? 'bathrooms' : 'bathroom'
-              }`}
+              {`${spot.bathroom} ${spot.bathroom > 1 ? 'bathrooms' : 'bathroom'
+                }`}
             </div>
           </div>
           <div className="mx-1 hidden lg:flex">/</div>

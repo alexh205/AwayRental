@@ -1,7 +1,6 @@
-import {csrfFetch} from './csrf';
+import { csrfFetch } from './csrf';
 
 const GET = 'reviews/GET';
-const ADD = 'reviews/ADD';
 const EDIT = 'reviews/EDIT';
 const DELETE = 'reviews/DELETE';
 const USERREVIEWS = 'reviews/USERREVIEWS';
@@ -10,10 +9,6 @@ const getReviews = data => ({
   type: GET,
   reviews: data,
 });
-// const addReview = data => ({
-//   type: ADD,
-//   reviews: data,
-// });
 
 const editReview = data => ({
   type: EDIT,
@@ -40,32 +35,31 @@ export const getSpotReviewsThunk = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}/reviews`);
 
   if (response.ok) {
-    const {Reviews} = await response.json();
+    const { Reviews } = await response.json();
     const obj = {};
     Reviews.forEach(review => (obj[review.id] = review));
     dispatch(getReviews(obj));
+
   }
-  dispatch(renderReviews());
+
 };
 
-export const addNewReview = data => async dispatch => {
-  const {spotId} = data;
+export const addNewReviewThunk = data => async dispatch => {
+  const { spotId } = data;
 
-  const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
+  await csrfFetch(`/api/spots/${spotId}/reviews`, {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
-  if (response.ok) {
-    // const newReview = await response.json();
-  }
+
 };
 
-export const getUserReviews = () => async dispatch => {
+export const getUserReviewsThunk = () => async dispatch => {
   const response = await csrfFetch('/api/reviews/current');
 
   if (response.ok) {
-    const {Reviews} = await response.json();
+    const { Reviews } = await response.json();
     const obj = {};
     Reviews.forEach(review => (obj[review.id] = review));
 
@@ -73,11 +67,11 @@ export const getUserReviews = () => async dispatch => {
   }
 };
 
-export const reviewEdit = review => async dispatch => {
-  const {id} = review;
+export const reviewEditThunk = review => async dispatch => {
+  const { id } = review;
   const response = await csrfFetch(`/api/reviews/${id}`, {
     method: 'PUT',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(review),
   });
   if (response.ok) {
@@ -86,7 +80,7 @@ export const reviewEdit = review => async dispatch => {
   }
 };
 
-export const reviewDelete = id => async dispatch => {
+export const reviewDeleteThunk = id => async dispatch => {
   const response = await csrfFetch(`/api/reviews/${id}`, {
     method: 'DELETE',
   });
@@ -99,19 +93,19 @@ export const reviewDelete = id => async dispatch => {
 const initialState = {};
 
 const reviewsReducer = (state = initialState, action) => {
-  let newState = {...state};
+  let newState = { ...state };
   switch (action.type) {
     case GET:
-      newState = {...action.reviews};
+      newState = { ...action.reviews };
       return newState;
-    case ADD:
-      newState = {...newState, [action.reviews.id]: action.reviews};
-      return newState;
+    // case ADD:
+    //   newState = { ...newState, [action.reviews.id]: action.reviews };
+    //   return newState;
     case USERREVIEWS:
-      newState = {...action.reviews};
+      newState = { ...action.reviews };
       return newState;
     case EDIT:
-      newState = {...newState, [action.reviews.id]: action.reviews};
+      newState = { ...newState, [action.reviews.id]: action.reviews };
       return newState;
     case DELETE:
       delete newState[action.reviews];

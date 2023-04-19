@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {BsFillStarFill} from 'react-icons/bs';
-import {reviewDelete} from '../../store/reviews';
-import EditModal from './EditReviewModal';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { BsFillStarFill } from 'react-icons/bs';
+import { reviewDeleteThunk } from '../../store/reviews';
+import EditModal from '../Modals/EditReviewModal';
 
-const Review = ({review, spotReviews, updateContainer}) => {
+const Review = ({ review, spotReviews, updateContainer }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const showModal = Boolean => setModal(Boolean);
@@ -35,7 +35,7 @@ const Review = ({review, spotReviews, updateContainer}) => {
       updateContainer(false);
     }
 
-    await dispatch(reviewDelete(review.id));
+    await dispatch(reviewDeleteThunk(review.id));
   };
 
   return (

@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import {useParams, useHistory} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import Amenities from '../Profile/Amenities';
 import usaStates from '../../static/usaStates.json';
 import propertyTypes from '../../static/propertyTypes.json';
-import {addNewSpotThunk} from '../../store/spots';
-import {useDispatch} from 'react-redux';
+import { addNewSpotThunk } from '../../store/spots';
+import { useDispatch } from 'react-redux';
 import PhotoUpload from '../Images/PhotoUpload';
-import {addSpotImagesThunk} from '../../store/spots';
+import { addSpotImagesThunk } from '../../store/spots';
 
 
-export const SpotForm = ({setSelected}) => {
-  const {action} = useParams();
+export const SpotForm = ({ setSelected }) => {
+  const { action } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -117,7 +117,7 @@ export const SpotForm = ({setSelected}) => {
     );
 
     if (addedPhotos.length > 0) {
-      console.log(addedPhotos);
+
       await dispatch(addSpotImagesThunk(addedPhotos, createdSpot.id));
 
       setTitle('');

@@ -1,8 +1,8 @@
 import React from 'react';
 import ImageGroup from '../Images/ImageGroup';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-const SpotCard = ({spot}) => {
+const SpotCard = ({ spot }) => {
   const history = useHistory();
 
   return (
@@ -21,9 +21,8 @@ const SpotCard = ({spot}) => {
             {spot.city}, {spot.state}
           </div>
           <div
-            className={`${
-              spot.avgRating < 1 ? 'hidden' : 'flex flew-row items-center'
-            }`}>
+            className='flex flew-row items-center'
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

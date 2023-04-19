@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {useHistory, useParams} from 'react-router-dom';
-import {editSpotThunk, getSpotByIdThunk, addSpotImagesThunk} from '../../store/spots';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useHistory, useParams } from 'react-router-dom';
+import { editSpotThunk, getSpotByIdThunk, addSpotImagesThunk } from '../../store/spots';
 import propertyTypes from '../../static/propertyTypes.json';
 import usaStates from '../../static/usaStates.json';
 import Amenities from '../Profile/Amenities';
@@ -9,6 +9,10 @@ import PhotoUpload from '../Images/PhotoUpload';
 import Header from '../Header_footer/Header';
 
 const EditSpot = () => {
+  const { id } = useParams();
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const [spot, setSpot] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -28,17 +32,13 @@ const EditSpot = () => {
   const [addedPhotos, setAddedPhotos] = useState([]);
 
   const [valid, setValid] = useState(false);
-
   const [validateErrors, setValidateErrors] = useState([]);
 
-  const history = useHistory();
-  const dispatch = useDispatch();
 
-  const {id} = useParams();
 
   useEffect(() => {
     dispatch(getSpotByIdThunk(id)).then(res => setSpot(res));
-  }, []);
+  }, [dispatch]);
 
   const inputHeader = text => {
     return <h2 className="text-2xl mt-4">{text}</h2>;
@@ -111,7 +111,7 @@ const EditSpot = () => {
       setBed(spot.bed);
       setBathroom(spot.bathroom);
       setPrice(spot.price);
-      setAddedPhotos(spot.spotImages.map(({url}) => url));
+      setAddedPhotos(spot.spotImages.map(({ url }) => url));
       setValid(true);
     }
   }

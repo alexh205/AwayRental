@@ -1,10 +1,10 @@
 import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import {Carousel} from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
 // import {FaHeart} from 'react-icons/fa';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
-const ImageGroup = ({images, spot}) => {
+const ImageGroup = ({ images, spot }) => {
   const history = useHistory();
   const handleClick = () => {
     history.push(`/spots/${spot.id}`);
@@ -29,10 +29,10 @@ const ImageGroup = ({images, spot}) => {
               className="cursor-pointer h-80 w-full border-3 border-red-600"
               onClick={handleClick}>
               <img
-                loading="lazy"
+                loading='eager'
                 src={image.url}
-                alt="carousel image"
-                className="w-full h-full rounded-xl object-cover opacity-90"
+                alt="spot carousel"
+                className="w-full h-full rounded-t-2xl object-cover opacity-90"
               />
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {getUserBookings} from '../../store/bookings';
+import {getUserBookingsThunk} from '../../store/bookings';
 import {ImCreditCard} from 'react-icons/im';
 import BookingDates from './BookingDates';
 import {BsPeopleFill} from 'react-icons/bs';
@@ -11,7 +11,7 @@ const Bookings = () => {
   const bookings = useSelector(state => state.bookings);
   const bookingArr = Object.values(bookings);
   useEffect(() => {
-    dispatch(getUserBookings());
+    dispatch(getUserBookingsThunk());
   }, [dispatch]);
 
   if (bookingArr.length === 0)

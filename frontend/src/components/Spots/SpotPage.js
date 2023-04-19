@@ -1,22 +1,22 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {useParams, useHistory} from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
-import {BsDot, BsFillStarFill} from 'react-icons/bs';
-import {getSpotByIdThunk} from '../../store/spots';
-import {getSpotReviewsThunk} from '../../store/reviews';
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { BsDot, BsFillStarFill } from 'react-icons/bs';
+import { getSpotByIdThunk } from '../../store/spots';
+import { getSpotReviewsThunk } from '../../store/reviews';
 import BookingWidget from '../Booking/BookingWidget';
 import Header from '../Header_footer/Header';
 import SpotImage from '../Images/SpotImage';
+import SpotReview from '../Reviews/SpotReview'
 import LocationLink from './LocationLink';
-import SpotReview from '../Reviews/SpotReview';
 import RenderAmenities from './RenderAmenities';
 import AmenitiesModal from '../Modals/AmenitiesModal';
-import SpotDeletionModal from './SpotDeletionModal';
-import {BiMap} from 'react-icons/bi';
+import SpotDeletionModal from '../Modals/SpotDeletionModal';
+import { BiMap } from 'react-icons/bi';
 // import Map from '../Map';
 
 const SpotPage = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const [spot, setSpot] = useState('');
@@ -24,32 +24,21 @@ const SpotPage = () => {
   const [modal, setModal] = useState(false);
   const targetRef = useRef(null); // to create a reference to the target element
   const user = useSelector(state => state.session.user?.user);
-  const reviewState = useSelector(state => state.reviews);
+  const reviewObj = useSelector(state => state.reviews)
+  useEffect(() => {
+    async function fetchData() {
+      if (!id) {
+        return;
+      }
+      const spotData = await dispatch(getSpotByIdThunk(id));
+      setSpot(spotData);
+      await dispatch(getSpotReviewsThunk(id));
 
-  const numReviews = Object.values(reviewState).length;
-  let ratingTotal = 0;
-
-  Object.values(reviewState).forEach(review => {
-    if (review.stars) ratingTotal += review.stars;
-  });
-
-  let avgRating;
-
-  ratingTotal > 0
-    ? (avgRating = Math.round((ratingTotal / numReviews) * 100) / 100)
-    : (avgRating = 0);
-
-  const reviewAvgRating = avgRating;
+    }
+    fetchData();
+  }, [dispatch, id]);
 
   const showModal = Boolean => setModal(Boolean);
-
-  useEffect(() => {
-    if (!id) {
-      return;
-    }
-    dispatch(getSpotByIdThunk(id)).then(res => setSpot(res));
-    dispatch(getSpotReviewsThunk(id));
-  }, []);
 
   //? formatting AM/PM time
   const formatTime = (time, isCheckIn) => {
@@ -61,6 +50,19 @@ const SpotPage = () => {
       return `${((hour + 11) % 12) + 1}:00 ${amOrPm}`;
     }
   };
+
+  const numReviews = Object.values(reviewObj).length;
+  let ratingTotal = 0;
+
+  Object.values(reviewObj).forEach(review => {
+    if (review.stars) ratingTotal += review.stars;
+  });
+
+  let avgRating;
+
+  ratingTotal > 0
+    ? (avgRating = Math.round((ratingTotal / numReviews) * 100) / 100)
+    : (avgRating = 0);
 
   const handleSpotEdit = e => {
     e.preventDefault();
@@ -79,15 +81,15 @@ const SpotPage = () => {
               <div className="flex flex-row items-center ">
                 <div className="flex flex-row items-center">
                   <BsFillStarFill className="w-4 h-4 mr-1" />
-                  {reviewAvgRating}
+                  {avgRating}
                 </div>
                 <BsDot className="mx-[2px]" />
-                {Object.values(reviewState).length > 0 ? (
+                {Object.values(reviewObj).length > 0 ? (
                   <div className="font-medium underline cursor-pointer hover:text-amber-600">
                     <a
                       href="#reviews"
                       onClick={() => targetRef.current.scrollIntoView()}>
-                      {Object.values(reviewState).length} reviews
+                      {Object.values(reviewObj).length} reviews
                     </a>
                   </div>
                 ) : (
@@ -121,9 +123,8 @@ const SpotPage = () => {
           <div className="mt-8 mb-2 gap-6 grid grid-cols-1 lg:grid-cols-3 pb-4 border-b">
             <div className="my-1 col-span-2 mr-3">
               <div
-                className={`${
-                  selectImage ? 'hidden' : 'flex flex-col justify-center'
-                }`}>
+                className={`${selectImage ? 'hidden' : 'flex flex-col justify-center'
+                  }`}>
                 <div className="flex flex-row font-semibold items-center justify-between border-b">
                   <div className="opacity-80 sm:flex sm:flex-row grid grid-col-1 items-center mb-3 text-lg">
                     <div className="whitespace-nowrap">
@@ -131,19 +132,16 @@ const SpotPage = () => {
                     </div>
                     <BsDot className="sm:flex hidden mx-[2px]" />
                     <div className="whitespace-nowrap">
-                      {`${spot.bedroom} ${
-                        spot.bedroom > 1 ? 'bedrooms' : 'bedroom'
-                      }`}
+                      {`${spot.bedroom} ${spot.bedroom > 1 ? 'bedrooms' : 'bedroom'
+                        }`}
                     </div>
                     <BsDot className="sm:flex hidden mx-[2px]" />
-                    <div className="whitespace-nowrap">{`${spot.bed} ${
-                      spot.bed > 1 ? 'beds' : 'bed'
-                    }`}</div>
+                    <div className="whitespace-nowrap">{`${spot.bed} ${spot.bed > 1 ? 'beds' : 'bed'
+                      }`}</div>
                     <BsDot className="sm:flex hidden mx-[2px]" />
                     <div className="whitespace-nowrap">
-                      {`${spot.bathroom} ${
-                        spot.bathroom > 1 ? 'bathrooms' : 'bathroom'
-                      }`}
+                      {`${spot.bathroom} ${spot.bathroom > 1 ? 'bathrooms' : 'bathroom'
+                        }`}
                     </div>
                   </div>
                   {/* <div>
@@ -206,7 +204,7 @@ const SpotPage = () => {
               />
             </div>
           </div>
-          {Object.values(reviewState).length > 0 && (
+          {Object.values(reviewObj).length > 0 && (
             <div
               ref={targetRef}
               id="reviews"

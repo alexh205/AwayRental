@@ -1,4 +1,4 @@
-import {csrfFetch} from './csrf';
+import { csrfFetch } from './csrf';
 
 const GET = 'bookings/GET';
 const ADD = 'bookings/ADD';
@@ -25,10 +25,10 @@ const userBookings = data => ({
   bookings: data,
 });
 
-const deleteBooking = data => ({
-  type: DELETE,
-  bookings: data,
-});
+// const deleteBooking = data => ({
+//   type: DELETE,
+//   bookings: data,
+// });
 
 export const renderBookings = () => {
   return {
@@ -36,11 +36,13 @@ export const renderBookings = () => {
   };
 };
 
-export const getAllBookings = spotId => async dispatch => {
+
+//! Thunk 
+export const getAllBookingsThunk = spotId => async dispatch => {
   const response = await csrfFetch(`/api/spots/${spotId}/bookings`);
 
   if (response.ok) {
-    const {Bookings} = await response.json();
+    const { Bookings } = await response.json();
     const obj = {};
     Bookings.forEach(booking => (obj[booking.id] = booking));
     dispatch(getBooking(obj));
@@ -55,13 +57,24 @@ export const getSingleBookingThunk = bookingId => async dispatch => {
     return booking;
   }
 };
+export const getUserBookingsThunk = () => async dispatch => {
+  const response = await csrfFetch('/api/bookings/current');
 
-export const addNewBooking = data => async dispatch => {
-  const {spotId} = data;
+  if (response.ok) {
+    const { Bookings } = await response.json();
+    const obj = {};
+    Bookings.forEach(booking => (obj[booking.id] = booking));
+
+    dispatch(userBookings(obj));
+  }
+};
+
+export const addNewBookingThunk = data => async dispatch => {
+  const { spotId } = data;
 
   const response = await csrfFetch(`/api/spots/${spotId}/bookings`, {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
   if (response.ok) {
@@ -74,23 +87,11 @@ export const addNewBooking = data => async dispatch => {
   }
 };
 
-export const getUserBookings = () => async dispatch => {
-  const response = await csrfFetch('/api/bookings/current');
-
-  if (response.ok) {
-    const {Bookings} = await response.json();
-    const obj = {};
-    Bookings.forEach(booking => (obj[booking.id] = booking));
-
-    dispatch(userBookings(obj));
-  }
-};
-
-export const bookingEdit = booking => async dispatch => {
-  const {id} = booking;
+export const bookingEditThunk = booking => async dispatch => {
+  const { id } = booking;
   const response = await csrfFetch(`/api/bookings/${id}`, {
     method: 'PUT',
-    headers: {'Content-Type': 'application/json'},
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(booking),
   });
   const editedBooking = await response.json();
@@ -101,30 +102,22 @@ export const bookingEdit = booking => async dispatch => {
   }
 };
 
-export const reviewDelete = id => async dispatch => {
-  const response = await csrfFetch(`/api/bookings/${id}`, {
-    method: 'DELETE',
-  });
-
-  if (response.ok) {
-    dispatch(deleteBooking(id));
-  }
-};
 
 const initialState = {};
 const bookingsReducer = (state = initialState, action) => {
-  let newState = {...state};
+  let newState = { ...state };
   switch (action.type) {
     case GET:
-      newState = {...action.bookings};
+      newState = { ...action.bookings };
+      return newState
     case ADD:
-      newState = {...newState, [action.bookings.id]: action.bookings};
+      newState = { ...newState, [action.bookings.id]: action.bookings };
       return newState;
     case EDIT:
-      newState = {...newState, [action.bookings.id]: action.bookings};
+      newState = { ...newState, [action.bookings.id]: action.bookings };
       return newState;
     case USERBOOKINGS:
-      newState = {...action.bookings};
+      newState = { ...action.bookings };
       return newState;
     case DELETE:
       delete newState[action.bookings.id];

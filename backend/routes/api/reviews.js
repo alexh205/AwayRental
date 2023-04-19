@@ -1,13 +1,13 @@
 const express = require('express');
 
 //? Validation
-const {reviewValidation} = require('../../utils/validation');
+const { reviewValidation } = require('../../utils/validation');
 
 //? Models
-const {User, Spot, Review, Image} = require('../../db/models');
+const { User, Spot, Review, Image } = require('../../db/models');
 
 //? Authentication
-const {requireAuth} = require('../../utils/auth');
+const { requireAuth } = require('../../utils/auth');
 
 const router = express.Router();
 
@@ -15,10 +15,10 @@ const router = express.Router();
 //! Edit a Review
 
 router.put('/:reviewId', requireAuth, reviewValidation, async (req, res) => {
-  const {review, stars} = req.body;
+  const { review, stars } = req.body;
 
   const reviewToEdit = await Review.findOne({
-    where: {id: req.params.reviewId},
+    where: { id: req.params.reviewId },
     include: [
       {
         model: User,
@@ -28,7 +28,7 @@ router.put('/:reviewId', requireAuth, reviewValidation, async (req, res) => {
         model: Image,
         required: false,
         as: 'ReviewImages',
-        where: {imageableType: 'Review'},
+        where: { imageableType: 'Review' },
         attributes: ['id', 'url'],
       },
     ],
@@ -61,7 +61,7 @@ router.put('/:reviewId', requireAuth, reviewValidation, async (req, res) => {
 
 router.delete('/:reviewId', requireAuth, async (req, res) => {
   const deleteReview = await Review.findOne({
-    where: {id: req.params.reviewId},
+    where: { id: req.params.reviewId },
   });
 
   if (!deleteReview) {
@@ -91,7 +91,7 @@ router.delete('/:reviewId', requireAuth, async (req, res) => {
 
 router.get('/current', requireAuth, async (req, res) => {
   const currUserReviews = await Review.findAll({
-    where: {userId: req.user.id},
+    where: { userId: req.user.id },
     include: [
       {
         model: User,
@@ -100,14 +100,14 @@ router.get('/current', requireAuth, async (req, res) => {
       },
       {
         model: Spot,
-        attributes: {exclude: ['createdAt', 'updatedAt']},
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
         required: false,
       },
       {
         model: Image,
         required: false,
         as: 'ReviewImages',
-        where: {imageableType: 'Review'},
+        where: { imageableType: 'Review' },
         attributes: ['id', 'url'],
       },
     ],
@@ -120,7 +120,7 @@ router.get('/current', requireAuth, async (req, res) => {
     });
   }
 
-  return res.json({Reviews: currUserReviews});
+  return res.json({ Reviews: currUserReviews });
 });
 
 /*

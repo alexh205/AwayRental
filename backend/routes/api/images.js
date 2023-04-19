@@ -1,10 +1,10 @@
 const express = require('express');
 
 //? Authentication
-const {requireAuth} = require('../../utils/auth');
+const { requireAuth } = require('../../utils/auth');
 
 //? Models
-const {Image} = require('../../db/models');
+const { Image } = require('../../db/models');
 
 const router = express.Router();
 
@@ -17,7 +17,7 @@ router.delete('/:imageId', requireAuth, async (req, res) => {
   if (!currImage) {
     return res
       .status(404)
-      .json({message: "image couldn't be located", statusCode: 404});
+      .json({ message: "image couldn't be located", statusCode: 404 });
   }
 
   if (req.user.id !== currImage.userId) {
@@ -27,7 +27,7 @@ router.delete('/:imageId', requireAuth, async (req, res) => {
     });
   } else {
     await currImage.destroy();
-    return res.json({message: 'Successfully deleted', statusCode: 200});
+    return res.json({ message: 'Successfully deleted', statusCode: 200 });
   }
 });
 

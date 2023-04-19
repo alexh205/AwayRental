@@ -20,19 +20,6 @@ const getSpot = data => {
     spot: data,
   };
 };
-// const editSpot = data => {
-//   return {
-//     type: EDIT,
-//     spot: data,
-//   };
-// };
-
-// const userSpots = userData => {
-//   return {
-//     type: USERSPOTS,
-//     spots: userData,
-//   };
-// };
 
 const deleteSpot = data => {
   return {

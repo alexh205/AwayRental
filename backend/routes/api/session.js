@@ -1,22 +1,22 @@
 const express = require('express');
 
 //? Authentication
-const {setTokenCookie, restoreUser} = require('../../utils/auth');
+const { setTokenCookie, restoreUser } = require('../../utils/auth');
 
 //? Models
-const {User} = require('../../db/models');
+const { User } = require('../../db/models');
 
 //? Validation
-const {validateLogin} = require('../../utils/validation');
+const { validateLogin } = require('../../utils/validation');
 
 const router = express.Router();
- 
+
 /**********************************************************************************/
 //! Log in
 router.post('/', validateLogin, async (req, res, next) => {
-  const {credential, password} = req.body;
+  const { credential, password } = req.body;
 
-  const user = await User.login({credential, password});
+  const user = await User.login({ credential, password });
 
   //* User validation
   if (!user) {
@@ -29,7 +29,7 @@ router.post('/', validateLogin, async (req, res, next) => {
 
   await setTokenCookie(res, user);
 
-  return res.json({user});
+  return res.json({ user });
 });
 
 /**********************************************************************************/
@@ -37,14 +37,14 @@ router.post('/', validateLogin, async (req, res, next) => {
 //! Log out
 router.delete('/', (_req, res) => {
   res.clearCookie('token');
-  return res.json({message: 'success'});
+  return res.json({ message: 'success' });
 });
 
 /**********************************************************************************/
 
 //! Restore session user
 router.get('/', restoreUser, (req, res) => {
-  const {user} = req;
+  const { user } = req;
 
   if (user) {
     return res.json({
