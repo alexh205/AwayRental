@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {BsImage} from 'react-icons/bs';
+import React, { useState } from 'react';
+import { BsImage } from 'react-icons/bs';
 
-const SpotImage = ({spot, setSelectImage}) => {
+const SpotImage = ({ spot, setSelectImage }) => {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
 
   if (showAllPhotos) {

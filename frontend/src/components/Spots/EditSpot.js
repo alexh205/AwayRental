@@ -38,7 +38,7 @@ const EditSpot = () => {
 
   useEffect(() => {
     dispatch(getSpotByIdThunk(id)).then(res => setSpot(res));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   const inputHeader = text => {
     return <h2 className="text-2xl mt-4">{text}</h2>;

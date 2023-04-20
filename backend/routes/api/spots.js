@@ -175,7 +175,17 @@ router.get('/', filterQueryValidator, async (req, res) => {
       imagesList.push(image);
     });
 
-    spot.dataValues.spotImages = imagesList;
+
+
+    spot.dataValues.spotImages = imagesList.sort((objA, objB) => {
+      if (objA.preview && !objB.preview) {
+        return -1; // objA is preview:true, should be placed first
+      } else if (!objA.preview && objB.preview) {
+        return 1; // objB is preview:true, should be placed first
+      } else {
+        return 0; // both have same preview value, keep their order
+      }
+    });
 
     //* Ratings
     const starRating = await Review.findAll({
@@ -261,7 +271,15 @@ router.get('/current', restoreUser, requireAuth, async (req, res) => {
       imagesList.push(image);
     });
 
-    spot.dataValues.spotImages = imagesList;
+    spot.dataValues.spotImages = imagesList.sort((objA, objB) => {
+      if (objA.preview && !objB.preview) {
+        return -1; // objA is preview:true, should be placed first
+      } else if (!objA.preview && objB.preview) {
+        return 1; // objB is preview:true, should be placed first
+      } else {
+        return 0; // both have same preview value, keep their order
+      }
+    });
 
     //* Ratings
     const starRating = await Review.findAll({
@@ -436,7 +454,15 @@ router.get('/:spotId', spotIdValidation, async (req, res) => {
     imagesList.push(image);
   });
 
-  currentSpot.dataValues.spotImages = imagesList;
+  currentSpot.dataValues.spotImages = imagesList.sort((objA, objB) => {
+    if (objA.preview && !objB.preview) {
+      return -1; // objA is preview:true, should be placed first
+    } else if (!objA.preview && objB.preview) {
+      return 1; // objB is preview:true, should be placed first
+    } else {
+      return 0; // both have same preview value, keep their order
+    }
+  });
 
   //* Booking
   const bookings = await Booking.findAll({
@@ -551,7 +577,15 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
     imagesList.push(image);
   });
 
-  editedSpot.dataValues.spotImages = imagesList;
+  editedSpot.dataValues.spotImages = imagesList.sort((objA, objB) => {
+    if (objA.preview && !objB.preview) {
+      return -1; // objA is preview:true, should be placed first
+    } else if (!objA.preview && objB.preview) {
+      return 1; // objB is preview:true, should be placed first
+    } else {
+      return 0; // both have same preview value, keep their order
+    }
+  });
 
   if (req.user.id !== editedSpot.ownerId) {
     return res.status(403).json({ message: 'Unauthorized', statusCode: '403' });
@@ -632,7 +666,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
       attributes: ['url', 'id', 'preview'],
     });
 
-    const filteredImages = req.body.filter(
+    const filteredNewImages = req.body.filter(
       url => !spotImages.some(image => image.url === url)
     );
     // filter out images that already exist in both req.body and spotImages
@@ -648,7 +682,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     }
 
     // Create new images
-    for (const url of filteredImages) {
+    for (const url of filteredNewImages) {
       await Image.create({
         imageableId: currentSpot.id,
         imageableType: 'Spot',
@@ -657,6 +691,29 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
         preview: false,
       });
     }
+
+    const updatedImages = await Image.findAll({
+      where: { imageableType: 'Spot', imageableId: currentSpot.id },
+      attributes: ['url', 'preview', 'id'],
+    })
+
+    const imagesData = updatedImages.map(image => image.dataValues);
+
+
+    for (const image of imagesData) {
+
+      if (image.url === req.body[0]) {
+        await Image.update(
+          { preview: true },
+          { where: { id: image.id } }
+        )
+      } else {
+        await Image.update({ preview: false },
+          { where: { id: image.id } })
+      }
+    }
+
+
 
     return res.json({ message: 'Images updated successfully', statusCode: 200 });
   } catch (error) {
