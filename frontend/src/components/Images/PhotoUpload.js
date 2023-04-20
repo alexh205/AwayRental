@@ -6,9 +6,13 @@ const PhotoUpload = ({ addedPhotos, onChange }) => {
 
   const addPhotoByLink = async e => {
     e.preventDefault();
-    onChange(prev => {
-      return [...prev, photoLink];
-    });
+    if (!addedPhotos.includes(photoLink)) {
+      onChange(prev => {
+        return [...prev, photoLink];
+      });
+    } else {
+      alert("This image already exists on this property! Please provide another link")
+    }
     setPhotoLink('');
   };
 
