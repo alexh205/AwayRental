@@ -1,21 +1,23 @@
-import React, {useState} from 'react';
-import {differenceInCalendarDays} from 'date-fns';
-import {useDispatch, useSelector} from 'react-redux';
-import {addNewBookingThunk} from '../../store/bookings';
-import {Redirect} from 'react-router-dom';
-import {BsDot, BsFillStarFill} from 'react-icons/bs';
+import React, { useState } from 'react';
+import { differenceInCalendarDays } from 'date-fns';
+import { useDispatch, useSelector } from 'react-redux';
+import { addNewBookingThunk } from '../../store/bookings';
+import { Redirect } from 'react-router-dom';
+import { BsDot, BsFillStarFill } from 'react-icons/bs';
 
-const BookingWidget = ({spot, user}) => {
+const BookingWidget = ({ spot, user }) => {
   const dispatch = useDispatch();
+  const searchData = useSelector(state => state.spots.search)
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
-  const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const [numberOfGuests, setNumberOfGuests] = useState(searchData.guestsNum || 1);
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
   const [redirect, setRedirect] = useState('');
   const [validateErrors, setValidateErrors] = useState([]);
 
   const reviewState = useSelector(state => state.reviews);
+
 
   const numReviews = Object.values(reviewState).length;
   let ratingTotal = 0;
@@ -165,15 +167,16 @@ const BookingWidget = ({spot, user}) => {
 
         {numberOfNights > 0 && (
           <div className="py-3 px-4 border-t">
-            <label>Your full name:</label>
+            <label className="text-base font-semibold">Your full name:</label>
             <input
               type="text"
               value={name}
               onChange={e => setName(e.target.value)}
             />
-            <label>Phone number:</label>
+            <label className="text-base font-semibold">Phone number: <small>(Format: 123-456-7890)</small></label>
             <input
               type="tel"
+              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
               value={mobile}
               onChange={e => setMobile(e.target.value)}
             />

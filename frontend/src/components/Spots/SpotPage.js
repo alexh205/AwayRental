@@ -25,6 +25,7 @@ const SpotPage = () => {
   const targetRef = useRef(null); // to create a reference to the target element
   const user = useSelector(state => state.session.user?.user);
   const reviewObj = useSelector(state => state.reviews)
+
   useEffect(() => {
     async function fetchData() {
       if (!id) {
