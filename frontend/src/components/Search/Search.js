@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
-import {format, differenceInCalendarDays} from 'date-fns';
+import React, { useEffect } from 'react';
+import { format, differenceInCalendarDays } from 'date-fns';
 import Header from '../Header_footer/Header';
 import Footer from '../Header_footer/Footer';
-import {getAllSpotsThunk} from '../../store/spots';
-import {useDispatch, useSelector} from 'react-redux';
+import { getAllSpotsThunk, setSearch } from '../../store/spots';
+import { useDispatch, useSelector } from 'react-redux';
 import SearchResult from './SearchResult';
+
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -32,16 +33,20 @@ const Search = () => {
     size: 10,
   };
 
+  const data = { startDate, endDate, guestsNum }
+
+
   useEffect(() => {
     const fetchData = async () => {
       if (url) {
-        dispatch(
+        await dispatch(
           getAllSpotsThunk({
             city: `${city}`,
             numGests: `${guestsNum}`,
             ...PAGE_SIZE,
           })
         );
+        await dispatch(setSearch(data))
       }
     };
     fetchData();
@@ -58,20 +63,7 @@ const Search = () => {
             Guests
           </p>
           <h1 className="text-3xl font-semibold mt-2 mb-6">Stays in {city}</h1>
-          {/* <div className="hidden sm:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
-            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
-              Type of Property
-            </p>
-            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
-              Price
-            </p>
-            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
-              Bedroom
-            </p>
-            <p className="px-4 py-2 border rounded-full cursor-pointer hover:shadow-lg active:scale-95 active:bg-gray-100 transition transform duration-100 ease-out">
-              More Filters
-            </p>
-          </div> */}
+
           <div className="mb-10">
             {spots &&
               Object.values(spots).map(
