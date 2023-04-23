@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { differenceInCalendarDays } from 'date-fns';
+import { differenceInCalendarDays, format } from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewBookingThunk } from '../../store/bookings';
 import { Redirect } from 'react-router-dom';
@@ -8,8 +8,11 @@ import { BsDot, BsFillStarFill } from 'react-icons/bs';
 const BookingWidget = ({ spot, user }) => {
   const dispatch = useDispatch();
   const searchData = useSelector(state => state.spots.search)
-  const [checkIn, setCheckIn] = useState('');
-  const [checkOut, setCheckOut] = useState('');
+  const startDate = searchData.startDate ? format(new Date(searchData.startDate), "yyy-MM-dd") : '';
+  const endDate = searchData.endDate ? format(new Date(searchData.endDate), "yyy-MM-dd") : '';
+
+  const [checkIn, setCheckIn] = useState(startDate);
+  const [checkOut, setCheckOut] = useState(endDate);
   const [numberOfGuests, setNumberOfGuests] = useState(searchData.guestsNum || 1);
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
@@ -17,7 +20,6 @@ const BookingWidget = ({ spot, user }) => {
   const [validateErrors, setValidateErrors] = useState([]);
 
   const reviewState = useSelector(state => state.reviews);
-
 
   const numReviews = Object.values(reviewState).length;
   let ratingTotal = 0;
@@ -194,8 +196,7 @@ const BookingWidget = ({ spot, user }) => {
                 style: 'currency',
                 currency: 'USD',
               })
-              .replace('.00', '')}{' '}
-            ({numberOfNights} nights)
+              .replace('.00', '')}
           </span>
         )}
       </button>
