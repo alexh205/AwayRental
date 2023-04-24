@@ -61,10 +61,10 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Treehouse',
+          type: 'House',
           lat: 38.9,
           lng: -77.0369,
-          title: 'Treehouse #1',
+          title: 'Summer house',
           amenities:
             '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
@@ -83,10 +83,10 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Apartment',
+          type: 'Treehouse',
           lat: 36.2204,
           lng: -115.1458,
-          title: 'Apartment #1',
+          title: 'wood treehouse',
           amenities:
             '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 3,
@@ -259,10 +259,10 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Cottage',
+          type: 'House',
           lat: 33.7866,
           lng: -118.2987,
-          title: 'Cottage #1',
+          title: 'Family home',
           amenities:
             '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
           bedroom: 4,
