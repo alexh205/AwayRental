@@ -2,7 +2,7 @@ import React from 'react';
 import { FaRegHeart, FaStar } from 'react-icons/fa';
 import { BsDot } from 'react-icons/bs';
 import { useHistory } from 'react-router-dom';
-import MapComponent from '../Maps/Map';
+import MapComponent from '../Maps/MapComonent';
 
 const SearchResult = ({
   id,
