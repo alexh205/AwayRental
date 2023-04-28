@@ -81,6 +81,8 @@ const Search = () => {
                   bathroom,
                   bed,
                   maxGuests,
+                  lat,
+                  lng
                 }) => (
                   <SearchResult
                     key={id}
@@ -96,6 +98,8 @@ const Search = () => {
                     bedroom={bedroom}
                     bathroom={bathroom}
                     bed={bed}
+                    lat={lat}
+                    lng={lng}
                     maxGuests={maxGuests}
                     days={daysTotal}
                   />

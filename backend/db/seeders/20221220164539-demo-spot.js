@@ -18,8 +18,8 @@ module.exports = {
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
           type: 'House',
-          lat: 39.731,
-          lng: -104.9384,
+          lat: 39.74152272219737,
+          lng: -104.97528513606483,
           title: 'House #1',
           amenities:
             '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',

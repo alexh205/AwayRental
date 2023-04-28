@@ -1,7 +1,8 @@
 import React from 'react';
-import {FaRegHeart, FaStar} from 'react-icons/fa';
-import {BsDot} from 'react-icons/bs';
-import {useHistory} from 'react-router-dom';
+import { FaRegHeart, FaStar } from 'react-icons/fa';
+import { BsDot } from 'react-icons/bs';
+import { useHistory } from 'react-router-dom';
+import MapComponent from '../Maps/Map';
 
 const SearchResult = ({
   id,
@@ -16,6 +17,8 @@ const SearchResult = ({
   bedroom,
   bathroom,
   bed,
+  lat,
+  lng,
   maxGuests,
   days,
 }) => {
@@ -32,6 +35,10 @@ const SearchResult = ({
           alt="spot"
           className="w-full h-full object-cover rounded-2xl"
         />
+      </div>
+      <div>
+
+        <MapComponent title={title} lat={lat} lng={lng} />
       </div>
       <div className="flex flex-col flex-grow pl-5 ">
         <div className="flex justify-between ">

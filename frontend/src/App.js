@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react';
-import {Route, Switch} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
-import {restoreUserThunk} from './store/session';
+import React, { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { restoreUserThunk } from './store/session';
 import Home from './components/Home/Home';
 import LoginPage from './components/Profile/LoginPage';
 import RegisterPage from './components/Profile/RegisterPage';
@@ -14,6 +14,7 @@ import EditSpot from './components/Spots/EditSpot';
 import Filters from './components/Search/Filters';
 import Search from './components/Search/Search';
 
+
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <>
       <main>
+
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={LoginPage} />
