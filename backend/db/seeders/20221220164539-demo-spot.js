@@ -18,8 +18,8 @@ module.exports = {
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
           type: 'House',
-          lat: 39.731,
-          lng: -104.9384,
+          lat: 39.74152272219737,
+          lng: -104.97528513606483,
           title: 'House #1',
           amenities:
             '["Wifi", "Radio", "Parking on premise", "TV", "Hot Water", "AC", "Smoke alarm", "Fire extinguisher", "Kitchen", "Microwave", "Refrigerator" , "Bathtub or shower"]',
@@ -545,7 +545,7 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Tiny House',
+          type: 'House',
           lat: 33.7473,
           lng: -84.3824,
           title: 'Tiny House #1',
@@ -787,7 +787,7 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Tiny House',
+          type: 'House',
           lat: 43.0214,
           lng: -76.1977,
           title: 'Tiny House #2',
@@ -831,7 +831,7 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Tiny House',
+          type: 'House',
           lat: 30.033,
           lng: -89.8826,
           title: 'Tiny House #3',
@@ -919,7 +919,7 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Tiny House',
+          type: 'House',
           lat: 29.834,
           lng: -95.4342,
           title: 'Tiny House #4',
@@ -963,7 +963,7 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Tiny House',
+          type: 'House',
           lat: 42.6149,
           lng: -73.9708,
           title: 'Tiny House #5',
@@ -1051,7 +1051,7 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Tiny House',
+          type: 'House',
           lat: 41.1894,
           lng: -111.9489,
           title: 'Tiny House #6',
@@ -1117,7 +1117,7 @@ module.exports = {
           country: 'United States',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Odio eu feugiat pretium nibh ipsum consequat. Interdum velit euismod in pellentesque massa placerat duis ultricies. Nibh ipsum consequat nisl vel pretium lectus quam. Ipsum nunc aliquet bibendum enim facilisis. Tellus cras adipiscing enim eu turpis egestas. Magna fringilla urna porttitor rhoncus dolor purus. Condimentum vitae sapien pellentesque habitant morbi tristique. ',
-          type: 'Tiny House',
+          type: 'House',
           lat: 33.5452,
           lng: -86.6655,
           title: 'Tiny House #7',
