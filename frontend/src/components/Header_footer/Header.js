@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { GrUserManager } from "react-icons/gr";
 import { useHistory } from "react-router-dom";
-import awayRental from "../../static/awayRental.png";
+import awayRental from "../../static/away_v1.png";
 import { RxMagnifyingGlass } from "react-icons/rx";
 import { BsFillPeopleFill } from "react-icons/bs";
 import "react-date-range/dist/styles.css"; // main style file
@@ -61,7 +61,7 @@ const Header = ({ placeholder }) => {
           <img
             src={awayRental}
             alt="logo"
-            className="object-contain object-left h-[70px] w-[160px]"
+            className="object-contain object-left h-[80px] w-[160px]"
           />
         </div>
       </div>
@@ -70,7 +70,7 @@ const Header = ({ placeholder }) => {
       <div className="flex items-center sm:border-2 rounded-full md:shadow-sm md:mx-6 mx-2">
         <input
           type="text"
-          className="bg-transparent flex-grow sm:border-none ml-2 outline-none py-2 text-base text-gray-600 placeholder:text-lg placeholder-gray-400"
+          className="bg-transparent flex-grow sm:border-none ml-2 outline-none py-2 text-sm text-gray-600 placeholder:text-sm placeholder-gray-400"
           placeholder={
             placeholder || "Search by city"
           }
@@ -83,6 +83,7 @@ const Header = ({ placeholder }) => {
           <RxMagnifyingGlass className=" w-5 h-5 text-white" />
         </div>
       </div>
+
       {/* Right */}
       <div className="flex items-center space-x-3 justify-end">
         <div
@@ -91,18 +92,18 @@ const Header = ({ placeholder }) => {
               !user ? "/login" : "/account"
             )
           }
-          className="flex items-center border px-2 py-[11px] rounded-full gap-2 bg-site-primary text-white font-semibold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer whitespace-nowrap"
+          className="flex items-center border px-6 py-[11px] rounded-full gap-2 bg-site-primary text-sm text-white font-semibold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer whitespace-nowrap"
         >
           {!user ? (
-            <p className="text-base">Sign in</p>
+            <p className="text-sm">Sign in</p>
           ) : (
-            <p className="text-base">
-              {user.name}
-            </p>
+            <p className="text-sm">{user.name}</p>
           )}
-          <GrUserManager className="text-[20px]" />
+
+          {/* <GrUserManager className="text-[20px]" /> */}
         </div>
       </div>
+
       {searchInput && (
         <div className="flex flex-col col-span-3 mx-auto">
           <DateRangePicker
