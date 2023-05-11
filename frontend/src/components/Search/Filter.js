@@ -20,10 +20,10 @@ const Filter = ({
       "flex flex-col items-center justify-center";
   } else {
     className =
-      "md:flex hidden flex-col items-center justify-center ";
+      "md:flex hidden flex-col items-center justify-center";
   }
   className +=
-    "hover:font-semibold no-underline cursor-pointer hover:opacity-100 duration-200 ease-out hover:opacity-100 hover:text-slate-800 hover:scale-110 mx-[5px] lg:mx-[12px]";
+    "hover:font-semibold no-underline cursor-pointer duration-200 ease-out hover:opacity-100 hover:shadow-xl hover:text-slate-800 hover:scale-110 mx-[5px] hover:bg-gray-100 hover:rounded-md p-2";
   return (
     <div
       className={className}

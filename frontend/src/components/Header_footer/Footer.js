@@ -10,12 +10,12 @@ const Footer = () => {
         </p>
       </div>
       <div className="flex items-center justify-center space-x-4">
-        <div className="text-xs font-medium text-gray-800 text-semibold px-4 py-1 border rounded-md hover:bg-slate-800 hover:text-gray-200">
+        <div className="text-xs font-medium text-gray-800 text-semibold px-4 py-1 border rounded-md hover:bg-slate-800 hover:text-gray-200 hover:scale-105 transition-all duration-300 ease-in-out">
           <a href="https://github.com/alexh205">
             About
           </a>
         </div>
-        <div className="text-xs font-medium text-gray-800 text-semibold px-4 py-1 border rounded-md hover:bg-slate-800 hover:text-gray-200">
+        <div className="text-xs font-medium text-gray-800 text-semibold px-4 py-1 border rounded-md hover:bg-slate-800 hover:text-gray-200 hover:scale-105 transition-all duration-300 ease-in-out">
           <a href="https://github.com/alexh205/AwayRental">
             GitHub
           </a>
