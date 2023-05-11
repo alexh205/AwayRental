@@ -78,10 +78,10 @@ const Filters = () => {
   ];
 
   return (
-    <div className="mb-14">
+    <div className="mb-5">
       <Header />
       <div className="sm:mx-6 md:mx-10 lg:mx-10">
-        <div className="flex justify-center my-8 overflow-hidden gap-2">
+        <div className="flex justify-center my-12 overflow-hidden gap-2">
           {options.map((obj, idx) => (
             <Filter
               title={obj.title}
@@ -99,13 +99,13 @@ const Filters = () => {
         </div>
       )}
       {filterId ? (
-        <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto gap-y-1 gap-x-1 px-7">
+        <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mx-auto gap-y-1 gap-x-1 px-7 max-w-screen-xl">
           {Object.values(spotsArr).map((spot) => (
             <SpotCard spot={spot} key={spot.id} />
           ))}
         </div>
       ) : (
-        <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 mx-auto gap-y-1 gap-x-1 px-7">
+        <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mx-auto gap-y-1 gap-x-1 px-7 max-w-screen-xl">
           {Object.values(spotsArr)
             .slice(0, 20)
             .map((spot) => (
