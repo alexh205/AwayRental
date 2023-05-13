@@ -6,8 +6,8 @@ const SpotCard = ({ spot }) => {
   const history = useHistory();
 
   return (
-    <div className="relative flex flex-col my-2 mx-3 bg-gray-50 z-10 rounded-2xl hover:shadow-xl">
-      <div>
+    <div className="relative flex flex-col mx-1 my-2 border z-10 rounded-2xl hover:shadow-xl">
+      <div className="rounded-lg overflow-hidden h-64 m-2 flex items-center justify-center">
         <ImageGroup
           images={spot.spotImages}
           spot={spot}
@@ -19,7 +19,7 @@ const SpotCard = ({ spot }) => {
       </div>
       <div className="pl-4 mb-4">
         <div>
-          <div className="flex flex-row items-center justify-between mx-auto">
+          <div className="flex flex-row items-center justify-between mx-auto pt-4">
             <div className="text-sm font-semibold">
               {spot.city}, {spot.state}
             </div>
@@ -45,7 +45,7 @@ const SpotCard = ({ spot }) => {
             {spot.type}
           </div>
           <div className="flex flex-row items-center mx-auto py-2 text-[12px] text-gray-500">
-            <p className="font-bold mr-1 pr-1 text-gray-950 text-sm">
+            <p className="px-2 py-1 font-semibold rounded-full bg-gray-800 text-gray-100 text-[11px]">
               {spot.price
                 ?.toLocaleString("en-US", {
                   style: "currency",
@@ -54,7 +54,9 @@ const SpotCard = ({ spot }) => {
                 .replace(".00", "")}
             </p>
             {"  "}
-            per night
+            <span className="pl-2">
+              per night
+            </span>
           </div>
         </div>
       </div>

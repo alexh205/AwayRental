@@ -51,7 +51,7 @@ const Header = ({ placeholder }) => {
   };
 
   return (
-    <header className="grid grid-cols-3 shadow-md p-5 md:px-10 sticky top-0 z-20 bg-white">
+    <header className="grid grid-cols-3 shadow-md p-5 md:px-10 top-0 z-20 bg-white">
       {/* Left */}
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <div
