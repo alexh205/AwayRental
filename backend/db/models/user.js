@@ -1,11 +1,11 @@
 'use strict';
-const {Model, Validator} = require('sequelize');
+const { Model, Validator } = require('sequelize');
 const bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     toSafeObject() {
-      const {id, name, username, email, profileImg} = this; //context will be the User instance
-      return {id, name, username, email, profileImg};
+      const { id, name, username, email, profileImg } = this; //context will be the User instance
+      return { id, name, username, email, profileImg };
     }
 
     validatePassword(password) {
@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       return User.scope('currentUser').findByPk(id);
     }
 
-    static async login({credential, password}) {
-      const {Op} = require('sequelize');
+    static async login({ credential, password }) {
+      const { Op } = require('sequelize');
       const user = await User.scope('loginUser').findOne({
         where: {
           [Op.or]: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
 
-    static async signup({name, username, email, password, profileImg}) {
+    static async signup({ name, username, email, password, profileImg }) {
       const hashedPassword = bcrypt.hashSync(password);
       const user = await User.create({
         name,
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     }
 
-    static async update({name, username, email, profileImg, userId}) {
+    static async update({ name, username, email, profileImg, userId }) {
       const user = await User.findByPk(userId);
 
       user.name = name;
@@ -69,7 +69,7 @@ module.exports = (sequelize, DataTypes) => {
       User.hasOne(models.Image, {
         foreignKey: 'imageableId',
         constraints: false,
-        scope: {imageableType: 'User'},
+        scope: { imageableType: 'User' },
       });
       User.hasMany(models.WishList, {
         foreignKey: 'ownerId',
@@ -135,11 +135,11 @@ module.exports = (sequelize, DataTypes) => {
         loginUser: {
           attributes: {},
         },
-        signUpUser: {
-          attributes: {
-            exclude: ['createdAt', 'updatedAt', 'hashedPassword'],
-          },
-        },
+        // signUpUser: {
+        //   attributes: {
+        //     exclude: ['createdAt', 'updatedAt', 'hashedPassword'],
+        //   },
+        // },
       },
     }
   );
