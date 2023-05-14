@@ -6,7 +6,7 @@ const SpotCard = ({ spot }) => {
   const history = useHistory();
 
   return (
-    <div className="relative flex flex-col mx-1 my-2 border z-10 rounded-2xl hover:shadow-xl">
+    <div className="relative flex flex-col mx-1 my-2 border z-10 rounded-2xl hover:shadow-xl hover:scale-105 duration-300 ease-in hover:border-none">
       <div className="rounded-lg overflow-hidden h-64 m-2 flex items-center justify-center">
         <ImageGroup
           images={spot.spotImages}

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FaUmbrellaBeach } from "react-icons/fa";
+import { HiBadgeCheck } from "react-icons/hi";
 import { BsHouseFill } from "react-icons/bs";
 import {
   GiFishingBoat,
@@ -25,6 +26,7 @@ import {
 import SpotCard from "../Spots/SpotCard";
 import Footer from "../Header_footer/Footer";
 import { FiArrowRight } from "react-icons/fi";
+import Fade from "react-reveal/Fade";
 
 const Filters = () => {
   const { filterId } = useParams();
@@ -38,14 +40,14 @@ const Filters = () => {
           size: 20,
         })
       );
-  }, [filterId]);
+  }, [dispatch, filterId]);
 
   useEffect(() => {
     if (!filterId)
       dispatch(
         getAllSpotsThunk({ page: 1, size: 20 })
       );
-  }, []);
+  }, [dispatch, filterId]);
 
   const spotsArr = useSelector(
     (state) => state.spots.spots
@@ -78,10 +80,38 @@ const Filters = () => {
   ];
 
   return (
-    <div className="mb-5">
+    <div className="mb-0">
       <Header />
-      <div className="sm:mx-6 md:mx-10 lg:mx-10">
-        <div className="flex justify-center my-12 overflow-hidden gap-2">
+      <div>
+        <div className="">
+          <section className=" bg-gray-100 text-gray-800">
+            <Fade>
+              <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
+                <HiBadgeCheck className="h-20 w-20 hover:scale-105 transition-all duration-300 ease-in-out" />
+                <p className="px-6 py-2 text-xl font-light text-center sm:font-light sm:text-3xl md:text-2xl lg:max-w-2xl xl:max-w-4xl text-gray-700  hover:scale-105 transition-all duration-300 ease-in-out">
+                  Escape to Extraordinary
+                  Adventures with <br />
+                  <span className="p-2 font-black">
+                    Away Rental
+                  </span>
+                </p>
+                <div className="flex justify-center space-x-3 text-center hover:scale-105 transition-all duration-300 ease-in-out">
+                  <div>
+                    <p className="leading-tight">
+                      Alex Hunt
+                    </p>
+                    <p className="text-xs leading-tight text-gray-400">
+                      Lead Software Developer
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Fade>
+          </section>
+        </div>
+      </div>
+      <div className="sm:mx-3 md:mx-5 lg:mx-5">
+        <div className="flex justify-center my-8 overflow-hidden gap-2">
           {options.map((obj, idx) => (
             <Filter
               title={obj.title}
