@@ -108,7 +108,7 @@ const SpotPage = () => {
         <Header />
         <div className=" flex items-center justify-center">
           <div className="mx-10 pt-14 w-2/3">
-            <h1 className="text-2xl text-gray-700 whitespace-nowrap font-light uppercase tracking-wider">
+            <h1 className="text-2xl text-gray-700 font-light uppercase tracking-wider">
               {spot.title}
             </h1>
             <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-4">
@@ -180,7 +180,7 @@ const SpotPage = () => {
               />
             </div>
 
-            <div className="mt-8 mb-2 gap-6 grid grid-cols-1 lg:grid-cols-3 pb-4 border-b">
+            <div className="mt-8 mb-2 gap-6 grid grid-cols-1 lg:grid-cols-3 pb-4">
               <div className="my-1 col-span-2 mr-3">
                 <div
                   className={`${

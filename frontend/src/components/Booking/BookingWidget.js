@@ -145,38 +145,41 @@ const BookingWidget = ({ spot, user }) => {
   return (
     <div className="bg-white shadow-xl p-4 rounded-2xl border-[1px]">
       <div className="flex lg:flex-row flex-col items-center justify-between">
-        <div className="text-xl text-center flex flex-row items-center my-1">
-          {spot.price
-            ?.toLocaleString("en-US", {
-              style: "currency",
-              currency: "USD",
-            })
-            .replace(".00", "")}
-          <p className="text-base ml-1 text-gray-500 mr-1">
+        {/* Prices */}
+        <div className="flex items-center mx-auto">
+          <div className="px-2 py-1 font-semibold rounded-full shadow-md bg-gray-800 text-gray-100 text-xs text-center flex flex-row items-center my-1">
+            {spot.price
+              ?.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD",
+              })
+              .replace(".00", "")}
+          </div>
+          <p className="text-xs pl-1 font-light text-gray-500">
             night
           </p>
         </div>
-        <div className="flex flex-row items-center">
-          <div className="flex flex-row items-center text-base">
-            <BsFillStarFill className="w-4 h-4 mr-1" />
+        {/* Reviews */}
+        <div className="flex flex-row items-center bg-[#fafafa] px-5 py-1 rounded-lg text-xs font-normal text-gray-600 shadow-md mr-4">
+          <div className="flex flex-row items-center">
+            <BsFillStarFill className="w-3 h-3 mr-1 text-[#ffd700]" />
             {reviewAvgRating}
           </div>
           <BsDot className="mx-1" />
           {Object.values(reviewState).length >
           0 ? (
-            <div className="font-medium underline flex flex-row items-center text-base text-gray-500 ">
+            <div className="flex flex-row items-center">
               {Object.values(reviewState).length}
-              <p className="text-base text-gray-500 ml-1">
-                reviews
-              </p>
+              <p className="ml-1">reviews</p>
             </div>
           ) : (
-            <div className="font-medium underline text-base text-gray-500">
+            <div className="font-medium text-base text-gray-500">
               0 reviews
             </div>
           )}
         </div>
       </div>
+      {/* Check-in */}
       <div className="border rounded-2xl mt-4">
         {validateErrors.length > 0 && (
           <div className="my-2 ml-2">
@@ -189,7 +192,7 @@ const BookingWidget = ({ spot, user }) => {
         )}
         <div className="flex xl:flex-row flex-col items-center">
           <div className="py-3 px-4">
-            <label className="text-base mr-2 font-semibold">
+            <label className="text-sm mr-2 font-semibold">
               Check in:
             </label>
             <input
@@ -198,11 +201,11 @@ const BookingWidget = ({ spot, user }) => {
               onChange={(e) =>
                 setCheckIn(e.target.value)
               }
-              className="text-sm"
+              className="text-xs text-gray-300"
             />
           </div>
-          <div className="py-3 px-4 xl:border-t">
-            <label className="text-base mr-2 font-semibold">
+          <div className="py-3 px-4">
+            <label className="text-sm mr-2 font-semibold">
               Check out:
             </label>
             <input
@@ -211,27 +214,28 @@ const BookingWidget = ({ spot, user }) => {
               onChange={(e) =>
                 setCheckOut(e.target.value)
               }
-              className="text-sm"
+              className="text-xs text-gray-300"
             />
           </div>
         </div>
-        <div className="py-3 px-4 border-t">
-          <label className="text-base font-semibold">
+        {/* Guests */}
+        <div className="flex py-3 px-4 border-t items-center">
+          <p className="text-sm font-semibold w-full leading-tight mr-2">
             Number of guests:
-          </label>
+          </p>
           <input
             type="number"
             value={numberOfGuests}
             onChange={(e) =>
               setNumberOfGuests(e.target.value)
             }
-            className="text-sm text-center"
+            className="text-sm text-center w-1/4"
           />
         </div>
 
         {numberOfNights > 0 && (
           <div className="py-3 px-4 border-t">
-            <label className="text-base font-semibold">
+            <label className="text-sm font-semibold">
               Your full name:
             </label>
             <input
@@ -241,7 +245,7 @@ const BookingWidget = ({ spot, user }) => {
                 setName(e.target.value)
               }
             />
-            <label className="text-base font-semibold">
+            <label className="text-sm font-semibold">
               Phone number:{" "}
               <small>
                 (Format: 123-456-7890)
@@ -259,7 +263,7 @@ const BookingWidget = ({ spot, user }) => {
         )}
       </div>
       <button
-        className="primary mt-4 whitespace-nowrap bg-site-primary hover:bg-site-secondary"
+        className="primary mt-4 whitespace-nowrap text-sm bg-site-primary hover:bg-site-secondary hover:shadow-md"
         onClick={handleBooking}
       >
         Book this property
