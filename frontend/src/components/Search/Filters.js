@@ -26,7 +26,6 @@ import {
 import SpotCard from "../Spots/SpotCard";
 import Footer from "../Header_footer/Footer";
 import { FiArrowRight } from "react-icons/fi";
-import Fade from "react-reveal/Fade";
 
 const Filters = () => {
   const { filterId } = useParams();
@@ -80,38 +79,49 @@ const Filters = () => {
   ];
 
   return (
-    <div className="mb-0">
+    <div className="">
       <Header />
-      <div>
-        <div className="">
-          <section className=" bg-gray-100 text-gray-800">
-            <Fade>
-              <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
-                <HiBadgeCheck className="h-20 w-20 hover:scale-105 transition-all duration-300 ease-in-out" />
-                <p className="px-6 py-2 text-xl font-light text-center sm:font-light sm:text-3xl md:text-2xl lg:max-w-2xl xl:max-w-4xl text-gray-700  hover:scale-105 transition-all duration-300 ease-in-out">
-                  Escape to Extraordinary
-                  Adventures with <br />
-                  <span className="p-2 font-black">
-                    Away Rental
-                  </span>
-                </p>
-                <div className="flex justify-center space-x-3 text-center hover:scale-105 transition-all duration-300 ease-in-out">
-                  <div>
-                    <p className="leading-tight">
-                      Alex Hunt
-                    </p>
-                    <p className="text-xs leading-tight text-gray-400">
-                      Lead Software Developer
-                    </p>
-                  </div>
+      <div className="0">
+        {/* Hero Banner */}
+        <div className="bg-gray-800 bg-opacity-80">
+          <section className="relative py-14 text-gray-100">
+            <div
+              className="absolute top-0 left-0 w-full h-full -z-10"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80')",
+                backgroundPosition:
+                  "center center",
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+              }}
+            ></div>
+            <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8 z-20">
+              <HiBadgeCheck className="h-16 w-16 hover:scale-105 transition-all duration-300 ease-in-out text-gray-100" />
+              <p className="px-6 py-2 text-xl font-light text-center sm:font-light sm:text-3xl md:text-2xl lg:max-w-2xl xl:max-w-4xl text-gray-100  hover:scale-105 transition-all duration-300 ease-in-out">
+                Escape to Extraordinary Adventures
+                with <br />
+                <span className="p-2 font-black">
+                  Away Rental
+                </span>
+              </p>
+              <div className="flex justify-center space-x-3 text-center hover:scale-105 transition-all duration-300 ease-in-out">
+                <div>
+                  <p className="leading-tight">
+                    Alex Hunt
+                  </p>
+                  <p className="text-xs leading-tight text-gray-400">
+                    Lead Software Developer
+                  </p>
                 </div>
               </div>
-            </Fade>
+            </div>
           </section>
         </div>
       </div>
-      <div className="sm:mx-3 md:mx-5 lg:mx-5">
-        <div className="flex justify-center my-8 overflow-hidden gap-2">
+      {/* Filter Types */}
+      <div className="mx-3">
+        <div className="flex justify-center my-6 overflow-hidden gap-2">
           {options.map((obj, idx) => (
             <Filter
               title={obj.title}
@@ -121,31 +131,41 @@ const Filters = () => {
           ))}
         </div>
       </div>
-      {filterId && (
-        <div className="ml-12 py-3 flex flex-row text-base items-center">
-          Property Type{" "}
-          <FiArrowRight className="mx-1" />{" "}
-          <p className="font-bold">{filterId}</p>
-        </div>
-      )}
-      {filterId ? (
-        <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mx-auto gap-y-1 gap-x-1 px-7 max-w-screen-xl">
-          {Object.values(spotsArr).map((spot) => (
-            <SpotCard spot={spot} key={spot.id} />
-          ))}
-        </div>
-      ) : (
-        <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mx-auto gap-y-1 gap-x-1 px-7 max-w-screen-xl">
-          {Object.values(spotsArr)
-            .slice(0, 20)
-            .map((spot) => (
-              <SpotCard
-                spot={spot}
-                key={spot.id}
-              />
-            ))}
-        </div>
-      )}
+      <div className="pt-5 bg-[#fafafa] dark:bg-site-black">
+        {filterId && (
+          <div className="ml-12 py-3 flex flex-row text-base items-center">
+            Property Type{" "}
+            <FiArrowRight className="mx-1" />{" "}
+            <p className="font-bold">
+              {filterId}
+            </p>
+          </div>
+        )}
+        {/* Results */}
+        {filterId ? (
+          <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mx-auto gap-y-1 gap-x-1 px-7 max-w-screen-xl dark:bg-site-black">
+            {Object.values(spotsArr).map(
+              (spot) => (
+                <SpotCard
+                  spot={spot}
+                  key={spot.id}
+                />
+              )
+            )}
+          </div>
+        ) : (
+          <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mx-auto gap-y-1 gap-x-1 px-7 max-w-screen-xl">
+            {Object.values(spotsArr)
+              .slice(0, 20)
+              .map((spot) => (
+                <SpotCard
+                  spot={spot}
+                  key={spot.id}
+                />
+              ))}
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );

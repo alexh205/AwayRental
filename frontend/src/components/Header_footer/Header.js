@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { GrUserManager } from "react-icons/gr";
 import { useHistory } from "react-router-dom";
 import awayRental from "../../static/away_v1.png";
+import awayRentalDark from "../../static/away_dark.png";
 import { RxMagnifyingGlass } from "react-icons/rx";
 import { BsFillPeopleFill } from "react-icons/bs";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import ThemeToggler from "./ThemeToggler";
+import { useTheme } from "next-themes";
 
 const Header = ({ placeholder }) => {
   const history = useHistory();
@@ -50,8 +52,17 @@ const Header = ({ placeholder }) => {
     window.location.href = `/search?city=${searchInput}&startDate=${startDateString}&endDate=${endDateString}&guestsNum=${guestsNum}`;
   };
 
+  // Dark Mode
+  // Determine whether dark mode is enabled
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
+
+  const imageSource = isDarkMode
+    ? awayRentalDark
+    : awayRental;
+
   return (
-    <header className="grid grid-cols-3 shadow-md p-5 md:px-10 top-0 z-20 bg-white">
+    <header className="grid grid-cols-3 shadow-md p-5 md:px-10 top-0 z-20 bg-site-light dark:bg-site-bblue sticky">
       {/* Left */}
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <div
@@ -59,7 +70,7 @@ const Header = ({ placeholder }) => {
           onClick={() => history.push("/")}
         >
           <img
-            src={awayRental}
+            src={imageSource}
             alt="logo"
             className="object-contain object-left h-[80px] w-[160px]"
           />
@@ -67,7 +78,7 @@ const Header = ({ placeholder }) => {
       </div>
 
       {/* Middle */}
-      <div className="flex items-center sm:border-2 rounded-full md:shadow-sm md:mx-6 mx-2">
+      <div className="flex items-center border rounded-full md:shadow-sm md:mx-6 mx-2 dark:border-site-midblue">
         <input
           type="text"
           className="bg-transparent flex-grow sm:border-none ml-2 outline-none py-2 text-sm text-gray-600 placeholder:text-sm placeholder-gray-400"
@@ -79,20 +90,23 @@ const Header = ({ placeholder }) => {
             setSearchInput(e.target.value)
           }
         />
-        <div className="hidden sm:inline-flex bg-site-secondary rounded-full p-1 sm:mx-2">
+        <div className="hidden sm:inline-flex bg-site-primary dark:bg-site-midblue rounded-full p-1 sm:mx-2">
           <RxMagnifyingGlass className=" w-5 h-5 text-white" />
         </div>
       </div>
 
       {/* Right */}
-      <div className="flex items-center space-x-3 justify-end">
+      <div className="flex items-center space-x-3 justify-between">
+        <section className="static top-5 object-center">
+          <ThemeToggler />
+        </section>
         <div
           onClick={() =>
             history.push(
               !user ? "/login" : "/account"
             )
           }
-          className="flex items-center border px-6 py-[11px] rounded-full gap-2 bg-site-primary text-sm text-white font-semibold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer whitespace-nowrap"
+          className="flex items-center px-6 py-2 rounded-full bg-site-primary text-sm text-white font-semibold shadow-lg shadow-gray-300 hover:bg-site-secondary duration-100 ease-out cursor-pointer dark:shadow-md dark:bg-site-midblue dark:hover:bg-site-ablue"
         >
           {!user ? (
             <p className="text-sm">Sign in</p>

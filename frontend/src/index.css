@@ -8,6 +8,7 @@ body {
   overscroll-behavior-y: none;
   overflow-x: auto;
   overscroll-behavior-x: none;
+  
 }
 
 input[type='text'],
@@ -37,3 +38,9 @@ button.primary {
     rgba(0, 0, 0, 1) 100%
   );
 }
+
+.dark {
+  color: #fff;
+  background: #001633;
+}
+

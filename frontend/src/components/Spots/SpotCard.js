@@ -6,7 +6,7 @@ const SpotCard = ({ spot }) => {
   const history = useHistory();
 
   return (
-    <div className="relative flex flex-col mx-1 my-2 border z-10 rounded-2xl hover:shadow-xl hover:scale-105 duration-300 ease-in hover:border-none">
+    <div className="relative flex flex-col mx-1 my-2 border z-10 rounded-2xl hover:shadow-xl hover:scale-105 duration-200 ease-in hover:border-none hover:bg-white dark:hover:bg-site-bblue dark:border-site-midblue dark:hover:shadow-xl">
       <div className="rounded-lg overflow-hidden h-64 m-2 flex items-center justify-center">
         <ImageGroup
           images={spot.spotImages}
@@ -45,7 +45,7 @@ const SpotCard = ({ spot }) => {
             {spot.type}
           </div>
           <div className="flex flex-row items-center mx-auto py-2 text-[12px] text-gray-500">
-            <p className="px-2 py-1 font-semibold rounded-full bg-gray-800 text-gray-100 text-[11px]">
+            <p className="px-2 py-1 font-semibold rounded-full bg-gray-800 dark:bg-site-ablue text-gray-100 text-[11px]">
               {spot.price
                 ?.toLocaleString("en-US", {
                   style: "currency",
