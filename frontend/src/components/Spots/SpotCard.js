@@ -17,7 +17,7 @@ const SpotCard = ({ spot }) => {
           className="cursor-pointer"
         />
       </div>
-      <div className="pl-4 mb-4">
+      <div className="pl-4 mb-4 text-site-textlight dark:text-site-textdark">
         <div>
           <div className="flex flex-row items-center justify-between mx-auto pt-4">
             <div className="text-sm font-semibold">
@@ -41,11 +41,11 @@ const SpotCard = ({ spot }) => {
               </div>
             </div>
           </div>
-          <div className=" text-gray-500 opacity-70 text-[12px]">
+          <div className="opacity-70 text-[12px]">
             {spot.type}
           </div>
-          <div className="flex flex-row items-center mx-auto py-2 text-[12px] text-gray-500">
-            <p className="px-2 py-1 font-semibold rounded-full bg-gray-800 dark:bg-site-ablue text-gray-100 text-[11px]">
+          <div className="flex flex-row items-center mx-auto py-2 text-[12px]">
+            <p className="px-2 py-1 font-semibold rounded-full bg-gray-800 dark:bg-site-ablue text-[11px]">
               {spot.price
                 ?.toLocaleString("en-US", {
                   style: "currency",
@@ -54,7 +54,7 @@ const SpotCard = ({ spot }) => {
                 .replace(".00", "")}
             </p>
             {"  "}
-            <span className="pl-2">
+            <span className="pl-2 opacity-70">
               per night
             </span>
           </div>

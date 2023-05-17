@@ -44,3 +44,6 @@ button.primary {
   background: #001633;
 }
 
+.dark .calendar-icon-red {
+  fill: red;
+}

@@ -143,7 +143,7 @@ const BookingWidget = ({ spot, user }) => {
   }
 
   return (
-    <div className="bg-white shadow-xl p-4 rounded-2xl border-[1px]">
+    <div className="bg-site-light shadow-xl p-4 rounded-2xl">
       <div className="flex lg:flex-row flex-col items-center justify-between">
         {/* Prices */}
         <div className="flex items-center mx-auto">
@@ -160,7 +160,7 @@ const BookingWidget = ({ spot, user }) => {
           </p>
         </div>
         {/* Reviews */}
-        <div className="flex flex-row items-center bg-[#fafafa] px-5 py-1 rounded-lg text-xs font-normal text-gray-600 shadow-md mr-4">
+        <div className="flex flex-row items-center bg-site-light px-5 py-1 rounded-lg text-xs font-normal text-gray-600 shadow-md mr-4">
           <div className="flex flex-row items-center">
             <BsFillStarFill className="w-3 h-3 mr-1 text-[#ffd700]" />
             {reviewAvgRating}
@@ -190,36 +190,125 @@ const BookingWidget = ({ spot, user }) => {
             </ul>
           </div>
         )}
-        <div className="flex xl:flex-row flex-col items-center">
+        <div className="flex xl:flex-row flex-col items-center justify-center text-site-textlight">
           <div className="py-3 px-4">
             <label className="text-sm mr-2 font-semibold">
               Check in:
             </label>
-            <input
-              type="date"
-              value={checkIn}
-              onChange={(e) =>
-                setCheckIn(e.target.value)
-              }
-              className="text-xs text-gray-300"
-            />
+            <div className="relative">
+              <input
+                type="date"
+                value={checkIn}
+                onChange={(e) =>
+                  setCheckIn(e.target.value)
+                }
+                className="text-xs text-gray-300 bg-site-light appearance-none"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="lightgray" // Set the color of the icon to red
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="absolute -right-1 top-1/2 transform -translate-y-1/2 h-4 w-4"
+              >
+                <rect
+                  x="3"
+                  y="4"
+                  width="18"
+                  height="18"
+                  rx="2"
+                  ry="2"
+                ></rect>
+                <line
+                  x1="16"
+                  y1="2"
+                  x2="16"
+                  y2="6"
+                ></line>
+                <line
+                  x1="8"
+                  y1="2"
+                  x2="8"
+                  y2="6"
+                ></line>
+                <line
+                  x1="3"
+                  y1="10"
+                  x2="21"
+                  y2="10"
+                ></line>
+              </svg>
+              <style jsx>{`
+                input[type="date"]::-webkit-calendar-picker-indicator {
+                  display: none;
+                }
+              `}</style>
+            </div>
           </div>
+
           <div className="py-3 px-4">
             <label className="text-sm mr-2 font-semibold">
               Check out:
             </label>
-            <input
-              type="date"
-              value={checkOut}
-              onChange={(e) =>
-                setCheckOut(e.target.value)
-              }
-              className="text-xs text-gray-300"
-            />
+            <div className="relative">
+              <input
+                type="date"
+                value={checkOut}
+                onChange={(e) =>
+                  setCheckIn(e.target.value)
+                }
+                className="text-xs text-gray-300 bg-site-light appearance-none"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="lightgray" // Set the color of the icon to red
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="absolute -right-1 top-1/2 transform -translate-y-1/2 h-4 w-4"
+              >
+                <rect
+                  x="3"
+                  y="4"
+                  width="18"
+                  height="18"
+                  rx="2"
+                  ry="2"
+                ></rect>
+                <line
+                  x1="16"
+                  y1="2"
+                  x2="16"
+                  y2="6"
+                ></line>
+                <line
+                  x1="8"
+                  y1="2"
+                  x2="8"
+                  y2="6"
+                ></line>
+                <line
+                  x1="3"
+                  y1="10"
+                  x2="21"
+                  y2="10"
+                ></line>
+              </svg>
+              <style jsx>{`
+                input[type="date"]::-webkit-calendar-picker-indicator {
+                  display: none;
+                }
+              `}</style>
+            </div>
           </div>
         </div>
         {/* Guests */}
-        <div className="flex py-3 px-4 border-t items-center">
+        <div className="flex py-3 px-4 border-t items-center text-site-textlight">
           <p className="text-sm font-semibold w-full leading-tight mr-2">
             Number of guests:
           </p>
@@ -229,7 +318,7 @@ const BookingWidget = ({ spot, user }) => {
             onChange={(e) =>
               setNumberOfGuests(e.target.value)
             }
-            className="text-sm text-center w-1/4"
+            className="text-sm text-center w-1/4 bg-site-light"
           />
         </div>
 
@@ -263,7 +352,7 @@ const BookingWidget = ({ spot, user }) => {
         )}
       </div>
       <button
-        className="primary mt-4 whitespace-nowrap text-sm bg-site-primary hover:bg-site-secondary hover:shadow-md"
+        className="primary mt-4 whitespace-nowrap text-sm bg-site-primary hover:bg-site-secondary hover:shadow-md dark:bg-site-bblue dark:hover:bg-site-midblue"
         onClick={handleBooking}
       >
         Book this property

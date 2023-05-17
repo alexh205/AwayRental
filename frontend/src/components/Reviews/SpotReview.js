@@ -34,12 +34,12 @@ const SpotReview = ({ spot }) => {
   return (
     <>
       {spot && container && (
-        <div className="p-14 bg-[#fafafa] rounded-lg shadow-md">
+        <div className="p-14 bg-[#fafafa] rounded-lg shadow-md -mb-10">
           <h1 className="text-2xl text-gray-700 font-light tracking-wider">
             User reviews
           </h1>
           <div className="flex flex-row items-center my-3 text-sm  text-gray-500 bg-white px-10 py-2 rounded-xl shadow-md font-normal w-1/3">
-            <div className="flex flex-row items-center ">
+            <div className="flex flex-row items-center text-xs">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ const SpotReview = ({ spot }) => {
             <BsDot className="mx-[2px]" />
             {Object.values(reviewState).length >
             0 ? (
-              <div className="font-medium flex flex-row">
+              <div className="font-medium flex flex-row text-xs">
                 {
                   Object.values(reviewState)
                     .length
@@ -65,7 +65,7 @@ const SpotReview = ({ spot }) => {
                 <p className=" ml-1 ">reviews</p>
               </div>
             ) : (
-              <div className="font-medium flex flex-row">
+              <div className="font-medium flex flex-row text-xs">
                 0 reviews
               </div>
             )}

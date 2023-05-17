@@ -62,7 +62,7 @@ const Header = ({ placeholder }) => {
     : awayRental;
 
   return (
-    <header className="grid grid-cols-3 shadow-md p-5 md:px-10 top-0 z-20 bg-site-light dark:bg-site-bblue sticky">
+    <header className="grid grid-cols-3 shadow-md p-5 md:px-10 top-0 z-20 bg-white dark:bg-site-bblue sticky">
       {/* Left */}
       <div className="relative flex items-center h-10 cursor-pointer my-auto">
         <div

@@ -131,7 +131,7 @@ const Filters = () => {
           ))}
         </div>
       </div>
-      <div className="pt-5 bg-[#fafafa] dark:bg-site-black">
+      <div className="pt-5 bg-site-light dark:bg-site-black">
         {filterId && (
           <div className="ml-12 py-3 flex flex-row text-base items-center">
             Property Type{" "}

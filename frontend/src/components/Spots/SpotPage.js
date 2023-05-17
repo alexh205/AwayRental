@@ -108,11 +108,11 @@ const SpotPage = () => {
         <Header />
         <div className=" flex items-center justify-center">
           <div className="mx-10 pt-14 w-2/3">
-            <h1 className="text-2xl text-gray-700 font-light uppercase tracking-wider">
+            <h1 className="text-xl text-site-textlight dark:text-site-textdark font-light uppercase tracking-wider">
               {spot.title}
             </h1>
-            <div className="flex sm:flex-row flex-col items-center text-sm sm:text-base whitespace-nowrap justify-between mt-2 mb-4">
-              <div className="flex flex-row items-center bg-[#fafafa] px-10 py-2 rounded-xl text-sm text-gray-500 shadow-md">
+            <div className="flex sm:flex-row flex-col items-center sm:text-base whitespace-nowrap justify-between mt-2 mb-4">
+              <div className="flex flex-row items-center bg-site-light px-10 py-2 rounded-xl text-xs text-gray-500 shadow-md">
                 <div className="flex flex-row items-center ">
                   <div className="flex flex-row items-center ">
                     <BsFillStarFill className="w-4 h-4 mr-2 text-[#ffd700]" />
@@ -173,7 +173,7 @@ const SpotPage = () => {
               )}
             </div>
 
-            <div className="mt-10 w-2/3">
+            <div className="mt-10 w-2/3 text-site-textlight text-xs">
               <SpotImage
                 spot={spot}
                 setSelectImage={setSelectImage}
@@ -189,9 +189,9 @@ const SpotPage = () => {
                       : "flex flex-col justify-center"
                   }`}
                 >
-                  <div className="flex flex-row font-semibold items-center justify-between border-b">
-                    <div className="sm:flex sm:flex-row grid grid-col-1 items-center mb-3 text-sm  text-gray-500 bg-[#fafafa] px-10 py-2 rounded-xl shadow-md font-normal">
-                      <BsFillInfoCircleFill className="w-4 h-4 mr-2 text-site-primary" />
+                  <div className="flex flex-row font-semibold items-center justify-between border-b dark:border-site-midblue">
+                    <div className="sm:flex sm:flex-row grid grid-col-1 items-center mb-3 text-xs  text-gray-500 bg-site-light px-10 py-2 rounded-xl shadow-md font-normal">
+                      <BsFillInfoCircleFill className="w-4 h-4 mr-2 text-site-primary dark:text-site-midblue" />
                       <div className="whitespace-nowrap">
                         {spot.maxGuests} guests
                       </div>
@@ -226,11 +226,11 @@ const SpotPage = () => {
                   </div> */}
                   </div>
                 </div>
-                <div className="border-b my-6">
-                  <h3 className="text-lg text-gray-700 mt-3 font-medium">
+                <div className="border-b my-6 dark:border-site-midblue text-site-textlight dark:text-site-textdark">
+                  <h3 className="text-lg mt-3 font-medium">
                     Description
                   </h3>
-                  <p className="my-2 text-gray-600 text-sm">
+                  <p className="my-3 text-xs">
                     {spot.description}
                   </p>
                 </div>
@@ -241,11 +241,11 @@ const SpotPage = () => {
                       : "border-b my-3 pb-3"
                   }`}
                 >
-                  <h3 className="text-lg text-gray-700 mt-4 font-medium">
+                  <h3 className="text-lg text-site-textlight dark:text-site-textdark mt-4 font-medium">
                     Check-in/out Info
                   </h3>
-                  <div className="opacity-80 bg-gray-800 text-sm text-gray-200 px-5 py-2 w-1/2 rounded-md shadow-md">
-                    <div className="mt-[5px] flex flex-row items-center">
+                  <div className="bg-site-darkblue dark:bg-site-light text-sm text-site-textdark dark:text-site-textlight px-5 py-2 w-1/2 rounded-md shadow-md">
+                    <div className="mt-[5px] flex flex-row items-center text-site-textdark dark:text-site-textlight px-5">
                       Check-in:{" "}
                       <p className="font-bold ml-1">
                         {formatTime(
@@ -254,7 +254,7 @@ const SpotPage = () => {
                         )}
                       </p>
                     </div>
-                    <div className="flex flex-row items-center">
+                    <div className="flex flex-row items-center text-site-textdark dark:text-site-textlight px-5">
                       Check-out:{" "}
                       <p className="font-bold ml-1">
                         {formatTime(
@@ -266,11 +266,11 @@ const SpotPage = () => {
                   </div>
                 </div>
 
-                <h2 className="text-lg text-gray-700 mt-8 font-medium">
+                <h2 className="text-lg text-site-textlight dark:text-site-textdark mt-8 font-medium">
                   Top Amenities
                 </h2>
 
-                <div className="grid sm:grid-cols-2 grid-cols-1 text-sm bg-[#fafafa] shadow w-2/3 px-6 py-4 rounded-md ">
+                <div className="grid sm:grid-cols-2 grid-cols-1 text-xs bg-site-light dark:bg-site-black shadow w-2/3 px-6 py-4 rounded-md ">
                   {spot.amenities &&
                     spot?.amenities
                       .slice(0, 6)
@@ -285,7 +285,7 @@ const SpotPage = () => {
                 {spot &&
                   spot.amenities.length > 6 && (
                     <button
-                      className="bg-gray-600 hover:bg-gray-800 text-white my-3 mx-auto py-2 px-4 text-sm rounded-md  sm:ml-[108px] whitespace-nowrap"
+                      className="bg-site-black hover:bg-gray-800 text-site-textdark my-3 mx-auto py-2 px-4 text-xs rounded-md  sm:ml-[108px] whitespace-nowrap"
                       onClick={() =>
                         setModal(!modal)
                       }

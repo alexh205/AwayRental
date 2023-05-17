@@ -3,7 +3,6 @@ import {
   useSelector,
   useDispatch,
 } from "react-redux";
-import { BsFillStarFill } from "react-icons/bs";
 import { reviewDeleteThunk } from "../../store/reviews";
 import EditModal from "../Modals/EditReviewModal";
 
@@ -51,8 +50,8 @@ const Review = ({
 
   return (
     <div>
-      <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-300 bg-white text-gray-800 hover:shadow-md">
-        <div className="flex justify-between p-4">
+      <div className="container flex flex-col w-full max-w-lg py-2 px-8 mx-auto divide-y rounded-md divide-gray-300 bg-white text-gray-800 hover:shadow-md">
+        <div className="flex justify-between p-2">
           <div className="flex space-x-4">
             <div>
               <img
@@ -75,7 +74,7 @@ const Review = ({
               </span>
             </div>
           </div>
-          <div className="flex items-center space-x-1 text-yellow-500 bg-[#fafafa] shadow-md px-5 rounded-md">
+          <div className="flex items-center space-x-1 text-yellow-500 bg-[#fafafa] shadow-md px-5 rounded-md max-h-8">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -107,7 +106,7 @@ const Review = ({
             </div>
           )}
 
-          <div className="my-3">
+          <div className="my-1">
             {isExpanded
               ? review.review
               : truncatedText}
