@@ -24,4 +24,16 @@ module.exports = {
     },
   },
   plugins: [],
+  purge: {
+    content: [
+      "./src/**/*.html",
+      "./src/**/*.js",
+      // Add more file paths or glob patterns here
+    ],
+    options: {
+      defaultExtractor: (content) =>
+        content.match(/[A-Za-z0-9-_:/]+/g) || [],
+      output: "./public", // Specify the output directory here
+    },
+  },
 };
