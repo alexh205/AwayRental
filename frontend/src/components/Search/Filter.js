@@ -20,10 +20,10 @@ const Filter = ({
       "flex flex-col items-center justify-center";
   } else {
     className =
-      "md:flex hidden flex-col items-center justify-center ";
+      "md:flex hidden flex-col items-center justify-center";
   }
   className +=
-    "hover:font-semibold no-underline cursor-pointer hover:opacity-100 duration-200 ease-out hover:opacity-100 hover:text-slate-800 hover:scale-110 mx-[5px] lg:mx-[12px]";
+    "hover:font-semibold no-underline cursor-pointer duration-100 ease-out hover:shadow-xl text-slate-500 hover:text-slate-800 dark:hover:text-site-lightblue hover:scale-105 mx-[5px] dark:hover:bg-gray-900 hover:bg-gray-100 dark:text-slate-300 dark:hover:bg-site-black hover:rounded-md p-2";
   return (
     <div
       className={className}
@@ -37,12 +37,10 @@ const Filter = ({
         )
       }
     >
-      <div className="text-[28px] mb-1 text-slate-600">
+      <div className="text-[28px] mb-1">
         {icon}
       </div>
-      <div className="text-[12px] opacity-50">
-        {title}
-      </div>
+      <div className="text-[12px]">{title}</div>
     </div>
   );
 };
