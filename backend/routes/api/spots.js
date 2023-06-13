@@ -593,7 +593,6 @@ router.put('/:spotId', requireAuth, validateSpot, async (req, res) => {
 
   await editedSpot.update({
     address: address,
-    address: address,
     city: city,
     state: state,
     country: country,

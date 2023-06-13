@@ -41,17 +41,16 @@ module.exports = (sequelize, DataTypes) => {
       });
       return await User.scope('currentUser').findByPk(user.id);
     }
-
+    //TODO pending testing 23May2023
     static async update({ name, username, email, profileImg, userId }) {
-      const user = await User.findByPk(userId);
+      await User.update(
+        { name, username, email, profileImg },
+        { where: { id: userId } }
+      );
 
-      user.name = name;
-      user.username = username;
-      user.email = email;
-      user.profileImg = profileImg;
-      await user.save();
-      return await User.scope('currentUser').findByPk(user.id);
+      return await User.scope('currentUser').findByPk(userId);
     }
+
 
     static associate(models) {
       User.hasMany(models.Spot, {
