@@ -41,11 +41,11 @@ const SpotCard = ({ spot }) => {
               </div>
             </div>
           </div>
-          <div className="opacity-70 text-[12px]">
+          <div className="opacity-70 text-sm">
             {spot.type}
           </div>
-          <div className="flex flex-row items-center mx-auto py-2 text-[12px]">
-            <p className="px-2 py-1 font-semibold rounded-full bg-gray-800 dark:bg-site-ablue text-[11px]">
+          <div className="flex flex-row items-center mx-auto py-2 text-xs">
+            <p className="px-2 py-1 font-semibold rounded-full bg-gray-800 dark:bg-site-ablue text-sm text-gray-300">
               {spot.price
                 ?.toLocaleString("en-US", {
                   style: "currency",

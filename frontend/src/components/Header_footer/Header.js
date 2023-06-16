@@ -72,7 +72,7 @@ const Header = ({ placeholder }) => {
           <img
             src={imageSource}
             alt="logo"
-            className="object-contain object-left h-[80px] w-[160px]"
+            className="object-contain object-left h-20"
           />
         </div>
       </div>
