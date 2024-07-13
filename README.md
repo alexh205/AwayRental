@@ -21,13 +21,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/alexh205/AwayRental">
-    <img width="130" alt="RentalAway_logo" src="https://user-images.githubusercontent.com/95322089/231339087-6469fd37-b7aa-45a6-8148-cdcdcc1edbfe.png">
+    <img width="130" alt="AwayRental_logo" src="https://user-images.githubusercontent.com/95322089/231339087-6469fd37-b7aa-45a6-8148-cdcdcc1edbfe.png">
   </a>
 
-  <h3 align="center">RentalAway (Property Rental)</h3>
+  <h3 align="center">AwayRental (Property Rental)</h3>
 
   <p align="center">
-    Unlock Your Perfect Getaway: Introducing the RentalAway Property Rental Application app, Tailored for Your Dream Vacation.
+    Unlock Your Perfect Getaway: Introducing the AwayRental Property Rental Application app, Tailored for Your Dream Vacation.
     <br />
     <br />
     <br />

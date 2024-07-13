@@ -1,23 +1,23 @@
 const express = require('express');
 
 //? Authentication
-const {setTokenCookie} = require('../../utils/auth');
+const { setTokenCookie } = require('../../utils/auth');
 
 //? Models
-const {User} = require('../../db/models');
+const { User } = require('../../db/models');
 
 //? Validation
-const {validateSignup} = require('../../utils/validation');
+const { validateSignup } = require('../../utils/validation');
 
 const router = express.Router();
 
 /**********************************************************************************/
 //! Sign up
 router.post('/', validateSignup, async (req, res) => {
-  const {name, email, password, username, profileImg} = req.body;
+  const { name, email, password, username, profileImg } = req.body;
 
   //* Email verification
-  const emailVerification = await User.findOne({where: {email}});
+  const emailVerification = await User.findOne({ where: { email } });
 
   if (emailVerification) {
     return res.status(403).json({
@@ -30,7 +30,7 @@ router.post('/', validateSignup, async (req, res) => {
   }
 
   //* Username verification
-  const usernameVerification = await User.findOne({where: {username}});
+  const usernameVerification = await User.findOne({ where: { username } });
 
   if (usernameVerification) {
     return res.status(403).json({
@@ -51,26 +51,19 @@ router.post('/', validateSignup, async (req, res) => {
     profileImg,
   });
 
-  //* Excluding undesired parameters
-  // const newUser = await User.scope('signUpUser').findOne({
-  //   where: {id: user.id},
-  //   attributes: {exclude: ['id']},
-  // });
-
-  // newUser.dataValues.token = await setTokenCookie(res, user);
   await setTokenCookie(res, user);
 
-  return res.json({user});
+  return res.json({ user });
 });
 
 /**********************************************************************************/
 //! User Edit
 
 router.put('/', async (req, res) => {
-  const {name, email, username, profileImg} = req.body;
+  const { name, email, username, profileImg } = req.body;
 
   //* Email verification
-  const emailVerification = await User.findOne({where: {email}});
+  const emailVerification = await User.findOne({ where: { email } });
 
   if (emailVerification && emailVerification.email !== req.body.email) {
     return res.status(403).json({
@@ -82,7 +75,7 @@ router.put('/', async (req, res) => {
     });
   }
   //* Username verification
-  const usernameVerification = await User.findOne({where: {username}});
+  const usernameVerification = await User.findOne({ where: { username } });
 
   if (
     usernameVerification &&
@@ -100,11 +93,11 @@ router.put('/', async (req, res) => {
   const userId = req.user.id;
   //* Editing user
 
-  const user = await User.update({name, username, email, profileImg, userId});
+  const user = await User.update({ name, username, email, profileImg, userId });
 
   await setTokenCookie(res, user);
 
-  return res.json({user});
+  return res.json({ user });
 });
 
 /**********************************************************************************/
